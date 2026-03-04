@@ -297,10 +297,16 @@
                             </div>
 
                             <!-- Save Button -->
-                            <button id="saveBtn" onclick="saveProject()"
-                                class="w-full py-3 rounded-xl bg-gradient-to-r from-brand-500 to-accent-500 text-white font-semibold text-sm hover:shadow-lg hover:shadow-brand-500/30 transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2">
-                                <i class="fas fa-save"></i> Save Project
-                            </button>
+                            <div class="flex gap-3 mt-2">
+                                <button id="saveBtn" onclick="saveProject()"
+                                    class="flex-1 py-3 rounded-xl bg-gradient-to-r from-brand-500 to-accent-500 text-white font-semibold text-sm hover:shadow-lg hover:shadow-brand-500/30 transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                                    <i class="fas fa-save"></i> Save Project
+                                </button>
+                                <button id="cancelEditBtn" onclick="cancelEdit()"
+                                    class="hidden px-5 py-3 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 font-semibold text-sm transition-all flex items-center justify-center gap-2 whitespace-nowrap">
+                                    <i class="fas fa-times"></i> Cancel
+                                </button>
+                            </div>
                         </div>
                     </div>
 
@@ -381,6 +387,7 @@
     <script>
         /* ==================== STATE ==================== */
         let isLoggedIn = false;
+        let editingProjectId = null;
         let currentAdminTab = 'graphic';
         let selectedImageFiles = [];    // File[] – upload mode
         let imageMode = 'upload';       // 'upload' | 'url'
@@ -663,6 +670,13 @@
                 return 'https://api.onedrive.com/v1.0/shares/u!' + btoa(url).replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_') + '/root/content';
             }
 
+            // Auto-generate website screenshots for general websites
+            const isDirectImage = /\.(jpg|jpeg|png|gif|webp|svg|avif)(\?.*)?$/i.test(url);
+            const isImageHost = url.includes('imgur.com') || url.includes('iili.io') || url.includes('ibb.co');
+            if (!isDirectImage && !isImageHost && url.startsWith('http')) {
+                return 'https://image.thum.io/get/width/1200/crop/800/noanimate/' + url;
+            }
+
             return url; // already a direct URL
         }
 
@@ -750,26 +764,29 @@
                     image: validUrls[0],
                     images: validUrls,
                     storagePath: '',
-                    storagePaths: [],
-                    createdAt: Date.now(),
                 };
+                if (!editingProjectId) {
+                    project.createdAt = Date.now();
+                }
+
                 const btn = document.getElementById('saveBtn');
                 btn.disabled = true;
                 btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i> Saving…';
                 try {
-                    DB.saveProject(project);
-                    document.getElementById('projTitle').value = '';
-                    document.getElementById('projDescription').value = '';
-                    const urlEl = document.getElementById('projUrl'), techEl = document.getElementById('projTech');
-                    if (urlEl) urlEl.value = ''; if (techEl) techEl.value = '';
-                    urlImageList = []; renderUrlInputs();
-                    showToast('✅ ' + validUrls.length + ' image URL(s) saved!', 'success');
+                    if (editingProjectId) {
+                        await DB.updateProject(editingProjectId, project);
+                        showToast('✅ Project updated successfully!', 'success');
+                    } else {
+                        await DB.saveProject(project);
+                        showToast('✅ ' + validUrls.length + ' image URL(s) saved!', 'success');
+                    }
+                    cancelEdit(); // Resets form and mode
                     await refreshData();
                 } catch (err) {
                     showToast('❌ Save failed: ' + err.message, 'error');
                 } finally {
                     btn.disabled = false;
-                    btn.innerHTML = '<i class="fas fa-save"></i> Save Project';
+                    btn.innerHTML = editingProjectId ? '<i class="fas fa-save"></i> Update Project' : '<i class="fas fa-save"></i> Save Project';
                 }
                 return;
             }
@@ -813,18 +830,20 @@
                     image: images[0],
                     images: images,
                     storagePaths: [],
-                    createdAt: Date.now()
                 };
+                if (!editingProjectId) {
+                    project.createdAt = Date.now();
+                }
 
-                DB.saveProject(project);
+                if (editingProjectId) {
+                    await DB.updateProject(editingProjectId, project);
+                    showToast('✅ Project updated successfully!', 'success');
+                } else {
+                    await DB.saveProject(project);
+                    showToast('✅ ' + imgCount + ' image(s) saved!', 'success');
+                }
 
-                document.getElementById('projTitle').value = '';
-                document.getElementById('projDescription').value = '';
-                const urlEl = document.getElementById('projUrl'), techEl = document.getElementById('projTech');
-                if (urlEl) urlEl.value = ''; if (techEl) techEl.value = '';
-                clearAllImages();
-
-                showToast('✅ ' + imgCount + ' image(s) saved!', 'success');
+                cancelEdit();
                 await refreshData();
 
             } catch (err) {
@@ -833,8 +852,56 @@
                 document.getElementById('uploadProgressWrap').classList.add('hidden');
             } finally {
                 btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-save"></i> Save Project';
+                btn.innerHTML = editingProjectId ? '<i class="fas fa-save"></i> Update Project' : '<i class="fas fa-save"></i> Save Project';
             }
+        }
+
+        /* ==================== EDIT PROJECT ==================== */
+        function editProject(id) {
+            const p = cachedProjects.find(x => x.id === id);
+            if (!p) return;
+
+            editingProjectId = id;
+
+            // Switch tabs based on type
+            adminTab(p.type === 'web' ? 'web' : 'graphic');
+
+            document.getElementById('projTitle').value = p.title || '';
+            document.getElementById('projDescription').value = p.description || '';
+
+            if (p.type === 'graphic') {
+                document.getElementById('projCategory').value = p.category || 'logo';
+            } else {
+                document.getElementById('projUrl').value = p.url || '';
+                document.getElementById('projTech').value = p.tech || '';
+            }
+
+            // Pre-fill images as URLs
+            setImageMode('url');
+            urlImageList = p.images && p.images.length ? [...p.images] : (p.image ? [p.image] : []);
+            if (urlImageList.length === 0) urlImageList = [''];
+            renderUrlInputs();
+
+            // Update Save button text & show Cancel Edit button
+            document.getElementById('saveBtn').innerHTML = '<i class="fas fa-save"></i> Update Project';
+            document.getElementById('cancelEditBtn').classList.remove('hidden');
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function cancelEdit() {
+            editingProjectId = null;
+            document.getElementById('projTitle').value = '';
+            document.getElementById('projDescription').value = '';
+            const urlEl = document.getElementById('projUrl'), techEl = document.getElementById('projTech');
+            if (urlEl) urlEl.value = ''; if (techEl) techEl.value = '';
+            clearAllImages();
+            urlImageList = [];
+            setImageMode('upload');
+
+            document.getElementById('saveBtn').innerHTML = '<i class="fas fa-save"></i> Save Project';
+            document.getElementById('cancelEditBtn').classList.add('hidden');
         }
 
         /* ==================== DELETE PROJECT (async) ==================== */
@@ -912,10 +979,16 @@
                         <p class="text-white text-sm font-semibold truncate">${escH(p.title)}</p>
                         <div class="flex items-center gap-2 mt-1">${badge}${date ? `<span class="text-gray-700 text-xs">${date}</span>` : ''}${imgCount > 1 ? `<span class="text-brand-400 text-xs"><i class="fas fa-images mr-0.5"></i>${imgCount} photos</span>` : ''}</div>
                     </div>
-                    <button onclick="deleteProject('${p.id}','${pathsJson}')"
-                            class="w-8 h-8 rounded-lg bg-red-500/10 hover:bg-red-500/30 border border-red-500/20 hover:border-red-500/50 flex items-center justify-center text-red-400 transition-all opacity-0 group-hover:opacity-100 flex-shrink-0" title="Delete">
-                        <i class="fas fa-trash text-xs"></i>
-                    </button>
+                    <div class="flex gap-1.5 ml-auto pl-2 border-l border-white/5">
+                        <button onclick="editProject('${p.id}')"
+                                class="w-8 h-8 rounded-lg bg-brand-500/10 hover:bg-brand-500/30 border border-brand-500/20 hover:border-brand-500/50 flex items-center justify-center text-brand-400 transition-all opacity-0 group-hover:opacity-100 flex-shrink-0" title="Edit">
+                            <i class="fas fa-edit text-xs"></i>
+                        </button>
+                        <button onclick="deleteProject('${p.id}','${pathsJson}')"
+                                class="w-8 h-8 rounded-lg bg-red-500/10 hover:bg-red-500/30 border border-red-500/20 hover:border-red-500/50 flex items-center justify-center text-red-400 transition-all opacity-0 group-hover:opacity-100 flex-shrink-0" title="Delete">
+                            <i class="fas fa-trash text-xs"></i>
+                        </button>
+                    </div>
                 </div>`;
             }).join('');
         }

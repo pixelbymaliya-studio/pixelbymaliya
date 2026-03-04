@@ -60,6 +60,18 @@ const DB = {
     },
 
     /**
+     * Update an existing project in Firestore by ID
+     */
+    async updateProject(id, data) {
+        try {
+            await this._db.collection('projects').doc(id).update(data);
+        } catch (e) {
+            console.error('DB.updateProject error:', e);
+            throw e;
+        }
+    },
+
+    /**
      * Get the admin password from LocalStorage
      */
     getPassword() {
