@@ -174,6 +174,7 @@ function createGraphicCard(project) {
         'social-media': 'Social Media',
         'banner': 'Banner',
         'tshirt': 'T-Shirt',
+        'key-tag': 'Key Tag',
     };
     const catColors = {
         'logo': 'brand',
@@ -183,6 +184,7 @@ function createGraphicCard(project) {
         'social-media': 'green',
         'banner': 'orange',
         'tshirt': 'purple',
+        'key-tag': 'cyan',
     };
     const color = catColors[project.category] || 'brand';
     const label = catLabels[project.category] || project.category;

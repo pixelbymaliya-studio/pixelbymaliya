@@ -276,12 +276,12 @@
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="#portfolio"
-                    class="group flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-500 to-accent-500 text-white font-semibold text-lg hover:shadow-2xl hover:shadow-brand-500/40 transition-all duration-300 hover:-translate-y-1">
+                    class="group flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-500 to-accent-500 text-white font-semibold text-lg hover:shadow-[0_0_30px_rgba(99,102,241,0.5)] transition-all duration-300 hover:-translate-y-1">
                     View Portfolio <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
 
                 </a>
                 <a href="https://wa.me/94716125715" target="_blank"
-                    class="flex items-center gap-2 px-8 py-4 rounded-2xl border border-white/20 bg-white/5 backdrop-blur text-white font-semibold text-lg hover:bg-white/10 hover:border-white/40 transition-all duration-300 hover:-translate-y-1">
+                    class="flex items-center gap-2 px-8 py-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md text-white font-semibold text-lg hover:bg-white/10 hover:border-white/30 hover:shadow-[0_8px_30px_rgba(255,255,255,0.08)] transition-all duration-300 hover:-translate-y-1">
                     <i class="fab fa-whatsapp text-green-400"></i> Get a Quote
                 </a>
             </div>
@@ -408,6 +408,13 @@
                         <i
                             class="fas fa-tshirt transition-all duration-300 group-hover:scale-125 group-hover:text-brand-400 group-hover:-rotate-12"></i>
                         <span>T-Shirts</span>
+                    </button>
+
+                    <button onclick="filterCategory('key-tag')" data-cat="key-tag"
+                        class="cat-filter inactive-cat-filter px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 flex items-center gap-2 hover:border-brand-500/50 hover:-translate-y-1 hover:shadow-[0_8px_20px_-6px_rgba(99,102,241,0.5)] group">
+                        <i
+                            class="fas fa-tag transition-all duration-300 group-hover:scale-125 group-hover:text-brand-400 group-hover:-rotate-12"></i>
+                        <span>Key Tags</span>
                     </button>
                 </div>
 
@@ -591,6 +598,22 @@
                     </div>
                 </div>
 
+                <!-- Key Tags -->
+                <div
+                    class="service-card group p-8 rounded-3xl bg-dark-700/60 border border-white/10 hover:border-cyan-500/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/10 backdrop-blur">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-cyan-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-cyan-500/20">
+                        <i class="fas fa-tag text-2xl text-cyan-400"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-white mb-3">Key Tags</h3>
+                    <p class="text-gray-400 leading-relaxed text-sm">Custom printed and engraved key tags for personal or corporate branding. Add a unique touch to your keys.</p>
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 text-xs font-medium border border-cyan-500/20">Branding</span>
+                        <span
+                            class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 text-xs font-medium border border-cyan-500/20">Custom Shapes</span>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -713,6 +736,7 @@
                                 </option>
                                 <option value="Banners">Banners</option>
                                 <option value="T-Shirts">T-Shirts</option>
+                                <option value="Key Tags">Key Tags</option>
                                 <option value="Web Design">Web Design</option>
                                 <option value="Other">Other</option>
                             </select>
