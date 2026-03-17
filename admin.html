@@ -812,15 +812,61 @@
             document.getElementById('uploadProgressBar').style.width = '0%';
 
             try {
-                // Convert files to base64
+                // Upload files to Firebase Storage to dramatically improve load times
                 const images = [];
                 for (let i = 0; i < selectedImageFiles.length; i++) {
-                    const dataUrl = await new Promise((resolve) => {
+                    const file = selectedImageFiles[i];
+                    
+                    // Compress image before upload using canvas
+                    const compressedBlob = await new Promise((resolve) => {
                         const reader = new FileReader();
-                        reader.onload = e => resolve(e.target.result);
-                        reader.readAsDataURL(selectedImageFiles[i]);
+                        reader.onload = e => {
+                            const img = new Image();
+                            img.onload = () => {
+                                const canvas = document.createElement('canvas');
+                                let width = img.width;
+                                let height = img.height;
+                                const MAX_SIZE = 1200; 
+                                if (width > height) {
+                                    if (width > MAX_SIZE) {
+                                        height *= MAX_SIZE / width;
+                                        width = MAX_SIZE;
+                                    }
+                                } else {
+                                    if (height > MAX_SIZE) {
+                                        width *= MAX_SIZE / height;
+                                        height = MAX_SIZE;
+                                    }
+                                }
+                                canvas.width = width;
+                                canvas.height = height;
+                                const ctx = canvas.getContext('2d');
+                                ctx.drawImage(img, 0, 0, width, height);
+                                canvas.toBlob((blob) => resolve(blob), 'image/jpeg', 0.8);
+                            };
+                            img.src = e.target.result;
+                        };
+                        reader.readAsDataURL(file);
                     });
-                    images.push(dataUrl);
+
+                    // First, try Firebase Storage
+                    try {
+                        const fileName = `projects/${Date.now()}_${i}.jpg`;
+                        const storageRef = firebase.storage().ref().child(fileName);
+                        await storageRef.put(compressedBlob);
+                        const downloadURL = await storageRef.getDownloadURL();
+                        images.push(downloadURL);
+                    } catch (storageErr) {
+                        console.warn('Firebase Storage upload blocked or failed, falling back to Base64.', storageErr);
+                        // Fallback: Convert to base64 string
+                        const base64Fallback = await new Promise((resolve) => {
+                            const reader = new FileReader();
+                            reader.onload = () => resolve(reader.result);
+                            reader.readAsDataURL(compressedBlob);
+                        });
+                        images.push(base64Fallback);
+                    }
+
                     const pct = Math.round(((i + 1) / selectedImageFiles.length) * 100);
                     document.getElementById('uploadProgressBar').style.width = pct + '%';
                     document.getElementById('uploadPct').textContent = pct + '%';

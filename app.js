@@ -195,6 +195,7 @@ function createGraphicCard(project) {
         <div class="overflow-hidden aspect-[4/3]">
             <img src="${escapeHtml(project.image)}" 
                  alt="${escapeHtml(project.title)}" 
+                 loading="lazy"
                  class="w-full h-full object-cover"
                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect fill=%22%231f2937%22 width=%22400%22 height=%22300%22/><text x=%22200%22 y=%22150%22 fill=%22%236b7280%22 text-anchor=%22middle%22 font-size=%2216%22>Image not found</text></svg>'" />
         </div>
@@ -220,6 +221,7 @@ function createWebCard(project) {
              onclick="openLightbox('${project.id}')">
             <img src="${escapeHtml(project.image)}" 
                  alt="${escapeHtml(project.title)}" 
+                 loading="lazy"
                  class="w-full h-full object-cover"
                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22340%22><rect fill=%22%231f2937%22 width=%22600%22 height=%22340%22/><text x=%22300%22 y=%22170%22 fill=%22%236b7280%22 text-anchor=%22middle%22 font-size=%2216%22>Image not found</text></svg>'" />
         </div>
