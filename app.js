@@ -124,12 +124,26 @@ function filterCategory(cat) {
 
 /* ==================== RENDER PORTFOLIO ==================== */
 async function renderPortfolio() {
-    loadedProjects = await DB.getProjects();
+    try {
+        if (typeof DB === 'undefined' || !DB) {
+            // DB not loaded yet — show empty state silently
+            renderGraphicGrid([]);
+            renderWebGrid([]);
+            return;
+        }
+        const result = DB.getProjects();
+        // Support both sync (returns array) and async (returns Promise)
+        loadedProjects = (result && typeof result.then === 'function') ? await result : (result || []);
 
-    if (currentMainTab === 'graphic') {
-        renderGraphicGrid(loadedProjects.filter(p => p.type === 'graphic'));
-    } else {
-        renderWebGrid(loadedProjects.filter(p => p.type === 'web'));
+        if (currentMainTab === 'graphic') {
+            renderGraphicGrid(loadedProjects.filter(p => p.type === 'graphic'));
+        } else {
+            renderWebGrid(loadedProjects.filter(p => p.type === 'web'));
+        }
+    } catch (err) {
+        console.warn('Portfolio render skipped:', err.message);
+        renderGraphicGrid([]);
+        renderWebGrid([]);
     }
 }
 
@@ -450,26 +464,31 @@ function clearImagePreview() {
     document.getElementById('projImage').value = '';
 }
 
-// Drag & drop support
-document.getElementById('imageDropZone').addEventListener('dragover', (e) => {
-    e.preventDefault();
-    e.currentTarget.classList.add('border-brand-500/70', 'bg-brand-500/10');
-});
-document.getElementById('imageDropZone').addEventListener('dragleave', (e) => {
-    e.currentTarget.classList.remove('border-brand-500/70', 'bg-brand-500/10');
-});
-document.getElementById('imageDropZone').addEventListener('drop', (e) => {
-    e.preventDefault();
-    e.currentTarget.classList.remove('border-brand-500/70', 'bg-brand-500/10');
-    const file = e.dataTransfer.files[0];
-    if (file && file.type.startsWith('image/')) {
-        const input = document.getElementById('projImage');
-        const dataTransfer = new DataTransfer();
-        dataTransfer.items.add(file);
-        input.files = dataTransfer.files;
-        previewImage({ target: input });
-    }
-});
+// Drag & drop support — guard against null (element only exists inside admin panel)
+(function () {
+    const dropZone = document.getElementById('imageDropZone');
+    if (!dropZone) return;
+
+    dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        e.currentTarget.classList.add('border-brand-500/70', 'bg-brand-500/10');
+    });
+    dropZone.addEventListener('dragleave', (e) => {
+        e.currentTarget.classList.remove('border-brand-500/70', 'bg-brand-500/10');
+    });
+    dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        e.currentTarget.classList.remove('border-brand-500/70', 'bg-brand-500/10');
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith('image/')) {
+            const input = document.getElementById('projImage');
+            const dataTransfer = new DataTransfer();
+            dataTransfer.items.add(file);
+            input.files = dataTransfer.files;
+            previewImage({ target: input });
+        }
+    });
+})();
 
 /* ==================== SAVE PROJECT ==================== */
 function saveProject() {
@@ -500,6 +519,10 @@ function saveProject() {
         project.tech = document.getElementById('projTech').value.trim();
     }
 
+    if (typeof DB === 'undefined' || !DB) {
+        showToast('Database not connected!', 'error');
+        return;
+    }
     DB.saveProject(project);
 
     // Reset form
@@ -517,7 +540,12 @@ function saveProject() {
 /* ==================== ADMIN PROJECTS LIST ==================== */
 function renderAdminProjectsList() {
     const container = document.getElementById('adminProjectsList');
-    const allProjects = DB.getProjects();
+    if (!container) return;
+    if (typeof DB === 'undefined' || !DB) {
+        container.innerHTML = `<p class="text-gray-500 text-sm text-center py-6">Database not connected.</p>`;
+        return;
+    }
+    const allProjects = DB.getProjects() || [];
     const filtered = allProjects.filter(p => p.type === currentAdminTab);
 
     if (filtered.length === 0) {
@@ -543,6 +571,7 @@ function renderAdminProjectsList() {
 
 function deleteProject(id) {
     if (!confirm('Delete this project? This cannot be undone.')) return;
+    if (typeof DB === 'undefined' || !DB) { showToast('Database not connected!', 'error'); return; }
     DB.deleteProject(id);
     showToast('🗑️ Project deleted.', 'success');
     renderAdminProjectsList();

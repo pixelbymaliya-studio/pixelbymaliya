@@ -101,8 +101,8 @@
       --border-light: rgba(124,58,237,0.12);
     }
 
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg-primary); color: var(--text-primary); }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { background: var(--bg-primary); color: var(--text-primary); overflow-x: hidden; }
 
     /* ====== NOISE TEXTURE OVERLAY ====== */
     body::before {
@@ -370,7 +370,7 @@
       background: white;
       border: 1.5px solid rgba(124,58,237,0.1);
       border-radius: 18px;
-      padding: 24px 32px;
+      padding: 20px 24px;
       text-align: center;
       box-shadow: 0 4px 16px rgba(0,0,0,0.05);
       transition: transform 0.3s, box-shadow 0.3s;
@@ -483,13 +483,15 @@
       border: 1.5px solid rgba(255,255,255,0.18);
       transition: box-shadow 0.3s, background 0.3s;
       box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      padding: 20px 18px;
     }
+    @media (min-width: 640px) { .carousel-card { padding: 28px; } }
     .carousel-card:hover {
       background: rgba(255,255,255,0.15);
       box-shadow: 0 16px 48px rgba(0,0,0,0.35);
     }
-    .carousel-card h3 { color: #fff !important; }
-    .carousel-card p  { color: rgba(255,255,255,0.70) !important; }
+    .carousel-card h3 { color: #fff !important; font-size: 1.1rem; }
+    .carousel-card p  { color: rgba(255,255,255,0.70) !important; font-size: 0.85rem; }
 
     /* Dot */
     .carousel-dot {
@@ -616,7 +618,7 @@
       <i id="videoMuteIcon" class="fas fa-volume-xmark text-white text-sm"></i>
     </button>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-12 pb-24">
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-center pt-12 pb-24" style="box-sizing:border-box;overflow:hidden;">
 
       <!-- Badge -->
       <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-bold mb-8 animate-fade-in"
@@ -627,38 +629,38 @@
 
       <!-- Heading -->
       <h1 class="font-display font-bold leading-tight mb-6">
-        <span class="block text-5xl sm:text-6xl md:text-7xl lg:text-[84px] text-white" style="text-shadow:0 2px 30px rgba(0,0,0,0.4);">Creative</span>
-        <span class="block text-5xl sm:text-6xl md:text-7xl lg:text-[84px]" style="background:linear-gradient(135deg,#c084fc 0%,#f472b6 50%,#67e8f9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Design Studio</span>
+        <span class="block text-4xl sm:text-6xl md:text-7xl lg:text-[84px] text-white" style="text-shadow:0 2px 30px rgba(0,0,0,0.4);">Creative</span>
+        <span class="block text-4xl sm:text-6xl md:text-7xl lg:text-[84px]" style="background:linear-gradient(135deg,#c084fc 0%,#f472b6 50%,#67e8f9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Design Studio</span>
       </h1>
 
-      <p class="text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-medium" style="color:rgba(255,255,255,0.75);">
+      <p class="text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-medium px-1" style="color:rgba(255,255,255,0.75);">
         Bringing your brand to life through stunning <strong class="text-white">graphic design</strong> and
         modern <strong class="text-white">web design</strong>. Logo design, print materials, visiting cards &amp; more.
       </p>
 
       <!-- CTA Buttons -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-        <a href="#portfolio" class="btn-primary">
-          View Portfolio <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 w-full">
+        <a href="#portfolio" class="btn-primary w-full sm:w-auto justify-center">
+          View Portfolio <i class="fas fa-arrow-right transition-transform"></i>
         </a>
-        <a href="https://wa.me/94716125715" target="_blank" class="btn-secondary">
+        <a href="https://wa.me/94716125715" target="_blank" class="btn-secondary w-full sm:w-auto justify-center">
           <i class="fab fa-whatsapp text-emerald-500 text-xl"></i> Get a Quote
         </a>
       </div>
 
       <!-- Stat Cards -->
-      <div class="flex flex-wrap justify-center gap-5 mb-16">
-        <div class="stat-card" style="background:rgba(255,255,255,0.1);border:1.5px solid rgba(255,255,255,0.18);backdrop-filter:blur(14px);">
-          <div class="font-display text-4xl font-bold" style="background:linear-gradient(135deg,#c084fc,#67e8f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;" id="stat-projects">0+</div>
-          <div class="text-sm mt-1 font-semibold" style="color:rgba(255,255,255,0.65);">Projects Done</div>
+      <div class="grid grid-cols-3 gap-3 mb-12 w-full">
+        <div class="stat-card !px-3 !py-4 sm:px-8 sm:py-6" style="background:rgba(255,255,255,0.1);border:1.5px solid rgba(255,255,255,0.18);backdrop-filter:blur(14px);">
+          <div class="font-display text-2xl sm:text-4xl font-bold" style="background:linear-gradient(135deg,#c084fc,#67e8f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;" id="stat-projects">0+</div>
+          <div class="text-xs sm:text-sm mt-1 font-semibold" style="color:rgba(255,255,255,0.65);">Projects Done</div>
         </div>
-        <div class="stat-card" style="background:rgba(255,255,255,0.1);border:1.5px solid rgba(255,255,255,0.18);backdrop-filter:blur(14px);">
-          <div class="font-display text-4xl font-bold" style="background:linear-gradient(135deg,#67e8f9,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">100%</div>
-          <div class="text-sm mt-1 font-semibold" style="color:rgba(255,255,255,0.65);">Client Satisfaction</div>
+        <div class="stat-card !px-3 !py-4 sm:px-8 sm:py-6" style="background:rgba(255,255,255,0.1);border:1.5px solid rgba(255,255,255,0.18);backdrop-filter:blur(14px);">
+          <div class="font-display text-2xl sm:text-4xl font-bold" style="background:linear-gradient(135deg,#67e8f9,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">100%</div>
+          <div class="text-xs sm:text-sm mt-1 font-semibold" style="color:rgba(255,255,255,0.65);">Satisfaction</div>
         </div>
-        <div class="stat-card" style="background:rgba(255,255,255,0.1);border:1.5px solid rgba(255,255,255,0.18);backdrop-filter:blur(14px);">
-          <div class="font-display text-4xl font-bold" style="background:linear-gradient(135deg,#fbbf24,#f87171);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">24h</div>
-          <div class="text-sm mt-1 font-semibold" style="color:rgba(255,255,255,0.65);">Fast Turnaround</div>
+        <div class="stat-card !px-3 !py-4 sm:px-8 sm:py-6" style="background:rgba(255,255,255,0.1);border:1.5px solid rgba(255,255,255,0.18);backdrop-filter:blur(14px);">
+          <div class="font-display text-2xl sm:text-4xl font-bold" style="background:linear-gradient(135deg,#fbbf24,#f87171);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">24h</div>
+          <div class="text-xs sm:text-sm mt-1 font-semibold" style="color:rgba(255,255,255,0.65);">Turnaround</div>
         </div>
       </div>
 
@@ -668,7 +670,7 @@
         <p class="text-xs font-bold uppercase tracking-widest mb-4 opacity-90" style="color:rgba(196,132,252,0.9);">✦ What we do ✦</p>
 
         <!-- Carousel wrapper (overflow hidden) -->
-        <div class="overflow-hidden rounded-2xl" id="heroCarouselOuter">
+        <div class="overflow-hidden rounded-2xl w-full" id="heroCarouselOuter">
           <div id="heroCarouselTrack" class="flex transition-transform duration-700 ease-in-out will-change-transform">
 
             <!-- SLIDE 1 — Logo Design -->
