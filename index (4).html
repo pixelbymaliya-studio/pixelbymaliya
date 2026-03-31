@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pixel by Maliya – සුභ සිංහල & දෙමළ අලුත් අවුරුද්ද 2026!</title>
+  <meta name="description" content="Pixel by Maliya – Professional Graphic Design & Web Design. Sinhala & Tamil New Year 2026 Special Offers!"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <meta name="theme-color" content="#b45309"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;700;900&family=Syne:wght@700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        fontFamily: { sans:['Nunito','sans-serif'], display:['Syne','sans-serif'], sinhala:['Noto Sans Sinhala','sans-serif'] },
+        colors: {
+          av: { fire:'#ff4500', gold:'#ffd700', amber:'#ff8c00', deep:'#1a0500', dark:'#0d0200', card:'#2a0a00', border:'rgba(255,180,60,0.25)' }
+        }
+      }}
+    }
+  </script>
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;overflow-x:hidden;}
+    body{background:#0d0200;color:#fff3e0;font-family:'Nunito',sans-serif;overflow-x:hidden;}
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar{width:5px;}
+    ::-webkit-scrollbar-track{background:#1a0500;}
+    ::-webkit-scrollbar-thumb{background:linear-gradient(#ff8c00,#ffd700);border-radius:4px;}
+
+    /* ===== GLOBAL BG ===== */
+    body::before{
+      content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+      background:
+        radial-gradient(ellipse 80% 50% at 10% 20%,rgba(255,100,0,0.07) 0%,transparent 60%),
+        radial-gradient(ellipse 60% 40% at 90% 80%,rgba(255,200,0,0.05) 0%,transparent 60%),
+        radial-gradient(ellipse 50% 60% at 50% 50%,rgba(180,60,0,0.04) 0%,transparent 70%);
+    }
+
+    /* ===== GOLD TEXT ===== */
+    .gold-text{background:linear-gradient(135deg,#ffd700 0%,#ff8c00 50%,#ff4500 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .gold-text-2{background:linear-gradient(135deg,#ffe066 0%,#ffb300 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .si-text{background:linear-gradient(135deg,#ffd700,#ff6a00,#ff3c00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200% auto;animation:shimmer 3s ease-in-out infinite;}
+    @keyframes shimmer{0%{background-position:0% center}50%{background-position:100% center}100%{background-position:0% center}}
+
+    /* ===== FIRE BORDER ===== */
+    .fire-border{border:1.5px solid rgba(255,160,40,0.28);background:linear-gradient(145deg,rgba(255,100,0,0.10),rgba(255,50,0,0.06));backdrop-filter:blur(16px);}
+    .fire-border-strong{border:1.5px solid rgba(255,180,60,0.4);box-shadow:0 0 24px rgba(255,100,0,0.12),inset 0 0 20px rgba(255,80,0,0.04);}
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+    @keyframes floatDelay{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+    @keyframes lampGlow{from{filter:drop-shadow(0 0 10px #ff6a00) drop-shadow(0 0 20px #ffc200)}to{filter:drop-shadow(0 0 28px #ff3c00) drop-shadow(0 0 56px #ffdd00)}}
+    @keyframes flameDance{from{transform:scaleY(1) rotate(-3deg)}to{transform:scaleY(1.15) rotate(3deg)}}
+    @keyframes goldPulse{0%,100%{box-shadow:0 0 15px rgba(255,180,60,0.2)}50%{box-shadow:0 0 35px rgba(255,180,60,0.45),0 0 60px rgba(255,100,0,0.2)}}
+    @keyframes petalFall{0%{transform:translateY(-30px) rotate(0deg);opacity:.9}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+    @keyframes riseUp{0%{transform:translateY(0) scale(1);opacity:.8}100%{transform:translateY(-110vh) scale(.5);opacity:0}}
+    @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+    @keyframes burst{0%{transform:scale(0) rotate(0deg);opacity:1}100%{transform:scale(2.5) rotate(90deg);opacity:0}}
+    @keyframes reveal{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes navSlide{from{transform:translateY(-100%)}to{transform:translateY(0)}}
+
+    .animate-float{animation:float 5s ease-in-out infinite}
+    .animate-float-delay{animation:floatDelay 6s ease-in-out 1.5s infinite}
+    .animate-lamp{animation:lampGlow 2s ease-in-out infinite alternate}
+    .animate-flame{animation:flameDance 1.3s ease-in-out infinite alternate}
+    .animate-gold-pulse{animation:goldPulse 2.5s ease-in-out infinite}
+
+    /* ===== REVEAL ON SCROLL ===== */
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* ===== NAVBAR ===== */
+    #navbar{
+      background:rgba(13,2,0,0.3);
+      backdrop-filter:blur(0px);
+      transition:all .4s ease;
+      animation:navSlide .5s ease forwards;
+    }
+    #navbar.scrolled{
+      background:rgba(13,2,0,0.92);
+      backdrop-filter:blur(24px);
+      border-bottom:1px solid rgba(255,160,40,0.2);
+      box-shadow:0 4px 30px rgba(255,80,0,0.12);
+    }
+    .nav-link{color:rgba(255,230,180,0.8);font-weight:700;position:relative;transition:color .2s;}
+    .nav-link::after{content:'';position:absolute;bottom:-2px;left:50%;right:50%;height:2px;background:linear-gradient(90deg,#ff8c00,#ffd700);border-radius:2px;transition:left .3s,right .3s;}
+    .nav-link:hover{color:#ffd700;}
+    .nav-link:hover::after{left:0;right:0;}
+
+    /* ===== HERO ===== */
+    #hero{background:linear-gradient(160deg,#0d0200 0%,#1a0600 40%,#0a0100 100%);}
+    .hero-blob{position:absolute;border-radius:50%;filter:blur(72px);pointer-events:none;}
+
+    /* ===== STAT CARDS ===== */
+    .stat-card{
+      border-radius:18px;padding:18px 16px;text-align:center;
+      background:rgba(255,100,0,0.08);
+      border:1.5px solid rgba(255,160,40,0.22);
+      backdrop-filter:blur(12px);
+      transition:transform .3s,box-shadow .3s;
+    }
+    .stat-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(255,100,0,0.2);}
+
+    /* ===== SECTION LABEL ===== */
+    .section-label{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:6px 18px;border-radius:999px;
+      background:rgba(255,140,0,0.12);
+      border:1.5px solid rgba(255,180,60,0.3);
+      color:#ffd700;font-size:13px;font-weight:700;
+      margin-bottom:18px;
+    }
+
+    /* ===== PORTFOLIO CARD ===== */
+    .portfolio-card{
+      background:rgba(40,10,0,0.7);border-radius:16px;overflow:hidden;
+      border:1.5px solid rgba(255,160,40,0.15);
+      transition:all .4s cubic-bezier(.175,.885,.32,1.275);
+      box-shadow:0 2px 12px rgba(0,0,0,0.4);
+    }
+    .portfolio-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 20px 48px rgba(255,100,0,0.18);border-color:rgba(255,180,60,0.4);}
+    .portfolio-card img{transition:transform .5s ease}
+    .portfolio-card:hover img{transform:scale(1.07)}
+
+    /* ===== TABS ===== */
+    .main-tab{transition:all .3s ease;color:rgba(255,200,120,0.6);font-weight:700;}
+    .active-main-tab{background:linear-gradient(135deg,#ff8c00,#ffd700);color:#1a0500;box-shadow:0 4px 16px rgba(255,140,0,0.4);}
+    .cat-filter{position:relative;overflow:hidden;border:1.5px solid rgba(255,160,40,0.18);background:rgba(255,80,0,0.06);font-weight:700;color:rgba(255,200,120,0.7);}
+    .cat-filter::before{content:'';position:absolute;top:var(--y,50%);left:var(--x,50%);width:0;height:0;background:radial-gradient(circle closest-side,rgba(255,140,0,0.2) 0%,transparent 100%);transform:translate(-50%,-50%);transition:width .3s,height .3s;z-index:0;border-radius:50%;pointer-events:none;}
+    .cat-filter:hover::before{width:200px;height:200px}
+    .cat-filter i,.cat-filter span{position:relative;z-index:10}
+    .active-cat-filter{background:rgba(255,140,0,0.2)!important;border-color:rgba(255,180,60,0.5)!important;color:#ffd700!important;}
+    .inactive-cat-filter{color:rgba(255,200,120,0.6)}
+    .inactive-cat-filter:hover{color:#ffd700}
+
+    /* ===== SERVICE CARDS ===== */
+    .service-card{
+      background:rgba(30,8,0,0.7);border:1.5px solid rgba(255,160,40,0.14);
+      border-radius:20px;transition:all .35s cubic-bezier(.175,.885,.32,1.275);
+      position:relative;overflow:hidden;cursor:default;
+    }
+    .service-card:hover{transform:translateY(-8px);box-shadow:0 20px 44px rgba(255,100,0,0.2);border-color:rgba(255,180,60,0.35);}
+    .service-icon-wrap{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:transform .3s;}
+    .service-card:hover .service-icon-wrap{transform:scale(1.14) rotate(-4deg);}
+
+    /* ===== CONTACT ===== */
+    .contact-card{background:rgba(25,6,0,0.8);border:1.5px solid rgba(255,160,40,0.18);border-radius:20px;}
+    .contact-link{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:14px;border:1.5px solid transparent;transition:all .3s;font-weight:700;color:rgba(255,230,180,0.9);}
+    .contact-link:hover{transform:translateX(4px);}
+    .contact-link-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;transition:transform .3s;}
+    .contact-link:hover .contact-link-icon{transform:scale(1.12);}
+    .form-input{width:100%;padding:12px 16px;border-radius:12px;border:1.5px solid rgba(255,160,40,0.22);background:rgba(255,80,0,0.07);color:#fff3e0;font-family:'Nunito',sans-serif;font-weight:600;font-size:14px;transition:all .2s;outline:none;}
+    .form-input::placeholder{color:rgba(255,200,120,0.35);font-weight:400;}
+    .form-input:focus{border-color:#ff8c00;background:rgba(255,100,0,0.12);box-shadow:0 0 0 3px rgba(255,140,0,0.15);}
+    select.form-input option{background:#1a0500;color:#fff3e0;}
+
+    /* ===== CAROUSEL ===== */
+    #heroCarouselOuter{position:relative;}
+    .hero-slide{box-sizing:border-box;}
+    .carousel-card{
+      background:rgba(255,100,0,0.09);
+      backdrop-filter:blur(18px);border:1.5px solid rgba(255,180,60,0.22);
+      transition:box-shadow .3s;box-shadow:0 8px 32px rgba(0,0,0,0.3);
+      padding:20px 18px;border-radius:18px;
+    }
+    @media(min-width:640px){.carousel-card{padding:26px;}}
+    .carousel-card:hover{box-shadow:0 16px 48px rgba(255,100,0,0.2);}
+    .carousel-card h3{color:#ffd700!important;}
+    .carousel-card p{color:rgba(255,220,170,0.75)!important;font-size:.85rem;}
+    .carousel-dot{width:8px;height:8px;border-radius:99px;background:rgba(255,180,60,0.25);cursor:pointer;transition:all .3s;border:none;padding:0;}
+    .carousel-dot.active{width:28px;background:linear-gradient(90deg,#ff8c00,#ffd700);}
+
+    /* ===== BUTTONS ===== */
+    .btn-primary{position:relative;display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:14px;background:linear-gradient(135deg,#ff8c00,#ffd700);color:#1a0500;font-weight:900;font-size:16px;transition:all .3s;box-shadow:0 4px 20px rgba(255,140,0,0.4);overflow:hidden;}
+    .btn-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.15),transparent);opacity:0;transition:opacity .3s;}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,180,0,0.55);}
+    .btn-primary:hover::after{opacity:1;}
+    .btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:14px;background:transparent;color:#ffd700;font-weight:800;font-size:16px;border:2px solid rgba(255,180,60,0.4);transition:all .3s;}
+    .btn-secondary:hover{background:rgba(255,140,0,0.12);border-color:rgba(255,200,80,0.65);transform:translateY(-2px);}
+    @media(max-width:640px){.btn-primary,.btn-secondary{padding:12px 24px;font-size:15px;}}
+
+    /* ===== FOOTER ===== */
+    footer{background:linear-gradient(135deg,#080100 0%,#0f0300 100%);border-top:1px solid rgba(255,160,40,0.2);}
+
+    /* ===== KOLAM PATTERN ===== */
+    .kolam-bg{background-image:radial-gradient(rgba(255,180,60,0.07) 1.5px,transparent 1.5px);background-size:28px 28px;}
+
+    /* ===== ADMIN ===== */
+    #adminOverlay{background:rgba(10,2,0,0.7);backdrop-filter:blur(8px);}
+    .active-admin-tab{background:linear-gradient(135deg,#ff8c00,#ffd700);color:#1a0500;}
+    .inactive-admin-tab{background:rgba(255,100,0,0.08);color:rgba(255,200,120,0.6);}
+    .inactive-admin-tab:hover{color:#ffd700;background:rgba(255,100,0,0.14);}
+
+    /* ===== TOAST ===== */
+    .toast{position:fixed;bottom:90px;right:24px;z-index:9999;padding:12px 20px;border-radius:14px;font-size:14px;font-weight:700;border:1.5px solid;animation:toastIn .4s cubic-bezier(.34,1.56,.64,1) forwards;box-shadow:0 8px 30px rgba(0,0,0,0.3);}
+    .toast.success{background:rgba(20,8,0,0.95);border-color:#ff8c00;color:#ffd700;}
+    .toast.error{background:rgba(20,8,0,0.95);border-color:#ef4444;color:#fca5a5;}
+    @keyframes toastIn{from{opacity:0;transform:translateX(100px) scale(.85)}to{opacity:1;transform:translateX(0) scale(1)}}
+    @keyframes toastOut{from{opacity:1;transform:translateX(0) scale(1)}to{opacity:0;transform:translateX(100px) scale(.85)}}
+
+    /* ===== LIGHTBOX ===== */
+    #lightbox.flex{display:flex;}
+    #adminOverlay.flex{display:flex;}
+
+    /* ===== CURSOR CANVAS ===== */
+    #cursorAnimCanvas,#particleCanvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+    #cursorAnimCanvas{z-index:9999;}
+
+    /* ===== WAVY DIVIDER ===== */
+    .wavy-div{overflow:hidden;line-height:0;}
+
+    /* ===== CLICK BURST ===== */
+    .click-burst{
+      position:fixed;pointer-events:none;z-index:99998;
+      font-size:22px;transform:scale(0) rotate(0deg);
+      animation:burst .7s ease-out forwards;
+    }
+
+    /* ===== AVURUDDA OVERLAY ===== */
+    #avuruddaOverlay{
+      position:fixed;inset:0;z-index:99999;
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(160deg,#0d0200 0%,#1c0600 45%,#080100 100%);
+      overflow:hidden;transition:opacity .8s ease,visibility .8s ease;
+    }
+    #avuruddaOverlay.av-hidden{opacity:0;visibility:hidden;pointer-events:none;}
+    #avStarCanvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+    #avFlameWrap{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+    .av-kolam-top{position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:min(440px,96vw);pointer-events:none;opacity:.55;}
+    .av-kolam-bot{position:absolute;bottom:-8px;left:50%;transform:translateX(-50%) rotate(180deg);width:min(400px,90vw);pointer-events:none;opacity:.4;}
+    .av-lamp{position:absolute;bottom:12%;font-size:clamp(44px,8vw,76px);animation:lampGlow 2s ease-in-out infinite alternate;}
+    .av-lamp.left{left:clamp(6px,3.5vw,56px);}
+    .av-lamp.right{right:clamp(6px,3.5vw,56px);}
+    .av-petal{position:absolute;pointer-events:none;animation:petalFall linear infinite;opacity:.85;}
+    .av-card{
+      position:relative;z-index:10;text-align:center;
+      padding:clamp(26px,5.5vw,52px) clamp(20px,7vw,60px);
+      border-radius:28px;max-width:min(560px,93vw);
+      background:linear-gradient(145deg,rgba(255,130,0,0.13),rgba(255,50,0,0.07));
+      border:1.5px solid rgba(255,200,80,0.25);
+      backdrop-filter:blur(22px);
+      box-shadow:0 0 60px rgba(255,120,0,0.18),0 0 120px rgba(255,60,0,0.08);
+      animation:reveal .8s cubic-bezier(.34,1.56,.64,1) forwards;
+    }
+    .av-sun{font-size:clamp(44px,9vw,72px);display:block;animation:spin 12s linear infinite;margin-bottom:6px;}
+    .av-si{font-family:'Noto Sans Sinhala',sans-serif;font-size:clamp(24px,6vw,48px);font-weight:900;line-height:1.3;margin-bottom:6px;}
+    .av-si-sub{font-family:'Noto Sans Sinhala',sans-serif;font-size:clamp(12px,2.4vw,16px);color:rgba(255,220,150,0.85);margin-bottom:16px;font-weight:700;}
+    .av-div{width:80%;margin:0 auto 16px;height:1.5px;background:linear-gradient(90deg,transparent,rgba(255,200,80,0.5),rgba(255,100,0,0.7),rgba(255,200,80,0.5),transparent);border:none;}
+    .av-en{font-family:'Nunito',sans-serif;font-size:clamp(12px,2.2vw,15px);color:rgba(255,220,160,0.75);margin-bottom:20px;line-height:1.65;}
+    .av-countdown{display:flex;justify-content:center;gap:clamp(6px,2.5vw,14px);margin-bottom:22px;}
+    .av-cd-box{background:rgba(255,120,0,0.15);border:1.5px solid rgba(255,180,60,0.32);border-radius:12px;padding:9px 12px;min-width:58px;text-align:center;}
+    .av-cd-num{font-family:'Syne',sans-serif;font-size:clamp(20px,4.5vw,32px);font-weight:800;color:#ffd700;line-height:1;display:block;}
+    .av-cd-lbl{font-size:9px;color:rgba(255,200,120,0.6);font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:3px;}
+    .av-passed{font-family:'Syne',sans-serif;font-size:clamp(14px,3.5vw,20px);font-weight:800;color:#ffd700;margin-bottom:22px;display:none;}
+    .av-btn{
+      display:inline-flex;align-items:center;gap:8px;padding:13px 34px;border-radius:50px;
+      background:linear-gradient(135deg,#ff8c00,#ffd700);color:#1a0500;
+      font-family:'Syne',sans-serif;font-weight:900;font-size:clamp(14px,2.8vw,17px);
+      border:none;cursor:pointer;box-shadow:0 4px 24px rgba(255,140,0,0.5);
+      transition:transform .2s,box-shadow .2s;
+    }
+    .av-btn:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 8px 36px rgba(255,180,0,0.65);}
+  </style>
+</head>
+
+<body>
+
+<!-- ===============================================================
+     AVURUDDA FULL-SCREEN OVERLAY
+     =============================================================== -->
+<div id="avuruddaOverlay">
+  <canvas id="avStarCanvas"></canvas>
+  <div id="avFlameWrap"></div>
+
+  <!-- Kolam top -->
+  <svg class="av-kolam-top" viewBox="0 0 440 85" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="kg1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="transparent"/><stop offset="25%" stop-color="#ffd700" stop-opacity=".7"/>
+      <stop offset="50%" stop-color="#ff8c00"/><stop offset="75%" stop-color="#ffd700" stop-opacity=".7"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient></defs>
+    <rect x="0" y="42" width="440" height="2" fill="url(#kg1)"/>
+    <circle cx="220" cy="22" r="9" fill="#ffd700" opacity=".85"/>
+    <circle cx="185" cy="33" r="5" fill="#ff8c00" opacity=".75"/><circle cx="255" cy="33" r="5" fill="#ff8c00" opacity=".75"/>
+    <circle cx="150" cy="22" r="3" fill="#ffd700" opacity=".5"/><circle cx="290" cy="22" r="3" fill="#ffd700" opacity=".5"/>
+    <path d="M175,42 Q197,12 220,42" fill="none" stroke="#ffd700" stroke-width="1.5" opacity=".65"/>
+    <path d="M220,42 Q243,12 266,42" fill="none" stroke="#ffd700" stroke-width="1.5" opacity=".65"/>
+    <path d="M130,42 Q152,20 175,42" fill="none" stroke="#ff8c00" stroke-width="1" opacity=".5"/>
+    <path d="M266,42 Q288,20 310,42" fill="none" stroke="#ff8c00" stroke-width="1" opacity=".5"/>
+    <path d="M86,42 Q108,25 130,42" fill="none" stroke="#ff6a00" stroke-width="1" opacity=".35"/>
+    <path d="M310,42 Q332,25 354,42" fill="none" stroke="#ff6a00" stroke-width="1" opacity=".35"/>
+  </svg>
+
+  <!-- Lamps -->
+  <div class="av-lamp left animate-lamp">🪔</div>
+  <div class="av-lamp right animate-lamp">🪔</div>
+
+  <!-- Centre card -->
+  <div class="av-card">
+    <span class="av-sun">🌸</span>
+    <div class="av-si si-text">සුභ අලුත් අවුරුද්දක්<br>වේවා! 🎉</div>
+    <div class="av-si-sub">சுபமான புத்தாண்டு நல்வாழ்த்துக்கள்!</div>
+    <hr class="av-div"/>
+    <div class="av-en">
+      Wishing you joy, prosperity &amp; blessings this<br>
+      <strong style="color:#ffd700;">Sinhala &amp; Tamil New Year 2026</strong><br>
+      from Pixel by Maliya 🌺
+    </div>
+    <div class="av-countdown" id="avCountdown">
+      <div class="av-cd-box"><span class="av-cd-num" id="cdDays">00</span><span class="av-cd-lbl">Days</span></div>
+      <div class="av-cd-box"><span class="av-cd-num" id="cdHours">00</span><span class="av-cd-lbl">Hours</span></div>
+      <div class="av-cd-box"><span class="av-cd-num" id="cdMins">00</span><span class="av-cd-lbl">Mins</span></div>
+      <div class="av-cd-box"><span class="av-cd-num" id="cdSecs">00</span><span class="av-cd-lbl">Secs</span></div>
+    </div>
+    <div class="av-passed" id="avPassed">🎊 අලුත් අවුරුද්ද ආවා! 🎊</div>
+    <button class="av-btn" onclick="avClose()">🌸 Enter Website &rarr;</button>
+  </div>
+
+  <!-- Kolam bottom -->
+  <svg class="av-kolam-bot" viewBox="0 0 440 85" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="kg2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="transparent"/><stop offset="25%" stop-color="#ffd700" stop-opacity=".7"/>
+      <stop offset="50%" stop-color="#ff8c00"/><stop offset="75%" stop-color="#ffd700" stop-opacity=".7"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient></defs>
+    <rect x="0" y="42" width="440" height="2" fill="url(#kg2)"/>
+    <circle cx="220" cy="60" r="9" fill="#ffd700" opacity=".85"/>
+    <path d="M175,42 Q197,72 220,42" fill="none" stroke="#ffd700" stroke-width="1.5" opacity=".65"/>
+    <path d="M220,42 Q243,72 266,42" fill="none" stroke="#ffd700" stroke-width="1.5" opacity=".65"/>
+    <path d="M130,42 Q152,62 175,42" fill="none" stroke="#ff8c00" stroke-width="1" opacity=".5"/>
+    <path d="M266,42 Q288,62 310,42" fill="none" stroke="#ff8c00" stroke-width="1" opacity=".5"/>
+  </svg>
+</div>
+
+<!-- canvases -->
+<canvas id="particleCanvas" class="fixed inset-0 pointer-events-none" style="z-index:1;"></canvas>
+<canvas id="cursorAnimCanvas"></canvas>
+
+<!-- ===============================================================
+     NAVBAR
+     =============================================================== -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="44" height="44">
+            <defs><radialGradient id="nb" cx="40%" cy="35%" r="65%"><stop offset="0%" stop-color="#d0d8e0"/><stop offset="100%" stop-color="#8a9aaa"/></radialGradient></defs>
+            <circle cx="32" cy="32" r="31" fill="url(#nb)" stroke="#b0bcc8" stroke-width=".5"/>
+            <ellipse cx="32" cy="32" rx="19" ry="10" transform="rotate(-35 32 32)" fill="none" stroke="#ff8c00" stroke-width="3" stroke-dasharray="3.2 3.5" stroke-linecap="round" opacity=".95"/>
+            <ellipse cx="32" cy="32" rx="19" ry="10" transform="rotate(35 32 32)" fill="none" stroke="#ffd700" stroke-width="3" stroke-dasharray="3.2 3.5" stroke-linecap="round" opacity=".95"/>
+            <ellipse cx="32" cy="32" rx="19" ry="10" transform="rotate(90 32 32)" fill="none" stroke="#ff4500" stroke-width="3" stroke-dasharray="3.2 3.5" stroke-linecap="round" opacity=".95"/>
+            <circle cx="32" cy="32" r="9" fill="url(#nb)" opacity=".92"/>
+            <text x="32" y="37" font-family="Arial Black,Arial,sans-serif" font-size="14" font-weight="900" fill="#ff8c00" text-anchor="middle">M</text>
+          </svg>
+        </div>
+        <div>
+          <span class="font-display font-bold text-amber-100 text-lg leading-none">Pixel by </span><span class="font-display font-bold text-lg leading-none gold-text">Maliya</span>
+        </div>
+      </a>
+
+      <div class="hidden md:flex items-center gap-1">
+        <a href="#hero" class="nav-link px-4 py-2 text-sm">Home</a>
+        <a href="#portfolio" class="nav-link px-4 py-2 text-sm">Portfolio</a>
+        <a href="#services" class="nav-link px-4 py-2 text-sm">Services</a>
+        <a href="#contact" class="nav-link px-4 py-2 text-sm">Contact</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/94716125715" target="_blank"
+          class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold text-green-900 hover:-translate-y-0.5 transition-all duration-300"
+          style="background:linear-gradient(135deg,#4ade80,#22c55e);box-shadow:0 4px 14px rgba(34,197,94,0.35);">
+          <i class="fab fa-whatsapp text-base"></i> WhatsApp
+        </a>
+        <button id="mobileMenuBtn" class="md:hidden w-10 h-10 flex items-center justify-center rounded-xl transition-all" style="background:rgba(255,140,0,0.12);border:1.5px solid rgba(255,180,60,0.2);">
+          <i class="fas fa-bars text-amber-400"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="hidden md:hidden" style="background:rgba(10,2,0,0.97);backdrop-filter:blur(20px);border-top:1px solid rgba(255,160,40,0.15);">
+    <div class="px-4 py-4 space-y-1">
+      <a href="#hero" class="mobile-nav-link block px-4 py-3 rounded-xl text-amber-200 font-bold hover:text-yellow-400 hover:bg-orange-900/30 transition-all">Home</a>
+      <a href="#portfolio" class="mobile-nav-link block px-4 py-3 rounded-xl text-amber-200 font-bold hover:text-yellow-400 hover:bg-orange-900/30 transition-all">Portfolio</a>
+      <a href="#services" class="mobile-nav-link block px-4 py-3 rounded-xl text-amber-200 font-bold hover:text-yellow-400 hover:bg-orange-900/30 transition-all">Services</a>
+      <a href="#contact" class="mobile-nav-link block px-4 py-3 rounded-xl text-amber-200 font-bold hover:text-yellow-400 hover:bg-orange-900/30 transition-all">Contact</a>
+      <a href="https://wa.me/94716125715" target="_blank" class="flex items-center gap-2 px-4 py-3 rounded-xl text-green-400 font-bold hover:bg-green-900/30 transition-all">
+        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ===============================================================
+     HERO SECTION
+     =============================================================== -->
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+  <!-- bg blobs -->
+  <div class="absolute inset-0 z-0 pointer-events-none">
+    <div class="hero-blob w-[500px] h-[500px] animate-float" style="background:rgba(255,80,0,0.12);top:-80px;left:-120px;"></div>
+    <div class="hero-blob w-[400px] h-[400px] animate-float-delay" style="background:rgba(255,180,0,0.08);top:30%;right:-80px;"></div>
+    <div class="hero-blob w-[350px] h-[350px] animate-float" style="background:rgba(220,60,0,0.09);bottom:-60px;left:35%;"></div>
+  </div>
+  <!-- kolam dot grid -->
+  <div class="absolute inset-0 z-0 kolam-bg opacity-60"></div>
+
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-center pt-12 pb-24" style="box-sizing:border-box;overflow:hidden;">
+
+    <!-- badge -->
+    <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-bold mb-8 animate-gold-pulse"
+      style="background:rgba(255,140,0,0.12);border:1.5px solid rgba(255,180,60,0.35);color:#ffd700;">
+      <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+      🌸 සුභ අලුත් අවුරුද්දක් වේවා! &nbsp;Available for projects
+    </div>
+
+    <!-- heading -->
+    <h1 class="font-display font-bold leading-tight mb-6">
+      <span class="block text-4xl sm:text-6xl md:text-7xl lg:text-[82px] text-amber-100" style="text-shadow:0 2px 30px rgba(255,100,0,0.3);">Creative</span>
+      <span class="block text-4xl sm:text-6xl md:text-7xl lg:text-[82px] gold-text">Design Studio</span>
+    </h1>
+
+    <p class="text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-medium px-1" style="color:rgba(255,220,170,0.8);">
+      Bringing your brand to life through stunning <strong class="text-amber-300">graphic design</strong> and
+      modern <strong class="text-amber-300">web design</strong>. Logo design, print materials, visiting cards &amp; more.
+    </p>
+
+    <!-- CTA buttons -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 w-full">
+      <a href="#portfolio" class="btn-primary w-full sm:w-auto justify-center">
+        View Portfolio <i class="fas fa-arrow-right"></i>
+      </a>
+      <a href="https://wa.me/94716125715" target="_blank" class="btn-secondary w-full sm:w-auto justify-center">
+        <i class="fab fa-whatsapp text-green-400 text-xl"></i> Get a Quote
+      </a>
+    </div>
+
+    <!-- Stat cards -->
+    <div class="grid grid-cols-3 gap-3 mb-12 w-full">
+      <div class="stat-card"><div class="font-display text-2xl sm:text-4xl font-bold gold-text" id="stat-projects">0+</div><div class="text-xs sm:text-sm mt-1 font-semibold" style="color:rgba(255,200,120,0.7);">Projects Done</div></div>
+      <div class="stat-card"><div class="font-display text-2xl sm:text-4xl font-bold gold-text-2">100%</div><div class="text-xs sm:text-sm mt-1 font-semibold" style="color:rgba(255,200,120,0.7);">Satisfaction</div></div>
+      <div class="stat-card"><div class="font-display text-2xl sm:text-4xl font-bold" style="background:linear-gradient(135deg,#ff4500,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">24h</div><div class="text-xs sm:text-sm mt-1 font-semibold" style="color:rgba(255,200,120,0.7);">Turnaround</div></div>
+    </div>
+
+    <!-- Services Carousel -->
+    <div class="relative w-full max-w-5xl mx-auto">
+      <p class="text-xs font-bold uppercase tracking-widest mb-4" style="color:rgba(255,180,60,0.85);">✦ What We Offer ✦</p>
+      <div class="overflow-hidden rounded-2xl w-full" id="heroCarouselOuter">
+        <div id="heroCarouselTrack" class="flex transition-transform duration-700 ease-in-out will-change-transform">
+          <!-- Slides -->
+          <div class="hero-slide flex-shrink-0 w-full px-2">
+            <div class="carousel-card flex flex-col sm:flex-row items-center gap-5 text-left">
+              <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(255,140,0,0.2);border:1.5px solid rgba(255,180,60,0.3)"><i class="fas fa-star text-2xl" style="color:#ffd700;"></i></div>
+              <div><h3 class="font-display font-bold text-lg mb-1">Logo Design</h3><p>Unique, memorable logos that capture your brand identity. All formats — PNG, SVG, PDF.</p><div class="flex flex-wrap gap-2 mt-3"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(255,140,0,0.15);border:1px solid rgba(255,180,60,0.3);color:#ffd700;">Brand Identity</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(255,140,0,0.15);border:1px solid rgba(255,180,60,0.3);color:#ffd700;">All Formats</span></div></div>
+            </div>
+          </div>
+          <div class="hero-slide flex-shrink-0 w-full px-2">
+            <div class="carousel-card flex flex-col sm:flex-row items-center gap-5 text-left">
+              <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(6,182,212,0.15);border:1.5px solid rgba(6,182,212,0.3)"><i class="fas fa-address-card text-2xl text-cyan-400"></i></div>
+              <div><h3 class="font-display font-bold text-lg mb-1">Visiting Cards</h3><p>Professional business cards designed to make a lasting impression. Design + printing available.</p><div class="flex flex-wrap gap-2 mt-3"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(6,182,212,0.12);border:1px solid rgba(6,182,212,0.3);color:#67e8f9;">Design</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(6,182,212,0.12);border:1px solid rgba(6,182,212,0.3);color:#67e8f9;">Printing</span></div></div>
+            </div>
+          </div>
+          <div class="hero-slide flex-shrink-0 w-full px-2">
+            <div class="carousel-card flex flex-col sm:flex-row items-center gap-5 text-left">
+              <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(236,72,153,0.15);border:1.5px solid rgba(236,72,153,0.3)"><i class="fas fa-heart text-2xl text-pink-400"></i></div>
+              <div><h3 class="font-display font-bold text-lg mb-1">Thank You Cards</h3><p>Elegant designs for weddings, events, and businesses. Custom design &amp; printing.</p><div class="flex flex-wrap gap-2 mt-3"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(236,72,153,0.12);border:1px solid rgba(236,72,153,0.3);color:#f9a8d4;">Design</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(236,72,153,0.12);border:1px solid rgba(236,72,153,0.3);color:#f9a8d4;">Printing</span></div></div>
+            </div>
+          </div>
+          <div class="hero-slide flex-shrink-0 w-full px-2">
+            <div class="carousel-card flex flex-col sm:flex-row items-center gap-5 text-left">
+              <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(255,140,0,0.18);border:1.5px solid rgba(255,180,0,0.3)"><i class="fas fa-print text-2xl text-amber-400"></i></div>
+              <div><h3 class="font-display font-bold text-lg mb-1">Printing Work</h3><p>High-quality print materials — flyers, banners, posters, brochures, stickers and more.</p><div class="flex flex-wrap gap-2 mt-3"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(255,140,0,0.15);border:1px solid rgba(255,180,60,0.3);color:#fbbf24;">Banners</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(255,140,0,0.15);border:1px solid rgba(255,180,60,0.3);color:#fbbf24;">Stickers</span></div></div>
+            </div>
+          </div>
+          <div class="hero-slide flex-shrink-0 w-full px-2">
+            <div class="carousel-card flex flex-col sm:flex-row items-center gap-5 text-left">
+              <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(139,92,246,0.15);border:1.5px solid rgba(139,92,246,0.3)"><i class="fas fa-code text-2xl text-violet-400"></i></div>
+              <div><h3 class="font-display font-bold text-lg mb-1">Web Design</h3><p>Modern, responsive websites built to convert. Portfolio sites, business sites, landing pages.</p><div class="flex flex-wrap gap-2 mt-3"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);color:#c4b5fd;">Responsive</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);color:#c4b5fd;">Modern</span></div></div>
+            </div>
+          </div>
+          <div class="hero-slide flex-shrink-0 w-full px-2">
+            <div class="carousel-card flex flex-col sm:flex-row items-center gap-5 text-left">
+              <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(16,185,129,0.15);border:1.5px solid rgba(16,185,129,0.3)"><i class="fas fa-share-alt text-2xl text-emerald-400"></i></div>
+              <div><h3 class="font-display font-bold text-lg mb-1">Social Media Design</h3><p>Eye-catching posts, stories, covers and profile photos for your social media presence.</p><div class="flex flex-wrap gap-2 mt-3"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);color:#6ee7b7;">Posts</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);color:#6ee7b7;">Stories</span></div></div>
+            </div>
+          </div>
+          <div class="hero-slide flex-shrink-0 w-full px-2">
+            <div class="carousel-card flex flex-col sm:flex-row items-center gap-5 text-left">
+              <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(255,60,80,0.15);border:1.5px solid rgba(255,80,80,0.3)"><i class="fas fa-tag text-2xl text-rose-400"></i></div>
+              <div><h3 class="font-display font-bold text-lg mb-1">Key Tags</h3><p>Custom printed and engraved key tags for personal or corporate branding.</p><div class="flex flex-wrap gap-2 mt-3"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.3);color:#fda4af;">Branding</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.3);color:#fda4af;">Custom</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center gap-2 mt-5" id="carouselDots"></div>
+      <button id="carouselPrev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 w-9 h-9 rounded-full flex items-center justify-center transition-all z-10 hidden sm:flex" style="background:rgba(255,140,0,0.15);border:1.5px solid rgba(255,180,60,0.3);color:#ffd700;"><i class="fas fa-chevron-left text-xs"></i></button>
+      <button id="carouselNext" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 w-9 h-9 rounded-full flex items-center justify-center transition-all z-10 hidden sm:flex" style="background:rgba(255,140,0,0.15);border:1.5px solid rgba(255,180,60,0.3);color:#ffd700;"><i class="fas fa-chevron-right text-xs"></i></button>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20">
+    <div class="flex flex-col items-center gap-2 animate-bounce">
+      <span class="text-xs tracking-widest uppercase font-bold" style="color:rgba(255,180,60,0.6);">Scroll</span>
+      <i class="fas fa-chevron-down" style="color:rgba(255,180,60,0.7);"></i>
+    </div>
+  </div>
+</section>
+
+<!-- wavy -->
+<div style="overflow:hidden;line-height:0;background:#0d0200;margin-top:-2px;">
+  <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:48px;width:100%;display:block;">
+    <path d="M0,24 C360,48 720,0 1080,24 C1260,36 1380,12 1440,24 L1440,48 L0,48 Z" fill="rgba(255,100,0,0.06)"/>
+  </svg>
+</div>
+
+<!-- Avurudda Banner -->
+<div id="avuruddaBanner" style="position:relative;overflow:hidden;background:linear-gradient(135deg,#1a0500,#2e0a00,#1a0500);padding:clamp(28px,5vw,52px) clamp(16px,4vw,40px);text-align:center;border-top:1.5px solid rgba(255,160,40,0.25);border-bottom:1.5px solid rgba(255,160,40,0.25);">
+  <span style="position:absolute;left:2%;top:12%;font-size:clamp(28px,5vw,50px);animation:flameDance 1.3s ease-in-out infinite alternate;filter:drop-shadow(0 0 12px #ff6a00);">🔥</span>
+  <span style="position:absolute;left:6%;bottom:10%;font-size:clamp(28px,5vw,50px);animation:lampGlow 2s ease-in-out infinite alternate;">🪔</span>
+  <span style="position:absolute;right:2%;top:12%;font-size:clamp(28px,5vw,50px);animation:flameDance 1.3s ease-in-out infinite alternate;filter:drop-shadow(0 0 12px #ff6a00);">🔥</span>
+  <span style="position:absolute;right:6%;bottom:10%;font-size:clamp(28px,5vw,50px);animation:lampGlow 2s ease-in-out infinite alternate;">🪔</span>
+  <div style="position:relative;z-index:2;">
+    <div style="font-size:clamp(22px,4.5vw,38px);margin-bottom:14px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">🌸 🌺 🎊 🌼 🎉 🌺 🌸</div>
+    <div style="font-family:'Noto Sans Sinhala',sans-serif;font-size:clamp(22px,5.5vw,44px);font-weight:900;background:linear-gradient(135deg,#ffd700,#ff6a00,#ff3c00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.3;margin-bottom:10px;">සුභ සිංහල හා දෙමළ<br>අලුත් අවුරුද්දක් වේවා!</div>
+    <div style="font-family:'Nunito',sans-serif;font-size:clamp(12px,2.2vw,16px);color:rgba(255,200,130,0.8);font-weight:700;margin-bottom:18px;">சுபமான சிங்கள தமிழ் புத்தாண்டு நல்வாழ்த்துக்கள் &nbsp;•&nbsp; Happy Sinhala &amp; Tamil New Year 2026</div>
+    <div style="font-size:clamp(18px,3.5vw,30px);margin-bottom:16px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;">🏺 🪔 🌸 🎁 🌴 🌸 🪔 🏺</div>
+    <div style="font-family:'Nunito',sans-serif;font-size:clamp(13px,2vw,15px);color:rgba(255,220,160,0.7);max-width:560px;margin:0 auto;line-height:1.75;">May this auspicious New Year bring you happiness, good health, and all the success you deserve.<br><strong style="color:#ffd700;">— Pixel by Maliya Team 🙏</strong></div>
+  </div>
+</div>
+
+<!-- ===============================================================
+     NEW YEAR IMAGE CAROUSEL
+     =============================================================== -->
+<div id="avuruddaImgCarousel" style="position:relative;overflow:hidden;width:100%;height:clamp(280px,60vw,620px);background:#0d0200;">
+  <div id="avImgTrack" style="display:flex;height:100%;transition:transform 0.9s cubic-bezier(0.77,0,0.175,1);will-change:transform;">
+    <!-- Slide 1: Real photo - Oil lamp & flowers -->
+    <div class="av-img-slide" style="flex-shrink:0;width:100%;height:100%;position:relative;overflow:hidden;">
+      <img src="avurudu_1.png" alt="Sinhala New Year 2026 - Oil Lamp & Flowers" style="width:100%;height:100%;object-fit:cover;object-position:center;" loading="eager"/>
+      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(13,2,0,0.88) 0%, rgba(13,2,0,0.35) 50%, rgba(13,2,0,0.15) 100%);pointer-events:none;"></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:clamp(16px,4vw,36px);text-align:center;">
+        <div style="font-family:'Noto Sans Sinhala',sans-serif;font-size:clamp(22px,5vw,52px);font-weight:900;background:linear-gradient(135deg,#ffd700,#ff8c00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2;text-shadow:none;">සුභ අලුත් අවුරුද්දක් වේවා!</div>
+        <div style="font-size:clamp(13px,2.5vw,22px);color:rgba(255,230,180,0.95);font-weight:800;margin-top:6px;text-shadow:0 2px 8px rgba(0,0,0,0.8);">🌸 Sinhala &amp; Tamil New Year 2026 🌸</div>
+      </div>
+    </div>
+    <!-- Slide 2: Real photo - Avurudu food & sweets -->
+    <div class="av-img-slide" style="flex-shrink:0;width:100%;height:100%;position:relative;overflow:hidden;">
+      <img src="avurudu_2.png" alt="Sinhala New Year 2026 - Traditional Food" style="width:100%;height:100%;object-fit:cover;object-position:center;" loading="eager"/>
+      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,2,0,0.9) 0%, rgba(10,2,0,0.3) 55%, rgba(10,2,0,0.1) 100%);pointer-events:none;"></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:clamp(16px,4vw,36px);text-align:center;">
+        <div style="font-family:'Noto Sans Sinhala',sans-serif;font-size:clamp(20px,4.5vw,48px);font-weight:900;color:#fff3e0;line-height:1.2;text-shadow:0 2px 12px rgba(0,0,0,0.9);">සිංහල හා දෙමළ<br>අලුත් අවුරුද්ද</div>
+        <div style="font-size:clamp(13px,2.2vw,20px);color:#ffd700;font-weight:800;margin-top:8px;letter-spacing:0.05em;text-shadow:0 2px 8px rgba(0,0,0,0.8);">🪔 Pixel by Maliya wishes you joy &amp; prosperity 🪔</div>
+      </div>
+    </div>
+    <!-- Slide 3: Real photo - Traditional lady -->
+    <div class="av-img-slide" style="flex-shrink:0;width:100%;height:100%;position:relative;overflow:hidden;">
+      <img src="avurudu_3.png" alt="Sinhala New Year 2026 - Traditional Celebration" style="width:100%;height:100%;object-fit:cover;object-position:center;" loading="eager"/>
+      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(5,0,0,0.9) 0%, rgba(5,0,0,0.25) 55%, rgba(5,0,0,0.08) 100%);pointer-events:none;"></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:clamp(16px,4vw,36px);text-align:center;">
+        <div style="font-family:'Syne',sans-serif;font-size:clamp(28px,6.5vw,72px);font-weight:900;background:linear-gradient(135deg,#ffd700,#ff8c00,#ff3c00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">AVURUDU 2026</div>
+        <div style="font-size:clamp(12px,2vw,18px);color:rgba(255,220,160,0.95);font-weight:700;margin-top:6px;text-shadow:0 2px 8px rgba(0,0,0,0.8);">🌺 April 13/14 · Creative Design Studio 🌺</div>
+      </div>
+    </div>
+    <!-- Slide 4: Avurudu Traditions - Kiri Ithirima -->
+    <div class="av-img-slide" style="flex-shrink:0;width:100%;height:100%;position:relative;overflow:hidden;">
+      <img src="avurudu_traditions.png" alt="Sinhala New Year 2026 - Avurudu Traditions" style="width:100%;height:100%;object-fit:cover;object-position:center;" loading="eager"/>
+      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,2,0,0.88) 0%, rgba(10,2,0,0.28) 55%, rgba(0,0,0,0.06) 100%);pointer-events:none;"></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:clamp(16px,4vw,36px);text-align:center;">
+        <div style="font-family:'Noto Sans Sinhala',sans-serif;font-size:clamp(22px,5vw,48px);font-weight:900;color:#fff3e0;line-height:1.2;text-shadow:0 2px 12px rgba(0,0,0,0.9);">අවුරුදු චාරිත්‍ර 🪔</div>
+        <div style="font-size:clamp(13px,2.2vw,20px);color:#ffd700;font-weight:800;margin-top:8px;text-shadow:0 2px 8px rgba(0,0,0,0.8);">කිරි ඉතිරීම · ලිප් මොළවීම · නැකත් බැලීම</div>
+      </div>
+    </div>
+    <!-- Slide 6: Avurudu Games - Kotta Pora -->
+    <div class="av-img-slide" style="flex-shrink:0;width:100%;height:100%;position:relative;overflow:hidden;">
+      <img src="avurudu_games.png" alt="Sinhala New Year 2026 - Avurudu Games" style="width:100%;height:100%;object-fit:cover;object-position:center;" loading="eager"/>
+      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(6,0,0,0.85) 0%, rgba(6,0,0,0.2) 55%, rgba(0,0,0,0.05) 100%);pointer-events:none;"></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:clamp(16px,4vw,36px);text-align:center;">
+        <div style="font-family:'Noto Sans Sinhala',sans-serif;font-size:clamp(22px,5vw,48px);font-weight:900;background:linear-gradient(135deg,#ffd700,#ff8c00,#ff4500);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2;">අවුරුදු ක්‍රීඩා 🎊</div>
+        <div style="font-size:clamp(13px,2.2vw,20px);color:rgba(255,220,160,0.95);font-weight:700;margin-top:8px;text-shadow:0 2px 8px rgba(0,0,0,0.8);">කොත්ත පොර · කණ බැඳ ගෙඩි කැපීම · ඔනචිල්ලු</div>
+      </div>
+    </div>
+    <!-- Slide 7: Real photo - Fireworks -->
+    <div class="av-img-slide" style="flex-shrink:0;width:100%;height:100%;position:relative;overflow:hidden;">
+      <img src="avurudu_5.png" alt="Sinhala New Year 2026 - Fireworks Celebration" style="width:100%;height:100%;object-fit:cover;object-position:center;" loading="eager"/>
+      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(8,2,0,0.88) 0%, rgba(8,2,0,0.25) 55%, rgba(0,0,0,0.05) 100%);pointer-events:none;"></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:clamp(16px,4vw,36px);text-align:center;">
+        <div style="font-family:'Syne',sans-serif;font-size:clamp(26px,6vw,68px);font-weight:900;color:#fff3e0;text-shadow:0 2px 16px rgba(0,0,0,0.9);">Pixel by <span style="background:linear-gradient(135deg,#ffd700,#ff8c00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Maliya</span></div>
+        <div style="font-size:clamp(12px,2vw,17px);color:rgba(255,220,150,0.95);font-weight:700;margin-top:6px;text-shadow:0 2px 8px rgba(0,0,0,0.8);">Creative Design Studio 🎨 · සුභ අලුත් අවුරුද්දක් වේවා 2026!</div>
+      </div>
+    </div>
+  </div>
+  <!-- Nav dots -->
+  <div id="avImgDots" style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:10;"></div>
+  <!-- Prev/Next -->
+  <button onclick="avImgGo(window.avImgCur-1)" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:rgba(0,0,0,0.55);border:1.5px solid rgba(255,180,60,0.5);color:#ffd700;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:all .3s;" onmouseover="this.style.background='rgba(255,140,0,0.35)'" onmouseout="this.style.background='rgba(0,0,0,0.55)'">&#8249;</button>
+  <button onclick="avImgGo(window.avImgCur+1)" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:rgba(0,0,0,0.55);border:1.5px solid rgba(255,180,60,0.5);color:#ffd700;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:all .3s;" onmouseover="this.style.background='rgba(255,140,0,0.35)'" onmouseout="this.style.background='rgba(0,0,0,0.55)'">&#8250;</button>
+</div>
+
+<!-- ===============================================================
+     SPECIAL DISCOUNT BANNER
+     =============================================================== -->
+<div id="specialDiscountBanner" style="position:relative;overflow:hidden;background:linear-gradient(135deg,#1c0800,#3d1200,#1c0800);padding:clamp(32px,6vw,60px) clamp(16px,4vw,40px);text-align:center;border-top:2px solid rgba(255,215,0,0.4);border-bottom:2px solid rgba(255,215,0,0.4);">
+  <div style="position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,215,0,0.04) 50%,transparent 65%);animation:shimmer 3s ease-in-out infinite;pointer-events:none;"></div>
+  <span style="position:absolute;top:10px;left:10px;font-size:28px;opacity:0.6;color:#ffd700;">✦</span>
+  <span style="position:absolute;top:10px;right:10px;font-size:28px;opacity:0.6;color:#ffd700;">✦</span>
+  <span style="position:absolute;bottom:10px;left:10px;font-size:28px;opacity:0.6;color:#ffd700;">✦</span>
+  <span style="position:absolute;bottom:10px;right:10px;font-size:28px;opacity:0.6;color:#ffd700;">✦</span>
+  <div style="position:relative;z-index:2;max-width:700px;margin:0 auto;">
+    <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 20px;border-radius:999px;background:rgba(255,215,0,0.15);border:1.5px solid rgba(255,215,0,0.45);color:#ffd700;font-size:13px;font-weight:800;margin-bottom:18px;letter-spacing:0.08em;">🎁 LIMITED TIME OFFER &nbsp;•&nbsp; AVURUDU 2026</div>
+    <div style="font-family:'Syne',sans-serif;font-size:clamp(32px,8vw,72px);font-weight:900;background:linear-gradient(135deg,#ffd700 0%,#ff8c00 50%,#ff3c00 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:10px;">Special Discount</div>
+    <div style="font-family:'Noto Sans Sinhala',sans-serif;font-size:clamp(18px,4vw,36px);font-weight:900;color:#fff3e0;margin-bottom:14px;">අවුරුදු සීසන් ස්පෙෂල්! 🎊</div>
+    <div style="font-family:'Nunito',sans-serif;font-size:clamp(13px,2.2vw,16px);color:rgba(255,220,160,0.85);line-height:1.8;margin-bottom:22px;">
+      මේ <strong style="color:#ffd700;">සිංහල අලුත් අවුරුදු සීසන් එකේ</strong> Pixel by Maliya වෙතින් ඔබේ
+      Logo, Visiting Cards, Banners, Web Design ඇතුළු
+      සියලු සේවාවන් සඳහා <strong style="color:#ff8c00;">විශේෂ වට්ටමක්</strong> ලැබේ!<br>
+      <span style="color:rgba(255,200,130,0.7);font-size:.9em;">Contact us now — Limited slots available! 🌸</span>
+    </div>
+    <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-bottom:24px;">
+      <div style="background:rgba(255,140,0,0.18);border:2px solid rgba(255,180,60,0.45);border-radius:16px;padding:12px 22px;">
+        <div style="font-family:'Syne',sans-serif;font-size:clamp(20px,4vw,36px);font-weight:900;color:#ffd700;line-height:1;">Logo</div>
+        <div style="font-size:12px;color:rgba(255,200,130,0.7);font-weight:700;margin-top:4px;">Design Package</div>
+      </div>
+      <div style="background:rgba(255,140,0,0.18);border:2px solid rgba(255,180,60,0.45);border-radius:16px;padding:12px 22px;">
+        <div style="font-family:'Syne',sans-serif;font-size:clamp(20px,4vw,36px);font-weight:900;color:#ff8c00;line-height:1;">Cards</div>
+        <div style="font-size:12px;color:rgba(255,200,130,0.7);font-weight:700;margin-top:4px;">Visiting &amp; Thank You</div>
+      </div>
+      <div style="background:rgba(255,140,0,0.18);border:2px solid rgba(255,180,60,0.45);border-radius:16px;padding:12px 22px;">
+        <div style="font-family:'Syne',sans-serif;font-size:clamp(20px,4vw,36px);font-weight:900;color:#ff4500;line-height:1;">Web</div>
+        <div style="font-size:12px;color:rgba(255,200,130,0.7);font-weight:700;margin-top:4px;">Sites &amp; Banners</div>
+      </div>
+    </div>
+    <a href="https://wa.me/94716125715?text=Hello%20Pixel%20by%20Maliya!%20I'm%20interested%20in%20the%20Avurudu%202026%20Special%20Discount!" target="_blank"
+      style="display:inline-flex;align-items:center;gap:10px;padding:15px 38px;border-radius:50px;background:linear-gradient(135deg,#ff8c00,#ffd700);color:#1a0500;font-family:'Syne',sans-serif;font-weight:900;font-size:clamp(14px,2.5vw,18px);text-decoration:none;box-shadow:0 6px 28px rgba(255,140,0,0.5);transition:all .3s;"
+      onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 40px rgba(255,180,0,0.65)';"
+      onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 28px rgba(255,140,0,0.5)';">
+      <i class="fab fa-whatsapp" style="font-size:20px;"></i> Claim Your Discount Now!
+    </a>
+  </div>
+</div>
+
+<!-- ===============================================================
+     PORTFOLIO SECTION
+     =============================================================== -->
+<section id="portfolio" class="relative py-24 z-10" style="background:linear-gradient(160deg,#0d0200 0%,#150400 100%);">
+  <div class="absolute inset-0 kolam-bg opacity-30 pointer-events-none"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-16 reveal">
+      <div class="section-label"><i class="fas fa-briefcase"></i> Our Work</div>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 gold-text">Portfolio</h2>
+      <p class="max-w-2xl mx-auto font-medium" style="color:rgba(255,200,130,0.7);">Explore our creative work across graphic design and web design</p>
+    </div>
+    <div class="flex justify-center mb-10 reveal">
+      <div class="flex p-1.5 rounded-2xl gap-1" style="background:rgba(255,80,0,0.1);border:1.5px solid rgba(255,160,40,0.2);">
+        <button id="tab-graphic" onclick="switchMainTab('graphic')" class="main-tab active-main-tab px-6 py-3 rounded-xl text-sm transition-all flex items-center gap-2"><i class="fas fa-paint-brush"></i> Graphic Design</button>
+        <button id="tab-web" onclick="switchMainTab('web')" class="main-tab px-6 py-3 rounded-xl text-sm transition-all flex items-center gap-2"><i class="fas fa-code"></i> Web Design</button>
+      </div>
+    </div>
+    <div id="content-graphic" class="tab-content">
+      <div class="flex flex-wrap justify-center gap-3 mb-10 reveal">
+        <button onclick="filterCategory('all')" data-cat="all" class="cat-filter active-cat-filter px-5 py-2.5 rounded-xl text-sm transition-all flex items-center gap-2 hover:-translate-y-1 group"><i class="fas fa-th-large transition-all group-hover:scale-125 group-hover:-rotate-12"></i><span>All Work</span></button>
+        <button onclick="filterCategory('logo')" data-cat="logo" class="cat-filter inactive-cat-filter px-5 py-2.5 rounded-xl text-sm transition-all flex items-center gap-2 hover:-translate-y-1 group"><i class="fas fa-star transition-all group-hover:scale-125 group-hover:-rotate-12"></i><span>Logo</span></button>
+        <button onclick="filterCategory('visiting-card')" data-cat="visiting-card" class="cat-filter inactive-cat-filter px-5 py-2.5 rounded-xl text-sm transition-all flex items-center gap-2 hover:-translate-y-1 group"><i class="fas fa-address-card transition-all group-hover:scale-125 group-hover:-rotate-12"></i><span>Visiting Cards</span></button>
+        <button onclick="filterCategory('thankyou-card')" data-cat="thankyou-card" class="cat-filter inactive-cat-filter px-5 py-2.5 rounded-xl text-sm transition-all flex items-center gap-2 hover:-translate-y-1 group"><i class="fas fa-heart transition-all group-hover:scale-125 group-hover:-rotate-12"></i><span>Thank You</span></button>
+        <button onclick="filterCategory('printing')" data-cat="printing" class="cat-filter inactive-cat-filter px-5 py-2.5 rounded-xl text-sm transition-all flex items-center gap-2 hover:-translate-y-1 group"><i class="fas fa-print transition-all group-hover:scale-125 group-hover:-rotate-12"></i><span>Printing</span></button>
+        <button onclick="filterCategory('social-media')" data-cat="social-media" class="cat-filter inactive-cat-filter px-5 py-2.5 rounded-xl text-sm transition-all flex items-center gap-2 hover:-translate-y-1 group"><i class="fas fa-share-alt transition-all group-hover:scale-125 group-hover:-rotate-12"></i><span>Social Media</span></button>
+        <button onclick="filterCategory('banner')" data-cat="banner" class="cat-filter inactive-cat-filter px-5 py-2.5 rounded-xl text-sm transition-all flex items-center gap-2 hover:-translate-y-1 group"><i class="fas fa-image transition-all group-hover:scale-125 group-hover:-rotate-12"></i><span>Banners</span></button>
+        <button onclick="filterCategory('tshirt')" data-cat="tshirt" class="cat-filter inactive-cat-filter px-5 py-2.5 rounded-xl text-sm transition-all flex items-center gap-2 hover:-translate-y-1 group"><i class="fas fa-tshirt transition-all group-hover:scale-125 group-hover:-rotate-12"></i><span>T-Shirts</span></button>
+        <button onclick="filterCategory('key-tag')" data-cat="key-tag" class="cat-filter inactive-cat-filter px-5 py-2.5 rounded-xl text-sm transition-all flex items-center gap-2 hover:-translate-y-1 group"><i class="fas fa-tag transition-all group-hover:scale-125 group-hover:-rotate-12"></i><span>Key Tags</span></button>
+      </div>
+      <div id="graphicGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+      <div id="graphicEmpty" class="hidden text-center py-20">
+        <div class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background:rgba(255,100,0,0.1);border:1.5px solid rgba(255,160,40,0.2)"><i class="fas fa-image text-3xl" style="color:rgba(255,180,60,0.4);"></i></div>
+        <p class="text-lg font-bold" style="color:rgba(255,180,100,0.6);">No projects yet</p><p class="text-sm mt-1" style="color:rgba(255,160,80,0.4);">Add projects from admin panel</p>
+      </div>
+    </div>
+    <div id="content-web" class="tab-content hidden">
+      <div id="webGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      <div id="webEmpty" class="text-center py-20">
+        <div class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background:rgba(255,100,0,0.1);border:1.5px solid rgba(255,160,40,0.2)"><i class="fas fa-laptop-code text-3xl" style="color:rgba(255,180,60,0.4);"></i></div>
+        <p class="text-lg font-bold" style="color:rgba(255,180,100,0.6);">Web projects coming soon!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===============================================================
+     SERVICES SECTION
+     =============================================================== -->
+<section id="services" class="relative py-24 z-10" style="background:linear-gradient(160deg,#100300 0%,#1c0600 50%,#0d0200 100%);">
+  <div class="absolute inset-0 kolam-bg opacity-25 pointer-events-none"></div>
+  <div class="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none" style="background:rgba(255,80,0,0.06);"></div>
+  <div class="absolute bottom-0 left-0 w-80 h-80 rounded-full blur-3xl pointer-events-none" style="background:rgba(255,140,0,0.05);"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-16 reveal">
+      <div class="section-label">🪔 What We Offer</div>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 gold-text">Our Services</h2>
+      <p class="max-w-2xl mx-auto font-medium" style="color:rgba(255,200,130,0.7);">Professional design services tailored to elevate your brand</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="service-card p-8 reveal group"><div class="service-icon-wrap" style="background:rgba(255,140,0,0.2);border:1.5px solid rgba(255,180,60,0.3)"><i class="fas fa-star text-2xl" style="color:#ffd700;"></i></div><h3 class="font-display font-bold text-xl text-amber-100 mb-3">Logo Design</h3><p class="leading-relaxed text-sm" style="color:rgba(255,200,130,0.7);">Unique, memorable logos that capture your brand identity. Delivered in all formats – PNG, SVG, PDF.</p><div class="mt-5 flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(255,140,0,0.15);border:1px solid rgba(255,180,60,0.3);color:#ffd700;">Brand Identity</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(255,140,0,0.15);border:1px solid rgba(255,180,60,0.3);color:#ffd700;">All Formats</span></div></div>
+      <div class="service-card p-8 reveal group"><div class="service-icon-wrap" style="background:rgba(6,182,212,0.15);border:1.5px solid rgba(6,182,212,0.3)"><i class="fas fa-address-card text-2xl text-cyan-400"></i></div><h3 class="font-display font-bold text-xl text-amber-100 mb-3">Visiting Cards</h3><p class="leading-relaxed text-sm" style="color:rgba(255,200,130,0.7);">Professional business cards designed to make a lasting impression. Design + printing available.</p><div class="mt-5 flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(6,182,212,0.12);border:1px solid rgba(6,182,212,0.3);color:#67e8f9;">Design</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(6,182,212,0.12);border:1px solid rgba(6,182,212,0.3);color:#67e8f9;">Printing</span></div></div>
+      <div class="service-card p-8 reveal group"><div class="service-icon-wrap" style="background:rgba(236,72,153,0.15);border:1.5px solid rgba(236,72,153,0.3)"><i class="fas fa-heart text-2xl text-pink-400"></i></div><h3 class="font-display font-bold text-xl text-amber-100 mb-3">Thank You Cards</h3><p class="leading-relaxed text-sm" style="color:rgba(255,200,130,0.7);">Elegant thank you card designs for weddings, events, and businesses. Custom design & printing.</p><div class="mt-5 flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(236,72,153,0.12);border:1px solid rgba(236,72,153,0.3);color:#f9a8d4;">Design</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(236,72,153,0.12);border:1px solid rgba(236,72,153,0.3);color:#f9a8d4;">Printing</span></div></div>
+      <div class="service-card p-8 reveal group"><div class="service-icon-wrap" style="background:rgba(255,140,0,0.18);border:1.5px solid rgba(255,180,0,0.3)"><i class="fas fa-print text-2xl text-amber-400"></i></div><h3 class="font-display font-bold text-xl text-amber-100 mb-3">Printing Work</h3><p class="leading-relaxed text-sm" style="color:rgba(255,200,130,0.7);">High-quality print materials – flyers, banners, posters, brochures, stickers and more.</p><div class="mt-5 flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(255,140,0,0.15);border:1px solid rgba(255,180,60,0.3);color:#fbbf24;">Banners</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(255,140,0,0.15);border:1px solid rgba(255,180,60,0.3);color:#fbbf24;">Flyers</span></div></div>
+      <div class="service-card p-8 reveal group"><div class="service-icon-wrap" style="background:rgba(139,92,246,0.15);border:1.5px solid rgba(139,92,246,0.3)"><i class="fas fa-code text-2xl text-violet-400"></i></div><h3 class="font-display font-bold text-xl text-amber-100 mb-3">Web Design</h3><p class="leading-relaxed text-sm" style="color:rgba(255,200,130,0.7);">Modern, responsive websites built to convert. Portfolio sites, business sites, landing pages.</p><div class="mt-5 flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);color:#c4b5fd;">Responsive</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);color:#c4b5fd;">Modern</span></div></div>
+      <div class="service-card p-8 reveal group"><div class="service-icon-wrap" style="background:rgba(16,185,129,0.15);border:1.5px solid rgba(16,185,129,0.3)"><i class="fas fa-share-alt text-2xl text-emerald-400"></i></div><h3 class="font-display font-bold text-xl text-amber-100 mb-3">Social Media Design</h3><p class="leading-relaxed text-sm" style="color:rgba(255,200,130,0.7);">Eye-catching posts, stories, covers and profile photos for your social media presence.</p><div class="mt-5 flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);color:#6ee7b7;">Posts</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);color:#6ee7b7;">Stories</span></div></div>
+      <div class="service-card p-8 reveal group"><div class="service-icon-wrap" style="background:rgba(255,60,80,0.15);border:1.5px solid rgba(255,80,80,0.3)"><i class="fas fa-tag text-2xl text-rose-400"></i></div><h3 class="font-display font-bold text-xl text-amber-100 mb-3">Key Tags</h3><p class="leading-relaxed text-sm" style="color:rgba(255,200,130,0.7);">Custom printed and engraved key tags for personal or corporate branding.</p><div class="mt-5 flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.3);color:#fda4af;">Branding</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.3);color:#fda4af;">Custom</span></div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===============================================================
+     CONTACT SECTION
+     =============================================================== -->
+<section id="contact" class="relative py-24 z-10" style="background:linear-gradient(160deg,#0d0200,#180500,#0d0200);">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 reveal">
+      <div class="section-label"><i class="fas fa-envelope"></i> Get in Touch</div>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 gold-text">Contact Us</h2>
+      <p class="font-medium" style="color:rgba(255,200,130,0.7);">Have a project in mind? Let's create something amazing together.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="space-y-5 reveal">
+        <div class="contact-card p-6">
+          <h3 class="font-display font-bold text-amber-100 text-xl mb-5">Reach Out 🌸</h3>
+          <div class="space-y-3">
+            <a href="https://wa.me/94716125715" target="_blank" class="contact-link" style="background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.2);">
+              <div class="contact-link-icon bg-green-500 text-white"><i class="fab fa-whatsapp"></i></div>
+              <div><div class="font-bold text-amber-100">WhatsApp</div><div class="text-sm" style="color:rgba(255,200,130,0.6);">+94 71 612 5715</div></div>
+              <i class="fas fa-arrow-right text-green-500 ml-auto text-sm"></i>
+            </a>
+            <a href="https://web.facebook.com/pixelbymaliya" target="_blank" class="contact-link" style="background:rgba(59,130,246,0.08);border-color:rgba(59,130,246,0.2);">
+              <div class="contact-link-icon bg-blue-600 text-white"><i class="fab fa-facebook"></i></div>
+              <div><div class="font-bold text-amber-100">Facebook</div><div class="text-sm" style="color:rgba(255,200,130,0.6);">PixelByMaliya</div></div>
+              <i class="fas fa-arrow-right text-blue-400 ml-auto text-sm"></i>
+            </a>
+            <a href="mailto:pixelbymaliya@gmail.com" class="contact-link" style="background:rgba(239,68,68,0.08);border-color:rgba(239,68,68,0.2);">
+              <div class="contact-link-icon bg-red-500 text-white"><i class="fas fa-envelope"></i></div>
+              <div><div class="font-bold text-amber-100">Email</div><div class="text-sm" style="color:rgba(255,200,130,0.6);">pixelbymaliya@gmail.com</div></div>
+              <i class="fas fa-arrow-right text-red-400 ml-auto text-sm"></i>
+            </a>
+          </div>
+        </div>
+        <div class="p-6 rounded-2xl" style="background:linear-gradient(135deg,rgba(255,100,0,0.1),rgba(255,180,0,0.06));border:1.5px solid rgba(255,160,40,0.2);">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:rgba(255,140,0,0.18);"><i class="fas fa-clock text-amber-400 text-sm"></i></div>
+            <span class="font-bold text-amber-100">Fast Response</span>
+          </div>
+          <p class="text-sm font-medium leading-relaxed" style="color:rgba(255,200,130,0.65);">We respond within 24 hours. For urgent projects, WhatsApp is the fastest way!</p>
+        </div>
+      </div>
+      <div class="contact-card p-6 reveal">
+        <h3 class="font-display font-bold text-amber-100 text-xl mb-6">Send a Message 🌺</h3>
+        <form id="contactForm" class="space-y-4" onsubmit="sendWhatsAppMessage(event)">
+          <div><label class="block text-sm font-bold mb-2" style="color:rgba(255,200,130,0.8);">Your Name</label><input type="text" id="contactName" required placeholder="e.g. Saman Perera" class="form-input"/></div>
+          <div><label class="block text-sm font-bold mb-2" style="color:rgba(255,200,130,0.8);">Service Needed</label>
+            <select id="contactService" class="form-input">
+              <option value="Logo Design">Logo Design</option><option value="Visiting Cards">Visiting Cards</option>
+              <option value="Thank You Cards">Thank You Cards</option><option value="Printing Work">Printing Work</option>
+              <option value="Social Media Designs">Social Media Designs</option><option value="Banners">Banners</option>
+              <option value="T-Shirts">T-Shirts</option><option value="Key Tags">Key Tags</option>
+              <option value="Web Design">Web Design</option><option value="Other">Other</option>
+            </select>
+          </div>
+          <div><label class="block text-sm font-bold mb-2" style="color:rgba(255,200,130,0.8);">Message</label><textarea id="contactMessage" rows="4" required placeholder="Tell us about your project..." class="form-input resize-none"></textarea></div>
+          <button type="submit" class="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold text-white transition-all hover:-translate-y-0.5" style="background:linear-gradient(135deg,#22c55e,#16a34a);box-shadow:0 4px 16px rgba(34,197,94,0.3);">
+            <i class="fab fa-whatsapp text-lg"></i> Send via WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===============================================================
+     FOOTER
+     =============================================================== -->
+<footer class="relative py-12 z-10">
+  <div style="position:absolute;top:0;left:0;right:0;overflow:hidden;line-height:0;transform:rotate(180deg);">
+    <svg viewBox="0 0 1440 36" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:36px;width:100%;display:block;">
+      <path d="M0,18 C360,36 720,0 1080,18 C1260,27 1380,9 1440,18 L1440,36 L0,36 Z" fill="rgba(255,100,0,0.06)"/>
+    </svg>
+  </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="38" height="38">
+          <defs><radialGradient id="fb" cx="40%" cy="35%" r="65%"><stop offset="0%" stop-color="#d0d8e0"/><stop offset="100%" stop-color="#8a9aaa"/></radialGradient></defs>
+          <circle cx="32" cy="32" r="31" fill="url(#fb)" stroke="#b0bcc8" stroke-width=".5"/>
+          <ellipse cx="32" cy="32" rx="19" ry="10" transform="rotate(-35 32 32)" fill="none" stroke="#ff8c00" stroke-width="3" stroke-dasharray="3.2 3.5" stroke-linecap="round" opacity=".95"/>
+          <ellipse cx="32" cy="32" rx="19" ry="10" transform="rotate(35 32 32)" fill="none" stroke="#ffd700" stroke-width="3" stroke-dasharray="3.2 3.5" stroke-linecap="round" opacity=".95"/>
+          <ellipse cx="32" cy="32" rx="19" ry="10" transform="rotate(90 32 32)" fill="none" stroke="#ff4500" stroke-width="3" stroke-dasharray="3.2 3.5" stroke-linecap="round" opacity=".95"/>
+          <circle cx="32" cy="32" r="9" fill="url(#fb)" opacity=".92"/>
+          <text x="32" y="37" font-family="Arial Black,Arial,sans-serif" font-size="14" font-weight="900" fill="#ff8c00" text-anchor="middle">M</text>
+        </svg>
+        <div><span class="font-display font-bold text-amber-100 text-lg">Pixel by </span><span class="font-display font-bold text-lg gold-text">Maliya</span></div>
+      </div>
+      <div class="flex items-center gap-5">
+        <a href="#hero" class="text-sm font-bold transition-colors" style="color:rgba(255,180,80,0.6);" onmouseover="this.style.color='#ffd700'" onmouseout="this.style.color='rgba(255,180,80,0.6)'">Home</a>
+        <a href="#portfolio" class="text-sm font-bold transition-colors" style="color:rgba(255,180,80,0.6);" onmouseover="this.style.color='#ffd700'" onmouseout="this.style.color='rgba(255,180,80,0.6)'">Portfolio</a>
+        <a href="#services" class="text-sm font-bold transition-colors" style="color:rgba(255,180,80,0.6);" onmouseover="this.style.color='#ffd700'" onmouseout="this.style.color='rgba(255,180,80,0.6)'">Services</a>
+        <a href="#contact" class="text-sm font-bold transition-colors" style="color:rgba(255,180,80,0.6);" onmouseover="this.style.color='#ffd700'" onmouseout="this.style.color='rgba(255,180,80,0.6)'">Contact</a>
+      </div>
+      <div class="flex flex-col items-center gap-3">
+        <div class="flex gap-2">
+          <a href="https://wa.me/94716125715" target="_blank" class="w-10 h-10 rounded-xl flex items-center justify-center transition-all hover:-translate-y-1" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,160,40,0.15);color:rgba(255,180,60,0.5);" onmouseover="this.style.color='#4ade80'" onmouseout="this.style.color='rgba(255,180,60,0.5)'"><i class="fab fa-whatsapp text-lg"></i></a>
+          <a href="https://web.facebook.com/pixelbymaliya" target="_blank" class="w-10 h-10 rounded-xl flex items-center justify-center transition-all hover:-translate-y-1" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,160,40,0.15);color:rgba(255,180,60,0.5);" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='rgba(255,180,60,0.5)'"><i class="fab fa-facebook text-lg"></i></a>
+        </div>
+        <p class="text-xs text-center" style="color:rgba(255,160,60,0.35);">© 2026 PixelByMaliya. Crafted with <i class="fas fa-heart text-red-500 mx-0.5"></i> in Sri Lanka.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/94716125715" target="_blank" title="WhatsApp"
+  class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-2xl flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
+  style="background:linear-gradient(135deg,#25d366,#128c7e);box-shadow:0 4px 20px rgba(37,211,102,0.4);">
+  <i class="fab fa-whatsapp text-2xl"></i>
+</a>
+
+<!-- Floating Koha Bird Button -->
+<button id="kohaBtn" onclick="playKohaSound()" title="කොහා ගාන්න 🐦" 
+  style="position:fixed;bottom:90px;right:6px;z-index:50;width:56px;height:56px;border-radius:20px;background:linear-gradient(135deg,#2d5a27,#4a8a3e);box-shadow:0 4px 20px rgba(45,90,39,0.5);border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;transition:all .3s;"
+  onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 8px 30px rgba(60,140,50,0.65)';"
+  onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(45,90,39,0.5)';">
+  <span style="font-size:26px;line-height:1;">🐦</span>
+  <span style="font-size:8px;color:#c8f0c0;font-weight:800;font-family:'Nunito',sans-serif;letter-spacing:0.02em;">KOHA</span>
+</button>
+
+<!-- Lightbox -->
+<div id="lightbox" class="fixed inset-0 z-[200] hidden items-center justify-center p-4" style="background:rgba(0,0,0,0.88);backdrop-filter:blur(8px);" onclick="closeLightbox(event)">
+  <button onclick="closeLightbox()" class="absolute top-4 right-4 w-10 h-10 rounded-xl flex items-center justify-center text-amber-300 transition-all" style="background:rgba(255,140,0,0.15);border:1.5px solid rgba(255,180,60,0.25);"><i class="fas fa-times"></i></button>
+  <button onclick="lightboxPrev()" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl flex items-center justify-center text-amber-300 transition-all" style="background:rgba(255,140,0,0.15);border:1.5px solid rgba(255,180,60,0.25);"><i class="fas fa-chevron-left"></i></button>
+  <img id="lightboxImg" src="" alt="" class="max-w-full max-h-[90vh] rounded-2xl shadow-2xl object-contain"/>
+  <button onclick="lightboxNext()" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl flex items-center justify-center text-amber-300 transition-all" style="background:rgba(255,140,0,0.15);border:1.5px solid rgba(255,180,60,0.25);"><i class="fas fa-chevron-right"></i></button>
+</div>
+
+<!-- Admin overlay -->
+<div id="adminOverlay" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+  <div class="w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl rounded-3xl" style="background:#1a0500;border:1.5px solid rgba(255,160,40,0.25);">
+    <div class="flex items-center justify-between p-6" style="border-bottom:1px solid rgba(255,160,40,0.15);">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,#ff8c00,#ffd700)"><i class="fas fa-cog text-amber-900"></i></div>
+        <div><h3 class="font-display font-bold text-amber-100 text-lg">Admin Panel</h3><p class="text-xs" style="color:rgba(255,180,80,0.5);">Manage portfolio projects</p></div>
+      </div>
+      <button onclick="closeAdminPanel()" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all" style="background:rgba(255,100,0,0.1);color:rgba(255,180,80,0.7);"><i class="fas fa-times"></i></button>
+    </div>
+    <div id="adminLoginSection" class="p-6">
+      <h4 class="font-semibold text-amber-100 mb-4">Enter Admin Password</h4>
+      <div class="flex gap-3">
+        <input type="password" id="adminPasswordInput" placeholder="Password" class="form-input flex-1" onkeydown="if(event.key==='Enter')checkAdminPassword()"/>
+        <button onclick="checkAdminPassword()" class="px-6 py-3 rounded-xl font-bold transition-all" style="background:linear-gradient(135deg,#ff8c00,#ffd700);color:#1a0500;">Login</button>
+      </div>
+      <p id="adminLoginError" class="text-red-400 text-sm mt-2 hidden">Incorrect password.</p>
+    </div>
+    <div id="adminContent" class="hidden p-6 space-y-6">
+      <!-- content from original app.js -->
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+
+<script>
+// ================================================================
+//  AVURUDDA LOGIC
+// ================================================================
+(function(){
+  const HIDE_AFTER = new Date('2026-04-17T23:59:59');
+  const NEW_YEAR   = new Date('2026-04-13T06:17:00');
+  const ov  = document.getElementById('avuruddaOverlay');
+  const ban = document.getElementById('avuruddaBanner');
+  if(!ov) return;
+  if(new Date() > HIDE_AFTER){ ov.classList.add('av-hidden'); if(ban) ban.style.display='none'; return; }
+  if(sessionStorage.getItem('av_ok')) ov.classList.add('av-hidden');
+
+  // countdown
+  function tick(){
+    const diff=NEW_YEAR-new Date();
+    if(diff<=0){ document.getElementById('avCountdown').style.display='none'; document.getElementById('avPassed').style.display='block'; return; }
+    const pad=n=>String(Math.floor(n)).padStart(2,'0');
+    document.getElementById('cdDays').textContent=pad(diff/86400000);
+    document.getElementById('cdHours').textContent=pad((diff%86400000)/3600000);
+    document.getElementById('cdMins').textContent=pad((diff%3600000)/60000);
+    document.getElementById('cdSecs').textContent=pad((diff%60000)/1000);
+  }
+  tick(); setInterval(tick,1000);
+
+  // petals
+  const syms=['🌸','🌺','🌼','✿','❀','🌷','🍀'];
+  for(let i=0;i<22;i++){
+    const p=document.createElement('div'); p.className='av-petal';
+    p.textContent=syms[i%syms.length];
+    p.style.cssText='left:'+Math.random()*100+'vw;top:'+-(Math.random()*80)+'px;animation-duration:'+(5+Math.random()*8)+'s;animation-delay:'+(Math.random()*6)+'s;font-size:'+(13+Math.random()*16)+'px;';
+    ov.appendChild(p);
+  }
+
+  // rising fire particles
+  const fw=document.getElementById('avFlameWrap');
+  const fe=['🔥','✨','⭐','🌟','🪷'];
+  setInterval(()=>{
+    const f=document.createElement('div');
+    f.style.cssText='position:absolute;left:'+Math.random()*100+'vw;bottom:-40px;font-size:'+(13+Math.random()*18)+'px;pointer-events:none;animation:avRise '+(3+Math.random()*4)+'s linear forwards;opacity:.75;';
+    f.textContent=fe[Math.floor(Math.random()*fe.length)];
+    fw.appendChild(f); setTimeout(()=>f.remove(),7000);
+  },320);
+  const sk=document.createElement('style');
+  sk.textContent='@keyframes avRise{0%{transform:translateY(0) rotate(0);opacity:.85}100%{transform:translateY(-110vh) rotate(-540deg);opacity:0}}';
+  document.head.appendChild(sk);
+
+  // star canvas
+  const sc=document.getElementById('avStarCanvas');
+  const cx=sc.getContext('2d');
+  let stars=[];
+  function rzStar(){sc.width=window.innerWidth;sc.height=window.innerHeight;}
+  rzStar(); window.addEventListener('resize',rzStar);
+  for(let i=0;i<110;i++) stars.push({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,r:Math.random()*1.4+.3,a:Math.random(),da:(Math.random()*.007+.002)*(Math.random()>.5?1:-1),c:Math.random()>.5?'255,215,0':'255,140,0'});
+  (function drawS(){cx.clearRect(0,0,sc.width,sc.height);stars.forEach(s=>{s.a=Math.max(.05,Math.min(1,s.a+s.da));if(s.a<=.05||s.a>=1)s.da*=-1;cx.beginPath();cx.arc(s.x,s.y,s.r,0,Math.PI*2);cx.fillStyle='rgba('+s.c+','+s.a+')';cx.fill();});requestAnimationFrame(drawS);})();
+})();
+
+function avClose(){
+  document.getElementById('avuruddaOverlay').classList.add('av-hidden');
+  sessionStorage.setItem('av_ok','1');
+}
+
+// ================================================================
+//  KOHA BIRD SOUND
+// ================================================================
+function playKohaSound(){
+  try{
+    const ctx=new(window.AudioContext||window.webkitAudioContext)();
+    // Koha (Asian Koel) call: ascending 'ko-ha' pattern
+    function koNote(freq,start,dur,vol){
+      const osc=ctx.createOscillator();
+      const gain=ctx.createGain();
+      const vib=ctx.createOscillator();
+      const vibGain=ctx.createGain();
+      vib.frequency.value=5; vibGain.gain.value=8;
+      vib.connect(vibGain); vibGain.connect(osc.frequency);
+      osc.connect(gain); gain.connect(ctx.destination);
+      osc.type='sine';
+      osc.frequency.setValueAtTime(freq,ctx.currentTime+start);
+      osc.frequency.linearRampToValueAtTime(freq*1.08,ctx.currentTime+start+dur*0.7);
+      gain.gain.setValueAtTime(0,ctx.currentTime+start);
+      gain.gain.linearRampToValueAtTime(vol,ctx.currentTime+start+0.06);
+      gain.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+start+dur);
+      vib.start(ctx.currentTime+start); vib.stop(ctx.currentTime+start+dur);
+      osc.start(ctx.currentTime+start); osc.stop(ctx.currentTime+start+dur+0.05);
+    }
+    // Ascending koha calls — classical koel bird sound
+    const calls=[[600,0,0.45,0.22],[720,0.5,0.45,0.24],[860,1.0,0.45,0.26],[1020,1.5,0.5,0.28],[1200,2.05,0.55,0.3],[1400,2.65,0.6,0.28],[1620,3.3,0.65,0.25],[1850,4.0,0.7,0.22]];
+    calls.forEach(([f,s,d,v])=>koNote(f,s,d,v));
+    // Show koha visual feedback
+    const kbtn=document.getElementById('kohaBtn');
+    if(kbtn){kbtn.style.transform='scale(1.25)';kbtn.style.boxShadow='0 0 24px rgba(80,200,70,0.8)';setTimeout(()=>{kbtn.style.transform='scale(1)';kbtn.style.boxShadow='0 4px 20px rgba(45,90,39,0.5)';},700);}
+  }catch(e){console.log('Koha sound error:',e);}
+}
+
+// ================================================================
+//  PAGE LOAD SOUND  (koha plays when overlay closes)
+// ================================================================
+function playEnterSound(){
+  playKohaSound();
+}
+
+// Play koha on first page load interaction
+let soundPlayed=false;
+document.addEventListener('click',function playOnce(){
+  if(!soundPlayed){ soundPlayed=true; setTimeout(playKohaSound,400); }
+  document.removeEventListener('click',playOnce);
+},{once:true});
+
+// Also try on overlay close
+const origAvClose = avClose;
+window.avClose = function(){
+  origAvClose();
+  setTimeout(playKohaSound,300);
+};
+
+// ================================================================
+//  CLICK BURST (firework / petal on every click)
+// ================================================================
+(function(){
+  const emojis=['🌸','🌺','🎊','✨','🌟','💥','🪷','🌼','🔥'];
+  document.addEventListener('click',function(e){
+    for(let i=0;i<5;i++){
+      const b=document.createElement('div'); b.className='click-burst';
+      b.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+      b.style.left=(e.clientX+Math.random()*40-20)+'px';
+      b.style.top=(e.clientY+Math.random()*40-20)+'px';
+      b.style.fontSize=(18+Math.random()*14)+'px';
+      document.body.appendChild(b);
+      setTimeout(()=>b.remove(),750);
+    }
+    // click sound (soft bell tick)
+    try{
+      const ctx=new(window.AudioContext||window.webkitAudioContext)();
+      const osc=ctx.createOscillator(); const g=ctx.createGain();
+      osc.connect(g); g.connect(ctx.destination);
+      osc.frequency.value=880+Math.random()*440; osc.type='sine';
+      g.gain.setValueAtTime(0.12,ctx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+0.25);
+      osc.start(); osc.stop(ctx.currentTime+0.28);
+    }catch(e){}
+  });
+})();
+
+// ================================================================
+//  NAVBAR SCROLL
+// ================================================================
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>40));
+
+// ================================================================
+//  MOBILE MENU
+// ================================================================
+const mmbtn=document.getElementById('mobileMenuBtn');
+const mmenu=document.getElementById('mobileMenu');
+mmbtn.addEventListener('click',()=>mmenu.classList.toggle('hidden'));
+document.querySelectorAll('.mobile-nav-link,#mobileMenu a').forEach(l=>l.addEventListener('click',()=>mmenu.classList.add('hidden')));
+
+// ================================================================
+//  REVEAL ON SCROLL
+// ================================================================
+const ro=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);ro.unobserve(e.target);}});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+// ================================================================
+//  CAT FILTER SPOTLIGHT
+// ================================================================
+document.querySelectorAll('.cat-filter').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{const r=btn.getBoundingClientRect();btn.style.setProperty('--x',e.clientX-r.left+'px');btn.style.setProperty('--y',e.clientY-r.top+'px');});
+});
+
+// ================================================================
+//  LIGHTBOX
+// ================================================================
+let lightboxImages=[],lightboxIdx=0;
+function openLightbox(src,images,idx){
+  lightboxImages=images||[src]; lightboxIdx=idx||0;
+  document.getElementById('lightboxImg').src=lightboxImages[lightboxIdx];
+  document.getElementById('lightbox').classList.remove('hidden');
+  document.getElementById('lightbox').classList.add('flex');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(e){
+  if(!e||e.target===document.getElementById('lightbox')||e.currentTarget.tagName==='BUTTON'){
+    document.getElementById('lightbox').classList.add('hidden');
+    document.getElementById('lightbox').classList.remove('flex');
+    document.body.style.overflow='';
+  }
+}
+function lightboxPrev(){lightboxIdx=(lightboxIdx-1+lightboxImages.length)%lightboxImages.length;document.getElementById('lightboxImg').src=lightboxImages[lightboxIdx];}
+function lightboxNext(){lightboxIdx=(lightboxIdx+1)%lightboxImages.length;document.getElementById('lightboxImg').src=lightboxImages[lightboxIdx];}
+
+// ================================================================
+//  PARTICLE CANVAS (fire-coloured)
+// ================================================================
+(function(){
+  const canvas=document.getElementById('particleCanvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  let particles=[];
+  function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
+  resize(); window.addEventListener('resize',resize);
+  const cols=['255,140,0','255,69,0','255,215,0','220,60,0'];
+  for(let i=0;i<60;i++) particles.push({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,size:Math.random()*1.5+.4,opacity:Math.random()*.35+.05,color:cols[Math.floor(Math.random()*cols.length)]});
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particles.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0||p.x>canvas.width)p.vx*=-1;
+      if(p.y<0||p.y>canvas.height)p.vy*=-1;
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+      ctx.fillStyle='rgba('+p.color+','+p.opacity+')'; ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ================================================================
+//  CURSOR TRAIL (gold/fire)
+// ================================================================
+(function(){
+  const canvas=document.getElementById('cursorAnimCanvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  canvas.width=window.innerWidth; canvas.height=window.innerHeight;
+  window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;});
+  let trail=[];
+  document.addEventListener('mousemove',e=>{trail.push({x:e.clientX,y:e.clientY,age:0});if(trail.length>20)trail.shift();});
+  const tcols=['#ffd700','#ff8c00','#ff4500','#ffec80'];
+  function drawT(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    trail.forEach((pt,i)=>{
+      pt.age++;
+      const alpha=Math.max(0,.55-pt.age*.05)*(i/trail.length);
+      const size=Math.max(0,3.5-pt.age*.12)*(i/trail.length);
+      ctx.beginPath(); ctx.arc(pt.x,pt.y,size,0,Math.PI*2);
+      ctx.fillStyle=tcols[i%tcols.length]+Math.floor(alpha*255).toString(16).padStart(2,'0');
+      ctx.fill();
+    });
+    trail=trail.filter(p=>p.age<12);
+    requestAnimationFrame(drawT);
+  }
+  drawT();
+})();
+
+// ================================================================
+//  CAROUSEL
+// ================================================================
+(function(){
+  const track=document.getElementById('heroCarouselTrack');
+  const slides=document.querySelectorAll('.hero-slide');
+  const dotsW=document.getElementById('carouselDots');
+  const prev=document.getElementById('carouselPrev');
+  const next=document.getElementById('carouselNext');
+  if(!track||!slides.length)return;
+  const total=slides.length; let cur=0, timer=null;
+  slides.forEach((_,i)=>{const d=document.createElement('button');d.className='carousel-dot'+(i===0?' active':'');d.addEventListener('click',()=>goTo(i,true));dotsW.appendChild(d);});
+  function getDots(){return dotsW.querySelectorAll('.carousel-dot');}
+  function goTo(i,rst){cur=(i+total)%total;track.style.transform='translateX(-'+(cur*100)+'%)';getDots().forEach((d,j)=>d.classList.toggle('active',j===cur));if(rst)startAuto();}
+  function startAuto(){clearInterval(timer);timer=setInterval(()=>goTo(cur+1,false),3200);}
+  prev.addEventListener('click',()=>goTo(cur-1,true));
+  next.addEventListener('click',()=>goTo(cur+1,true));
+  let sx=0;
+  track.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;},{passive:true});
+  track.addEventListener('touchend',e=>{const d=sx-e.changedTouches[0].clientX;if(Math.abs(d)>40)goTo(d>0?cur+1:cur-1,true);});
+  document.getElementById('heroCarouselOuter').addEventListener('mouseenter',()=>clearInterval(timer));
+  document.getElementById('heroCarouselOuter').addEventListener('mouseleave',startAuto);
+  startAuto();
+})();
+
+// ================================================================
+//  AVURUDDA IMAGE CAROUSEL
+// ================================================================
+(function(){
+  const track=document.getElementById('avImgTrack');
+  const dotsW=document.getElementById('avImgDots');
+  if(!track||!dotsW)return;
+  const slides=track.querySelectorAll('.av-img-slide');
+  const total=slides.length;
+  window.avImgCur=0;
+  // Build dots
+  for(let i=0;i<total;i++){
+    const d=document.createElement('button');
+    d.style.cssText='width:'+(i===0?'24px':'8px')+';height:8px;border-radius:99px;border:none;cursor:pointer;transition:all .4s;background:'+(i===0?'linear-gradient(90deg,#ff8c00,#ffd700)':'rgba(255,180,60,0.3)')+';padding:0;';
+    d.setAttribute('onclick','avImgGo('+i+')');
+    dotsW.appendChild(d);
+  }
+  function updateDots(cur){
+    dotsW.querySelectorAll('button').forEach((d,j)=>{
+      d.style.width=j===cur?'24px':'8px';
+      d.style.background=j===cur?'linear-gradient(90deg,#ff8c00,#ffd700)':'rgba(255,180,60,0.3)';
+    });
+  }
+  window.avImgGo=function(i){
+    window.avImgCur=(i+total)%total;
+    track.style.transform='translateX(-'+(window.avImgCur*100)+'%)';
+    updateDots(window.avImgCur);
+  };
+  // Auto slide every 4.5s
+  let avImgTimer=setInterval(()=>window.avImgGo(window.avImgCur+1),4500);
+  // Pause on hover
+  const outer=document.getElementById('avuruddaImgCarousel');
+  if(outer){
+    outer.addEventListener('mouseenter',()=>clearInterval(avImgTimer));
+    outer.addEventListener('mouseleave',()=>{avImgTimer=setInterval(()=>window.avImgGo(window.avImgCur+1),4500);});
+  }
+  // Touch support
+  let ts=0;
+  track.addEventListener('touchstart',e=>{ts=e.touches[0].clientX;},{passive:true});
+  track.addEventListener('touchend',e=>{const d=ts-e.changedTouches[0].clientX;if(Math.abs(d)>40)window.avImgGo(d>0?window.avImgCur+1:window.avImgCur-1);});
+})();
+</script>
+</body>
+</html>
