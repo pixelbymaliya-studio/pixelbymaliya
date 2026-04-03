@@ -125,6 +125,15 @@ function filterCategory(cat) {
 /* ==================== RENDER PORTFOLIO ==================== */
 async function renderPortfolio() {
     try {
+        const grid = currentMainTab === 'graphic' ? document.getElementById('graphicGrid') : document.getElementById('webGrid');
+        if (grid) {
+            grid.innerHTML = `
+            <div class="col-span-full flex flex-col items-center justify-center py-20 text-brand-400">
+                <i class="fas fa-circle-notch fa-spin text-4xl mb-4"></i>
+                <p class="text-sm font-medium animate-pulse">Loading stunning portfolio...</p>
+            </div>`;
+        }
+
         if (typeof DB === 'undefined' || !DB) {
             // DB not loaded yet — show empty state silently
             renderGraphicGrid([]);
@@ -207,7 +216,7 @@ function createGraphicCard(project) {
     <div class="portfolio-card group relative rounded-2xl overflow-hidden bg-dark-700/60 border border-white/10 hover:border-brand-500/40 shadow-lg cursor-pointer"
          onclick="openLightbox('${project.id}')">
         <div class="overflow-hidden aspect-[4/3]">
-            <img src="${escapeHtml(project.image)}" 
+            <img src="${project.image || ''}" 
                  alt="${escapeHtml(project.title)}" 
                  loading="lazy"
                  class="w-full h-full object-cover"
@@ -233,7 +242,7 @@ function createWebCard(project) {
     <div class="portfolio-card group rounded-2xl overflow-hidden bg-dark-700/60 border border-white/10 hover:border-purple-500/40 shadow-lg">
         <div class="overflow-hidden aspect-video cursor-pointer" 
              onclick="openLightbox('${project.id}')">
-            <img src="${escapeHtml(project.image)}" 
+            <img src="${project.image || ''}" 
                  alt="${escapeHtml(project.title)}" 
                  loading="lazy"
                  class="w-full h-full object-cover"
@@ -441,17 +450,41 @@ function previewImage(event) {
     const file = event.target.files[0];
     if (!file) return;
 
-    if (file.size > 10 * 1024 * 1024) {
-        showToast('Image is too large! Max 10MB.', 'error');
+    if (file.size > 20 * 1024 * 1024) {
+        showToast('Image is too large! Max 20MB.', 'error');
         return;
     }
 
     const reader = new FileReader();
     reader.onload = function (e) {
-        uploadedImageData = e.target.result;
-        document.getElementById('imagePreview').src = uploadedImageData;
-        document.getElementById('imagePreviewContainer').classList.remove('hidden');
-        document.getElementById('imageDropZone').classList.add('hidden');
+        const img = new Image();
+        img.onload = function() {
+            const canvas = document.createElement('canvas');
+            let width = img.width;
+            let height = img.height;
+            const MAX_SIZE = 800; // Optimize heavily for speed
+            if (width > height) {
+                if (width > MAX_SIZE) {
+                    height *= MAX_SIZE / width;
+                    width = MAX_SIZE;
+                }
+            } else {
+                if (height > MAX_SIZE) {
+                    width *= MAX_SIZE / height;
+                    height = MAX_SIZE;
+                }
+            }
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+            
+            uploadedImageData = canvas.toDataURL('image/webp', 0.65); // WebP ensures blazing fast loading
+            document.getElementById('imagePreview').src = uploadedImageData;
+            document.getElementById('imagePreviewContainer').classList.remove('hidden');
+            document.getElementById('imageDropZone').classList.add('hidden');
+        };
+        img.src = e.target.result;
     };
     reader.readAsDataURL(file);
 }
@@ -555,7 +588,7 @@ function renderAdminProjectsList() {
 
     container.innerHTML = filtered.map(p => `
     <div class="flex items-center gap-3 p-3 rounded-xl bg-dark-900/60 border border-white/5 hover:border-white/10 transition-all group">
-        <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}" 
+        <img src="${p.image || ''}" alt="${escapeHtml(p.title)}" 
              class="w-14 h-14 object-cover rounded-lg flex-shrink-0 border border-white/10" 
              onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2256%22 height=%2256%22><rect fill=%22%231f2937%22 width=%2256%22 height=%2256%22/></svg>'" />
         <div class="flex-1 min-w-0">

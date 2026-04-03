@@ -841,10 +841,11 @@
 
 <!-- Lightbox -->
 <div id="lightbox" class="fixed inset-0 z-[200] hidden items-center justify-center p-4" style="background:rgba(0,0,0,0.88);backdrop-filter:blur(8px);" onclick="closeLightbox(event)">
-  <button onclick="closeLightbox()" class="absolute top-4 right-4 w-10 h-10 rounded-xl flex items-center justify-center text-amber-300 transition-all" style="background:rgba(255,140,0,0.15);border:1.5px solid rgba(255,180,60,0.25);"><i class="fas fa-times"></i></button>
-  <button onclick="lightboxPrev()" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl flex items-center justify-center text-amber-300 transition-all" style="background:rgba(255,140,0,0.15);border:1.5px solid rgba(255,180,60,0.25);"><i class="fas fa-chevron-left"></i></button>
-  <img id="lightboxImg" src="" alt="" class="max-w-full max-h-[90vh] rounded-2xl shadow-2xl object-contain"/>
-  <button onclick="lightboxNext()" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl flex items-center justify-center text-amber-300 transition-all" style="background:rgba(255,140,0,0.15);border:1.5px solid rgba(255,180,60,0.25);"><i class="fas fa-chevron-right"></i></button>
+  <button onclick="closeLightbox()" class="absolute top-4 right-4 w-10 h-10 rounded-xl flex items-center justify-center text-amber-300 transition-all z-10" style="background:rgba(255,140,0,0.15);border:1.5px solid rgba(255,180,60,0.25);"><i class="fas fa-times"></i></button>
+  <button id="lightboxPrev" onclick="changeLightboxImage(-1); event.stopPropagation();" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl flex items-center justify-center text-amber-300 transition-all z-10" style="background:rgba(255,140,0,0.15);border:1.5px solid rgba(255,180,60,0.25);"><i class="fas fa-chevron-left"></i></button>
+  <img id="lightboxImg" src="" alt="" class="max-w-full max-h-[90vh] rounded-2xl shadow-2xl object-contain relative z-0" onclick="event.stopPropagation();"/>
+  <button id="lightboxNext" onclick="changeLightboxImage(1); event.stopPropagation();" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl flex items-center justify-center text-amber-300 transition-all z-10" style="background:rgba(255,140,0,0.15);border:1.5px solid rgba(255,180,60,0.25);"><i class="fas fa-chevron-right"></i></button>
+  <div id="lightboxCounter" class="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-xl text-amber-300 font-medium text-sm z-10" style="background:rgba(255,140,0,0.15);border:1.5px solid rgba(255,180,60,0.25);backdrop-filter:blur(4px);"></div>
 </div>
 
 <!-- Admin overlay -->
@@ -1017,26 +1018,7 @@ document.querySelectorAll('.cat-filter').forEach(btn=>{
   btn.addEventListener('mousemove',e=>{const r=btn.getBoundingClientRect();btn.style.setProperty('--x',e.clientX-r.left+'px');btn.style.setProperty('--y',e.clientY-r.top+'px');});
 });
 
-// ================================================================
-//  LIGHTBOX
-// ================================================================
-let lightboxImages=[],lightboxIdx=0;
-function openLightbox(src,images,idx){
-  lightboxImages=images||[src]; lightboxIdx=idx||0;
-  document.getElementById('lightboxImg').src=lightboxImages[lightboxIdx];
-  document.getElementById('lightbox').classList.remove('hidden');
-  document.getElementById('lightbox').classList.add('flex');
-  document.body.style.overflow='hidden';
-}
-function closeLightbox(e){
-  if(!e||e.target===document.getElementById('lightbox')||e.currentTarget.tagName==='BUTTON'){
-    document.getElementById('lightbox').classList.add('hidden');
-    document.getElementById('lightbox').classList.remove('flex');
-    document.body.style.overflow='';
-  }
-}
-function lightboxPrev(){lightboxIdx=(lightboxIdx-1+lightboxImages.length)%lightboxImages.length;document.getElementById('lightboxImg').src=lightboxImages[lightboxIdx];}
-function lightboxNext(){lightboxIdx=(lightboxIdx+1)%lightboxImages.length;document.getElementById('lightboxImg').src=lightboxImages[lightboxIdx];}
+
 
 // ================================================================
 //  PARTICLE CANVAS (fire-coloured)
