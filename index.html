@@ -224,121 +224,12 @@
       animation:burst .7s ease-out forwards;
     }
 
-    /* ===== AVURUDDA OVERLAY ===== */
-    #avuruddaOverlay{
-      position:fixed;inset:0;z-index:99999;
-      display:flex;align-items:center;justify-content:center;
-      background:linear-gradient(160deg,#0d0200 0%,#1c0600 45%,#080100 100%);
-      overflow:hidden;transition:opacity .8s ease,visibility .8s ease;
-    }
-    #avuruddaOverlay.av-hidden{opacity:0;visibility:hidden;pointer-events:none;}
-    #avStarCanvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
-    #avFlameWrap{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
-    .av-kolam-top{position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:min(440px,96vw);pointer-events:none;opacity:.55;}
-    .av-kolam-bot{position:absolute;bottom:-8px;left:50%;transform:translateX(-50%) rotate(180deg);width:min(400px,90vw);pointer-events:none;opacity:.4;}
-    .av-lamp{position:absolute;bottom:12%;font-size:clamp(44px,8vw,76px);animation:lampGlow 2s ease-in-out infinite alternate;}
-    .av-lamp.left{left:clamp(6px,3.5vw,56px);}
-    .av-lamp.right{right:clamp(6px,3.5vw,56px);}
-    .av-petal{position:absolute;pointer-events:none;animation:petalFall linear infinite;opacity:.85;}
-    .av-card{
-      position:relative;z-index:10;text-align:center;
-      padding:clamp(26px,5.5vw,52px) clamp(20px,7vw,60px);
-      border-radius:28px;max-width:min(560px,93vw);
-      background:linear-gradient(145deg,rgba(255,130,0,0.13),rgba(255,50,0,0.07));
-      border:1.5px solid rgba(255,200,80,0.25);
-      backdrop-filter:blur(22px);
-      box-shadow:0 0 60px rgba(255,120,0,0.18),0 0 120px rgba(255,60,0,0.08);
-      animation:reveal .8s cubic-bezier(.34,1.56,.64,1) forwards;
-    }
-    .av-sun{font-size:clamp(44px,9vw,72px);display:block;animation:spin 12s linear infinite;margin-bottom:6px;}
-    .av-si{font-family:'Noto Sans Sinhala',sans-serif;font-size:clamp(24px,6vw,48px);font-weight:900;line-height:1.3;margin-bottom:6px;}
-    .av-si-sub{font-family:'Noto Sans Sinhala',sans-serif;font-size:clamp(12px,2.4vw,16px);color:rgba(255,220,150,0.85);margin-bottom:16px;font-weight:700;}
-    .av-div{width:80%;margin:0 auto 16px;height:1.5px;background:linear-gradient(90deg,transparent,rgba(255,200,80,0.5),rgba(255,100,0,0.7),rgba(255,200,80,0.5),transparent);border:none;}
-    .av-en{font-family:'Nunito',sans-serif;font-size:clamp(12px,2.2vw,15px);color:rgba(255,220,160,0.75);margin-bottom:20px;line-height:1.65;}
-    .av-countdown{display:flex;justify-content:center;gap:clamp(6px,2.5vw,14px);margin-bottom:22px;}
-    .av-cd-box{background:rgba(255,120,0,0.15);border:1.5px solid rgba(255,180,60,0.32);border-radius:12px;padding:9px 12px;min-width:58px;text-align:center;}
-    .av-cd-num{font-family:'Syne',sans-serif;font-size:clamp(20px,4.5vw,32px);font-weight:800;color:#ffd700;line-height:1;display:block;}
-    .av-cd-lbl{font-size:9px;color:rgba(255,200,120,0.6);font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:3px;}
-    .av-passed{font-family:'Syne',sans-serif;font-size:clamp(14px,3.5vw,20px);font-weight:800;color:#ffd700;margin-bottom:22px;display:none;}
-    .av-btn{
-      display:inline-flex;align-items:center;gap:8px;padding:13px 34px;border-radius:50px;
-      background:linear-gradient(135deg,#ff8c00,#ffd700);color:#1a0500;
-      font-family:'Syne',sans-serif;font-weight:900;font-size:clamp(14px,2.8vw,17px);
-      border:none;cursor:pointer;box-shadow:0 4px 24px rgba(255,140,0,0.5);
-      transition:transform .2s,box-shadow .2s;
-    }
-    .av-btn:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 8px 36px rgba(255,180,0,0.65);}
-  </style>
+      </style>
 </head>
 
 <body>
 
-<!-- ===============================================================
-     AVURUDDA FULL-SCREEN OVERLAY
-     =============================================================== -->
-<div id="avuruddaOverlay">
-  <canvas id="avStarCanvas"></canvas>
-  <div id="avFlameWrap"></div>
 
-  <!-- Kolam top -->
-  <svg class="av-kolam-top" viewBox="0 0 440 85" xmlns="http://www.w3.org/2000/svg">
-    <defs><linearGradient id="kg1" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="transparent"/><stop offset="25%" stop-color="#ffd700" stop-opacity=".7"/>
-      <stop offset="50%" stop-color="#ff8c00"/><stop offset="75%" stop-color="#ffd700" stop-opacity=".7"/>
-      <stop offset="100%" stop-color="transparent"/>
-    </linearGradient></defs>
-    <rect x="0" y="42" width="440" height="2" fill="url(#kg1)"/>
-    <circle cx="220" cy="22" r="9" fill="#ffd700" opacity=".85"/>
-    <circle cx="185" cy="33" r="5" fill="#ff8c00" opacity=".75"/><circle cx="255" cy="33" r="5" fill="#ff8c00" opacity=".75"/>
-    <circle cx="150" cy="22" r="3" fill="#ffd700" opacity=".5"/><circle cx="290" cy="22" r="3" fill="#ffd700" opacity=".5"/>
-    <path d="M175,42 Q197,12 220,42" fill="none" stroke="#ffd700" stroke-width="1.5" opacity=".65"/>
-    <path d="M220,42 Q243,12 266,42" fill="none" stroke="#ffd700" stroke-width="1.5" opacity=".65"/>
-    <path d="M130,42 Q152,20 175,42" fill="none" stroke="#ff8c00" stroke-width="1" opacity=".5"/>
-    <path d="M266,42 Q288,20 310,42" fill="none" stroke="#ff8c00" stroke-width="1" opacity=".5"/>
-    <path d="M86,42 Q108,25 130,42" fill="none" stroke="#ff6a00" stroke-width="1" opacity=".35"/>
-    <path d="M310,42 Q332,25 354,42" fill="none" stroke="#ff6a00" stroke-width="1" opacity=".35"/>
-  </svg>
-
-  <!-- Lamps -->
-  <div class="av-lamp left animate-lamp">🪔</div>
-  <div class="av-lamp right animate-lamp">🪔</div>
-
-  <!-- Centre card -->
-  <div class="av-card">
-    <span class="av-sun">🌸</span>
-    <div class="av-si si-text">සුභ අලුත් අවුරුද්දක්<br>වේවා! 🎉</div>
-    <div class="av-si-sub">சுபமான புத்தாண்டு நல்வாழ்த்துக்கள்!</div>
-    <hr class="av-div"/>
-    <div class="av-en">
-      Wishing you joy, prosperity &amp; blessings this<br>
-      <strong style="color:#ffd700;">Sinhala &amp; Tamil New Year 2026</strong><br>
-      from Pixel by Maliya 🌺
-    </div>
-    <div class="av-countdown" id="avCountdown">
-      <div class="av-cd-box"><span class="av-cd-num" id="cdDays">00</span><span class="av-cd-lbl">Days</span></div>
-      <div class="av-cd-box"><span class="av-cd-num" id="cdHours">00</span><span class="av-cd-lbl">Hours</span></div>
-      <div class="av-cd-box"><span class="av-cd-num" id="cdMins">00</span><span class="av-cd-lbl">Mins</span></div>
-      <div class="av-cd-box"><span class="av-cd-num" id="cdSecs">00</span><span class="av-cd-lbl">Secs</span></div>
-    </div>
-    <div class="av-passed" id="avPassed">🎊 අලුත් අවුරුද්ද ආවා! 🎊</div>
-    <button class="av-btn" onclick="avClose()">🌸 Enter Website &rarr;</button>
-  </div>
-
-  <!-- Kolam bottom -->
-  <svg class="av-kolam-bot" viewBox="0 0 440 85" xmlns="http://www.w3.org/2000/svg">
-    <defs><linearGradient id="kg2" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="transparent"/><stop offset="25%" stop-color="#ffd700" stop-opacity=".7"/>
-      <stop offset="50%" stop-color="#ff8c00"/><stop offset="75%" stop-color="#ffd700" stop-opacity=".7"/>
-      <stop offset="100%" stop-color="transparent"/>
-    </linearGradient></defs>
-    <rect x="0" y="42" width="440" height="2" fill="url(#kg2)"/>
-    <circle cx="220" cy="60" r="9" fill="#ffd700" opacity=".85"/>
-    <path d="M175,42 Q197,72 220,42" fill="none" stroke="#ffd700" stroke-width="1.5" opacity=".65"/>
-    <path d="M220,42 Q243,72 266,42" fill="none" stroke="#ffd700" stroke-width="1.5" opacity=".65"/>
-    <path d="M130,42 Q152,62 175,42" fill="none" stroke="#ff8c00" stroke-width="1" opacity=".5"/>
-    <path d="M266,42 Q288,62 310,42" fill="none" stroke="#ff8c00" stroke-width="1" opacity=".5"/>
-  </svg>
-</div>
 
 <!-- canvases -->
 <canvas id="particleCanvas" class="fixed inset-0 pointer-events-none" style="z-index:1;"></canvas>
@@ -421,7 +312,7 @@
     <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-bold mb-8 animate-gold-pulse"
       style="background:rgba(255,140,0,0.12);border:1.5px solid rgba(255,180,60,0.35);color:#ffd700;">
       <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-      🌸 සුභ අලුත් අවුරුද්දක් වේවා! &nbsp;Available for projects
+      Available for projects
     </div>
 
     <!-- heading -->
@@ -522,132 +413,6 @@
   <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:48px;width:100%;display:block;">
     <path d="M0,24 C360,48 720,0 1080,24 C1260,36 1380,12 1440,24 L1440,48 L0,48 Z" fill="rgba(255,100,0,0.06)"/>
   </svg>
-</div>
-
-<!-- Avurudda Banner -->
-<div id="avuruddaBanner" style="position:relative;overflow:hidden;background:linear-gradient(135deg,#1a0500,#2e0a00,#1a0500);padding:clamp(28px,5vw,52px) clamp(16px,4vw,40px);text-align:center;border-top:1.5px solid rgba(255,160,40,0.25);border-bottom:1.5px solid rgba(255,160,40,0.25);">
-  <span style="position:absolute;left:2%;top:12%;font-size:clamp(28px,5vw,50px);animation:flameDance 1.3s ease-in-out infinite alternate;filter:drop-shadow(0 0 12px #ff6a00);">🔥</span>
-  <span style="position:absolute;left:6%;bottom:10%;font-size:clamp(28px,5vw,50px);animation:lampGlow 2s ease-in-out infinite alternate;">🪔</span>
-  <span style="position:absolute;right:2%;top:12%;font-size:clamp(28px,5vw,50px);animation:flameDance 1.3s ease-in-out infinite alternate;filter:drop-shadow(0 0 12px #ff6a00);">🔥</span>
-  <span style="position:absolute;right:6%;bottom:10%;font-size:clamp(28px,5vw,50px);animation:lampGlow 2s ease-in-out infinite alternate;">🪔</span>
-  <div style="position:relative;z-index:2;">
-    <div style="font-size:clamp(22px,4.5vw,38px);margin-bottom:14px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">🌸 🌺 🎊 🌼 🎉 🌺 🌸</div>
-    <div style="font-family:'Noto Sans Sinhala',sans-serif;font-size:clamp(22px,5.5vw,44px);font-weight:900;background:linear-gradient(135deg,#ffd700,#ff6a00,#ff3c00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.3;margin-bottom:10px;">සුභ අලුත් අවුරුද්දක් වේවා!</div>
-    <div style="font-family:'Nunito',sans-serif;font-size:clamp(12px,2.2vw,16px);color:rgba(255,200,130,0.8);font-weight:700;margin-bottom:18px;">சுபமான சிங்கள தமிழ் புத்தாண்டு நல்வாழ்த்துக்கள் &nbsp;•&nbsp; Happy Sinhala &amp; Tamil New Year 2026</div>
-    <div style="font-size:clamp(18px,3.5vw,30px);margin-bottom:16px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;">🏺 🪔 🌸 🎁 🌴 🌸 🪔 🏺</div>
-    <div style="font-family:'Nunito',sans-serif;font-size:clamp(13px,2vw,15px);color:rgba(255,220,160,0.7);max-width:560px;margin:0 auto;line-height:1.75;">May this auspicious New Year bring you happiness, good health, and all the success you deserve.<br><strong style="color:#ffd700;">— Pixel by Maliya Team 🙏</strong></div>
-  </div>
-</div>
-
-<!-- ===============================================================
-     NEW YEAR IMAGE CAROUSEL
-     =============================================================== -->
-<div id="avuruddaImgCarousel" style="position:relative;overflow:hidden;width:100%;height:clamp(280px,60vw,620px);background:#0d0200;">
-  <div id="avImgTrack" style="display:flex;height:100%;transition:transform 0.9s cubic-bezier(0.77,0,0.175,1);will-change:transform;">
-    <!-- Slide 1: Real photo - Oil lamp & flowers -->
-    <div class="av-img-slide" style="flex-shrink:0;width:100%;height:100%;position:relative;overflow:hidden;">
-      <img src="avurudu_1.png" alt="Sinhala New Year 2026 - Oil Lamp & Flowers" style="width:100%;height:100%;object-fit:cover;object-position:center;" loading="eager"/>
-      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(13,2,0,0.88) 0%, rgba(13,2,0,0.35) 50%, rgba(13,2,0,0.15) 100%);pointer-events:none;"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:clamp(16px,4vw,36px);text-align:center;">
-        <div style="font-family:'Noto Sans Sinhala',sans-serif;font-size:clamp(22px,5vw,52px);font-weight:900;background:linear-gradient(135deg,#ffd700,#ff8c00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2;text-shadow:none;">සුභ අලුත් අවුරුද්දක් වේවා!</div>
-        <div style="font-size:clamp(13px,2.5vw,22px);color:rgba(255,230,180,0.95);font-weight:800;margin-top:6px;text-shadow:0 2px 8px rgba(0,0,0,0.8);">🌸 Sinhala &amp; Tamil New Year 2026 🌸</div>
-      </div>
-    </div>
-    <!-- Slide 2: Real photo - Avurudu food & sweets -->
-    <div class="av-img-slide" style="flex-shrink:0;width:100%;height:100%;position:relative;overflow:hidden;">
-      <img src="avurudu_2.png" alt="Sinhala New Year 2026 - Traditional Food" style="width:100%;height:100%;object-fit:cover;object-position:center;" loading="eager"/>
-      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,2,0,0.9) 0%, rgba(10,2,0,0.3) 55%, rgba(10,2,0,0.1) 100%);pointer-events:none;"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:clamp(16px,4vw,36px);text-align:center;">
-        <div style="font-family:'Noto Sans Sinhala',sans-serif;font-size:clamp(20px,4.5vw,48px);font-weight:900;color:#fff3e0;line-height:1.2;text-shadow:0 2px 12px rgba(0,0,0,0.9);">සුභ අලුත් අවුරුද්දක්<br>වේවා!</div>
-        <div style="font-size:clamp(13px,2.2vw,20px);color:#ffd700;font-weight:800;margin-top:8px;letter-spacing:0.05em;text-shadow:0 2px 8px rgba(0,0,0,0.8);">🪔 Pixel by Maliya wishes you joy &amp; prosperity 🪔</div>
-      </div>
-    </div>
-    <!-- Slide 3: Real photo - Traditional Sinhala lady -->
-    <div class="av-img-slide" style="flex-shrink:0;width:100%;height:100%;position:relative;overflow:hidden;">
-      <img src="C:/Users/malin/.gemini/antigravity/brain/1bf34dd0-0b25-4255-a5e8-a2061bbe7303/avurudu_lamp_traditional_1775012765192.png" alt="Sinhala New Year 2026 - Traditional Oil Lamp & Sweets" style="width:100%;height:100%;object-fit:cover;object-position:center;" loading="eager"/>
-      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(13,2,0,0.85) 0%, rgba(13,2,0,0.2) 40%, rgba(13,2,0,0.4) 100%);pointer-events:none;"></div>
-      <div style="position:absolute;top:12%;left:0;right:0;padding:clamp(20px,5vw,40px);text-align:center;">
-        <div style="font-family:'Syne',sans-serif;font-size:clamp(32px,7vw,84px);font-weight:900;background:linear-gradient(135deg,#ffd700,#ff8c00,#ff3c00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.02em;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.5));">AVURUDU 2026</div>
-        <div style="display:inline-flex;align-items:center;gap:10px;margin-top:8px;padding:6px 18px;border-radius:99px;background:rgba(255,140,0,0.15);backdrop-filter:blur(10px);border:1.5px solid rgba(255,200,80,0.3);font-size:clamp(12px,2vw,16px);color:#ffd700;font-weight:800;">
-          🌸 April 13/14 • Creative Design Studio 🌸
-        </div>
-      </div>
-    </div>
-    <!-- Slide 4: Avurudu Traditions - Kiri Ithirima -->
-    <div class="av-img-slide" style="flex-shrink:0;width:100%;height:100%;position:relative;overflow:hidden;">
-      <img src="avurudu_traditions.png" alt="Sinhala New Year 2026 - Avurudu Traditions" style="width:100%;height:100%;object-fit:cover;object-position:center;" loading="eager"/>
-      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,2,0,0.88) 0%, rgba(10,2,0,0.28) 55%, rgba(0,0,0,0.06) 100%);pointer-events:none;"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:clamp(16px,4vw,36px);text-align:center;">
-        <div style="font-family:'Noto Sans Sinhala',sans-serif;font-size:clamp(22px,5vw,48px);font-weight:900;color:#fff3e0;line-height:1.2;text-shadow:0 2px 12px rgba(0,0,0,0.9);">අවුරුදු චාරිත්‍ර 🪔</div>
-        <div style="font-size:clamp(13px,2.2vw,20px);color:#ffd700;font-weight:800;margin-top:8px;text-shadow:0 2px 8px rgba(0,0,0,0.8);">කිරි ඉතිරීම · ලිප් ගිනි මෙලවීම · ආහාර අනුභවය</div>
-      </div>
-    </div>
-    <!-- Slide 6: Avurudu Games - Kotta Pora -->
-    <div class="av-img-slide" style="flex-shrink:0;width:100%;height:100%;position:relative;overflow:hidden;">
-      <img src="avurudu_games.png" alt="Sinhala New Year 2026 - Avurudu Games" style="width:100%;height:100%;object-fit:cover;object-position:center;" loading="eager"/>
-      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(6,0,0,0.85) 0%, rgba(6,0,0,0.2) 55%, rgba(0,0,0,0.05) 100%);pointer-events:none;"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:clamp(16px,4vw,36px);text-align:center;">
-        <div style="font-family:'Noto Sans Sinhala',sans-serif;font-size:clamp(22px,5vw,48px);font-weight:900;background:linear-gradient(135deg,#ffd700,#ff8c00,#ff4500);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2;">අවුරුදු ක්‍රීඩා 🎊</div>
-        <div style="font-size:clamp(13px,2.2vw,20px);color:rgba(255,220,160,0.95);font-weight:700;margin-top:8px;text-shadow:0 2px 8px rgba(0,0,0,0.8);">කොට්ට පොර · කණා මුට්ටි · ඔන්චිලි පැදීම</div>
-      </div>
-    </div>
-    <!-- Slide 7: Real photo - Fireworks -->
-    <div class="av-img-slide" style="flex-shrink:0;width:100%;height:100%;position:relative;overflow:hidden;">
-      <img src="avurudu_5.png" alt="Sinhala New Year 2026 - Fireworks Celebration" style="width:100%;height:100%;object-fit:cover;object-position:center;" loading="eager"/>
-      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(8,2,0,0.88) 0%, rgba(8,2,0,0.25) 55%, rgba(0,0,0,0.05) 100%);pointer-events:none;"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:clamp(16px,4vw,36px);text-align:center;">
-        <div style="font-family:'Syne',sans-serif;font-size:clamp(26px,6vw,68px);font-weight:900;color:#fff3e0;text-shadow:0 2px 16px rgba(0,0,0,0.9);">Pixel by <span style="background:linear-gradient(135deg,#ffd700,#ff8c00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Maliya</span></div>
-        <div style="font-size:clamp(12px,2vw,17px);color:rgba(255,220,150,0.95);font-weight:700;margin-top:6px;text-shadow:0 2px 8px rgba(0,0,0,0.8);">Creative Design Studio 🎨 · සුභ අලුත් අවුරුද්දක් වේවා 2026!</div>
-      </div>
-    </div>
-  </div>
-  <!-- Nav dots -->
-  <div id="avImgDots" style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:10;"></div>
-  <!-- Prev/Next -->
-  <button onclick="avImgGo(window.avImgCur-1)" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:rgba(0,0,0,0.55);border:1.5px solid rgba(255,180,60,0.5);color:#ffd700;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:all .3s;" onmouseover="this.style.background='rgba(255,140,0,0.35)'" onmouseout="this.style.background='rgba(0,0,0,0.55)'">&#8249;</button>
-  <button onclick="avImgGo(window.avImgCur+1)" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:rgba(0,0,0,0.55);border:1.5px solid rgba(255,180,60,0.5);color:#ffd700;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:all .3s;" onmouseover="this.style.background='rgba(255,140,0,0.35)'" onmouseout="this.style.background='rgba(0,0,0,0.55)'">&#8250;</button>
-</div>
-
-<!-- ===============================================================
-     SPECIAL DISCOUNT BANNER
-     =============================================================== -->
-<div id="specialDiscountBanner" style="position:relative;overflow:hidden;background:linear-gradient(135deg,#1c0800,#3d1200,#1c0800);padding:clamp(32px,6vw,60px) clamp(16px,4vw,40px);text-align:center;border-top:2px solid rgba(255,215,0,0.4);border-bottom:2px solid rgba(255,215,0,0.4);">
-  <div style="position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,215,0,0.04) 50%,transparent 65%);animation:shimmer 3s ease-in-out infinite;pointer-events:none;"></div>
-  <span style="position:absolute;top:10px;left:10px;font-size:28px;opacity:0.6;color:#ffd700;">✦</span>
-  <span style="position:absolute;top:10px;right:10px;font-size:28px;opacity:0.6;color:#ffd700;">✦</span>
-  <span style="position:absolute;bottom:10px;left:10px;font-size:28px;opacity:0.6;color:#ffd700;">✦</span>
-  <span style="position:absolute;bottom:10px;right:10px;font-size:28px;opacity:0.6;color:#ffd700;">✦</span>
-  <div style="position:relative;z-index:2;max-width:700px;margin:0 auto;">
-    <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 20px;border-radius:999px;background:rgba(255,215,0,0.15);border:1.5px solid rgba(255,215,0,0.45);color:#ffd700;font-size:13px;font-weight:800;margin-bottom:18px;letter-spacing:0.08em;">🎁 LIMITED TIME OFFER &nbsp;•&nbsp; AVURUDU 2026</div>
-    <div style="font-family:'Syne',sans-serif;font-size:clamp(32px,8vw,72px);font-weight:900;background:linear-gradient(135deg,#ffd700 0%,#ff8c00 50%,#ff3c00 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:10px;">Special Discount</div>
-    <div style="font-family:'Syne',sans-serif;font-size:clamp(18px,4vw,36px);font-weight:900;color:#fff3e0;margin-bottom:14px;">Avurudu Season Special! 🎊</div>
-    <div style="font-family:'Nunito',sans-serif;font-size:clamp(13px,2.2vw,16px);color:rgba(255,220,160,0.85);line-height:1.8;margin-bottom:22px;">
-      මේ <strong style="color:#ffd700;">සිංහල අලුත් අවුරුදු සීසන් එකේ</strong> Pixel by Maliya වෙතින් ඔබේ
-      Logo, Visiting Cards, Banners, Web Design ඇතුළු
-      සියලු සේවාවන් සඳහා <strong style="color:#ff8c00;">විශේෂ වට්ටමක්</strong> ලැබේ!<br>
-      <span style="color:rgba(255,200,130,0.7);font-size:.9em;">Contact us now — Limited slots available! 🌸</span>
-    </div>
-    <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-bottom:24px;">
-      <div style="background:rgba(255,140,0,0.18);border:2px solid rgba(255,180,60,0.45);border-radius:16px;padding:12px 22px;">
-        <div style="font-family:'Syne',sans-serif;font-size:clamp(20px,4vw,36px);font-weight:900;color:#ffd700;line-height:1;">Logo</div>
-        <div style="font-size:12px;color:rgba(255,200,130,0.7);font-weight:700;margin-top:4px;">Design Package</div>
-      </div>
-      <div style="background:rgba(255,140,0,0.18);border:2px solid rgba(255,180,60,0.45);border-radius:16px;padding:12px 22px;">
-        <div style="font-family:'Syne',sans-serif;font-size:clamp(20px,4vw,36px);font-weight:900;color:#ff8c00;line-height:1;">Cards</div>
-        <div style="font-size:12px;color:rgba(255,200,130,0.7);font-weight:700;margin-top:4px;">Visiting &amp; Thank You</div>
-      </div>
-      <div style="background:rgba(255,140,0,0.18);border:2px solid rgba(255,180,60,0.45);border-radius:16px;padding:12px 22px;">
-        <div style="font-family:'Syne',sans-serif;font-size:clamp(20px,4vw,36px);font-weight:900;color:#ff4500;line-height:1;">Web</div>
-        <div style="font-size:12px;color:rgba(255,200,130,0.7);font-weight:700;margin-top:4px;">Sites &amp; Banners</div>
-      </div>
-    </div>
-    <a href="https://wa.me/94716125715?text=Hello%20Pixel%20by%20Maliya!%20I'm%20interested%20in%20the%20Avurudu%202026%20Special%20Discount!" target="_blank"
-      style="display:inline-flex;align-items:center;gap:10px;padding:15px 38px;border-radius:50px;background:linear-gradient(135deg,#ff8c00,#ffd700);color:#1a0500;font-family:'Syne',sans-serif;font-weight:900;font-size:clamp(14px,2.5vw,18px);text-decoration:none;box-shadow:0 6px 28px rgba(255,140,0,0.5);transition:all .3s;"
-      onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 40px rgba(255,180,0,0.65)';"
-      onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 28px rgba(255,140,0,0.5)';">
-      <i class="fab fa-whatsapp" style="font-size:20px;"></i> Claim Your Discount Now!
-    </a>
-  </div>
 </div>
 
 <!-- ===============================================================
@@ -833,15 +598,6 @@
   <i class="fab fa-whatsapp text-2xl"></i>
 </a>
 
-<!-- Floating Koha Bird Button -->
-<button id="kohaBtn" onclick="playKohaSound()" title="කොහා ගාන්න 🐦" 
-  style="position:fixed;bottom:90px;right:6px;z-index:50;width:56px;height:56px;border-radius:20px;background:linear-gradient(135deg,#2d5a27,#4a8a3e);box-shadow:0 4px 20px rgba(45,90,39,0.5);border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;transition:all .3s;"
-  onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 8px 30px rgba(60,140,50,0.65)';"
-  onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(45,90,39,0.5)';">
-  <span style="font-size:26px;line-height:1;">🐦</span>
-  <span style="font-size:8px;color:#c8f0c0;font-weight:800;font-family:'Nunito',sans-serif;letter-spacing:0.02em;">KOHA</span>
-</button>
-
 <!-- Lightbox -->
 <div id="lightbox" class="fixed inset-0 z-[200] hidden items-center justify-center p-4" style="background:rgba(0,0,0,0.88);backdrop-filter:blur(8px);" onclick="closeLightbox(event)">
   <button onclick="closeLightbox()" class="absolute top-4 right-4 w-10 h-10 rounded-xl flex items-center justify-center text-amber-300 transition-all z-10" style="background:rgba(255,140,0,0.15);border:1.5px solid rgba(255,180,60,0.25);"><i class="fas fa-times"></i></button>
@@ -884,120 +640,6 @@
   <script src="app.js"></script>
 
 <script>
-// ================================================================
-//  AVURUDDA LOGIC
-// ================================================================
-(function(){
-  const HIDE_AFTER = new Date('2026-04-17T23:59:59');
-  const NEW_YEAR   = new Date('2026-04-13T06:17:00');
-  const ov  = document.getElementById('avuruddaOverlay');
-  const ban = document.getElementById('avuruddaBanner');
-  if(!ov) return;
-  if(new Date() > HIDE_AFTER){ ov.classList.add('av-hidden'); if(ban) ban.style.display='none'; return; }
-  if(sessionStorage.getItem('av_ok')) ov.classList.add('av-hidden');
-
-  // countdown
-  function tick(){
-    const diff=NEW_YEAR-new Date();
-    if(diff<=0){ document.getElementById('avCountdown').style.display='none'; document.getElementById('avPassed').style.display='block'; return; }
-    const pad=n=>String(Math.floor(n)).padStart(2,'0');
-    document.getElementById('cdDays').textContent=pad(diff/86400000);
-    document.getElementById('cdHours').textContent=pad((diff%86400000)/3600000);
-    document.getElementById('cdMins').textContent=pad((diff%3600000)/60000);
-    document.getElementById('cdSecs').textContent=pad((diff%60000)/1000);
-  }
-  tick(); setInterval(tick,1000);
-
-  // petals
-  const syms=['🌸','🌺','🌼','✿','❀','🌷','🍀'];
-  for(let i=0;i<22;i++){
-    const p=document.createElement('div'); p.className='av-petal';
-    p.textContent=syms[i%syms.length];
-    p.style.cssText='left:'+Math.random()*100+'vw;top:'+-(Math.random()*80)+'px;animation-duration:'+(5+Math.random()*8)+'s;animation-delay:'+(Math.random()*6)+'s;font-size:'+(13+Math.random()*16)+'px;';
-    ov.appendChild(p);
-  }
-
-  // rising fire particles
-  const fw=document.getElementById('avFlameWrap');
-  const fe=['🔥','✨','⭐','🌟','🪷'];
-  setInterval(()=>{
-    const f=document.createElement('div');
-    f.style.cssText='position:absolute;left:'+Math.random()*100+'vw;bottom:-40px;font-size:'+(13+Math.random()*18)+'px;pointer-events:none;animation:avRise '+(3+Math.random()*4)+'s linear forwards;opacity:.75;';
-    f.textContent=fe[Math.floor(Math.random()*fe.length)];
-    fw.appendChild(f); setTimeout(()=>f.remove(),7000);
-  },320);
-  const sk=document.createElement('style');
-  sk.textContent='@keyframes avRise{0%{transform:translateY(0) rotate(0);opacity:.85}100%{transform:translateY(-110vh) rotate(-540deg);opacity:0}}';
-  document.head.appendChild(sk);
-
-  // star canvas
-  const sc=document.getElementById('avStarCanvas');
-  const cx=sc.getContext('2d');
-  let stars=[];
-  function rzStar(){sc.width=window.innerWidth;sc.height=window.innerHeight;}
-  rzStar(); window.addEventListener('resize',rzStar);
-  for(let i=0;i<110;i++) stars.push({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,r:Math.random()*1.4+.3,a:Math.random(),da:(Math.random()*.007+.002)*(Math.random()>.5?1:-1),c:Math.random()>.5?'255,215,0':'255,140,0'});
-  (function drawS(){cx.clearRect(0,0,sc.width,sc.height);stars.forEach(s=>{s.a=Math.max(.05,Math.min(1,s.a+s.da));if(s.a<=.05||s.a>=1)s.da*=-1;cx.beginPath();cx.arc(s.x,s.y,s.r,0,Math.PI*2);cx.fillStyle='rgba('+s.c+','+s.a+')';cx.fill();});requestAnimationFrame(drawS);})();
-})();
-
-function avClose(){
-  document.getElementById('avuruddaOverlay').classList.add('av-hidden');
-  sessionStorage.setItem('av_ok','1');
-}
-
-// ================================================================
-//  KOHA BIRD SOUND
-// ================================================================
-const kohaAudio = new Audio('rzalmanialmani-indian-cuckoo-call-koel-bird-sound-361462.mp3');
-function playKohaSound(){
-  try{
-    kohaAudio.currentTime = 0;
-    kohaAudio.play();
-    // Show koha visual feedback
-    const kbtn=document.getElementById('kohaBtn');
-    if(kbtn){kbtn.style.transform='scale(1.25)';kbtn.style.boxShadow='0 0 24px rgba(80,200,70,0.8)';setTimeout(()=>{kbtn.style.transform='scale(1)';kbtn.style.boxShadow='0 4px 20px rgba(45,90,39,0.5)';},700);}
-  }catch(e){console.log('Koha sound error:',e);}
-}
-
-// ================================================================
-//  PAGE LOAD SOUND  (koha plays when overlay closes)
-// ================================================================
-function playEnterSound(){
-  playKohaSound();
-}
-
-// Play koha on first page load interaction
-let soundPlayed=false;
-document.addEventListener('click',function playOnce(){
-  if(!soundPlayed){ soundPlayed=true; setTimeout(playKohaSound,400); }
-  document.removeEventListener('click',playOnce);
-},{once:true});
-
-// Also try on overlay close
-const origAvClose = avClose;
-window.avClose = function(){
-  origAvClose();
-  setTimeout(playKohaSound,300);
-};
-
-// ================================================================
-//  CLICK BURST (firework / petal on every click)
-// ================================================================
-(function(){
-  const emojis=['🌸','🌺','🎊','✨','🌟','💥','🪷','🌼','🔥'];
-  document.addEventListener('click',function(e){
-    for(let i=0;i<5;i++){
-      const b=document.createElement('div'); b.className='click-burst';
-      b.textContent=emojis[Math.floor(Math.random()*emojis.length)];
-      b.style.left=(e.clientX+Math.random()*40-20)+'px';
-      b.style.top=(e.clientY+Math.random()*40-20)+'px';
-      b.style.fontSize=(18+Math.random()*14)+'px';
-      document.body.appendChild(b);
-      setTimeout(()=>b.remove(),750);
-    }
-  });
-})();
-
 // ================================================================
 //  NAVBAR SCROLL
 // ================================================================
@@ -1102,47 +744,6 @@ document.querySelectorAll('.cat-filter').forEach(btn=>{
   startAuto();
 })();
 
-// ================================================================
-//  AVURUDDA IMAGE CAROUSEL
-// ================================================================
-(function(){
-  const track=document.getElementById('avImgTrack');
-  const dotsW=document.getElementById('avImgDots');
-  if(!track||!dotsW)return;
-  const slides=track.querySelectorAll('.av-img-slide');
-  const total=slides.length;
-  window.avImgCur=0;
-  // Build dots
-  for(let i=0;i<total;i++){
-    const d=document.createElement('button');
-    d.style.cssText='width:'+(i===0?'24px':'8px')+';height:8px;border-radius:99px;border:none;cursor:pointer;transition:all .4s;background:'+(i===0?'linear-gradient(90deg,#ff8c00,#ffd700)':'rgba(255,180,60,0.3)')+';padding:0;';
-    d.setAttribute('onclick','avImgGo('+i+')');
-    dotsW.appendChild(d);
-  }
-  function updateDots(cur){
-    dotsW.querySelectorAll('button').forEach((d,j)=>{
-      d.style.width=j===cur?'24px':'8px';
-      d.style.background=j===cur?'linear-gradient(90deg,#ff8c00,#ffd700)':'rgba(255,180,60,0.3)';
-    });
-  }
-  window.avImgGo=function(i){
-    window.avImgCur=(i+total)%total;
-    track.style.transform='translateX(-'+(window.avImgCur*100)+'%)';
-    updateDots(window.avImgCur);
-  };
-  // Auto slide every 4.5s
-  let avImgTimer=setInterval(()=>window.avImgGo(window.avImgCur+1),4500);
-  // Pause on hover
-  const outer=document.getElementById('avuruddaImgCarousel');
-  if(outer){
-    outer.addEventListener('mouseenter',()=>clearInterval(avImgTimer));
-    outer.addEventListener('mouseleave',()=>{avImgTimer=setInterval(()=>window.avImgGo(window.avImgCur+1),4500);});
-  }
-  // Touch support
-  let ts=0;
-  track.addEventListener('touchstart',e=>{ts=e.touches[0].clientX;},{passive:true});
-  track.addEventListener('touchend',e=>{const d=ts-e.changedTouches[0].clientX;if(Math.abs(d)>40)window.avImgGo(d>0?window.avImgCur+1:window.avImgCur-1);});
-})();
 </script>
 </body>
 </html>
