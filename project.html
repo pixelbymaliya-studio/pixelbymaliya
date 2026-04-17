@@ -9,8 +9,11 @@
         content="Explore the full portfolio of Pixel by Maliya – graphic design, logo design, visiting cards, banners, social media designs, web design and more." />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="theme-color" content="#1a3260" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
@@ -313,11 +316,11 @@
     </div>
 
     <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-storage-compat.js"></script>
-    <script src="firebase-init.js"></script>
-    <script src="db.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/10.8.1/firebase-storage-compat.js"></script>
+    <script defer src="firebase-init.js"></script>
+    <script defer src="db.js"></script>
 
     <script>
         /* === STATE === */
@@ -327,8 +330,11 @@
 
         /* === INIT === */
         document.addEventListener('DOMContentLoaded', () => {
-            initNavbar(); initMobileMenu(); initParticles(); initCursor(); initSpotlight();
+            initNavbar(); initMobileMenu(); initSpotlight();
             loadAndRender();
+        });
+        window.addEventListener('load', () => {
+            initParticles(); initCursor();
         });
 
         /* === NAVBAR === */

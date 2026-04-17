@@ -10,6 +10,10 @@
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
   <meta name="theme-color" content="#b45309"/>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;700;900&family=Syne:wght@700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -632,12 +636,12 @@
 </div>
 
   <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-storage-compat.js"></script>
-  <script src="firebase-init.js"></script>
-  <script src="db.js"></script>
-  <script src="app.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.8.1/firebase-storage-compat.js"></script>
+  <script defer src="firebase-init.js"></script>
+  <script defer src="db.js"></script>
+  <script defer src="app.js"></script>
 
 <script>
 // ================================================================
@@ -668,7 +672,7 @@ document.querySelectorAll('.cat-filter').forEach(btn=>{
 // ================================================================
 //  PARTICLE CANVAS (fire-coloured)
 // ================================================================
-(function(){
+window.addEventListener('load', function(){
   const canvas=document.getElementById('particleCanvas');
   if(!canvas)return;
   const ctx=canvas.getContext('2d');
@@ -694,7 +698,7 @@ document.querySelectorAll('.cat-filter').forEach(btn=>{
 // ================================================================
 //  CURSOR TRAIL (gold/fire)
 // ================================================================
-(function(){
+window.addEventListener('load', function(){
   const canvas=document.getElementById('cursorAnimCanvas');
   if(!canvas)return;
   const ctx=canvas.getContext('2d');

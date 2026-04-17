@@ -13,8 +13,6 @@ let currentLightboxIndex = 0;
 
 /* ==================== INIT ==================== */
 document.addEventListener('DOMContentLoaded', () => {
-    initParticles();
-    initCursorEffect();
     initNavbar();
     initMobileMenu();
     initRevealAnimations();
