@@ -593,20 +593,11 @@ function renderAdminProjectsList() {
             <p class="text-white text-sm font-medium truncate">${escapeHtml(p.title)}</p>
             <p class="text-gray-500 text-xs">${p.category || p.type || ''}</p>
         </div>
-        <button onclick="deleteProject('${p.id}')" 
-                class="w-8 h-8 rounded-lg bg-red-500/10 hover:bg-red-500/30 border border-red-500/20 hover:border-red-500/50 flex items-center justify-center text-red-400 transition-all opacity-0 group-hover:opacity-100 flex-shrink-0">
-            <i class="fas fa-trash text-xs"></i>
-        </button>
     </div>`).join('');
 }
 
 function deleteProject(id) {
-    if (!confirm('Delete this project? This cannot be undone.')) return;
-    if (typeof DB === 'undefined' || !DB) { showToast('Database not connected!', 'error'); return; }
-    DB.deleteProject(id);
-    showToast('🗑️ Project deleted.', 'success');
-    renderAdminProjectsList();
-    renderPortfolio();
+    showToast('❌ Deletion is disabled by administrator.', 'error');
 }
 
 /* ==================== CONTACT FORM ==================== */

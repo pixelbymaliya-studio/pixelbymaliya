@@ -20,15 +20,15 @@ const DB = {
      */
     async getProjects() {
         try {
-            const snapshot = await this._db.collection('projects').orderBy('createdAt', 'desc').get();
+            const snapshot = await this._db.collection('projects').get();
             const projects = [];
             snapshot.forEach(doc => {
                 projects.push({ id: doc.id, ...doc.data() });
             });
+            projects.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
             return projects;
         } catch (e) {
             console.error('DB.getProjects error:', e);
-            showToast('Error fetching projects from Firebase', 'error');
             return [];
         }
     },
@@ -48,15 +48,10 @@ const DB = {
     },
 
     /**
-     * Delete a project from Firestore by ID
+     * Delete a project from Firestore by ID (DISABLED)
      */
     async deleteProject(id) {
-        try {
-            await this._db.collection('projects').doc(id).delete();
-        } catch (e) {
-            console.error('DB.deleteProject error:', e);
-            throw e;
-        }
+        throw new Error("Deletion is disabled for this project.");
     },
 
     /**
