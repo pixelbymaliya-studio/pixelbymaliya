@@ -51,7 +51,12 @@ const DB = {
      * Delete a project from Firestore by ID (DISABLED)
      */
     async deleteProject(id) {
-        throw new Error("Deletion is disabled for this project.");
+        try {
+            await this._db.collection('projects').doc(id).delete();
+        } catch (e) {
+            console.error('DB.deleteProject error:', e);
+            throw e;
+        }
     },
 
     /**
