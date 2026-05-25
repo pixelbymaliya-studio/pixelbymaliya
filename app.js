@@ -286,7 +286,7 @@ function createVideoCard(project) {
     <div class="portfolio-card group rounded-3xl overflow-hidden glass-card hover:-translate-y-2 transition-transform duration-300">
         <div class="relative overflow-hidden aspect-video cursor-pointer" 
              onclick="openLightbox('${project.id}')">
-            <img src="${project.image || ''}" 
+            <img src="${project.image || 'video_placeholder.png'}" 
                  alt="${escapeHtml(project.title)}" 
                  loading="lazy"
                  class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"

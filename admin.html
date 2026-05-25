@@ -225,7 +225,7 @@
                             <div>
                                 <div class="flex items-center justify-between mb-2">
                                     <label class="block text-xs font-medium text-gray-400">Project Images <span
-                                            class="text-red-400">*</span></label>
+                                            class="text-red-400">*</span> <span class="text-[10px] text-gray-500 font-normal ml-1">(Optional for Video)</span></label>
                                     <span id="imgCountBadge" class="text-xs text-gray-600">0 / 6 selected</span>
                                 </div>
 
@@ -761,7 +761,7 @@
             // ── URL mode: save directly without Storage upload ──
             if (imageMode === 'url') {
                 const validUrls = urlImageList.filter(u => u);
-                if (!validUrls.length) { showToast('Please enter at least one image URL!', 'error'); return; }
+                if (!validUrls.length && currentAdminTab !== 'video') { showToast('Please enter at least one image URL!', 'error'); return; }
                 const projectData = { type: currentAdminTab, title, description };
                 if (currentAdminTab === 'graphic') projectData.category = document.getElementById('projCategory').value;
                 else { projectData.url = document.getElementById('projUrl').value.trim(); projectData.tech = document.getElementById('projTech').value.trim(); }
@@ -769,7 +769,7 @@
                 // Build a project object directly (no Storage upload)
                 const project = {
                     ...projectData,
-                    image: validUrls[0],
+                    image: validUrls[0] || '',
                     images: validUrls,
                     storagePath: '',
                 };
@@ -800,7 +800,7 @@
             }
 
             // ── Upload mode ──
-            if (!selectedImageFiles.length) { showToast('Please upload at least one image!', 'error'); return; }
+            if (!selectedImageFiles.length && currentAdminTab !== 'video') { showToast('Please upload at least one image!', 'error'); return; }
 
             const projectData = { type: currentAdminTab, title, description };
             if (currentAdminTab === 'graphic') {
