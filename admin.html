@@ -918,7 +918,7 @@
             editingProjectId = id;
 
             // Switch tabs based on type
-            adminTab(p.type === 'web' ? 'web' : 'graphic');
+            adminTab(p.type || 'graphic');
 
             document.getElementById('projTitle').value = p.title || '';
             document.getElementById('projDescription').value = p.description || '';
@@ -1011,15 +1011,20 @@
 
             const catLabels = { 'logo': 'Logo Design', 'visiting-card': 'Visiting Card', 'thankyou-card': 'Thank You Card', 'printing': 'Printing', 'social-media': 'Social Media', 'banner': 'Banner', 'tshirt': 'T-Shirt' };
             container.innerHTML = projects.map(p => {
-                const badge = p.type === 'graphic'
-                    ? `<span class="px-2 py-0.5 rounded-md bg-brand-500/10 text-brand-300 text-xs border border-brand-500/20">${catLabels[p.category] || p.category}</span>`
-                    : `<span class="px-2 py-0.5 rounded-md bg-purple-500/10 text-purple-300 text-xs border border-purple-500/20">Web Design</span>`;
+                let badge = '';
+                if (p.type === 'graphic') {
+                    badge = `<span class="px-2 py-0.5 rounded-md bg-brand-500/10 text-brand-300 text-xs border border-brand-500/20">${catLabels[p.category] || p.category}</span>`;
+                } else if (p.type === 'video') {
+                    badge = `<span class="px-2 py-0.5 rounded-md bg-pink-500/10 text-pink-300 text-xs border border-pink-500/20">Video Project</span>`;
+                } else {
+                    badge = `<span class="px-2 py-0.5 rounded-md bg-purple-500/10 text-purple-300 text-xs border border-purple-500/20">Web Design</span>`;
+                }
                 const date = p.createdAt ? new Date(p.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : '';
                 const imgCount = (p.images || [p.image]).filter(Boolean).length;
                 const pathsJson = escH(JSON.stringify(p.storagePaths || (p.storagePath ? [p.storagePath] : [])));
                 return `<div class="flex items-center gap-3 p-3 rounded-xl bg-dark-900/50 border border-white/5 hover:border-white/15 transition-all group">
                     <div class="relative flex-shrink-0">
-                        <img src="${p.image || ''}" alt="${escH(p.title)}" class="w-14 h-14 object-cover rounded-lg border border-white/10"
+                        <img src="${p.image || (p.type === 'video' ? 'video_placeholder.png' : '')}" alt="${escH(p.title)}" class="w-14 h-14 object-cover rounded-lg border border-white/10"
                              onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2256%22 height=%2256%22><rect fill=%22%231f2937%22 width=%2256%22 height=%2256%22/></svg>'"/>
                         ${imgCount > 1 ? `<div class="absolute -top-1.5 -right-1.5 min-w-5 h-5 px-1 rounded-full bg-brand-500 text-white text-[9px] font-bold flex items-center justify-center">${imgCount}</div>` : ''}
                     </div>
