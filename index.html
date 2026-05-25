@@ -1,753 +1,260 @@
 <!DOCTYPE html>
-<html lang="si">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pixel by Maliya - Creative Design Studio</title>
-  <meta name="description" content="Pixel by Maliya – Professional Graphic Design & Web Design. Creative Design Studio."/>
-  <meta property="og:title" content="Pixel by Maliya - Creative Design Studio" />
-  <meta property="og:description" content="Pixel by Maliya – Professional Graphic Design & Web Design. Creative Design Studio." />
-  <meta property="og:type" content="website" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
-  <meta name="theme-color" content="#b45309"/>
-  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <title>Pixel by Maliya | Design Studio</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;700;900&family=Syne:wght@700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet"/>
+  <!-- Plus Jakarta Sans for UI, Space Grotesk for Display -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
+  
   <script>
     tailwind.config = {
-      theme: { extend: {
-        fontFamily: { sans:['Nunito','sans-serif'], display:['Syne','sans-serif'], sinhala:['Noto Sans Sinhala','sans-serif'] },
-        colors: {
-          av: { fire:'#ff4500', gold:'#ffd700', amber:'#ff8c00', deep:'#1a0500', dark:'#0d0200', card:'#2a0a00', border:'rgba(255,180,60,0.25)' }
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          },
+          colors: {
+            brand: { 300: '#93C5FD', 400: '#60A5FA', 500: '#3B82F6', 600: '#2563EB' },
+            accent: { 400: '#C084FC', 500: '#A855F7' },
+            dark: { 900: '#03050A', 800: '#090E17', 700: '#111824', 600: '#1E293B' }
+          }
         }
-      }}
+      }
     }
   </script>
-
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    html{scroll-behavior:smooth;overflow-x:hidden;}
-    body{background:#0d0200;color:#fff3e0;font-family:'Nunito',sans-serif;overflow-x:hidden;}
-
-    /* ===== SCROLLBAR ===== */
-    ::-webkit-scrollbar{width:5px;}
-    ::-webkit-scrollbar-track{background:#1a0500;}
-    ::-webkit-scrollbar-thumb{background:linear-gradient(#ff8c00,#ffd700);border-radius:4px;}
-
-    /* ===== GLOBAL BG ===== */
-    body::before{
-      content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-      background:
-        radial-gradient(ellipse 80% 50% at 10% 20%,rgba(255,100,0,0.07) 0%,transparent 60%),
-        radial-gradient(ellipse 60% 40% at 90% 80%,rgba(255,200,0,0.05) 0%,transparent 60%),
-        radial-gradient(ellipse 50% 60% at 50% 50%,rgba(180,60,0,0.04) 0%,transparent 70%);
-    }
-
-    /* ===== GOLD TEXT ===== */
-    .gold-text{background:linear-gradient(135deg,#ffd700 0%,#ff8c00 50%,#ff4500 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-    .gold-text-2{background:linear-gradient(135deg,#ffe066 0%,#ffb300 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-    .si-text{background:linear-gradient(135deg,#ffd700,#ff6a00,#ff3c00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200% auto;animation:shimmer 3s ease-in-out infinite;}
-    @keyframes shimmer{0%{background-position:0% center}50%{background-position:100% center}100%{background-position:0% center}}
-
-    /* ===== FIRE BORDER ===== */
-    .fire-border{border:1.5px solid rgba(255,160,40,0.28);background:linear-gradient(145deg,rgba(255,100,0,0.10),rgba(255,50,0,0.06));backdrop-filter:blur(16px);}
-    .fire-border-strong{border:1.5px solid rgba(255,180,60,0.4);box-shadow:0 0 24px rgba(255,100,0,0.12),inset 0 0 20px rgba(255,80,0,0.04);}
-
-    /* ===== ANIMATIONS ===== */
-    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-    @keyframes floatDelay{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
-    @keyframes lampGlow{from{filter:drop-shadow(0 0 10px #ff6a00) drop-shadow(0 0 20px #ffc200)}to{filter:drop-shadow(0 0 28px #ff3c00) drop-shadow(0 0 56px #ffdd00)}}
-    @keyframes flameDance{from{transform:scaleY(1) rotate(-3deg)}to{transform:scaleY(1.15) rotate(3deg)}}
-    @keyframes goldPulse{0%,100%{box-shadow:0 0 15px rgba(255,180,60,0.2)}50%{box-shadow:0 0 35px rgba(255,180,60,0.45),0 0 60px rgba(255,100,0,0.2)}}
-    @keyframes petalFall{0%{transform:translateY(-30px) rotate(0deg);opacity:.9}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
-    @keyframes riseUp{0%{transform:translateY(0) scale(1);opacity:.8}100%{transform:translateY(-110vh) scale(.5);opacity:0}}
-    @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-    @keyframes burst{0%{transform:scale(0) rotate(0deg);opacity:1}100%{transform:scale(2.5) rotate(90deg);opacity:0}}
-    @keyframes reveal{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes navSlide{from{transform:translateY(-100%)}to{transform:translateY(0)}}
-
-    .animate-float{animation:float 5s ease-in-out infinite}
-    .animate-float-delay{animation:floatDelay 6s ease-in-out 1.5s infinite}
-    .animate-lamp{animation:lampGlow 2s ease-in-out infinite alternate}
-    .animate-flame{animation:flameDance 1.3s ease-in-out infinite alternate}
-    .animate-gold-pulse{animation:goldPulse 2.5s ease-in-out infinite}
-
-    /* ===== REVEAL ON SCROLL ===== */
-    .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
-    .reveal.visible{opacity:1;transform:translateY(0)}
-
-    /* ===== NAVBAR ===== */
-    #navbar{
-      background:rgba(13,2,0,0.3);
-      backdrop-filter:blur(0px);
-      transition:all .4s ease;
-      animation:navSlide .5s ease forwards;
-    }
-    #navbar.scrolled{
-      background:rgba(13,2,0,0.92);
-      backdrop-filter:blur(24px);
-      border-bottom:1px solid rgba(255,160,40,0.2);
-      box-shadow:0 4px 30px rgba(255,80,0,0.12);
-    }
-    .nav-link{color:rgba(255,230,180,0.8);font-weight:700;position:relative;transition:color .2s;}
-    .nav-link::after{content:'';position:absolute;bottom:-2px;left:50%;right:50%;height:2px;background:linear-gradient(90deg,#ff8c00,#ffd700);border-radius:2px;transition:left .3s,right .3s;}
-    .nav-link:hover{color:#ffd700;}
-    .nav-link:hover::after{left:0;right:0;}
-
-    /* ===== HERO ===== */
-    #hero{background:linear-gradient(160deg,#0d0200 0%,#1a0600 40%,#0a0100 100%);}
-    .hero-blob{position:absolute;border-radius:50%;filter:blur(72px);pointer-events:none;}
-
-    /* ===== STAT CARDS ===== */
-    .stat-card{
-      border-radius:18px;padding:18px 16px;text-align:center;
-      background:rgba(255,100,0,0.08);
-      border:1.5px solid rgba(255,160,40,0.22);
-      backdrop-filter:blur(12px);
-      transition:transform .3s,box-shadow .3s;
-    }
-    .stat-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(255,100,0,0.2);}
-
-    /* ===== SECTION LABEL ===== */
-    .section-label{
-      display:inline-flex;align-items:center;gap:6px;
-      padding:6px 18px;border-radius:999px;
-      background:rgba(255,140,0,0.12);
-      border:1.5px solid rgba(255,180,60,0.3);
-      color:#ffd700;font-size:13px;font-weight:700;
-      margin-bottom:18px;
-    }
-
-    /* ===== PORTFOLIO CARD ===== */
-    .portfolio-card{
-      background:rgba(40,10,0,0.7);border-radius:16px;overflow:hidden;
-      border:1.5px solid rgba(255,160,40,0.15);
-      transition:all .4s cubic-bezier(.175,.885,.32,1.275);
-      box-shadow:0 2px 12px rgba(0,0,0,0.4);
-    }
-    .portfolio-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 20px 48px rgba(255,100,0,0.18);border-color:rgba(255,180,60,0.4);}
-    .portfolio-card img{transition:transform .5s ease}
-    .portfolio-card:hover img{transform:scale(1.07)}
-
-    /* ===== TABS ===== */
-    .main-tab{transition:all .3s ease;color:rgba(255,200,120,0.6);font-weight:700;}
-    .active-main-tab{background:linear-gradient(135deg,#ff8c00,#ffd700);color:#1a0500;box-shadow:0 4px 16px rgba(255,140,0,0.4);}
-    .cat-filter{position:relative;overflow:hidden;border:1.5px solid rgba(255,160,40,0.18);background:rgba(255,80,0,0.06);font-weight:700;color:rgba(255,200,120,0.7);}
-    .cat-filter::before{content:'';position:absolute;top:var(--y,50%);left:var(--x,50%);width:0;height:0;background:radial-gradient(circle closest-side,rgba(255,140,0,0.2) 0%,transparent 100%);transform:translate(-50%,-50%);transition:width .3s,height .3s;z-index:0;border-radius:50%;pointer-events:none;}
-    .cat-filter:hover::before{width:200px;height:200px}
-    .cat-filter i,.cat-filter span{position:relative;z-index:10}
-    .active-cat-filter{background:rgba(255,140,0,0.2)!important;border-color:rgba(255,180,60,0.5)!important;color:#ffd700!important;}
-    .inactive-cat-filter{color:rgba(255,200,120,0.6)}
-    .inactive-cat-filter:hover{color:#ffd700}
-
-    /* ===== SERVICE CARDS ===== */
-    .service-card{
-      background:rgba(30,8,0,0.7);border:1.5px solid rgba(255,160,40,0.14);
-      border-radius:20px;transition:all .35s cubic-bezier(.175,.885,.32,1.275);
-      position:relative;overflow:hidden;cursor:default;
-    }
-    .service-card:hover{transform:translateY(-8px);box-shadow:0 20px 44px rgba(255,100,0,0.2);border-color:rgba(255,180,60,0.35);}
-    .service-icon-wrap{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:transform .3s;}
-    .service-card:hover .service-icon-wrap{transform:scale(1.14) rotate(-4deg);}
-
-    /* ===== CONTACT ===== */
-    .contact-card{background:rgba(25,6,0,0.8);border:1.5px solid rgba(255,160,40,0.18);border-radius:20px;}
-    .contact-link{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:14px;border:1.5px solid transparent;transition:all .3s;font-weight:700;color:rgba(255,230,180,0.9);}
-    .contact-link:hover{transform:translateX(4px);}
-    .contact-link-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;transition:transform .3s;}
-    .contact-link:hover .contact-link-icon{transform:scale(1.12);}
-    .form-input{width:100%;padding:12px 16px;border-radius:12px;border:1.5px solid rgba(255,160,40,0.22);background:rgba(255,80,0,0.07);color:#fff3e0;font-family:'Nunito',sans-serif;font-weight:600;font-size:14px;transition:all .2s;outline:none;}
-    .form-input::placeholder{color:rgba(255,200,120,0.35);font-weight:400;}
-    .form-input:focus{border-color:#ff8c00;background:rgba(255,100,0,0.12);box-shadow:0 0 0 3px rgba(255,140,0,0.15);}
-    select.form-input option{background:#1a0500;color:#fff3e0;}
-
-    /* ===== CAROUSEL ===== */
-    #heroCarouselOuter{position:relative;}
-    .hero-slide{box-sizing:border-box;}
-    .carousel-card{
-      background:rgba(255,100,0,0.09);
-      backdrop-filter:blur(18px);border:1.5px solid rgba(255,180,60,0.22);
-      transition:box-shadow .3s;box-shadow:0 8px 32px rgba(0,0,0,0.3);
-      padding:20px 18px;border-radius:18px;
-    }
-    @media(min-width:640px){.carousel-card{padding:26px;}}
-    .carousel-card:hover{box-shadow:0 16px 48px rgba(255,100,0,0.2);}
-    .carousel-card h3{color:#ffd700!important;}
-    .carousel-card p{color:rgba(255,220,170,0.75)!important;font-size:.85rem;}
-    .carousel-dot{width:8px;height:8px;border-radius:99px;background:rgba(255,180,60,0.25);cursor:pointer;transition:all .3s;border:none;padding:0;}
-    .carousel-dot.active{width:28px;background:linear-gradient(90deg,#ff8c00,#ffd700);}
-
-    /* ===== BUTTONS ===== */
-    .btn-primary{position:relative;display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:14px;background:linear-gradient(135deg,#ff8c00,#ffd700);color:#1a0500;font-weight:900;font-size:16px;transition:all .3s;box-shadow:0 4px 20px rgba(255,140,0,0.4);overflow:hidden;}
-    .btn-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.15),transparent);opacity:0;transition:opacity .3s;}
-    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,180,0,0.55);}
-    .btn-primary:hover::after{opacity:1;}
-    .btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:14px;background:transparent;color:#ffd700;font-weight:800;font-size:16px;border:2px solid rgba(255,180,60,0.4);transition:all .3s;}
-    .btn-secondary:hover{background:rgba(255,140,0,0.12);border-color:rgba(255,200,80,0.65);transform:translateY(-2px);}
-    @media(max-width:640px){.btn-primary,.btn-secondary{padding:12px 24px;font-size:15px;}}
-
-    /* ===== FOOTER ===== */
-    footer{background:linear-gradient(135deg,#080100 0%,#0f0300 100%);border-top:1px solid rgba(255,160,40,0.2);}
-
-    /* ===== KOLAM PATTERN ===== */
-    .kolam-bg{background-image:radial-gradient(rgba(255,180,60,0.07) 1.5px,transparent 1.5px);background-size:28px 28px;}
-
-    /* ===== ADMIN ===== */
-    #adminOverlay{background:rgba(10,2,0,0.7);backdrop-filter:blur(8px);}
-    .active-admin-tab{background:linear-gradient(135deg,#ff8c00,#ffd700);color:#1a0500;}
-    .inactive-admin-tab{background:rgba(255,100,0,0.08);color:rgba(255,200,120,0.6);}
-    .inactive-admin-tab:hover{color:#ffd700;background:rgba(255,100,0,0.14);}
-
-    /* ===== TOAST ===== */
-    .toast{position:fixed;bottom:90px;right:24px;z-index:9999;padding:12px 20px;border-radius:14px;font-size:14px;font-weight:700;border:1.5px solid;animation:toastIn .4s cubic-bezier(.34,1.56,.64,1) forwards;box-shadow:0 8px 30px rgba(0,0,0,0.3);}
-    .toast.success{background:rgba(20,8,0,0.95);border-color:#ff8c00;color:#ffd700;}
-    .toast.error{background:rgba(20,8,0,0.95);border-color:#ef4444;color:#fca5a5;}
-    @keyframes toastIn{from{opacity:0;transform:translateX(100px) scale(.85)}to{opacity:1;transform:translateX(0) scale(1)}}
-    @keyframes toastOut{from{opacity:1;transform:translateX(0) scale(1)}to{opacity:0;transform:translateX(100px) scale(.85)}}
-
-    /* ===== LIGHTBOX ===== */
-    #lightbox.flex{display:flex;}
-    #adminOverlay.flex{display:flex;}
-
-    /* ===== CURSOR CANVAS ===== */
-    #cursorAnimCanvas,#particleCanvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
-    #cursorAnimCanvas{z-index:9999;}
-
-    /* ===== WAVY DIVIDER ===== */
-    .wavy-div{overflow:hidden;line-height:0;}
-
-    /* ===== CLICK BURST ===== */
-    .click-burst{
-      position:fixed;pointer-events:none;z-index:99998;
-      font-size:22px;transform:scale(0) rotate(0deg);
-      animation:burst .7s ease-out forwards;
-    }
-
-      </style>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
+<body class="bg-dark-900 text-gray-200 font-sans overflow-x-hidden selection:bg-brand-500/30 selection:text-brand-300">
 
-<body>
+  <!-- Aurora Background Effects -->
+  <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+    <div class="aurora-blob bg-brand-500/20 top-[-10%] left-[-10%]"></div>
+    <div class="aurora-blob bg-accent-500/20 bottom-[-10%] right-[-10%] animation-delay-2000"></div>
+    <div class="aurora-blob bg-blue-500/10 top-[40%] left-[60%] animation-delay-4000"></div>
+    <div class="absolute inset-0 bg-dark-900/40 backdrop-blur-[120px]"></div>
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] opacity-20"></div>
+  </div>
 
+  <canvas id="cursorAnimCanvas" class="fixed inset-0 pointer-events-none z-[9999]"></canvas>
 
-
-<!-- canvases -->
-<canvas id="particleCanvas" class="fixed inset-0 pointer-events-none" style="z-index:1;"></canvas>
-<canvas id="cursorAnimCanvas"></canvas>
-
-<!-- ===============================================================
-     NAVBAR
-     =============================================================== -->
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16 md:h-20">
-      <a href="#hero" class="flex items-center gap-3 group">
-        <div class="w-11 h-11 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="44" height="44">
-            <defs><radialGradient id="nb" cx="40%" cy="35%" r="65%"><stop offset="0%" stop-color="#d0d8e0"/><stop offset="100%" stop-color="#8a9aaa"/></radialGradient></defs>
-            <circle cx="32" cy="32" r="31" fill="url(#nb)" stroke="#b0bcc8" stroke-width=".5"/>
-            <ellipse cx="32" cy="32" rx="19" ry="10" transform="rotate(-35 32 32)" fill="none" stroke="#ff8c00" stroke-width="3" stroke-dasharray="3.2 3.5" stroke-linecap="round" opacity=".95"/>
-            <ellipse cx="32" cy="32" rx="19" ry="10" transform="rotate(35 32 32)" fill="none" stroke="#ffd700" stroke-width="3" stroke-dasharray="3.2 3.5" stroke-linecap="round" opacity=".95"/>
-            <ellipse cx="32" cy="32" rx="19" ry="10" transform="rotate(90 32 32)" fill="none" stroke="#ff4500" stroke-width="3" stroke-dasharray="3.2 3.5" stroke-linecap="round" opacity=".95"/>
-            <circle cx="32" cy="32" r="9" fill="url(#nb)" opacity=".92"/>
-            <text x="32" y="37" font-family="Arial Black,Arial,sans-serif" font-size="14" font-weight="900" fill="#ff8c00" text-anchor="middle">M</text>
-          </svg>
-        </div>
-        <div>
-          <span class="font-display font-bold text-amber-100 text-lg leading-none">Pixel by </span><span class="font-display font-bold text-lg leading-none gold-text">Maliya</span>
-        </div>
-      </a>
-
-      <div class="hidden md:flex items-center gap-1">
-        <a href="#hero" class="nav-link px-4 py-2 text-sm">Home</a>
-        <a href="#portfolio" class="nav-link px-4 py-2 text-sm">Portfolio</a>
-        <a href="#services" class="nav-link px-4 py-2 text-sm">Services</a>
-        <a href="#contact" class="nav-link px-4 py-2 text-sm">Contact</a>
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl z-50 transition-all duration-500 glass-panel rounded-2xl border border-white/10 px-6 py-4 flex items-center justify-between">
+    <a href="#hero" class="flex items-center gap-3 group">
+      <div class="w-14 h-14 rounded-full overflow-hidden border border-white/20 shadow-lg group-hover:scale-110 transition-transform bg-transparent flex-shrink-0 flex items-center justify-center">
+        <img src="logo.png" alt="Pixel by Maliya Logo" class="w-full h-full object-cover scale-[1.35]" />
       </div>
+      <div class="font-display font-bold text-lg hidden sm:block">
+        <span class="text-white">Pixel by</span> <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-400 to-accent-400">Maliya</span>
+      </div>
+    </a>
+    <div class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-400">
+      <a href="#hero" class="hover:text-white transition-colors">Home</a>
+      <a href="#portfolio" class="hover:text-white transition-colors">Work</a>
+      <a href="#services" class="hover:text-white transition-colors">Services</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="#contact" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-white text-dark-900 font-bold text-sm hover:scale-105 transition-transform">Let's Talk</a>
+      <button onclick="document.getElementById('mobileMenu').classList.remove('translate-x-full')" class="md:hidden text-white text-xl"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
 
-      <div class="flex items-center gap-3">
-        <a href="https://wa.me/94716125715" target="_blank"
-          class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold text-green-900 hover:-translate-y-0.5 transition-all duration-300"
-          style="background:linear-gradient(135deg,#4ade80,#22c55e);box-shadow:0 4px 14px rgba(34,197,94,0.35);">
-          <i class="fab fa-whatsapp text-base"></i> WhatsApp
-        </a>
-        <button id="mobileMenuBtn" class="md:hidden w-10 h-10 flex items-center justify-center rounded-xl transition-all" style="background:rgba(255,140,0,0.12);border:1.5px solid rgba(255,180,60,0.2);">
-          <i class="fas fa-bars text-amber-400"></i>
-        </button>
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="fixed inset-0 z-[100] translate-x-full transition-transform duration-500 flex justify-end">
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')"></div>
+    <div class="relative w-64 h-full bg-dark-800 border-l border-white/10 p-6 flex flex-col">
+      <button onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')" class="self-end text-gray-400 hover:text-white text-2xl mb-8"><i class="fas fa-times"></i></button>
+      <div class="flex flex-col gap-6 text-lg font-display font-bold">
+        <a href="#hero" class="text-white" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')">Home</a>
+        <a href="#portfolio" class="text-white" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')">Portfolio</a>
+        <a href="#services" class="text-white" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')">Services</a>
+        <a href="#contact" class="text-brand-400" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')">Contact Me</a>
       </div>
     </div>
   </div>
 
-  <!-- Mobile menu -->
-  <div id="mobileMenu" class="hidden md:hidden" style="background:rgba(10,2,0,0.97);backdrop-filter:blur(20px);border-top:1px solid rgba(255,160,40,0.15);">
-    <div class="px-4 py-4 space-y-1">
-      <a href="#hero" class="mobile-nav-link block px-4 py-3 rounded-xl text-amber-200 font-bold hover:text-yellow-400 hover:bg-orange-900/30 transition-all">Home</a>
-      <a href="#portfolio" class="mobile-nav-link block px-4 py-3 rounded-xl text-amber-200 font-bold hover:text-yellow-400 hover:bg-orange-900/30 transition-all">Portfolio</a>
-      <a href="#services" class="mobile-nav-link block px-4 py-3 rounded-xl text-amber-200 font-bold hover:text-yellow-400 hover:bg-orange-900/30 transition-all">Services</a>
-      <a href="#contact" class="mobile-nav-link block px-4 py-3 rounded-xl text-amber-200 font-bold hover:text-yellow-400 hover:bg-orange-900/30 transition-all">Contact</a>
-      <a href="https://wa.me/94716125715" target="_blank" class="flex items-center gap-2 px-4 py-3 rounded-xl text-green-400 font-bold hover:bg-green-900/30 transition-all">
-        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-      </a>
-    </div>
-  </div>
-</nav>
-
-
-<!-- ===============================================================
-     HERO SECTION
-     =============================================================== -->
-<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-  <!-- bg blobs -->
-  <div class="absolute inset-0 z-0 pointer-events-none">
-    <div class="hero-blob w-[500px] h-[500px] animate-float" style="background:rgba(255,80,0,0.12);top:-80px;left:-120px;"></div>
-    <div class="hero-blob w-[400px] h-[400px] animate-float-delay" style="background:rgba(255,180,0,0.08);top:30%;right:-80px;"></div>
-    <div class="hero-blob w-[350px] h-[350px] animate-float" style="background:rgba(220,60,0,0.09);bottom:-60px;left:35%;"></div>
-  </div>
-  <!-- kolam dot grid -->
-  <div class="absolute inset-0 z-0 kolam-bg opacity-60"></div>
-
-  <div class="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-center pt-12 pb-24" style="box-sizing:border-box;overflow:hidden;">
-
-    <!-- badge -->
-    <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-bold mb-8 animate-gold-pulse"
-      style="background:rgba(255,140,0,0.12);border:1.5px solid rgba(255,180,60,0.35);color:#ffd700;">
-      <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-      Available for projects
-    </div>
-
-    <!-- heading -->
-    <h1 class="font-display font-bold leading-tight mb-6">
-      <span class="block text-4xl sm:text-6xl md:text-7xl lg:text-[82px] text-amber-100" style="text-shadow:0 2px 30px rgba(255,100,0,0.3);">Creative</span>
-      <span class="block text-4xl sm:text-6xl md:text-7xl lg:text-[82px] gold-text">Design Studio</span>
-    </h1>
-
-    <p class="text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-medium px-1" style="color:rgba(255,220,170,0.8);">
-      Bringing your brand to life through stunning <strong class="text-amber-300">graphic design</strong> and
-      modern <strong class="text-amber-300">web design</strong>. Logo design, print materials, visiting cards &amp; more.
-    </p>
-
-    <!-- CTA buttons -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 w-full">
-      <a href="#portfolio" class="btn-primary w-full sm:w-auto justify-center">
-        View Portfolio <i class="fas fa-arrow-right"></i>
-      </a>
-      <a href="https://wa.me/94716125715" target="_blank" class="btn-secondary w-full sm:w-auto justify-center">
-        <i class="fab fa-whatsapp text-green-400 text-xl"></i> Get a Quote
-      </a>
-    </div>
-
-    <!-- Stat cards -->
-    <div class="grid grid-cols-3 gap-3 mb-12 w-full">
-      <div class="stat-card"><div class="font-display text-2xl sm:text-4xl font-bold gold-text" id="stat-projects">0+</div><div class="text-xs sm:text-sm mt-1 font-semibold" style="color:rgba(255,200,120,0.7);">Projects Done</div></div>
-      <div class="stat-card"><div class="font-display text-2xl sm:text-4xl font-bold gold-text-2">100%</div><div class="text-xs sm:text-sm mt-1 font-semibold" style="color:rgba(255,200,120,0.7);">Satisfaction</div></div>
-      <div class="stat-card"><div class="font-display text-2xl sm:text-4xl font-bold" style="background:linear-gradient(135deg,#ff4500,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">24h</div><div class="text-xs sm:text-sm mt-1 font-semibold" style="color:rgba(255,200,120,0.7);">Turnaround</div></div>
-    </div>
-
-    <!-- Services Carousel -->
-    <div class="relative w-full max-w-5xl mx-auto">
-      <p class="text-xs font-bold uppercase tracking-widest mb-4" style="color:rgba(255,180,60,0.85);">✦ What We Offer ✦</p>
-      <div class="overflow-hidden rounded-2xl w-full" id="heroCarouselOuter">
-        <div id="heroCarouselTrack" class="flex transition-transform duration-700 ease-in-out will-change-transform">
-          <!-- Slides -->
-          <div class="hero-slide flex-shrink-0 w-full px-2">
-            <div class="carousel-card flex flex-col sm:flex-row items-center gap-5 text-left">
-              <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(255,140,0,0.2);border:1.5px solid rgba(255,180,60,0.3)"><i class="fas fa-star text-2xl" style="color:#ffd700;"></i></div>
-              <div><h3 class="font-display font-bold text-lg mb-1">Logo Design</h3><p>Unique, memorable logos that capture your brand identity. All formats — PNG, SVG, PDF.</p><div class="flex flex-wrap gap-2 mt-3"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(255,140,0,0.15);border:1px solid rgba(255,180,60,0.3);color:#ffd700;">Brand Identity</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(255,140,0,0.15);border:1px solid rgba(255,180,60,0.3);color:#ffd700;">All Formats</span></div></div>
-            </div>
+  <!-- Hero Section -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24 pb-12 px-4 sm:px-6 z-10">
+    <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 text-center lg:text-left reveal">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-white/10 text-sm font-medium text-brand-300 mb-6">
+          <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span> Available for freelance work
+        </div>
+        <h1 class="font-display text-5xl sm:text-7xl lg:text-[5.5rem] leading-[1.1] font-black text-white mb-6 tracking-tight">
+          Crafting <br>
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-400 via-accent-400 to-brand-400 bg-[length:200%_auto] animate-gradient">Digital</span><br>
+          Experiences.
+        </h1>
+        <p class="text-gray-400 text-lg sm:text-xl max-w-xl mx-auto lg:mx-0 mb-10 font-medium leading-relaxed">
+          I'm Maliya, a multidisciplinary designer specializing in Graphic Design, Web Development, and Video Editing.
+        </p>
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+          <a href="#portfolio" class="px-8 py-4 rounded-xl bg-white text-dark-900 font-bold text-base hover:scale-105 transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)]">View Portfolio <i class="fas fa-arrow-right ml-2"></i></a>
+          <a href="#contact" class="px-8 py-4 rounded-xl glass-panel border border-white/10 text-white font-bold text-base hover:bg-white/10 transition-all">Contact Me</a>
+        </div>
+      </div>
+      <div class="lg:col-span-5 relative reveal delay-200">
+        <!-- Floating abstract elements instead of a standard image -->
+        <div class="relative w-full aspect-square max-w-md mx-auto">
+          <div class="absolute inset-0 bg-gradient-to-tr from-brand-500/40 to-accent-500/40 rounded-full blur-3xl animate-pulse"></div>
+          <div class="glass-card absolute top-10 right-0 p-6 rounded-2xl transform rotate-6 hover:rotate-0 transition-transform duration-500">
+            <i class="fas fa-paint-brush text-4xl text-brand-400 mb-2"></i>
+            <div class="font-display font-bold text-xl text-white">Graphic</div>
           </div>
-          <div class="hero-slide flex-shrink-0 w-full px-2">
-            <div class="carousel-card flex flex-col sm:flex-row items-center gap-5 text-left">
-              <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(6,182,212,0.15);border:1.5px solid rgba(6,182,212,0.3)"><i class="fas fa-address-card text-2xl text-cyan-400"></i></div>
-              <div><h3 class="font-display font-bold text-lg mb-1">Visiting Cards</h3><p>Professional business cards designed to make a lasting impression. Design + printing available.</p><div class="flex flex-wrap gap-2 mt-3"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(6,182,212,0.12);border:1px solid rgba(6,182,212,0.3);color:#67e8f9;">Design</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(6,182,212,0.12);border:1px solid rgba(6,182,212,0.3);color:#67e8f9;">Printing</span></div></div>
-            </div>
+          <div class="glass-card absolute bottom-20 left-0 p-6 rounded-2xl transform -rotate-6 hover:rotate-0 transition-transform duration-500">
+            <i class="fas fa-code text-4xl text-accent-400 mb-2"></i>
+            <div class="font-display font-bold text-xl text-white">Web UI/UX</div>
           </div>
-          <div class="hero-slide flex-shrink-0 w-full px-2">
-            <div class="carousel-card flex flex-col sm:flex-row items-center gap-5 text-left">
-              <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(236,72,153,0.15);border:1.5px solid rgba(236,72,153,0.3)"><i class="fas fa-heart text-2xl text-pink-400"></i></div>
-              <div><h3 class="font-display font-bold text-lg mb-1">Thank You Cards</h3><p>Elegant designs for weddings, events, and businesses. Custom design &amp; printing.</p><div class="flex flex-wrap gap-2 mt-3"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(236,72,153,0.12);border:1px solid rgba(236,72,153,0.3);color:#f9a8d4;">Design</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(236,72,153,0.12);border:1px solid rgba(236,72,153,0.3);color:#f9a8d4;">Printing</span></div></div>
-            </div>
-          </div>
-          <div class="hero-slide flex-shrink-0 w-full px-2">
-            <div class="carousel-card flex flex-col sm:flex-row items-center gap-5 text-left">
-              <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(255,140,0,0.18);border:1.5px solid rgba(255,180,0,0.3)"><i class="fas fa-print text-2xl text-amber-400"></i></div>
-              <div><h3 class="font-display font-bold text-lg mb-1">Printing Work</h3><p>High-quality print materials — flyers, banners, posters, brochures, stickers and more.</p><div class="flex flex-wrap gap-2 mt-3"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(255,140,0,0.15);border:1px solid rgba(255,180,60,0.3);color:#fbbf24;">Banners</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(255,140,0,0.15);border:1px solid rgba(255,180,60,0.3);color:#fbbf24;">Stickers</span></div></div>
-            </div>
-          </div>
-          <div class="hero-slide flex-shrink-0 w-full px-2">
-            <div class="carousel-card flex flex-col sm:flex-row items-center gap-5 text-left">
-              <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(139,92,246,0.15);border:1.5px solid rgba(139,92,246,0.3)"><i class="fas fa-code text-2xl text-violet-400"></i></div>
-              <div><h3 class="font-display font-bold text-lg mb-1">Web Design</h3><p>Modern, responsive websites built to convert. Portfolio sites, business sites, landing pages.</p><div class="flex flex-wrap gap-2 mt-3"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);color:#c4b5fd;">Responsive</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);color:#c4b5fd;">Modern</span></div></div>
-            </div>
-          </div>
-          <div class="hero-slide flex-shrink-0 w-full px-2">
-            <div class="carousel-card flex flex-col sm:flex-row items-center gap-5 text-left">
-              <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(16,185,129,0.15);border:1.5px solid rgba(16,185,129,0.3)"><i class="fas fa-share-alt text-2xl text-emerald-400"></i></div>
-              <div><h3 class="font-display font-bold text-lg mb-1">Social Media Design</h3><p>Eye-catching posts, stories, covers and profile photos for your social media presence.</p><div class="flex flex-wrap gap-2 mt-3"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);color:#6ee7b7;">Posts</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);color:#6ee7b7;">Stories</span></div></div>
-            </div>
-          </div>
-          <div class="hero-slide flex-shrink-0 w-full px-2">
-            <div class="carousel-card flex flex-col sm:flex-row items-center gap-5 text-left">
-              <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(255,60,80,0.15);border:1.5px solid rgba(255,80,80,0.3)"><i class="fas fa-tag text-2xl text-rose-400"></i></div>
-              <div><h3 class="font-display font-bold text-lg mb-1">Key Tags</h3><p>Custom printed and engraved key tags for personal or corporate branding.</p><div class="flex flex-wrap gap-2 mt-3"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.3);color:#fda4af;">Branding</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.3);color:#fda4af;">Custom</span></div></div>
-            </div>
+          <div class="glass-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6 rounded-2xl z-10 hover:scale-110 transition-transform duration-500">
+            <i class="fas fa-video text-5xl text-white mb-2"></i>
+            <div class="font-display font-bold text-2xl text-white">Video</div>
           </div>
         </div>
       </div>
-      <div class="flex justify-center gap-2 mt-5" id="carouselDots"></div>
-      <button id="carouselPrev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 w-9 h-9 rounded-full flex items-center justify-center transition-all z-10 hidden sm:flex" style="background:rgba(255,140,0,0.15);border:1.5px solid rgba(255,180,60,0.3);color:#ffd700;"><i class="fas fa-chevron-left text-xs"></i></button>
-      <button id="carouselNext" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 w-9 h-9 rounded-full flex items-center justify-center transition-all z-10 hidden sm:flex" style="background:rgba(255,140,0,0.15);border:1.5px solid rgba(255,180,60,0.3);color:#ffd700;"><i class="fas fa-chevron-right text-xs"></i></button>
     </div>
-  </div>
+  </section>
 
-  <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20">
-    <div class="flex flex-col items-center gap-2 animate-bounce">
-      <span class="text-xs tracking-widest uppercase font-bold" style="color:rgba(255,180,60,0.6);">Scroll</span>
-      <i class="fas fa-chevron-down" style="color:rgba(255,180,60,0.7);"></i>
-    </div>
-  </div>
-</section>
-
-<!-- wavy -->
-<div style="overflow:hidden;line-height:0;background:#0d0200;margin-top:-2px;">
-  <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:48px;width:100%;display:block;">
-    <path d="M0,24 C360,48 720,0 1080,24 C1260,36 1380,12 1440,24 L1440,48 L0,48 Z" fill="rgba(255,100,0,0.06)"/>
-  </svg>
-</div>
-
-<!-- ===============================================================
-     PORTFOLIO SECTION
-     =============================================================== -->
-<section id="portfolio" class="relative py-24 z-10" style="background:linear-gradient(160deg,#0d0200 0%,#150400 100%);">
-  <div class="absolute inset-0 kolam-bg opacity-30 pointer-events-none"></div>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="text-center mb-16 reveal">
-      <div class="section-label"><i class="fas fa-briefcase"></i> Our Work</div>
-      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 gold-text">Portfolio</h2>
-      <p class="max-w-2xl mx-auto font-medium" style="color:rgba(255,200,130,0.7);">Explore our creative work across graphic design and web design</p>
-    </div>
-    <div class="flex justify-center mb-10 reveal">
-      <div class="flex p-1.5 rounded-2xl gap-1" style="background:rgba(255,80,0,0.1);border:1.5px solid rgba(255,160,40,0.2);">
-        <button id="tab-graphic" onclick="switchMainTab('graphic')" class="main-tab active-main-tab px-6 py-3 rounded-xl text-sm transition-all flex items-center gap-2"><i class="fas fa-paint-brush"></i> Graphic Design</button>
-        <button id="tab-web" onclick="switchMainTab('web')" class="main-tab px-6 py-3 rounded-xl text-sm transition-all flex items-center gap-2"><i class="fas fa-code"></i> Web Design</button>
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="relative py-24 z-10 border-t border-white/5 bg-dark-800/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16 reveal">
+        <h2 class="font-display text-4xl md:text-5xl font-black text-white mb-4">Selected Work</h2>
+        <p class="text-gray-400 font-medium text-lg">A showcase of my recent projects</p>
       </div>
-    </div>
-    <div id="content-graphic" class="tab-content">
+
+      <!-- Main Tabs -->
       <div class="flex flex-wrap justify-center gap-3 mb-10 reveal">
-        <button onclick="filterCategory('all')" data-cat="all" class="cat-filter active-cat-filter px-5 py-2.5 rounded-xl text-sm transition-all flex items-center gap-2 hover:-translate-y-1 group"><i class="fas fa-th-large transition-all group-hover:scale-125 group-hover:-rotate-12"></i><span>All Work</span></button>
-        <button onclick="filterCategory('logo')" data-cat="logo" class="cat-filter inactive-cat-filter px-5 py-2.5 rounded-xl text-sm transition-all flex items-center gap-2 hover:-translate-y-1 group"><i class="fas fa-star transition-all group-hover:scale-125 group-hover:-rotate-12"></i><span>Logo</span></button>
-        <button onclick="filterCategory('visiting-card')" data-cat="visiting-card" class="cat-filter inactive-cat-filter px-5 py-2.5 rounded-xl text-sm transition-all flex items-center gap-2 hover:-translate-y-1 group"><i class="fas fa-address-card transition-all group-hover:scale-125 group-hover:-rotate-12"></i><span>Visiting Cards</span></button>
-        <button onclick="filterCategory('thankyou-card')" data-cat="thankyou-card" class="cat-filter inactive-cat-filter px-5 py-2.5 rounded-xl text-sm transition-all flex items-center gap-2 hover:-translate-y-1 group"><i class="fas fa-heart transition-all group-hover:scale-125 group-hover:-rotate-12"></i><span>Thank You</span></button>
-        <button onclick="filterCategory('printing')" data-cat="printing" class="cat-filter inactive-cat-filter px-5 py-2.5 rounded-xl text-sm transition-all flex items-center gap-2 hover:-translate-y-1 group"><i class="fas fa-print transition-all group-hover:scale-125 group-hover:-rotate-12"></i><span>Printing</span></button>
-        <button onclick="filterCategory('social-media')" data-cat="social-media" class="cat-filter inactive-cat-filter px-5 py-2.5 rounded-xl text-sm transition-all flex items-center gap-2 hover:-translate-y-1 group"><i class="fas fa-share-alt transition-all group-hover:scale-125 group-hover:-rotate-12"></i><span>Social Media</span></button>
-        <button onclick="filterCategory('banner')" data-cat="banner" class="cat-filter inactive-cat-filter px-5 py-2.5 rounded-xl text-sm transition-all flex items-center gap-2 hover:-translate-y-1 group"><i class="fas fa-image transition-all group-hover:scale-125 group-hover:-rotate-12"></i><span>Banners</span></button>
-        <button onclick="filterCategory('tshirt')" data-cat="tshirt" class="cat-filter inactive-cat-filter px-5 py-2.5 rounded-xl text-sm transition-all flex items-center gap-2 hover:-translate-y-1 group"><i class="fas fa-tshirt transition-all group-hover:scale-125 group-hover:-rotate-12"></i><span>T-Shirts</span></button>
-        <button onclick="filterCategory('key-tag')" data-cat="key-tag" class="cat-filter inactive-cat-filter px-5 py-2.5 rounded-xl text-sm transition-all flex items-center gap-2 hover:-translate-y-1 group"><i class="fas fa-tag transition-all group-hover:scale-125 group-hover:-rotate-12"></i><span>Key Tags</span></button>
+        <button id="tab-graphic" onclick="switchMainTab('graphic')" class="main-tab active-main-tab px-6 py-3 rounded-xl text-sm font-bold transition-all"><i class="fas fa-paint-brush mr-2"></i>Graphic Design</button>
+        <button id="tab-web" onclick="switchMainTab('web')" class="main-tab px-6 py-3 rounded-xl text-sm font-bold transition-all text-gray-400 hover:text-white glass-panel"><i class="fas fa-code mr-2"></i>Web Design</button>
+        <button id="tab-video" onclick="switchMainTab('video')" class="main-tab px-6 py-3 rounded-xl text-sm font-bold transition-all text-gray-400 hover:text-white glass-panel"><i class="fas fa-video mr-2"></i>Video Projects</button>
       </div>
-      <div id="graphicGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
-      <div id="graphicEmpty" class="hidden text-center py-20">
-        <div class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background:rgba(255,100,0,0.1);border:1.5px solid rgba(255,160,40,0.2)"><i class="fas fa-image text-3xl" style="color:rgba(255,180,60,0.4);"></i></div>
-        <p class="text-lg font-bold" style="color:rgba(255,180,100,0.6);">No projects yet</p><p class="text-sm mt-1" style="color:rgba(255,160,80,0.4);">Add projects from admin panel</p>
-      </div>
-    </div>
-    <div id="content-web" class="tab-content hidden">
-      <div id="webGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-      <div id="webEmpty" class="text-center py-20">
-        <div class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background:rgba(255,100,0,0.1);border:1.5px solid rgba(255,160,40,0.2)"><i class="fas fa-laptop-code text-3xl" style="color:rgba(255,180,60,0.4);"></i></div>
-        <p class="text-lg font-bold" style="color:rgba(255,180,100,0.6);">Web projects coming soon!</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-
-<!-- ===============================================================
-     SERVICES SECTION
-     =============================================================== -->
-<section id="services" class="relative py-24 z-10" style="background:linear-gradient(160deg,#100300 0%,#1c0600 50%,#0d0200 100%);">
-  <div class="absolute inset-0 kolam-bg opacity-25 pointer-events-none"></div>
-  <div class="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none" style="background:rgba(255,80,0,0.06);"></div>
-  <div class="absolute bottom-0 left-0 w-80 h-80 rounded-full blur-3xl pointer-events-none" style="background:rgba(255,140,0,0.05);"></div>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="text-center mb-16 reveal">
-      <div class="section-label">🪔 What We Offer</div>
-      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 gold-text">Our Services</h2>
-      <p class="max-w-2xl mx-auto font-medium" style="color:rgba(255,200,130,0.7);">Professional design services tailored to elevate your brand</p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="service-card p-8 reveal group"><div class="service-icon-wrap" style="background:rgba(255,140,0,0.2);border:1.5px solid rgba(255,180,60,0.3)"><i class="fas fa-star text-2xl" style="color:#ffd700;"></i></div><h3 class="font-display font-bold text-xl text-amber-100 mb-3">Logo Design</h3><p class="leading-relaxed text-sm" style="color:rgba(255,200,130,0.7);">Unique, memorable logos that capture your brand identity. Delivered in all formats – PNG, SVG, PDF.</p><div class="mt-5 flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(255,140,0,0.15);border:1px solid rgba(255,180,60,0.3);color:#ffd700;">Brand Identity</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(255,140,0,0.15);border:1px solid rgba(255,180,60,0.3);color:#ffd700;">All Formats</span></div></div>
-      <div class="service-card p-8 reveal group"><div class="service-icon-wrap" style="background:rgba(6,182,212,0.15);border:1.5px solid rgba(6,182,212,0.3)"><i class="fas fa-address-card text-2xl text-cyan-400"></i></div><h3 class="font-display font-bold text-xl text-amber-100 mb-3">Visiting Cards</h3><p class="leading-relaxed text-sm" style="color:rgba(255,200,130,0.7);">Professional business cards designed to make a lasting impression. Design + printing available.</p><div class="mt-5 flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(6,182,212,0.12);border:1px solid rgba(6,182,212,0.3);color:#67e8f9;">Design</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(6,182,212,0.12);border:1px solid rgba(6,182,212,0.3);color:#67e8f9;">Printing</span></div></div>
-      <div class="service-card p-8 reveal group"><div class="service-icon-wrap" style="background:rgba(236,72,153,0.15);border:1.5px solid rgba(236,72,153,0.3)"><i class="fas fa-heart text-2xl text-pink-400"></i></div><h3 class="font-display font-bold text-xl text-amber-100 mb-3">Thank You Cards</h3><p class="leading-relaxed text-sm" style="color:rgba(255,200,130,0.7);">Elegant thank you card designs for weddings, events, and businesses. Custom design & printing.</p><div class="mt-5 flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(236,72,153,0.12);border:1px solid rgba(236,72,153,0.3);color:#f9a8d4;">Design</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(236,72,153,0.12);border:1px solid rgba(236,72,153,0.3);color:#f9a8d4;">Printing</span></div></div>
-      <div class="service-card p-8 reveal group"><div class="service-icon-wrap" style="background:rgba(255,140,0,0.18);border:1.5px solid rgba(255,180,0,0.3)"><i class="fas fa-print text-2xl text-amber-400"></i></div><h3 class="font-display font-bold text-xl text-amber-100 mb-3">Printing Work</h3><p class="leading-relaxed text-sm" style="color:rgba(255,200,130,0.7);">High-quality print materials – flyers, banners, posters, brochures, stickers and more.</p><div class="mt-5 flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(255,140,0,0.15);border:1px solid rgba(255,180,60,0.3);color:#fbbf24;">Banners</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(255,140,0,0.15);border:1px solid rgba(255,180,60,0.3);color:#fbbf24;">Flyers</span></div></div>
-      <div class="service-card p-8 reveal group"><div class="service-icon-wrap" style="background:rgba(139,92,246,0.15);border:1.5px solid rgba(139,92,246,0.3)"><i class="fas fa-code text-2xl text-violet-400"></i></div><h3 class="font-display font-bold text-xl text-amber-100 mb-3">Web Design</h3><p class="leading-relaxed text-sm" style="color:rgba(255,200,130,0.7);">Modern, responsive websites built to convert. Portfolio sites, business sites, landing pages.</p><div class="mt-5 flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);color:#c4b5fd;">Responsive</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);color:#c4b5fd;">Modern</span></div></div>
-      <div class="service-card p-8 reveal group"><div class="service-icon-wrap" style="background:rgba(16,185,129,0.15);border:1.5px solid rgba(16,185,129,0.3)"><i class="fas fa-share-alt text-2xl text-emerald-400"></i></div><h3 class="font-display font-bold text-xl text-amber-100 mb-3">Social Media Design</h3><p class="leading-relaxed text-sm" style="color:rgba(255,200,130,0.7);">Eye-catching posts, stories, covers and profile photos for your social media presence.</p><div class="mt-5 flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);color:#6ee7b7;">Posts</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);color:#6ee7b7;">Stories</span></div></div>
-      <div class="service-card p-8 reveal group"><div class="service-icon-wrap" style="background:rgba(255,60,80,0.15);border:1.5px solid rgba(255,80,80,0.3)"><i class="fas fa-tag text-2xl text-rose-400"></i></div><h3 class="font-display font-bold text-xl text-amber-100 mb-3">Key Tags</h3><p class="leading-relaxed text-sm" style="color:rgba(255,200,130,0.7);">Custom printed and engraved key tags for personal or corporate branding.</p><div class="mt-5 flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.3);color:#fda4af;">Branding</span><span class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.3);color:#fda4af;">Custom</span></div></div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ===============================================================
-     CONTACT SECTION
-     =============================================================== -->
-<section id="contact" class="relative py-24 z-10" style="background:linear-gradient(160deg,#0d0200,#180500,#0d0200);">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16 reveal">
-      <div class="section-label"><i class="fas fa-envelope"></i> Get in Touch</div>
-      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 gold-text">Contact Us</h2>
-      <p class="font-medium" style="color:rgba(255,200,130,0.7);">Have a project in mind? Let's create something amazing together.</p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="space-y-5 reveal">
-        <div class="contact-card p-6">
-          <h3 class="font-display font-bold text-amber-100 text-xl mb-5">Reach Out 🌸</h3>
-          <div class="space-y-3">
-            <a href="https://wa.me/94716125715" target="_blank" class="contact-link" style="background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.2);">
-              <div class="contact-link-icon bg-green-500 text-white"><i class="fab fa-whatsapp"></i></div>
-              <div><div class="font-bold text-amber-100">WhatsApp</div><div class="text-sm" style="color:rgba(255,200,130,0.6);">+94 71 612 5715</div></div>
-              <i class="fas fa-arrow-right text-green-500 ml-auto text-sm"></i>
-            </a>
-            <a href="https://web.facebook.com/pixelbymaliya" target="_blank" class="contact-link" style="background:rgba(59,130,246,0.08);border-color:rgba(59,130,246,0.2);">
-              <div class="contact-link-icon bg-blue-600 text-white"><i class="fab fa-facebook"></i></div>
-              <div><div class="font-bold text-amber-100">Facebook</div><div class="text-sm" style="color:rgba(255,200,130,0.6);">PixelByMaliya</div></div>
-              <i class="fas fa-arrow-right text-blue-400 ml-auto text-sm"></i>
-            </a>
-            <a href="mailto:pixelbymaliya@gmail.com" class="contact-link" style="background:rgba(239,68,68,0.08);border-color:rgba(239,68,68,0.2);">
-              <div class="contact-link-icon bg-red-500 text-white"><i class="fas fa-envelope"></i></div>
-              <div><div class="font-bold text-amber-100">Email</div><div class="text-sm" style="color:rgba(255,200,130,0.6);">pixelbymaliya@gmail.com</div></div>
-              <i class="fas fa-arrow-right text-red-400 ml-auto text-sm"></i>
-            </a>
-          </div>
+      <!-- Graphic Tab -->
+      <div id="content-graphic" class="tab-content w-full">
+        <div class="flex flex-wrap justify-center gap-2 mb-10 reveal">
+          <button onclick="filterCategory('all')" data-cat="all" class="cat-filter active-cat-filter px-4 py-2 rounded-lg text-xs font-bold transition-all">All</button>
+          <button onclick="filterCategory('logo')" data-cat="logo" class="cat-filter inactive-cat-filter px-4 py-2 rounded-lg text-xs font-bold transition-all glass-panel">Logos</button>
+          <button onclick="filterCategory('visiting-card')" data-cat="visiting-card" class="cat-filter inactive-cat-filter px-4 py-2 rounded-lg text-xs font-bold transition-all glass-panel">Visiting Cards</button>
+          <button onclick="filterCategory('social-media')" data-cat="social-media" class="cat-filter inactive-cat-filter px-4 py-2 rounded-lg text-xs font-bold transition-all glass-panel">Social Media</button>
+          <button onclick="filterCategory('banner')" data-cat="banner" class="cat-filter inactive-cat-filter px-4 py-2 rounded-lg text-xs font-bold transition-all glass-panel">Banners</button>
+          <button onclick="filterCategory('printing')" data-cat="printing" class="cat-filter inactive-cat-filter px-4 py-2 rounded-lg text-xs font-bold transition-all glass-panel">Printing</button>
         </div>
-        <div class="p-6 rounded-2xl" style="background:linear-gradient(135deg,rgba(255,100,0,0.1),rgba(255,180,0,0.06));border:1.5px solid rgba(255,160,40,0.2);">
-          <div class="flex items-center gap-3 mb-2">
-            <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:rgba(255,140,0,0.18);"><i class="fas fa-clock text-amber-400 text-sm"></i></div>
-            <span class="font-bold text-amber-100">Fast Response</span>
-          </div>
-          <p class="text-sm font-medium leading-relaxed" style="color:rgba(255,200,130,0.65);">We respond within 24 hours. For urgent projects, WhatsApp is the fastest way!</p>
+        <div id="graphicGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 bento-grid"></div>
+        <div id="graphicEmpty" class="hidden text-center py-20">
+          <div class="w-16 h-16 rounded-2xl glass-panel flex items-center justify-center mx-auto mb-4 border-white/10"><i class="fas fa-image text-2xl text-gray-500"></i></div>
+          <p class="text-white font-bold">No projects found</p>
         </div>
       </div>
-      <div class="contact-card p-6 reveal">
-        <h3 class="font-display font-bold text-amber-100 text-xl mb-6">Send a Message 🌺</h3>
-        <form id="contactForm" class="space-y-4" onsubmit="sendWhatsAppMessage(event)">
-          <div><label class="block text-sm font-bold mb-2" style="color:rgba(255,200,130,0.8);">Your Name</label><input type="text" id="contactName" required placeholder="e.g. Saman Perera" class="form-input"/></div>
-          <div><label class="block text-sm font-bold mb-2" style="color:rgba(255,200,130,0.8);">Service Needed</label>
-            <select id="contactService" class="form-input">
-              <option value="Logo Design">Logo Design</option><option value="Visiting Cards">Visiting Cards</option>
-              <option value="Thank You Cards">Thank You Cards</option><option value="Printing Work">Printing Work</option>
-              <option value="Social Media Designs">Social Media Designs</option><option value="Banners">Banners</option>
-              <option value="T-Shirts">T-Shirts</option><option value="Key Tags">Key Tags</option>
-              <option value="Web Design">Web Design</option><option value="Other">Other</option>
-            </select>
-          </div>
-          <div><label class="block text-sm font-bold mb-2" style="color:rgba(255,200,130,0.8);">Message</label><textarea id="contactMessage" rows="4" required placeholder="Tell us about your project..." class="form-input resize-none"></textarea></div>
-          <button type="submit" class="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold text-white transition-all hover:-translate-y-0.5" style="background:linear-gradient(135deg,#22c55e,#16a34a);box-shadow:0 4px 16px rgba(34,197,94,0.3);">
-            <i class="fab fa-whatsapp text-lg"></i> Send via WhatsApp
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
 
-
-<!-- ===============================================================
-     FOOTER
-     =============================================================== -->
-<footer class="relative py-12 z-10">
-  <div style="position:absolute;top:0;left:0;right:0;overflow:hidden;line-height:0;transform:rotate(180deg);">
-    <svg viewBox="0 0 1440 36" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:36px;width:100%;display:block;">
-      <path d="M0,18 C360,36 720,0 1080,18 C1260,27 1380,9 1440,18 L1440,36 L0,36 Z" fill="rgba(255,100,0,0.06)"/>
-    </svg>
-  </div>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-      <div class="flex items-center gap-3">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="38" height="38">
-          <defs><radialGradient id="fb" cx="40%" cy="35%" r="65%"><stop offset="0%" stop-color="#d0d8e0"/><stop offset="100%" stop-color="#8a9aaa"/></radialGradient></defs>
-          <circle cx="32" cy="32" r="31" fill="url(#fb)" stroke="#b0bcc8" stroke-width=".5"/>
-          <ellipse cx="32" cy="32" rx="19" ry="10" transform="rotate(-35 32 32)" fill="none" stroke="#ff8c00" stroke-width="3" stroke-dasharray="3.2 3.5" stroke-linecap="round" opacity=".95"/>
-          <ellipse cx="32" cy="32" rx="19" ry="10" transform="rotate(35 32 32)" fill="none" stroke="#ffd700" stroke-width="3" stroke-dasharray="3.2 3.5" stroke-linecap="round" opacity=".95"/>
-          <ellipse cx="32" cy="32" rx="19" ry="10" transform="rotate(90 32 32)" fill="none" stroke="#ff4500" stroke-width="3" stroke-dasharray="3.2 3.5" stroke-linecap="round" opacity=".95"/>
-          <circle cx="32" cy="32" r="9" fill="url(#fb)" opacity=".92"/>
-          <text x="32" y="37" font-family="Arial Black,Arial,sans-serif" font-size="14" font-weight="900" fill="#ff8c00" text-anchor="middle">M</text>
-        </svg>
-        <div><span class="font-display font-bold text-amber-100 text-lg">Pixel by </span><span class="font-display font-bold text-lg gold-text">Maliya</span></div>
-      </div>
-      <div class="flex items-center gap-5">
-        <a href="#hero" class="text-sm font-bold transition-colors" style="color:rgba(255,180,80,0.6);" onmouseover="this.style.color='#ffd700'" onmouseout="this.style.color='rgba(255,180,80,0.6)'">Home</a>
-        <a href="#portfolio" class="text-sm font-bold transition-colors" style="color:rgba(255,180,80,0.6);" onmouseover="this.style.color='#ffd700'" onmouseout="this.style.color='rgba(255,180,80,0.6)'">Portfolio</a>
-        <a href="#services" class="text-sm font-bold transition-colors" style="color:rgba(255,180,80,0.6);" onmouseover="this.style.color='#ffd700'" onmouseout="this.style.color='rgba(255,180,80,0.6)'">Services</a>
-        <a href="#contact" class="text-sm font-bold transition-colors" style="color:rgba(255,180,80,0.6);" onmouseover="this.style.color='#ffd700'" onmouseout="this.style.color='rgba(255,180,80,0.6)'">Contact</a>
-      </div>
-      <div class="flex flex-col items-center gap-3">
-        <div class="flex gap-2">
-          <a href="https://wa.me/94716125715" target="_blank" class="w-10 h-10 rounded-xl flex items-center justify-center transition-all hover:-translate-y-1" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,160,40,0.15);color:rgba(255,180,60,0.5);" onmouseover="this.style.color='#4ade80'" onmouseout="this.style.color='rgba(255,180,60,0.5)'"><i class="fab fa-whatsapp text-lg"></i></a>
-          <a href="https://web.facebook.com/pixelbymaliya" target="_blank" class="w-10 h-10 rounded-xl flex items-center justify-center transition-all hover:-translate-y-1" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,160,40,0.15);color:rgba(255,180,60,0.5);" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='rgba(255,180,60,0.5)'"><i class="fab fa-facebook text-lg"></i></a>
+      <!-- Web Tab -->
+      <div id="content-web" class="tab-content hidden w-full">
+        <div id="webGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-8"></div>
+        <div id="webEmpty" class="hidden text-center py-20">
+          <div class="w-16 h-16 rounded-2xl glass-panel flex items-center justify-center mx-auto mb-4 border-white/10"><i class="fas fa-laptop-code text-2xl text-gray-500"></i></div>
+          <p class="text-white font-bold">Web projects coming soon!</p>
         </div>
-        <p class="text-xs text-center" style="color:rgba(255,160,60,0.35);">© 2026 PixelByMaliya. Crafted with <i class="fas fa-heart text-red-500 mx-0.5"></i> in Sri Lanka.</p>
+      </div>
+
+      <!-- Video Tab -->
+      <div id="content-video" class="tab-content hidden w-full">
+        <div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        <div id="videoEmpty" class="hidden text-center py-20">
+          <div class="w-16 h-16 rounded-2xl glass-panel flex items-center justify-center mx-auto mb-4 border-white/10"><i class="fas fa-video text-2xl text-gray-500"></i></div>
+          <p class="text-white font-bold">Video projects coming soon!</p>
+        </div>
       </div>
     </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="relative py-24 z-10 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16 reveal">
+        <h2 class="font-display text-4xl md:text-5xl font-black text-white mb-4">My Services</h2>
+        <p class="text-gray-400 font-medium text-lg">Comprehensive design solutions for your brand.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Service 1 -->
+        <div class="glass-card p-8 rounded-3xl reveal hover:-translate-y-2 transition-transform duration-300">
+          <div class="w-14 h-14 rounded-2xl bg-brand-500/20 text-brand-400 flex items-center justify-center text-2xl mb-6 border border-brand-500/30"><i class="fas fa-paint-brush"></i></div>
+          <h3 class="font-display font-bold text-2xl text-white mb-3">Graphic Design</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">Logos, visiting cards, social media kits, and full brand identities crafted with precision.</p>
+          <div class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs font-semibold glass-panel text-gray-300">Brand Identity</span><span class="px-3 py-1 rounded-full text-xs font-semibold glass-panel text-gray-300">Print</span></div>
+        </div>
+        <!-- Service 2 -->
+        <div class="glass-card p-8 rounded-3xl reveal hover:-translate-y-2 transition-transform duration-300">
+          <div class="w-14 h-14 rounded-2xl bg-accent-500/20 text-accent-400 flex items-center justify-center text-2xl mb-6 border border-accent-500/30"><i class="fas fa-code"></i></div>
+          <h3 class="font-display font-bold text-2xl text-white mb-3">Web Design</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">Modern, responsive, and highly animated websites built to convert and impress your audience.</p>
+          <div class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs font-semibold glass-panel text-gray-300">UI/UX</span><span class="px-3 py-1 rounded-full text-xs font-semibold glass-panel text-gray-300">Development</span></div>
+        </div>
+        <!-- Service 3 -->
+        <div class="glass-card p-8 rounded-3xl reveal hover:-translate-y-2 transition-transform duration-300">
+          <div class="w-14 h-14 rounded-2xl bg-pink-500/20 text-pink-400 flex items-center justify-center text-2xl mb-6 border border-pink-500/30"><i class="fas fa-video"></i></div>
+          <h3 class="font-display font-bold text-2xl text-white mb-3">Video Editing</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">Cinematic edits, promotional videos, and engaging content for YouTube and social media.</p>
+          <div class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs font-semibold glass-panel text-gray-300">Motion Graphics</span><span class="px-3 py-1 rounded-full text-xs font-semibold glass-panel text-gray-300">Color Grading</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="relative py-24 z-10 border-t border-white/5 bg-dark-800/50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center reveal">
+      <h2 class="font-display text-4xl md:text-5xl font-black text-white mb-6">Let's work together.</h2>
+      <p class="text-gray-400 font-medium text-lg mb-10 max-w-xl mx-auto">I'm currently available for freelance projects. If you have a project that needs a creative touch, hit me up!</p>
+      
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href="https://wa.me/94716125715" target="_blank" class="flex items-center gap-4 p-4 pr-6 rounded-2xl glass-panel border border-white/10 hover:bg-white/5 hover:border-green-500/50 transition-all group">
+          <div class="w-12 h-12 rounded-xl bg-green-500 text-white flex items-center justify-center text-xl shadow-[0_0_20px_rgba(34,197,94,0.3)]"><i class="fab fa-whatsapp"></i></div>
+          <div class="text-left">
+            <div class="text-white font-bold text-sm">WhatsApp</div>
+            <div class="text-gray-400 text-xs">+94 71 612 5715</div>
+          </div>
+        </a>
+        <a href="https://web.facebook.com/pixelbymaliya" target="_blank" class="flex items-center gap-4 p-4 pr-6 rounded-2xl glass-panel border border-white/10 hover:bg-white/5 hover:border-blue-500/50 transition-all group">
+          <div class="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xl shadow-[0_0_20px_rgba(37,99,235,0.3)]"><i class="fab fa-facebook"></i></div>
+          <div class="text-left">
+            <div class="text-white font-bold text-sm">Facebook</div>
+            <div class="text-gray-400 text-xs">PixelByMaliya</div>
+          </div>
+        </a>
+        <a href="mailto:pixelbymaliya@gmail.com" class="flex items-center gap-4 p-4 pr-6 rounded-2xl glass-panel border border-white/10 hover:bg-white/5 hover:border-red-500/50 transition-all group">
+          <div class="w-12 h-12 rounded-xl bg-red-500 text-white flex items-center justify-center text-xl shadow-[0_0_20px_rgba(239,68,68,0.3)]"><i class="fas fa-envelope"></i></div>
+          <div class="text-left">
+            <div class="text-white font-bold text-sm">Email</div>
+            <div class="text-gray-400 text-xs">pixelbymaliya@gmail.com</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="relative z-10 py-8 border-t border-white/5 text-center text-gray-500 text-sm font-medium">
+    &copy; 2026 Pixel by Maliya. All rights reserved.
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="fixed inset-0 z-[200] hidden items-center justify-center p-4 bg-dark-900/90 backdrop-blur-xl" onclick="closeLightbox(event)">
+    <button onclick="closeLightbox()" class="absolute top-6 right-6 w-12 h-12 rounded-xl flex items-center justify-center text-white bg-white/10 hover:bg-white/20 transition-all z-10 border border-white/10"><i class="fas fa-times text-xl"></i></button>
+    <button id="lightboxPrev" onclick="changeLightboxImage(-1); event.stopPropagation();" class="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-xl flex items-center justify-center text-white bg-white/10 hover:bg-white/20 transition-all z-10 border border-white/10"><i class="fas fa-chevron-left text-xl"></i></button>
+    <img id="lightboxImg" src="" alt="" class="max-w-full max-h-[85vh] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] object-contain relative z-0 transition-transform duration-300" onclick="event.stopPropagation();"/>
+    <button id="lightboxNext" onclick="changeLightboxImage(1); event.stopPropagation();" class="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-xl flex items-center justify-center text-white bg-white/10 hover:bg-white/20 transition-all z-10 border border-white/10"><i class="fas fa-chevron-right text-xl"></i></button>
+    <div id="lightboxCounter" class="absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-2 rounded-xl text-white font-bold text-sm z-10 bg-white/10 backdrop-blur border border-white/10"></div>
   </div>
-</footer>
 
-<!-- Floating WhatsApp -->
-<a href="https://wa.me/94716125715" target="_blank" title="WhatsApp"
-  class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-2xl flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
-  style="background:linear-gradient(135deg,#25d366,#128c7e);box-shadow:0 4px 20px rgba(37,211,102,0.4);">
-  <i class="fab fa-whatsapp text-2xl"></i>
-</a>
-
-<!-- Lightbox -->
-<div id="lightbox" class="fixed inset-0 z-[200] hidden items-center justify-center p-4" style="background:rgba(0,0,0,0.88);backdrop-filter:blur(8px);" onclick="closeLightbox(event)">
-  <button onclick="closeLightbox()" class="absolute top-4 right-4 w-10 h-10 rounded-xl flex items-center justify-center text-amber-300 transition-all z-10" style="background:rgba(255,140,0,0.15);border:1.5px solid rgba(255,180,60,0.25);"><i class="fas fa-times"></i></button>
-  <button id="lightboxPrev" onclick="changeLightboxImage(-1); event.stopPropagation();" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl flex items-center justify-center text-amber-300 transition-all z-10" style="background:rgba(255,140,0,0.15);border:1.5px solid rgba(255,180,60,0.25);"><i class="fas fa-chevron-left"></i></button>
-  <img id="lightboxImg" src="" alt="" class="max-w-full max-h-[90vh] rounded-2xl shadow-2xl object-contain relative z-0" onclick="event.stopPropagation();"/>
-  <button id="lightboxNext" onclick="changeLightboxImage(1); event.stopPropagation();" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl flex items-center justify-center text-amber-300 transition-all z-10" style="background:rgba(255,140,0,0.15);border:1.5px solid rgba(255,180,60,0.25);"><i class="fas fa-chevron-right"></i></button>
-  <div id="lightboxCounter" class="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-xl text-amber-300 font-medium text-sm z-10" style="background:rgba(255,140,0,0.15);border:1.5px solid rgba(255,180,60,0.25);backdrop-filter:blur(4px);"></div>
-</div>
-
-<!-- Admin overlay -->
-<div id="adminOverlay" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
-  <div class="w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl rounded-3xl" style="background:#1a0500;border:1.5px solid rgba(255,160,40,0.25);">
-    <div class="flex items-center justify-between p-6" style="border-bottom:1px solid rgba(255,160,40,0.15);">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,#ff8c00,#ffd700)"><i class="fas fa-cog text-amber-900"></i></div>
-        <div><h3 class="font-display font-bold text-amber-100 text-lg">Admin Panel</h3><p class="text-xs" style="color:rgba(255,180,80,0.5);">Manage portfolio projects</p></div>
-      </div>
-      <button onclick="closeAdminPanel()" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all" style="background:rgba(255,100,0,0.1);color:rgba(255,180,80,0.7);"><i class="fas fa-times"></i></button>
-    </div>
-    <div id="adminLoginSection" class="p-6">
-      <h4 class="font-semibold text-amber-100 mb-4">Enter Admin Password</h4>
-      <div class="flex gap-3">
-        <input type="password" id="adminPasswordInput" placeholder="Password" class="form-input flex-1" onkeydown="if(event.key==='Enter')checkAdminPassword()"/>
-        <button onclick="checkAdminPassword()" class="px-6 py-3 rounded-xl font-bold transition-all" style="background:linear-gradient(135deg,#ff8c00,#ffd700);color:#1a0500;">Login</button>
-      </div>
-      <p id="adminLoginError" class="text-red-400 text-sm mt-2 hidden">Incorrect password.</p>
-    </div>
-    <div id="adminContent" class="hidden p-6 space-y-6">
-      <!-- content from original app.js -->
-    </div>
-  </div>
-</div>
-
-  <!-- Firebase SDK -->
+  <!-- Firebase Scripts -->
   <script defer src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
   <script defer src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
-  <script defer src="https://www.gstatic.com/firebasejs/10.8.1/firebase-storage-compat.js"></script>
   <script defer src="firebase-init.js"></script>
   <script defer src="db.js"></script>
   <script defer src="app.js"></script>
-
-<script>
-// ================================================================
-//  NAVBAR SCROLL
-// ================================================================
-const navbar=document.getElementById('navbar');
-window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>40));
-
-
-
-// ================================================================
-//  REVEAL ON SCROLL
-// ================================================================
-const ro=new IntersectionObserver((entries)=>{
-  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);ro.unobserve(e.target);}});
-},{threshold:.1});
-document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
-
-// ================================================================
-//  CAT FILTER SPOTLIGHT
-// ================================================================
-document.querySelectorAll('.cat-filter').forEach(btn=>{
-  btn.addEventListener('mousemove',e=>{const r=btn.getBoundingClientRect();btn.style.setProperty('--x',e.clientX-r.left+'px');btn.style.setProperty('--y',e.clientY-r.top+'px');});
-});
-
-
-
-// ================================================================
-//  PARTICLE CANVAS (fire-coloured)
-// ================================================================
-window.addEventListener('load', function(){
-  const canvas=document.getElementById('particleCanvas');
-  if(!canvas)return;
-  const ctx=canvas.getContext('2d');
-  let particles=[];
-  function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
-  resize(); window.addEventListener('resize',resize);
-  const cols=['255,140,0','255,69,0','255,215,0','220,60,0'];
-  for(let i=0;i<60;i++) particles.push({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,size:Math.random()*1.5+.4,opacity:Math.random()*.35+.05,color:cols[Math.floor(Math.random()*cols.length)]});
-  function draw(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    particles.forEach(p=>{
-      p.x+=p.vx; p.y+=p.vy;
-      if(p.x<0||p.x>canvas.width)p.vx*=-1;
-      if(p.y<0||p.y>canvas.height)p.vy*=-1;
-      ctx.beginPath(); ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
-      ctx.fillStyle='rgba('+p.color+','+p.opacity+')'; ctx.fill();
-    });
-    requestAnimationFrame(draw);
-  }
-  draw();
-})();
-
-// ================================================================
-//  CURSOR TRAIL (gold/fire)
-// ================================================================
-window.addEventListener('load', function(){
-  const canvas=document.getElementById('cursorAnimCanvas');
-  if(!canvas)return;
-  const ctx=canvas.getContext('2d');
-  canvas.width=window.innerWidth; canvas.height=window.innerHeight;
-  window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;});
-  let trail=[];
-  document.addEventListener('mousemove',e=>{trail.push({x:e.clientX,y:e.clientY,age:0});if(trail.length>20)trail.shift();});
-  const tcols=['#ffd700','#ff8c00','#ff4500','#ffec80'];
-  function drawT(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    trail.forEach((pt,i)=>{
-      pt.age++;
-      const alpha=Math.max(0,.55-pt.age*.05)*(i/trail.length);
-      const size=Math.max(0,3.5-pt.age*.12)*(i/trail.length);
-      ctx.beginPath(); ctx.arc(pt.x,pt.y,size,0,Math.PI*2);
-      ctx.fillStyle=tcols[i%tcols.length]+Math.floor(alpha*255).toString(16).padStart(2,'0');
-      ctx.fill();
-    });
-    trail=trail.filter(p=>p.age<12);
-    requestAnimationFrame(drawT);
-  }
-  drawT();
-})();
-
-// ================================================================
-//  CAROUSEL
-// ================================================================
-(function(){
-  const track=document.getElementById('heroCarouselTrack');
-  const slides=document.querySelectorAll('.hero-slide');
-  const dotsW=document.getElementById('carouselDots');
-  const prev=document.getElementById('carouselPrev');
-  const next=document.getElementById('carouselNext');
-  if(!track||!slides.length)return;
-  const total=slides.length; let cur=0, timer=null;
-  slides.forEach((_,i)=>{const d=document.createElement('button');d.className='carousel-dot'+(i===0?' active':'');d.addEventListener('click',()=>goTo(i,true));dotsW.appendChild(d);});
-  function getDots(){return dotsW.querySelectorAll('.carousel-dot');}
-  function goTo(i,rst){cur=(i+total)%total;track.style.transform='translateX(-'+(cur*100)+'%)';getDots().forEach((d,j)=>d.classList.toggle('active',j===cur));if(rst)startAuto();}
-  function startAuto(){clearInterval(timer);timer=setInterval(()=>goTo(cur+1,false),3200);}
-  prev.addEventListener('click',()=>goTo(cur-1,true));
-  next.addEventListener('click',()=>goTo(cur+1,true));
-  let sx=0;
-  track.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;},{passive:true});
-  track.addEventListener('touchend',e=>{const d=sx-e.changedTouches[0].clientX;if(Math.abs(d)>40)goTo(d>0?cur+1:cur-1,true);});
-  document.getElementById('heroCarouselOuter').addEventListener('mouseenter',()=>clearInterval(timer));
-  document.getElementById('heroCarouselOuter').addEventListener('mouseleave',startAuto);
-  startAuto();
-})();
-
-</script>
 </body>
 </html>

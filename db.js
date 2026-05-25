@@ -67,6 +67,25 @@ const DB = {
     },
 
     /**
+     * Get aggregated stats for the admin dashboard
+     */
+    async getProjectStats() {
+        try {
+            const projects = await this.getProjects();
+            const stats = { total: projects.length, graphic: 0, web: 0, video: 0 };
+            projects.forEach(p => {
+                if (p.type === 'graphic') stats.graphic++;
+                else if (p.type === 'web') stats.web++;
+                else if (p.type === 'video') stats.video++;
+            });
+            return stats;
+        } catch (e) {
+            console.error('DB.getProjectStats error:', e);
+            return { total: 0, graphic: 0, web: 0, video: 0 };
+        }
+    },
+
+    /**
      * Get the admin password from LocalStorage
      */
     getPassword() {

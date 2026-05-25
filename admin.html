@@ -87,7 +87,7 @@
             <div class="flex items-center gap-2">
                 <div
                     class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-brand-500/15 border border-brand-500/30 text-brand-300 text-xs font-semibold">
-                    <i class="fas fa-fire text-orange-400"></i> Firebase Connected
+                    <i class="fas fa-fire text-violet-400"></i> Firebase Connected
                 </div>
                 <a href="index.html"
                     class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-gray-400 hover:text-white text-sm transition-all"><i
@@ -175,7 +175,6 @@
                             Add New Project
                         </h3>
 
-                        <!-- Admin Tabs -->
                         <div class="flex gap-2 mb-5">
                             <button onclick="adminTab('graphic')" id="adminTabGraphic"
                                 class="admin-tab-btn active-admin-tab flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center justify-center gap-2"><i
@@ -183,6 +182,9 @@
                             <button onclick="adminTab('web')" id="adminTabWeb"
                                 class="admin-tab-btn inactive-admin-tab flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center justify-center gap-2"><i
                                     class="fas fa-code"></i> Web Design</button>
+                            <button onclick="adminTab('video')" id="adminTabVideo"
+                                class="admin-tab-btn inactive-admin-tab flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center justify-center gap-2"><i
+                                    class="fas fa-video"></i> Video Projects</button>
                         </div>
 
                         <div class="space-y-4">
@@ -353,6 +355,8 @@
                                     class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/5 text-gray-400 border border-white/10 hover:text-white transition-all">Graphic</button>
                                 <button onclick="setListFilter('web')" id="listFilterWeb"
                                     class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/5 text-gray-400 border border-white/10 hover:text-white transition-all">Web</button>
+                                <button onclick="setListFilter('video')" id="listFilterVideo"
+                                    class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/5 text-gray-400 border border-white/10 hover:text-white transition-all">Video</button>
                             </div>
                         </div>
 
@@ -530,11 +534,11 @@
         function adminTab(tab) {
             currentAdminTab = tab;
             document.querySelectorAll('.admin-tab-btn').forEach(b => { b.classList.remove('active-admin-tab'); b.classList.add('inactive-admin-tab'); });
-            const el = tab === 'graphic' ? 'adminTabGraphic' : 'adminTabWeb';
+            const el = tab === 'graphic' ? 'adminTabGraphic' : (tab === 'web' ? 'adminTabWeb' : 'adminTabVideo');
             document.getElementById(el).classList.add('active-admin-tab');
             document.getElementById(el).classList.remove('inactive-admin-tab');
             document.getElementById('adminCatField').classList.toggle('hidden', tab !== 'graphic');
-            document.getElementById('webSpecificFields').classList.toggle('hidden', tab !== 'web');
+            document.getElementById('webSpecificFields').classList.toggle('hidden', tab !== 'web' && tab !== 'video');
         }
 
         /* ==================== MULTI-IMAGE SELECTION ==================== */
@@ -963,12 +967,13 @@
         function renderStats() {
             const graphic = cachedProjects.filter(p => p.type === 'graphic').length;
             const web = cachedProjects.filter(p => p.type === 'web').length;
+            const video = cachedProjects.filter(p => p.type === 'video').length;
             const total = cachedProjects.length;
             const stats = [
                 { label: 'Total Projects', value: total, icon: 'fa-layer-group', color: 'brand' },
                 { label: 'Graphic Design', value: graphic, icon: 'fa-paint-brush', color: 'purple' },
                 { label: 'Web Design', value: web, icon: 'fa-code', color: 'cyan' },
-                { label: 'Firebase Store', value: '✅', icon: 'fa-fire', color: 'amber' },
+                { label: 'Video Projects', value: video, icon: 'fa-video', color: 'pink' },
             ];
             document.getElementById('statsRow').innerHTML = stats.map(s => `
             <div class="bg-dark-800/70 backdrop-blur rounded-2xl border border-white/10 p-5 flex items-center gap-4">
@@ -980,7 +985,7 @@
         /* ==================== PROJECTS LIST ==================== */
         function setListFilter(f) {
             listFilter = f;
-            ['all', 'graphic', 'web'].forEach(k => {
+            ['all', 'graphic', 'web', 'video'].forEach(k => {
                 const btn = document.getElementById('listFilter' + k.charAt(0).toUpperCase() + k.slice(1));
                 if (k === f) btn.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-500/20 text-brand-300 border border-brand-500/30 transition-all';
                 else btn.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/5 text-gray-400 border border-white/10 hover:text-white transition-all';

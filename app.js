@@ -36,14 +36,16 @@ function initMobileMenu() {
     const btn = document.getElementById('mobileMenuBtn');
     const menu = document.getElementById('mobileMenu');
 
-    btn.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-    });
+    if (btn && menu) {
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    }
 
     // Close menu when a nav link is clicked
     document.querySelectorAll('.mobile-nav-link').forEach(link => {
         link.addEventListener('click', () => {
-            menu.classList.add('hidden');
+            if (menu) menu.classList.add('hidden');
         });
     });
 }
@@ -77,8 +79,7 @@ function initRevealAnimations() {
         });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.service-card').forEach(el => {
-        el.classList.add('reveal');
+    document.querySelectorAll('.reveal').forEach(el => {
         observer.observe(el);
     });
 }
@@ -123,7 +124,7 @@ function filterCategory(cat) {
 /* ==================== RENDER PORTFOLIO ==================== */
 async function renderPortfolio() {
     try {
-        const grid = currentMainTab === 'graphic' ? document.getElementById('graphicGrid') : document.getElementById('webGrid');
+        const grid = currentMainTab === 'graphic' ? document.getElementById('graphicGrid') : (currentMainTab === 'video' ? document.getElementById('videoGrid') : document.getElementById('webGrid'));
         if (grid) {
             grid.innerHTML = `
             <div class="col-span-full flex flex-col items-center justify-center py-20 text-brand-400">
@@ -136,6 +137,7 @@ async function renderPortfolio() {
             // DB not loaded yet — show empty state silently
             renderGraphicGrid([]);
             renderWebGrid([]);
+            renderVideoGrid([]);
             return;
         }
         const result = DB.getProjects();
@@ -144,6 +146,8 @@ async function renderPortfolio() {
 
         if (currentMainTab === 'graphic') {
             renderGraphicGrid(loadedProjects.filter(p => p.type === 'graphic'));
+        } else if (currentMainTab === 'video') {
+            renderVideoGrid(loadedProjects.filter(p => p.type === 'video'));
         } else {
             renderWebGrid(loadedProjects.filter(p => p.type === 'web'));
         }
@@ -151,6 +155,7 @@ async function renderPortfolio() {
         console.warn('Portfolio render skipped:', err.message);
         renderGraphicGrid([]);
         renderWebGrid([]);
+        renderVideoGrid([]);
     }
 }
 
@@ -186,6 +191,20 @@ function renderWebGrid(projects) {
     grid.innerHTML = projects.map(p => createWebCard(p)).join('');
 }
 
+function renderVideoGrid(projects) {
+    const grid = document.getElementById('videoGrid');
+    const empty = document.getElementById('videoEmpty');
+
+    if (projects.length === 0) {
+        grid.innerHTML = '';
+        empty.classList.remove('hidden');
+        return;
+    }
+
+    empty.classList.add('hidden');
+    grid.innerHTML = projects.map(p => createVideoCard(p)).join('');
+}
+
 function createGraphicCard(project) {
     const catLabels = {
         'logo': 'Logo Design',
@@ -211,7 +230,7 @@ function createGraphicCard(project) {
     const label = catLabels[project.category] || project.category;
 
     return `
-    <div class="portfolio-card group relative rounded-2xl overflow-hidden bg-dark-700/60 border border-white/10 hover:border-brand-500/40 shadow-lg cursor-pointer"
+    <div class="portfolio-card group relative rounded-3xl overflow-hidden glass-card cursor-pointer hover:-translate-y-2 transition-transform duration-300"
          onclick="openLightbox('${project.id}')">
         <div class="overflow-hidden aspect-[4/3]">
             <img src="${project.image || ''}" 
@@ -237,7 +256,7 @@ function createWebCard(project) {
     const techList = project.tech ? project.tech.split(',').map(t => t.trim()).filter(Boolean) : [];
 
     return `
-    <div class="portfolio-card group rounded-2xl overflow-hidden bg-dark-700/60 border border-white/10 hover:border-purple-500/40 shadow-lg">
+    <div class="portfolio-card group rounded-3xl overflow-hidden glass-card hover:-translate-y-2 transition-transform duration-300">
         <div class="overflow-hidden aspect-video cursor-pointer" 
              onclick="openLightbox('${project.id}')">
             <img src="${project.image || ''}" 
@@ -251,12 +270,40 @@ function createWebCard(project) {
             ${project.description ? `<p class="text-gray-400 text-sm mb-4 leading-relaxed">${escapeHtml(project.description)}</p>` : ''}
             ${techList.length > 0 ? `
             <div class="flex flex-wrap gap-2 mb-4">
-                ${techList.map(t => `<span class="px-2 py-1 rounded-lg bg-purple-500/10 text-purple-300 text-xs border border-purple-500/20">${escapeHtml(t)}</span>`).join('')}
+                ${techList.map(t => `<span class="px-2 py-1 rounded-lg bg-brand-500/10 text-brand-300 text-xs border border-brand-500/20">${escapeHtml(t)}</span>`).join('')}
             </div>` : ''}
             ${project.url ? `
             <a href="${escapeHtml(project.url)}" target="_blank" 
-               class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-500/20 text-purple-300 text-sm font-medium hover:bg-purple-500/30 border border-purple-500/30 transition-all">
+               class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-500/20 text-brand-300 text-sm font-medium hover:bg-brand-500/30 border border-brand-500/30 transition-all">
                 <i class="fas fa-external-link-alt text-xs"></i> View Live
+            </a>` : ''}
+        </div>
+    </div>`;
+}
+
+function createVideoCard(project) {
+    return `
+    <div class="portfolio-card group rounded-3xl overflow-hidden glass-card hover:-translate-y-2 transition-transform duration-300">
+        <div class="relative overflow-hidden aspect-video cursor-pointer" 
+             onclick="openLightbox('${project.id}')">
+            <img src="${project.image || ''}" 
+                 alt="${escapeHtml(project.title)}" 
+                 loading="lazy"
+                 class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                 onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22340%22><rect fill=%22%231f2937%22 width=%22600%22 height=%22340%22/><text x=%22300%22 y=%22170%22 fill=%22%236b7280%22 text-anchor=%22middle%22 font-size=%2216%22>Image not found</text></svg>'" />
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div class="w-16 h-16 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <i class="fas fa-play text-white text-2xl ml-1"></i>
+                </div>
+            </div>
+        </div>
+        <div class="p-5">
+            <h3 class="font-display font-bold text-white text-lg mb-2">${escapeHtml(project.title)}</h3>
+            ${project.description ? `<p class="text-gray-400 text-sm mb-4 leading-relaxed">${escapeHtml(project.description)}</p>` : ''}
+            ${project.url ? `
+            <a href="${escapeHtml(project.url)}" target="_blank" 
+               class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-500/20 text-purple-300 text-sm font-medium hover:bg-purple-500/30 border border-purple-500/30 transition-all">
+                <i class="fas fa-external-link-alt text-xs"></i> Watch Video
             </a>` : ''}
         </div>
     </div>`;
