@@ -1,0 +1,344 @@
+/* =====================================================================
+   PIXEL BY MALIYA POS — THEME + ANIMATION LAYER
+   ===================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --primary: #f97316;
+  --primary-dark: #ea580c;
+  --primary-rgb: 249 115 22;
+  --accent: #fbbf24;
+  --grad-from: #f97316;
+  --grad-to: #ef4444;
+  --glow: 249 115 22;
+}
+
+* { -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark body {
+  background-color: #060a15;
+  color: #f8fafc;
+}
+
+html:not(.dark) body {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+/* ---------- Backgrounds ---------- */
+html.dark .app-bg {
+  background:
+    radial-gradient(900px 500px at 100% -10%, rgb(var(--primary-rgb) / 0.14), transparent 60%),
+    radial-gradient(700px 500px at -10% 110%, rgb(var(--primary-rgb) / 0.10), transparent 60%),
+    #060a15;
+}
+
+html:not(.dark) .app-bg {
+  background:
+    radial-gradient(900px 500px at 100% -10%, rgb(var(--primary-rgb) / 0.08), transparent 60%),
+    radial-gradient(700px 500px at -10% 110%, rgb(var(--primary-rgb) / 0.05), transparent 60%),
+    #f1f5f9;
+}
+
+.sidebar-bg {
+  background: linear-gradient(180deg, rgba(10, 15, 28, 0.98), rgba(6, 10, 21, 0.98));
+}
+html:not(.dark) .sidebar-bg {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(241, 245, 249, 0.98));
+  border-right: 1px solid #e2e8f0;
+}
+
+html.dark .landing-bg {
+  background:
+    radial-gradient(900px 600px at 15% 0%, rgb(var(--primary-rgb) / 0.22), transparent 60%),
+    radial-gradient(900px 600px at 85% 100%, rgb(var(--primary-rgb) / 0.16), transparent 60%),
+    #05070f;
+}
+
+html:not(.dark) .landing-bg {
+  background:
+    radial-gradient(900px 600px at 15% 0%, rgb(var(--primary-rgb) / 0.15), transparent 60%),
+    radial-gradient(900px 600px at 85% 100%, rgb(var(--primary-rgb) / 0.1), transparent 60%),
+    #e2e8f0;
+}
+
+.hero-banner {
+  background: linear-gradient(120deg, rgb(var(--primary-rgb) / 0.18), rgba(15, 23, 42, 0.4) 60%);
+  border: 1px solid rgb(var(--primary-rgb) / 0.25);
+}
+html:not(.dark) .hero-banner {
+  background: linear-gradient(120deg, rgb(var(--primary-rgb) / 0.15), rgba(255, 255, 255, 0.6) 60%);
+  border: 1px solid rgb(var(--primary-rgb) / 0.2);
+}
+
+/* ---------- Glass ---------- */
+.glass-panel {
+  background: rgba(19, 26, 43, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-nav {
+  background: rgba(8, 12, 22, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ---------- Primary button / accent ---------- */
+.btn-primary {
+  background-image: linear-gradient(135deg, var(--grad-from), var(--grad-to));
+  color: #fff;
+  border: none;
+  box-shadow: 0 8px 24px -8px rgb(var(--glow) / 0.7);
+}
+.btn-primary:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 10px 30px -8px rgb(var(--glow) / 0.9);
+  transform: translateY(-1px);
+}
+.btn-primary:active { transform: translateY(0) scale(0.98); }
+
+.grad-text {
+  background: linear-gradient(135deg, var(--grad-from), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Sidebar nav active ---------- */
+.nav-item { position: relative; }
+.nav-item.nav-active {
+  background: linear-gradient(135deg, rgb(var(--primary-rgb) / 0.22), rgb(var(--primary-rgb) / 0.08));
+  color: #fff;
+  font-weight: 700;
+  box-shadow: inset 0 0 0 1px rgb(var(--primary-rgb) / 0.35), 0 6px 18px -10px rgb(var(--glow) / 0.8);
+}
+.nav-item.nav-active::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 20%;
+  height: 60%;
+  width: 4px;
+  border-radius: 0 4px 4px 0;
+  background: linear-gradient(180deg, var(--grad-from), var(--grad-to));
+  box-shadow: 0 0 12px rgb(var(--glow) / 0.9);
+}
+.nav-item.nav-active i { color: var(--primary) !important; }
+
+/* ---------- Cards ---------- */
+.kpi-card {
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+}
+.kpi-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px -18px rgb(var(--glow) / 0.55);
+  border-color: rgb(var(--primary-rgb) / 0.35);
+}
+
+.product-card {
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease, border-color 0.22s ease;
+}
+.product-card:hover {
+  transform: translateY(-4px) scale(1.015);
+  border-color: rgb(var(--primary-rgb) / 0.5);
+  box-shadow: 0 16px 34px -18px rgb(var(--glow) / 0.75);
+}
+
+.biz-card { border: 1px solid rgba(255, 255, 255, 0.1); }
+.biz-card:hover {
+  border-color: rgb(var(--biz-glow) / 0.55);
+  box-shadow: 0 24px 50px -20px rgb(var(--biz-glow) / 0.6);
+}
+
+/* ---------- Scrollbars ---------- */
+::-webkit-scrollbar { width: 7px; height: 7px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(100, 116, 139, 0.45); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.8); }
+
+/* =====================================================================
+   ANIMATIONS
+   ===================================================================== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(10px); }
+}
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.94) translateY(10px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgb(var(--glow) / 0.5); }
+  50% { box-shadow: 0 0 0 10px rgb(var(--glow) / 0); }
+}
+
+.section-enter { animation: fadeUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.table-row-enter { animation: fadeUp 0.4s ease both; }
+.cart-item-enter { animation: slideInRight 0.3s ease both; }
+
+.pulse-glow { animation: pulseGlow 2s infinite; }
+.floaty { animation: floaty 3s ease-in-out infinite; }
+
+/* landing cards get click ripple feel */
+.biz-card:active { transform: translateY(-2px) scale(0.985); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* ---------- Receipt print ---------- */
+@media print {
+  body * { visibility: hidden; }
+  #thermal-receipt-modal, #thermal-receipt-modal * { visibility: visible; }
+  #thermal-receipt-modal {
+    position: absolute; left: 0; top: 0; width: 80mm; margin: 0; padding: 10px;
+    background: #ffffff !important; color: #000000 !important;
+  }
+  .no-print { display: none !important; }
+}
+
+/* =====================================================================
+   LIGHT MODE GLOBAL FIXES (For standard Tailwind classes used in dark mode)
+   ===================================================================== */
+html:not(.dark) .bg-slate-900\/95,
+html:not(.dark) .bg-slate-900\/70,
+html:not(.dark) .bg-slate-800\/50,
+html:not(.dark) .bg-slate-900 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  color: #0f172a !important;
+}
+
+html:not(.dark) .text-white:not(button, button *, .btn-primary, .btn-primary *, .bg-primary *, .bg-emerald-500 *, .bg-rose-500 *, .bg-amber-500 *, .bg-blue-500 *, .bg-fuchsia-500 *, .text-white-force) {
+  color: #0f172a !important;
+}
+
+html:not(.dark) button.text-slate-400:hover { color: #0f172a !important; }
+
+html:not(.dark) .text-slate-100 { color: #1e293b !important; }
+html:not(.dark) .text-slate-200 { color: #334155 !important; }
+html:not(.dark) .text-slate-300 { color: #475569 !important; }
+html:not(.dark) .text-slate-400 { color: #64748b !important; }
+html:not(.dark) .text-slate-500 { color: #94a3b8 !important; }
+
+html:not(.dark) .bg-white\/5 { background-color: rgba(0, 0, 0, 0.03) !important; }
+html:not(.dark) .bg-white\/10 { background-color: rgba(0, 0, 0, 0.06) !important; }
+html:not(.dark) .border-white\/5 { border-color: rgba(0, 0, 0, 0.06) !important; }
+html:not(.dark) .border-white\/10 { border-color: rgba(0, 0, 0, 0.15) !important; }
+
+/* Modals & Overlays */
+html:not(.dark) .bg-black\/50, 
+html:not(.dark) .bg-black\/60 { 
+  background-color: rgba(255, 255, 255, 0.6) !important; 
+  backdrop-filter: blur(8px) !important; 
+}
+
+/* Glass Panels & Cards */
+html:not(.dark) .glass-panel,
+html:not(.dark) .glass-card {
+  background: rgba(255, 255, 255, 0.72) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+html:not(.dark) button.glass-card h3.text-white,
+html:not(.dark) button.glass-card p.text-slate-400 {
+  color: #0f172a !important;
+}
+html:not(.dark) button.glass-card p.text-slate-400 {
+  color: #475569 !important;
+}
+
+html:not(.dark) .glass-nav {
+  background: rgba(255, 255, 255, 0.82) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Landing Page Business Cards */
+html:not(.dark) .biz-card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -2px rgba(0, 0, 0, 0.02) !important;
+}
+html:not(.dark) .biz-card:hover {
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08) !important;
+  transform: translateY(-4px) !important;
+}
+html:not(.dark) .biz-card h3 {
+  color: #0f172a !important;
+}
+html:not(.dark) .biz-card p {
+  color: #475569 !important;
+}
+
+/* Light Mode Inputs, Tables & Surfaces */
+html:not(.dark) input,
+html:not(.dark) select,
+html:not(.dark) textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #e2e8f0 !important;
+}
+html:not(.dark) input:focus,
+html:not(.dark) select:focus,
+html:not(.dark) textarea:focus {
+  border-color: #6366f1 !important;
+  outline: none !important;
+}
+
+html:not(.dark) .product-card {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03) !important;
+}
+html:not(.dark) .product-card:hover {
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.08) !important;
+}
+
+html:not(.dark) .kpi-card {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04) !important;
+}
+
+html:not(.dark) table thead {
+  background-color: #f8fafc !important;
+  color: #475569 !important;
+}
+html:not(.dark) table tbody tr {
+  border-color: #f1f5f9 !important;
+}
+html:not(.dark) table tbody tr:hover {
+  background-color: #f8fafc !important;
+}
+
+/* Modal Surface */
+html:not(.dark) .modal-content,
+html:not(.dark) .modal-box {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15) !important;
+}
+

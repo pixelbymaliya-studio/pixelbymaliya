@@ -3,18 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pixel by Maliya | Design Studio</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="icon" type="image/png" href="logo.png" />
-  <meta name="google-site-verification" content="PHUWVV_os9gc92LPR8fHDVy7QQqUTevLUwm3PZwTy14" />
-  
+  <title>Pixel by Maliya | Design Studio &amp; POS Systems (Cloud · Offline · Hybrid)</title>
+  <meta name="description" content="Pixel by Maliya - Premium Graphic Design, Modern Web Development, Video Production, and Universal Cloud, Offline &amp; Hybrid POS Systems for Sri Lankan &amp; Global Businesses." />
+  <link rel="icon" type="image/png" href="favicon.png?v=3" />
+  <link rel="apple-touch-icon" href="favicon.png?v=3" />
+  <meta name="theme-color" content="#4F46E5" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Plus Jakarta Sans for UI, Space Grotesk for Display -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  
+
+  <!-- Elfsight Platform for Live Facebook Reviews Auto-Sync -->
+  <script src="https://static.elfsight.com/platform/platform.js" async></script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -24,9 +29,45 @@
             display: ['"Space Grotesk"', 'sans-serif'],
           },
           colors: {
-            brand: { 300: '#93C5FD', 400: '#60A5FA', 500: '#3B82F6', 600: '#2563EB' },
-            accent: { 400: '#C084FC', 500: '#A855F7' },
-            dark: { 900: '#03050A', 800: '#090E17', 700: '#111824', 600: '#1E293B' }
+            brand: {
+              50: '#EEF2FF',
+              100: '#E0E7FF',
+              200: '#C7D2FE',
+              300: '#A5B4FC',
+              400: '#818CF8',
+              500: '#6366F1',
+              600: '#4F46E5',
+              700: '#4338CA',
+              800: '#3730A3',
+              900: '#312E81'
+            },
+            accent: {
+              50: '#FAF5FF',
+              100: '#F3E8FF',
+              400: '#C084FC',
+              500: '#A855F7',
+              600: '#9333EA',
+              700: '#7E22CE'
+            },
+            emerald: {
+              50: '#ECFDF5',
+              400: '#34D399',
+              500: '#10B981',
+              600: '#059669',
+              700: '#047857'
+            },
+            slate: {
+              50: '#F8FAFC',
+              100: '#F1F5F9',
+              200: '#E2E8F0',
+              300: '#CBD5E1',
+              400: '#94A3B8',
+              500: '#64748B',
+              600: '#475569',
+              700: '#334155',
+              800: '#1E293B',
+              900: '#0F172A'
+            }
           }
         }
       }
@@ -34,224 +75,1204 @@
   </script>
   <link rel="stylesheet" href="styles.css"/>
 </head>
-<body class="bg-dark-900 text-gray-200 font-sans overflow-x-hidden selection:bg-brand-500/30 selection:text-brand-300">
+<body class="bg-slate-50 text-slate-900 font-sans antialiased overflow-x-hidden selection:bg-brand-500/15 selection:text-brand-700">
 
-  <!-- Aurora Background Effects -->
-  <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-    <div class="aurora-blob bg-brand-500/20 top-[-10%] left-[-10%]"></div>
-    <div class="aurora-blob bg-accent-500/20 bottom-[-10%] right-[-10%] animation-delay-2000"></div>
-    <div class="aurora-blob bg-blue-500/10 top-[40%] left-[60%] animation-delay-4000"></div>
-    <div class="absolute inset-0 bg-dark-900/40 backdrop-blur-[120px]"></div>
-    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] opacity-20"></div>
+  <!-- Ambient Luxury Lighting Canvas -->
+  <div class="ambient-canvas">
+    <div class="ambient-orb orb-indigo"></div>
+    <div class="ambient-orb orb-purple"></div>
+    <div class="ambient-orb orb-emerald"></div>
+    <div class="ambient-orb orb-cyan"></div>
+    <div class="subtle-grid"></div>
   </div>
 
-  <canvas id="cursorAnimCanvas" class="fixed inset-0 pointer-events-none z-[9999]"></canvas>
-
-  <!-- Navbar -->
-  <nav id="navbar" class="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl z-50 transition-all duration-500 glass-panel rounded-2xl border border-white/10 px-6 py-4 flex items-center justify-between">
+  <!-- ================= TOP NAVBAR ================= -->
+  <nav id="navbar" class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl z-50 transition-all duration-300 luxury-glass rounded-2xl px-5 py-3.5 flex items-center justify-between shadow-sm border border-slate-200/80">
     <a href="#hero" class="flex items-center gap-3 group">
-      <div class="w-14 h-14 rounded-full overflow-hidden border border-white/20 shadow-lg group-hover:scale-110 transition-transform bg-transparent flex-shrink-0 flex items-center justify-center">
-        <img src="logo.png" alt="Pixel by Maliya Logo" class="w-full h-full object-cover scale-[1.35]" />
+      <div class="w-11 h-11 rounded-xl overflow-hidden border border-slate-200 shadow-sm group-hover:scale-105 transition-transform bg-white flex items-center justify-center p-0.5">
+        <img src="logo.png" alt="Pixel by Maliya Logo" class="w-full h-full object-contain" />
       </div>
-      <div class="font-display font-bold text-lg hidden sm:block">
-        <span class="text-white">Pixel by</span> <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-400 to-accent-400">Maliya</span>
+      <div>
+        <div class="font-display font-extrabold text-base leading-tight text-slate-900">
+          Pixel by <span class="text-gradient">Maliya</span>
+        </div>
+        <p class="text-[11px] font-semibold text-slate-500 tracking-wide">Creative Design &amp; Web Solutions</p>
       </div>
     </a>
-    <div class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-400">
-      <a href="#hero" class="hover:text-white transition-colors">Home</a>
-      <a href="#portfolio" class="hover:text-white transition-colors">Work</a>
-      <a href="#services" class="hover:text-white transition-colors">Services</a>
+
+    <!-- Desktop Navigation Links -->
+    <div class="hidden md:flex items-center gap-7 font-semibold text-sm text-slate-600">
+      <a href="#hero" class="hover:text-brand-600 transition-colors">Home</a>
+      <a href="#portfolio" class="hover:text-brand-600 transition-colors">Work</a>
+      <a href="#pos-showcase" class="flex items-center gap-1.5 hover:text-emerald-600 transition-colors font-bold text-emerald-700">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+        POS System
+      </a>
+      <a href="#services" class="hover:text-brand-600 transition-colors">Services</a>
+      <a href="#reviews" class="hover:text-brand-600 transition-colors">Reviews</a>
+      <a href="#contact" class="hover:text-brand-600 transition-colors">Contact</a>
     </div>
-    <div class="flex items-center gap-4">
-      <a href="#contact" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-white text-dark-900 font-bold text-sm hover:scale-105 transition-transform">Let's Talk</a>
-      <button onclick="document.getElementById('mobileMenu').classList.remove('translate-x-full')" class="md:hidden text-white text-xl"><i class="fas fa-bars"></i></button>
+
+    <!-- Quick Action CTAs -->
+    <div class="flex items-center gap-3">
+      <a href="pos/index.html" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition-all shadow-sm hover:shadow-emerald">
+        <i class="fas fa-cash-register text-xs"></i>
+        <span>Launch POS Demo</span>
+      </a>
+      <a href="https://wa.me/94716125715" target="_blank" class="hidden lg:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white font-bold text-xs hover:bg-slate-800 transition-all shadow-sm">
+        <i class="fab fa-whatsapp text-green-400"></i>
+        <span>Let's Talk</span>
+      </a>
+      <button onclick="document.getElementById('mobileMenu').classList.remove('translate-x-full')" class="md:hidden w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:text-brand-600 transition-colors">
+        <i class="fas fa-bars text-lg"></i>
+      </button>
     </div>
   </nav>
 
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" class="fixed inset-0 z-[100] translate-x-full transition-transform duration-500 flex justify-end">
-    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')"></div>
-    <div class="relative w-64 h-full bg-dark-800 border-l border-white/10 p-6 flex flex-col">
-      <button onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')" class="self-end text-gray-400 hover:text-white text-2xl mb-8"><i class="fas fa-times"></i></button>
-      <div class="flex flex-col gap-6 text-lg font-display font-bold">
-        <a href="#hero" class="text-white" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')">Home</a>
-        <a href="#portfolio" class="text-white" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')">Portfolio</a>
-        <a href="#services" class="text-white" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')">Services</a>
-        <a href="#contact" class="text-brand-400" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')">Contact Me</a>
+  <!-- Mobile Offcanvas Drawer -->
+  <div id="mobileMenu" class="fixed inset-0 z-[100] translate-x-full transition-transform duration-300 flex justify-end">
+    <div class="absolute inset-0 bg-slate-900/30 backdrop-blur-sm" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')"></div>
+    <div class="relative w-72 h-full bg-white border-l border-slate-200 p-6 flex flex-col justify-between shadow-2xl">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-slate-100 mb-6">
+          <div class="flex items-center gap-2.5">
+            <img src="logo.png" alt="Logo" class="w-8 h-8 object-contain" />
+            <div>
+              <span class="font-display font-extrabold text-base text-slate-900 block leading-tight">Pixel by Maliya</span>
+              <span class="text-[10px] font-semibold text-slate-400">Creative Design &amp; Web Solutions</span>
+            </div>
+          </div>
+          <button onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')" class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600 hover:text-slate-900">
+            <i class="fas fa-times text-base"></i>
+          </button>
+        </div>
+        <div class="flex flex-col gap-4 text-base font-semibold text-slate-700">
+          <a href="#hero" class="hover:text-brand-600 py-1" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')">Home</a>
+          <a href="#portfolio" class="hover:text-brand-600 py-1" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')">Portfolio</a>
+          <a href="#pos-showcase" class="text-emerald-600 font-bold flex items-center gap-2 py-1" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')">
+            <i class="fas fa-cash-register"></i> POS System
+          </a>
+          <a href="#services" class="hover:text-brand-600 py-1" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')">Services</a>
+          <a href="#reviews" class="hover:text-brand-600 py-1" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')">Client Reviews</a>
+          <a href="#contact" class="hover:text-brand-600 py-1" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')">Contact Me</a>
+        </div>
+      </div>
+      <div class="space-y-3 pt-6 border-t border-slate-100">
+        <a href="pos/index.html" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-600 text-white font-bold text-sm shadow-sm">
+          <i class="fas fa-desktop"></i> Open POS App
+        </a>
+        <a href="https://wa.me/94716125715" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-900 text-white font-bold text-sm">
+          <i class="fab fa-whatsapp text-green-400"></i> WhatsApp Chat
+        </a>
       </div>
     </div>
   </div>
 
-  <!-- Hero Section -->
-  <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24 pb-12 px-4 sm:px-6 z-10">
+  <!-- ================= HERO SECTION ================= -->
+  <section id="hero" class="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 px-4 sm:px-6 z-10">
     <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Left Column: Hero Text & CTAs -->
       <div class="lg:col-span-7 text-center lg:text-left reveal">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-white/10 text-sm font-medium text-brand-300 mb-6">
-          <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span> Available for freelance work
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-xs font-semibold text-slate-700 shadow-sm mb-6">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>Available for Freelance &amp; POS Deployments</span>
         </div>
-        <h1 class="font-display text-5xl sm:text-7xl lg:text-[5.5rem] leading-[1.1] font-black text-white mb-6 tracking-tight">
-          Crafting <br>
-          <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-400 via-accent-400 to-brand-400 bg-[length:200%_auto] animate-gradient">Digital</span><br>
-          Experiences.
+
+        <h1 class="font-display text-4xl sm:text-6xl lg:text-[4.5rem] leading-[1.08] font-extrabold text-slate-900 mb-6 tracking-tight">
+          Crafting High-End Brands, <br>
+          <span class="text-gradient">Modern Web &amp; Next-Gen POS</span> Systems.
         </h1>
-        <p class="text-gray-400 text-lg sm:text-xl max-w-xl mx-auto lg:mx-0 mb-10 font-medium leading-relaxed">
-          I'm Maliya, a multidisciplinary designer specializing in Graphic Design, Web Development, and Video Editing.
+
+        <p class="text-slate-600 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 mb-8 font-normal leading-relaxed">
+          I'm <strong>Maliya</strong>, a multidisciplinary designer &amp; software creator. I engineer distinctive brand identities, high-converting websites, dynamic video edits, and all-in-one <strong>Universal POS Systems (Cloud, 100% Offline &amp; Hybrid Sync)</strong> for Sri Lankan and global businesses.
         </p>
-        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4">
-          <a href="#portfolio" class="px-8 py-4 rounded-xl bg-white text-dark-900 font-bold text-base hover:scale-105 transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)]">View Portfolio <i class="fas fa-arrow-right ml-2"></i></a>
-          <a href="#contact" class="px-8 py-4 rounded-xl glass-panel border border-white/10 text-white font-bold text-base hover:bg-white/10 transition-all">Contact Me</a>
+
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 mb-10">
+          <a href="pos/index.html" class="btn-luxury-pos px-7 py-3.5 rounded-xl text-sm font-bold shadow-md">
+            <i class="fas fa-cash-register"></i>
+            <span>Launch Live POS Demo</span>
+          </a>
+          <a href="#portfolio" class="btn-luxury-secondary px-7 py-3.5 rounded-xl text-sm font-bold">
+            <span>Explore Portfolio</span>
+            <i class="fas fa-arrow-down text-xs text-slate-400 ml-1"></i>
+          </a>
+          <a href="https://wa.me/94716125715" target="_blank" class="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-emerald-600 hover:scale-105 transition-transform shadow-sm" title="Chat on WhatsApp">
+            <i class="fab fa-whatsapp text-2xl"></i>
+          </a>
+        </div>
+
+        <!-- Trust Metric Strip -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-slate-200/80">
+          <div>
+            <div id="stat-design-projects" class="font-display font-extrabold text-2xl text-slate-900">200+</div>
+            <div class="text-xs text-slate-500 font-medium">Design Projects</div>
+          </div>
+          <div>
+            <div id="stat-pos-projects" class="font-display font-extrabold text-2xl text-emerald-600">100+</div>
+            <div class="text-xs text-slate-500 font-medium">POS Projects</div>
+          </div>
+          <div>
+            <div class="font-display font-extrabold text-2xl text-brand-600">100%</div>
+            <div class="text-xs text-slate-500 font-medium">Customizable POS</div>
+          </div>
+          <div>
+            <div class="font-display font-extrabold text-2xl text-amber-500">24/7</div>
+            <div class="text-xs text-slate-500 font-medium">Direct Support</div>
+          </div>
         </div>
       </div>
+
+      <!-- Right Column: Interactive Luxury Floating 3D Showcase -->
       <div class="lg:col-span-5 relative reveal delay-200">
-        <!-- Floating abstract elements instead of a standard image -->
-        <div class="relative w-full aspect-square max-w-md mx-auto">
-          <div class="absolute inset-0 bg-gradient-to-tr from-brand-500/40 to-accent-500/40 rounded-full blur-3xl animate-pulse"></div>
-          <div class="glass-card absolute top-10 right-0 p-6 rounded-2xl transform rotate-6 hover:rotate-0 transition-transform duration-500">
-            <i class="fas fa-paint-brush text-4xl text-brand-400 mb-2"></i>
-            <div class="font-display font-bold text-xl text-white">Graphic</div>
+        <div class="relative w-full max-w-md mx-auto aspect-square flex items-center justify-center">
+          
+          <!-- Subtle Glow Ring -->
+          <div class="absolute inset-0 bg-gradient-to-tr from-brand-500/10 via-emerald-500/10 to-accent-500/10 rounded-full blur-3xl"></div>
+
+          <!-- Card 1: Cloud POS Terminal (Center Anchor) -->
+          <div class="luxury-card absolute p-5 rounded-2xl z-20 w-64 shadow-xl border-emerald-200/60 bg-white/95 hover:scale-105 transition-transform duration-300">
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm">
+                  <i class="fas fa-cash-register"></i>
+                </div>
+                <div>
+                  <div class="font-display font-bold text-xs text-slate-900">POS Terminal Live</div>
+                  <div class="text-[10px] text-emerald-600 font-semibold">Cloud · Offline · Hybrid</div>
+                </div>
+              </div>
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            </div>
+            <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 text-xs space-y-1.5 font-medium">
+              <div class="flex justify-between text-slate-500 text-[11px]">
+                <span>Today's Sales</span>
+                <span class="text-slate-900 font-bold">LKR 148,500.00</span>
+              </div>
+              <div class="flex justify-between text-slate-500 text-[11px]">
+                <span>Orders Processed</span>
+                <span class="text-emerald-600 font-bold">64 Completed</span>
+              </div>
+            </div>
+            <a href="pos/index.html" class="mt-3 w-full py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] flex items-center justify-center gap-1.5 transition-colors">
+              <span>Test POS Live</span>
+              <i class="fas fa-arrow-right text-[9px]"></i>
+            </a>
           </div>
-          <div class="glass-card absolute bottom-20 left-0 p-6 rounded-2xl transform -rotate-6 hover:rotate-0 transition-transform duration-500">
-            <i class="fas fa-code text-4xl text-accent-400 mb-2"></i>
-            <div class="font-display font-bold text-xl text-white">Web UI/UX</div>
+
+          <!-- Card 2: Graphic & Brand (Top-Right Floating) -->
+          <div class="luxury-card absolute -top-2 right-2 p-4 rounded-2xl shadow-lg border-brand-100 z-10 w-44 hover:-translate-y-2 transition-transform duration-300 bg-white">
+            <div class="w-8 h-8 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center text-sm mb-2">
+              <i class="fas fa-bezier-curve"></i>
+            </div>
+            <div class="font-display font-bold text-xs text-slate-900">Brand Identity</div>
+            <div class="text-[10px] text-slate-500">Logos, Stationery &amp; Print</div>
           </div>
-          <div class="glass-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6 rounded-2xl z-10 hover:scale-110 transition-transform duration-500">
-            <i class="fas fa-video text-5xl text-white mb-2"></i>
-            <div class="font-display font-bold text-2xl text-white">Video</div>
+
+          <!-- Card 3: Modern Web UI/UX (Bottom-Left Floating) -->
+          <div class="luxury-card absolute -bottom-2 left-2 p-4 rounded-2xl shadow-lg border-accent-100 z-10 w-48 hover:translate-y-2 transition-transform duration-300 bg-white">
+            <div class="w-8 h-8 rounded-lg bg-accent-50 text-accent-600 flex items-center justify-center text-sm mb-2">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="font-display font-bold text-xs text-slate-900">Modern Web Design</div>
+            <div class="text-[10px] text-slate-500">Ultra-Fast &amp; Responsive</div>
           </div>
+
+          <!-- Card 4: Video & Motion (Top-Left Floating) -->
+          <div class="luxury-card absolute top-10 -left-4 p-3 rounded-2xl shadow-md border-rose-100 z-0 w-40 hover:-translate-x-2 transition-transform duration-300 bg-white">
+            <div class="flex items-center gap-2">
+              <div class="w-7 h-7 rounded-lg bg-rose-50 text-rose-500 flex items-center justify-center text-xs">
+                <i class="fas fa-video"></i>
+              </div>
+              <div>
+                <div class="font-display font-bold text-[11px] text-slate-900">4K Video Edits</div>
+                <div class="text-[9px] text-slate-500">Reels &amp; Promos</div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- Portfolio Section -->
-  <section id="portfolio" class="relative py-24 z-10 border-t border-white/5 bg-dark-800/30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-16 reveal">
-        <h2 class="font-display text-4xl md:text-5xl font-black text-white mb-4">Selected Work</h2>
-        <p class="text-gray-400 font-medium text-lg">A showcase of my recent projects</p>
+
+  <!-- ================= FLAGSHIP SECTION: POS DEMO SPOTLIGHT ================= -->
+  <section id="pos-showcase" class="relative py-20 z-10 border-y border-slate-200/80 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-emerald-700 mb-4 shadow-sm">
+          <i class="fas fa-store"></i>
+          <span>FLAGSHIP SOFTWARE PRODUCT · CLOUD | OFFLINE | HYBRID</span>
+        </div>
+        <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+          Universal POS Systems <span class="text-gradient-emerald">(Cloud, Offline &amp; Hybrid)</span>
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg leading-relaxed mb-6">
+          One system engineered for every Sri Lankan business type. Choose <strong>100% Offline</strong> for zero-internet reliability, <strong>Cloud</strong> for remote multi-branch access, or <strong>Hybrid</strong> for instant local billing with automated cloud sync.
+        </p>
+
+        <!-- 3 Modes Strip -->
+        <div class="flex flex-wrap items-center justify-center gap-2.5">
+          <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-bold border border-slate-200">
+            <i class="fas fa-cloud text-brand-600"></i> Cloud POS (Multi-Branch)
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-bold border border-slate-200">
+            <i class="fas fa-hard-drive text-amber-600"></i> 100% Offline (Zero Internet Needed)
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
+            <i class="fas fa-rotate text-emerald-600"></i> Hybrid Auto-Sync (Best of Both)
+          </span>
+        </div>
       </div>
 
-      <!-- Main Tabs -->
-      <div class="flex flex-wrap justify-center gap-3 mb-10 reveal">
-        <button id="tab-graphic" onclick="switchMainTab('graphic')" class="main-tab active-main-tab px-6 py-3 rounded-xl text-sm font-bold transition-all"><i class="fas fa-paint-brush mr-2"></i>Graphic Design</button>
-        <button id="tab-web" onclick="switchMainTab('web')" class="main-tab px-6 py-3 rounded-xl text-sm font-bold transition-all text-gray-400 hover:text-white glass-panel"><i class="fas fa-code mr-2"></i>Web Design</button>
-        <button id="tab-video" onclick="switchMainTab('video')" class="main-tab px-6 py-3 rounded-xl text-sm font-bold transition-all text-gray-400 hover:text-white glass-panel"><i class="fas fa-video mr-2"></i>Video Projects</button>
+      <!-- Live Interactive Multi-Industry Switcher -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-10 reveal">
+        <button onclick="switchPosPreview('grocery')" id="chip-grocery" class="industry-chip active-chip px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
+          <i class="fas fa-shopping-basket"></i> Supermarket &amp; Retail
+        </button>
+        <button onclick="switchPosPreview('distribution')" id="chip-distribution" class="industry-chip px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
+          <i class="fas fa-truck-moving"></i> Wholesale &amp; Distribution
+        </button>
+        <button onclick="switchPosPreview('restaurant')" id="chip-restaurant" class="industry-chip px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
+          <i class="fas fa-utensils"></i> Restaurant &amp; Cafe
+        </button>
+        <button onclick="switchPosPreview('pharmacy')" id="chip-pharmacy" class="industry-chip px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
+          <i class="fas fa-prescription-bottle-medical"></i> Pharmacy &amp; Medical
+        </button>
+        <button onclick="switchPosPreview('salon')" id="chip-salon" class="industry-chip px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
+          <i class="fas fa-scissors"></i> Salon &amp; Spa
+        </button>
+        <button onclick="switchPosPreview('fashion')" id="chip-fashion" class="industry-chip px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
+          <i class="fas fa-shirt"></i> Clothing &amp; Fashion
+        </button>
+        <button onclick="switchPosPreview('services')" id="chip-services" class="industry-chip px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
+          <i class="fas fa-print"></i> Services &amp; Printing
+        </button>
       </div>
 
-      <!-- Graphic Tab -->
+      <!-- POS Feature & Live Preview Box -->
+      <div class="pos-live-card p-6 sm:p-10 reveal delay-100">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Left: Capabilities Checklist -->
+          <div class="lg:col-span-6 space-y-5">
+            <div>
+              <div class="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-1" id="preview-business-type">SUPERMARKET &amp; RETAIL</div>
+              <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 leading-snug" id="preview-title">
+                Lightning-Fast Barcode &amp; Touch Checkout
+              </h3>
+              <p class="text-slate-600 text-sm mt-2 leading-relaxed" id="preview-desc">
+                Engineered for high-volume retail and high-speed queues. Scan barcodes in milliseconds, calculate instant bulk discounts, handle cash, card or customer credit tabs, and print branded thermal receipts in Sri Lankan Rupees (LKR).
+              </p>
+            </div>
+
+            <!-- World-Class Performance Specs Strip -->
+            <div class="flex flex-wrap items-center gap-2 pt-1 pb-1">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-50 border border-emerald-200/80 text-[11px] font-bold text-emerald-800">
+                <i class="fas fa-comment-sms text-emerald-600"></i> Branded SMS (Business Name)
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-200 text-[11px] font-bold text-slate-700">
+                <i class="fas fa-wifi-slash text-amber-600"></i> 100% Offline Ready
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-indigo-50 border border-indigo-200/80 text-[11px] font-bold text-indigo-700">
+                <i class="fas fa-desktop text-indigo-600"></i> Dual-Screen &amp; LankaQR
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-rose-50 border border-rose-200/80 text-[11px] font-bold text-rose-700">
+                <i class="fas fa-shield-halved text-rose-600"></i> Anti-Theft Audit Trail
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-teal-50 border border-teal-200/80 text-[11px] font-bold text-teal-800">
+                <i class="fas fa-brain text-teal-600"></i> AI Demand Forecast
+              </span>
+            </div>
+
+            <!-- World-Class 10-Feature Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs" id="preview-feature-grid">
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/70 hover:bg-white hover:border-emerald-300 transition-all shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+                <div class="flex items-center gap-2 font-bold text-slate-800 mb-0.5">
+                  <i class="fas fa-desktop text-emerald-600"></i>
+                  <span>Dual-Screen &amp; LankaQR</span>
+                </div>
+                <p class="text-[11px] text-slate-500 leading-tight">Secondary customer monitor with live bill preview, promo ads &amp; instant LankaQR.</p>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/70 hover:bg-white hover:border-emerald-300 transition-all shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+                <div class="flex items-center gap-2 font-bold text-slate-800 mb-0.5">
+                  <i class="fas fa-barcode text-emerald-600"></i>
+                  <span>Barcode &amp; Scale Integration</span>
+                </div>
+                <p class="text-[11px] text-slate-500 leading-tight">Honeywell, Zebra scanners + RS232 electronic scale produce auto-weighing.</p>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/70 hover:bg-white hover:border-emerald-300 transition-all shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+                <div class="flex items-center gap-2 font-bold text-slate-800 mb-0.5">
+                  <i class="fas fa-network-wired text-emerald-600"></i>
+                  <span>Multi-Register LAN Clustering</span>
+                </div>
+                <p class="text-[11px] text-slate-500 leading-tight">Up to 20 billing counters sync locally via LAN even if internet cable is cut.</p>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/70 hover:bg-white hover:border-emerald-300 transition-all shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+                <div class="flex items-center gap-2 font-bold text-slate-800 mb-0.5">
+                  <i class="fas fa-brain text-emerald-600"></i>
+                  <span>AI Demand &amp; Auto-Reorder</span>
+                </div>
+                <p class="text-[11px] text-slate-500 leading-tight">Predicts stock depletion and auto-generates supplier purchase orders (PO).</p>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/70 hover:bg-white hover:border-emerald-300 transition-all shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+                <div class="flex items-center gap-2 font-bold text-slate-800 mb-0.5">
+                  <i class="fas fa-user-shield text-emerald-600"></i>
+                  <span>Anti-Theft Void &amp; Audit Trail</span>
+                </div>
+                <p class="text-[11px] text-slate-500 leading-tight">Price overrides, voids and drawer opens logged with supervisor PIN; owner alerts.</p>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/70 hover:bg-white hover:border-emerald-300 transition-all shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+                <div class="flex items-center gap-2 font-bold text-slate-800 mb-0.5">
+                  <i class="fas fa-book-bookmark text-emerald-600"></i>
+                  <span>Smart ණය පොත (Credit Ledger)</span>
+                </div>
+                <p class="text-[11px] text-slate-500 leading-tight">Credit limits, overdue aging &amp; SMS reminders sent under YOUR Business Name.</p>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/70 hover:bg-white hover:border-emerald-300 transition-all shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+                <div class="flex items-center gap-2 font-bold text-slate-800 mb-0.5">
+                  <i class="fab fa-whatsapp text-emerald-600"></i>
+                  <span>Branded SMS &amp; WhatsApp Bills</span>
+                </div>
+                <p class="text-[11px] text-slate-500 leading-tight">Send receipts &amp; promo SMS with YOUR official Business Name as the Sender ID.</p>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/70 hover:bg-white hover:border-emerald-300 transition-all shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+                <div class="flex items-center gap-2 font-bold text-slate-800 mb-0.5">
+                  <i class="fas fa-boxes-stacked text-emerald-600"></i>
+                  <span>Batch, Expiry &amp; FEFO Inventory</span>
+                </div>
+                <p class="text-[11px] text-slate-500 leading-tight">FIFO/FEFO stock rotation, expiry countdown radar &amp; supplier damaged returns.</p>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/70 hover:bg-white hover:border-emerald-300 transition-all shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+                <div class="flex items-center gap-2 font-bold text-slate-800 mb-0.5">
+                  <i class="fas fa-mobile-screen-button text-emerald-600"></i>
+                  <span>Live Owner Mobile Portal</span>
+                </div>
+                <p class="text-[11px] text-slate-500 leading-tight">Monitor real-time sales, gross profit margin %, and cashier shifts anywhere.</p>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/70 hover:bg-white hover:border-emerald-300 transition-all shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+                <div class="flex items-center gap-2 font-bold text-slate-800 mb-0.5">
+                  <i class="fas fa-receipt text-emerald-600"></i>
+                  <span>80mm Thermal &amp; Split Tender</span>
+                </div>
+                <p class="text-[11px] text-slate-500 leading-tight">High-speed auto-cut print in Sinhala/English + Split Cash, Card &amp; LankaQR.</p>
+              </div>
+            </div>
+
+            <!-- Hardware Compatibility Ecosystem Strip -->
+            <div class="p-3 rounded-xl bg-slate-50/90 border border-slate-200/80 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-600 font-semibold">
+              <span class="flex items-center gap-1.5 text-slate-800 font-bold">
+                <i class="fas fa-microchip text-emerald-600"></i> Hardware Certified:
+              </span>
+              <span class="text-slate-500">EPSON · Sunmi · Bixolon · Zebra · Rongta · Honeywell · All Windows / Android Touch</span>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-wrap items-center gap-4 pt-1">
+              <a href="pos/index.html" class="btn-luxury-pos px-7 py-3.5 rounded-xl text-sm font-bold shadow-md">
+                <i class="fas fa-desktop"></i>
+                <span>Launch Full Interactive POS App</span>
+              </a>
+              <a href="https://wa.me/94716125715?text=Hi%20Maliya,%20I%20am%20interested%20in%20your%20Cloud%20POS%20System!" target="_blank" class="btn-luxury-secondary px-5 py-3.5 rounded-xl text-sm font-semibold">
+                <i class="fab fa-whatsapp text-emerald-600"></i>
+                <span>Request Custom Setup</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Visual Mockup Showcase -->
+          <div class="lg:col-span-6">
+            <div class="rounded-2xl border border-slate-200 bg-slate-100 p-3 shadow-inner">
+              <div class="rounded-xl bg-white border border-slate-200 p-5 shadow-sm space-y-4">
+                
+                <!-- Mockup Terminal Top Bar -->
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-rose-400"></span>
+                    <span class="w-3 h-3 rounded-full bg-amber-400"></span>
+                    <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+                    <span class="text-xs font-bold text-slate-800 ml-2" id="mockup-store-name">Pixel Fresh Supermarket</span>
+                  </div>
+                  <span class="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-bold border border-emerald-200">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    OFFLINE + CLOUD ACTIVE
+                  </span>
+                </div>
+
+                <!-- Cashier & Register Details Bar -->
+                <div class="flex items-center justify-between text-[11px] text-slate-500 font-semibold px-1">
+                  <span><i class="fas fa-cash-register mr-1 text-slate-400"></i> Register #01 (Main)</span>
+                  <span><i class="fas fa-user-circle mr-1 text-emerald-600"></i> Cashier: Maliya (Manager)</span>
+                </div>
+
+                <!-- Fast Search Bar Mockup -->
+                <div class="px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs flex items-center justify-between text-slate-400 font-medium">
+                  <span class="flex items-center gap-2">
+                    <i class="fas fa-barcode text-slate-500"></i>
+                    <span>Scan barcode or search product...</span>
+                  </span>
+                  <span class="px-2 py-0.5 rounded-md bg-white border border-slate-200 text-[10px] font-mono font-bold text-slate-600">F3 SCAN</span>
+                </div>
+
+                <!-- Mockup Product Items Preview -->
+                <div class="grid grid-cols-2 gap-2 text-xs" id="mockup-products-grid">
+                  <div class="p-2.5 rounded-lg border border-slate-100 bg-slate-50 flex items-center justify-between">
+                    <div>
+                      <div class="font-bold text-slate-800">Samba Rice 1Kg</div>
+                      <div class="text-[10px] text-slate-500">In Stock: 150 kg</div>
+                    </div>
+                    <span class="font-bold text-emerald-600">Rs. 240</span>
+                  </div>
+                  <div class="p-2.5 rounded-lg border border-slate-100 bg-slate-50 flex items-center justify-between">
+                    <div>
+                      <div class="font-bold text-slate-800">Cream Cracker 190g</div>
+                      <div class="text-[10px] text-slate-500">In Stock: 85 pcs</div>
+                    </div>
+                    <span class="font-bold text-emerald-600">Rs. 180</span>
+                  </div>
+                  <div class="p-2.5 rounded-lg border border-slate-100 bg-slate-50 flex items-center justify-between">
+                    <div>
+                      <div class="font-bold text-slate-800">Full Cream Milk 400g</div>
+                      <div class="text-[10px] text-slate-500">In Stock: 40 pcs</div>
+                    </div>
+                    <span class="font-bold text-emerald-600">Rs. 1,050</span>
+                  </div>
+                  <div class="p-2.5 rounded-lg border border-slate-100 bg-slate-50 flex items-center justify-between">
+                    <div>
+                      <div class="font-bold text-slate-800">Ceylon BOP Tea</div>
+                      <div class="text-[10px] text-slate-500">In Stock: 300 cup</div>
+                    </div>
+                    <span class="font-bold text-emerald-600">Rs. 150</span>
+                  </div>
+                </div>
+
+                <!-- Mockup Cart Calculation -->
+                <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-100 text-xs space-y-1.5 font-medium">
+                  <div class="flex justify-between text-slate-500">
+                    <span>Subtotal (4 items)</span>
+                    <span class="text-slate-800 font-semibold">Rs. 1,620.00</span>
+                  </div>
+                  <div class="flex justify-between text-slate-500">
+                    <span>Loyalty / Special Discount</span>
+                    <span class="text-rose-500 font-semibold">- Rs. 100.00</span>
+                  </div>
+                  <div class="flex justify-between text-slate-900 font-bold text-sm pt-1.5 border-t border-slate-200">
+                    <span>Net Total Payable</span>
+                    <span class="text-emerald-600">Rs. 1,520.00</span>
+                  </div>
+                </div>
+
+                <!-- Quick Tender Shortcuts -->
+                <div class="grid grid-cols-4 gap-1.5 text-[11px] font-bold text-center">
+                  <div class="py-1.5 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200 cursor-pointer hover:bg-emerald-100 transition-colors">
+                    💵 Cash [F1]
+                  </div>
+                  <div class="py-1.5 rounded-lg bg-slate-100 text-slate-700 border border-slate-200 cursor-pointer hover:bg-slate-200 transition-colors">
+                    💳 Card [F2]
+                  </div>
+                  <div class="py-1.5 rounded-lg bg-indigo-50 text-indigo-700 border border-indigo-200 cursor-pointer hover:bg-indigo-100 transition-colors">
+                    📱 QR [F4]
+                  </div>
+                  <div class="py-1.5 rounded-lg bg-amber-50 text-amber-700 border border-amber-200 cursor-pointer hover:bg-amber-100 transition-colors">
+                    📋 ණය [F5]
+                  </div>
+                </div>
+
+                <!-- Launch Button Inside Mockup -->
+                <a href="pos/index.html" class="block w-full text-center py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-sm transition-colors">
+                  <i class="fas fa-external-link-alt mr-1"></i> Open Live Interactive POS in New Window
+                </a>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= PORTFOLIO / SELECTED WORK ================= -->
+  <section id="portfolio" class="relative py-24 z-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-12 reveal">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-xs font-bold text-brand-700 mb-3 shadow-sm">
+          <i class="fas fa-layer-group"></i>
+          <span>SELECTED WORK &amp; EXPERTISE</span>
+        </div>
+        <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+          Creative Portfolio
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg max-w-xl mx-auto font-medium">
+          A showcase of recent graphic design, responsive websites, motion edits, and POS implementations.
+        </p>
+      </div>
+
+      <!-- Main Category Tabs -->
+      <div class="flex flex-wrap justify-center gap-2.5 mb-10 reveal">
+        <button id="tab-graphic" onclick="switchMainTab('graphic')" class="main-tab active-main-tab px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold shadow-sm">
+          <i class="fas fa-paint-brush mr-2"></i>Graphic Design
+        </button>
+        <button id="tab-web" onclick="switchMainTab('web')" class="main-tab px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold shadow-sm">
+          <i class="fas fa-code mr-2"></i>Web Design
+        </button>
+        <button id="tab-video" onclick="switchMainTab('video')" class="main-tab px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold shadow-sm">
+          <i class="fas fa-video mr-2"></i>Video Projects
+        </button>
+        <button id="tab-pos" onclick="switchMainTab('pos')" class="main-tab px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold shadow-sm">
+          <i class="fas fa-cash-register mr-2"></i>POS Systems
+        </button>
+      </div>
+
+      <!-- Graphic Design Sub-Filters -->
       <div id="content-graphic" class="tab-content w-full">
         <div class="flex flex-wrap justify-center gap-2 mb-10 reveal">
-          <button onclick="filterCategory('all')" data-cat="all" class="cat-filter active-cat-filter px-4 py-2 rounded-lg text-xs font-bold transition-all">All</button>
-          <button onclick="filterCategory('logo')" data-cat="logo" class="cat-filter inactive-cat-filter px-4 py-2 rounded-lg text-xs font-bold transition-all glass-panel">Logos</button>
-          <button onclick="filterCategory('visiting-card')" data-cat="visiting-card" class="cat-filter inactive-cat-filter px-4 py-2 rounded-lg text-xs font-bold transition-all glass-panel">Visiting Cards</button>
-          <button onclick="filterCategory('social-media')" data-cat="social-media" class="cat-filter inactive-cat-filter px-4 py-2 rounded-lg text-xs font-bold transition-all glass-panel">Social Media</button>
-          <button onclick="filterCategory('banner')" data-cat="banner" class="cat-filter inactive-cat-filter px-4 py-2 rounded-lg text-xs font-bold transition-all glass-panel">Banners</button>
-          <button onclick="filterCategory('printing')" data-cat="printing" class="cat-filter inactive-cat-filter px-4 py-2 rounded-lg text-xs font-bold transition-all glass-panel">Printing</button>
+          <button onclick="filterCategory('all')" data-cat="all" class="cat-filter active-cat-filter px-3.5 py-1.5 rounded-lg text-xs font-bold shadow-sm">All Graphic</button>
+          <button onclick="filterCategory('logo')" data-cat="logo" class="cat-filter px-3.5 py-1.5 rounded-lg text-xs font-bold shadow-sm">Logos</button>
+          <button onclick="filterCategory('visiting-card')" data-cat="visiting-card" class="cat-filter px-3.5 py-1.5 rounded-lg text-xs font-bold shadow-sm">Visiting Cards</button>
+          <button onclick="filterCategory('social-media')" data-cat="social-media" class="cat-filter px-3.5 py-1.5 rounded-lg text-xs font-bold shadow-sm">Social Media</button>
+          <button onclick="filterCategory('banner')" data-cat="banner" class="cat-filter px-3.5 py-1.5 rounded-lg text-xs font-bold shadow-sm">Banners</button>
+          <button onclick="filterCategory('printing')" data-cat="printing" class="cat-filter px-3.5 py-1.5 rounded-lg text-xs font-bold shadow-sm">Printing &amp; Merch</button>
         </div>
-        <div id="graphicGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 bento-grid"></div>
-        <div id="graphicEmpty" class="hidden text-center py-20">
-          <div class="w-16 h-16 rounded-2xl glass-panel flex items-center justify-center mx-auto mb-4 border-white/10"><i class="fas fa-image text-2xl text-gray-500"></i></div>
-          <p class="text-white font-bold">No projects found</p>
+        <div id="graphicGrid" class="bento-grid"></div>
+        <div id="graphicEmpty" class="hidden text-center py-20 bg-white rounded-3xl border border-slate-200">
+          <div class="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto mb-3 text-slate-400">
+            <i class="fas fa-image text-2xl"></i>
+          </div>
+          <p class="text-slate-800 font-bold">No graphic design items found</p>
+          <p class="text-slate-500 text-xs mt-1">Select another filter or add projects via the admin panel.</p>
         </div>
       </div>
 
-      <!-- Web Tab -->
+      <!-- Web Design Tab Content -->
       <div id="content-web" class="tab-content hidden w-full">
-        <div id="webGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-8"></div>
-        <div id="webEmpty" class="hidden text-center py-20">
-          <div class="w-16 h-16 rounded-2xl glass-panel flex items-center justify-center mx-auto mb-4 border-white/10"><i class="fas fa-laptop-code text-2xl text-gray-500"></i></div>
-          <p class="text-white font-bold">Web projects coming soon!</p>
+        <div id="webGrid" class="grid grid-cols-1 md:grid-cols-2 gap-7"></div>
+        <div id="webEmpty" class="hidden text-center py-20 bg-white rounded-3xl border border-slate-200">
+          <div class="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto mb-3 text-slate-400">
+            <i class="fas fa-laptop-code text-2xl"></i>
+          </div>
+          <p class="text-slate-800 font-bold">Web projects coming soon!</p>
+          <p class="text-slate-500 text-xs mt-1">Custom landing pages &amp; modern apps.</p>
         </div>
       </div>
 
-      <!-- Video Tab -->
+      <!-- Video Projects Tab Content -->
       <div id="content-video" class="tab-content hidden w-full">
-        <div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-        <div id="videoEmpty" class="hidden text-center py-20">
-          <div class="w-16 h-16 rounded-2xl glass-panel flex items-center justify-center mx-auto mb-4 border-white/10"><i class="fas fa-video text-2xl text-gray-500"></i></div>
-          <p class="text-white font-bold">Video projects coming soon!</p>
+        <div id="videoGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        <div id="videoEmpty" class="hidden text-center py-20 bg-white rounded-3xl border border-slate-200">
+          <div class="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto mb-3 text-slate-400">
+            <i class="fas fa-film text-2xl"></i>
+          </div>
+          <p class="text-slate-800 font-bold">Video projects coming soon!</p>
+          <p class="text-slate-500 text-xs mt-1">Motion graphics &amp; cinematic promo videos.</p>
         </div>
       </div>
+
+      <!-- POS Systems Tab Content -->
+      <div id="content-pos" class="tab-content hidden w-full">
+        <div id="posGrid" class="grid grid-cols-1 md:grid-cols-2 gap-7"></div>
+        <div id="posEmpty" class="hidden text-center py-20 bg-white rounded-3xl border border-slate-200">
+          <div class="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto mb-3 text-slate-400">
+            <i class="fas fa-cash-register text-2xl"></i>
+          </div>
+          <p class="text-slate-800 font-bold">POS projects coming soon!</p>
+          <p class="text-slate-500 text-xs mt-1">Tailored point-of-sale software for retail &amp; hospitality.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section id="services" class="relative py-24 z-10 border-t border-white/5">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-16 reveal">
-        <h2 class="font-display text-4xl md:text-5xl font-black text-white mb-4">My Services</h2>
-        <p class="text-gray-400 font-medium text-lg">Comprehensive design solutions for your brand.</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Service 1 -->
-        <div class="glass-card p-8 rounded-3xl reveal hover:-translate-y-2 transition-transform duration-300">
-          <div class="w-14 h-14 rounded-2xl bg-brand-500/20 text-brand-400 flex items-center justify-center text-2xl mb-6 border border-brand-500/30"><i class="fas fa-paint-brush"></i></div>
-          <h3 class="font-display font-bold text-2xl text-white mb-3">Graphic Design</h3>
-          <p class="text-gray-400 text-sm leading-relaxed mb-6">Logos, visiting cards, social media kits, and full brand identities crafted with precision.</p>
-          <div class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs font-semibold glass-panel text-gray-300">Brand Identity</span><span class="px-3 py-1 rounded-full text-xs font-semibold glass-panel text-gray-300">Print</span></div>
-        </div>
-        <!-- Service 2 -->
-        <div class="glass-card p-8 rounded-3xl reveal hover:-translate-y-2 transition-transform duration-300">
-          <div class="w-14 h-14 rounded-2xl bg-accent-500/20 text-accent-400 flex items-center justify-center text-2xl mb-6 border border-accent-500/30"><i class="fas fa-code"></i></div>
-          <h3 class="font-display font-bold text-2xl text-white mb-3">Web Design</h3>
-          <p class="text-gray-400 text-sm leading-relaxed mb-6">Modern, responsive, and highly animated websites built to convert and impress your audience.</p>
-          <div class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs font-semibold glass-panel text-gray-300">UI/UX</span><span class="px-3 py-1 rounded-full text-xs font-semibold glass-panel text-gray-300">Development</span></div>
-        </div>
-        <!-- Service 3 -->
-        <div class="glass-card p-8 rounded-3xl reveal hover:-translate-y-2 transition-transform duration-300">
-          <div class="w-14 h-14 rounded-2xl bg-pink-500/20 text-pink-400 flex items-center justify-center text-2xl mb-6 border border-pink-500/30"><i class="fas fa-video"></i></div>
-          <h3 class="font-display font-bold text-2xl text-white mb-3">Video Editing</h3>
-          <p class="text-gray-400 text-sm leading-relaxed mb-6">Cinematic edits, promotional videos, and engaging content for YouTube and social media.</p>
-          <div class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs font-semibold glass-panel text-gray-300">Motion Graphics</span><span class="px-3 py-1 rounded-full text-xs font-semibold glass-panel text-gray-300">Color Grading</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="relative py-24 z-10 border-t border-white/5 bg-dark-800/50">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center reveal">
-      <h2 class="font-display text-4xl md:text-5xl font-black text-white mb-6">Let's work together.</h2>
-      <p class="text-gray-400 font-medium text-lg mb-10 max-w-xl mx-auto">I'm currently available for freelance projects. If you have a project that needs a creative touch, hit me up!</p>
+  <!-- ================= SERVICES SECTION ================= -->
+  <section id="services" class="relative py-24 z-10 border-t border-slate-200/80 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
       
-      <div class="flex flex-wrap justify-center gap-6">
-        <a href="https://wa.me/94716125715" target="_blank" class="flex items-center gap-4 p-4 pr-6 rounded-2xl glass-panel border border-white/10 hover:bg-white/5 hover:border-green-500/50 transition-all group">
-          <div class="w-12 h-12 rounded-xl bg-green-500 text-white flex items-center justify-center text-xl shadow-[0_0_20px_rgba(34,197,94,0.3)]"><i class="fab fa-whatsapp"></i></div>
-          <div class="text-left">
-            <div class="text-white font-bold text-sm">WhatsApp</div>
-            <div class="text-gray-400 text-xs">+94 71 612 5715</div>
-          </div>
-        </a>
-        <a href="https://web.facebook.com/profile.php?id=61590774500832" target="_blank" class="flex items-center gap-4 p-4 pr-6 rounded-2xl glass-panel border border-white/10 hover:bg-white/5 hover:border-blue-500/50 transition-all group">
-          <div class="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xl shadow-[0_0_20px_rgba(37,99,235,0.3)]"><i class="fab fa-facebook"></i></div>
-          <div class="text-left">
-            <div class="text-white font-bold text-sm">Facebook</div>
-            <div class="text-gray-400 text-xs">PixelByMaliya</div>
-          </div>
-        </a>
-        <a href="mailto:pixelbymaliya@gmail.com" class="flex items-center gap-4 p-4 pr-6 rounded-2xl glass-panel border border-white/10 hover:bg-white/5 hover:border-red-500/50 transition-all group">
-          <div class="w-12 h-12 rounded-xl bg-red-500 text-white flex items-center justify-center text-xl shadow-[0_0_20px_rgba(239,68,68,0.3)]"><i class="fas fa-envelope"></i></div>
-          <div class="text-left">
-            <div class="text-white font-bold text-sm">Email</div>
-            <div class="text-gray-400 text-xs">pixelbymaliya@gmail.com</div>
-          </div>
-        </a>
+      <div class="text-center mb-16 reveal">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 mb-3">
+          <i class="fas fa-briefcase"></i>
+          <span>SOLUTIONS OFFERED</span>
+        </div>
+        <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+          Services &amp; Capabilities
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg max-w-xl mx-auto font-medium">
+          Comprehensive visual branding and customized software systems built to accelerate your business.
+        </p>
       </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Service 1: Graphic Design -->
+        <div class="luxury-card p-7 reveal">
+          <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center text-xl mb-6 border border-brand-200/60 shadow-sm">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-slate-900 mb-2">Graphic Design</h3>
+          <p class="text-slate-600 text-xs leading-relaxed mb-6 font-medium">
+            Memorable logo design, modern visiting cards, thank you cards, social media marketing kits, and full brand guideline packages.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-6">
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Logo Design</span>
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Visiting Cards</span>
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Print Ready</span>
+          </div>
+          <a href="https://wa.me/94716125715?text=Hi%20Maliya,%20I%20need%20Graphic%20Design%20services." target="_blank" class="text-brand-600 font-bold text-xs inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
+            <span>Inquire on WhatsApp</span>
+            <i class="fas fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Service 2: Web Design & Development -->
+        <div class="luxury-card p-7 reveal delay-100">
+          <div class="w-12 h-12 rounded-2xl bg-accent-50 text-accent-600 flex items-center justify-center text-xl mb-6 border border-accent-200/60 shadow-sm">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-slate-900 mb-2">Web Development</h3>
+          <p class="text-slate-600 text-xs leading-relaxed mb-6 font-medium">
+            High-converting modern websites, responsive portfolio platforms, business landing pages, and interactive web tools.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-6">
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Responsive UI</span>
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">SEO Optimized</span>
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Fast Speed</span>
+          </div>
+          <a href="https://wa.me/94716125715?text=Hi%20Maliya,%20I%20need%20a%20Website%20developed." target="_blank" class="text-accent-600 font-bold text-xs inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
+            <span>Inquire on WhatsApp</span>
+            <i class="fas fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Service 3: Video Editing & Motion -->
+        <div class="luxury-card p-7 reveal delay-200">
+          <div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-500 flex items-center justify-center text-xl mb-6 border border-rose-200/60 shadow-sm">
+            <i class="fas fa-video"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-slate-900 mb-2">Video Editing</h3>
+          <p class="text-slate-600 text-xs leading-relaxed mb-6 font-medium">
+            Viral TikTok &amp; Reels editing, cinematic promotional videos, YouTube long-form content, and eye-catching motion typography.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-6">
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Reels &amp; Shorts</span>
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Color Grading</span>
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Audio Sync</span>
+          </div>
+          <a href="https://wa.me/94716125715?text=Hi%20Maliya,%20I%20need%20Video%20Editing%20services." target="_blank" class="text-rose-600 font-bold text-xs inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
+            <span>Inquire on WhatsApp</span>
+            <i class="fas fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Service 4: Universal POS Systems (Cloud · Offline · Hybrid) -->
+        <div class="luxury-card p-7 reveal delay-300 border-emerald-200 bg-emerald-50/20">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-6 border border-emerald-200/60 shadow-sm">
+            <i class="fas fa-cash-register"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-slate-900 mb-2">POS Systems</h3>
+          <p class="text-slate-600 text-xs leading-relaxed mb-6 font-medium">
+            Custom-built point-of-sale software for retail, supermarkets, restaurants, pharmacies &amp; salons. Available in <strong>Cloud</strong>, <strong>100% Offline</strong>, and <strong>Hybrid Auto-Sync</strong> setups.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-6">
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-white text-emerald-700 border border-emerald-200">Cloud · Offline · Hybrid</span>
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-white text-emerald-700 border border-emerald-200">Receipts (LKR)</span>
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-white text-emerald-700 border border-emerald-200">Free Customization</span>
+          </div>
+          <a href="pos/index.html" class="text-emerald-700 font-bold text-xs inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
+            <span>Test Live Demo</span>
+            <i class="fas fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+      </div>
+
     </div>
   </section>
 
-  <footer class="relative z-10 py-8 border-t border-white/5 text-center text-gray-500 text-sm font-medium">
-    &copy; 2026 Pixel by Maliya. All rights reserved.
+
+  <!-- ================= WHY CHOOSE ME / VALUE PROPOSITIONS ================= -->
+  <section class="relative py-20 z-10 bg-slate-50 border-b border-slate-200/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-14 reveal">
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 mb-3">
+          Why Partner with Pixel by Maliya?
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base max-w-lg mx-auto">
+          Combining visual elegance with robust engineering to deliver results that elevate your brand.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="luxury-card p-6 reveal">
+          <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+            <i class="fas fa-sliders text-base"></i>
+          </div>
+          <h4 class="font-display font-bold text-base text-slate-900 mb-1.5">100% Tailored to You</h4>
+          <p class="text-slate-600 text-xs leading-relaxed">No generic one-size templates. Every design and POS workflow is customized around your exact requirements.</p>
+        </div>
+
+        <div class="luxury-card p-6 reveal delay-100">
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4">
+            <i class="fas fa-map-pin text-base"></i>
+          </div>
+          <h4 class="font-display font-bold text-base text-slate-900 mb-1.5">Sri Lankan Ready</h4>
+          <p class="text-slate-600 text-xs leading-relaxed">Optimized for local merchants: LKR currency formatting, Dialog/Mobitel SMS gateways, and local thermal printer setups.</p>
+        </div>
+
+        <div class="luxury-card p-6 reveal delay-200">
+          <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-4">
+            <i class="fas fa-bolt text-base"></i>
+          </div>
+          <h4 class="font-display font-bold text-base text-slate-900 mb-1.5">Swift Turnaround</h4>
+          <p class="text-slate-600 text-xs leading-relaxed">Fast communication, prompt delivery schedules, and continuous live previews during project development.</p>
+        </div>
+
+        <div class="luxury-card p-6 reveal delay-300">
+          <div class="w-10 h-10 rounded-xl bg-accent-50 text-accent-600 flex items-center justify-center mb-4">
+            <i class="fas fa-headset text-base"></i>
+          </div>
+          <h4 class="font-display font-bold text-base text-slate-900 mb-1.5">Direct 1-on-1 Support</h4>
+          <p class="text-slate-600 text-xs leading-relaxed">Direct WhatsApp support and phone assistance with zero bureaucratic delays or ticket queues.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= CLIENT REVIEWS / TESTIMONIALS ================= -->
+  <section id="reviews" class="relative py-24 z-10 bg-white border-t border-slate-200/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-12 reveal">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-bold text-blue-700 mb-3 shadow-sm">
+          <i class="fab fa-facebook text-blue-600"></i>
+          <span>LIVE FACEBOOK REVIEWS</span>
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-100 text-emerald-700 ml-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Auto-Sync Active
+          </span>
+        </div>
+        <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+          Client Feedback &amp; Stories
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg max-w-xl mx-auto font-medium">
+          Real feedback from verified clients on Facebook who trust Pixel by Maliya for Custom POS Systems and Creative Studio Work.
+        </p>
+
+        <!-- Facebook Review CTA Button -->
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <a href="https://web.facebook.com/profile.php?id=61595431104691&sk=reviews" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 transition-all transform hover:-translate-y-0.5">
+            <i class="fab fa-facebook text-sm"></i>
+            <span>Leave a Review on Facebook</span>
+            <i class="fas fa-external-link-alt text-[10px] opacity-80"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Elfsight Live Auto-Sync Facebook Reviews Widget -->
+      <div class="mb-14 reveal">
+        <div class="elfsight-app-e236e5b7-9d8c-4996-9707-b9f7b702b86d min-h-[160px]" data-elfsight-app-lazy></div>
+      </div>
+
+      <!-- Verified Client Reviews & Screenshot Proofs Archive -->
+      <div class="pt-10 border-t border-slate-200/80 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <h3 class="font-display font-bold text-xl text-slate-900">Verified Client Screenshot Archive</h3>
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-slate-100 text-slate-700 border border-slate-200">
+              <i class="fas fa-check-circle text-emerald-500 text-[10px]"></i> 5 Verified Proofs
+            </span>
+          </div>
+          <p class="text-xs text-slate-500 font-medium mt-1">Direct feedback screenshots &amp; project delivery proofs from satisfied clients.</p>
+        </div>
+        <span class="text-xs text-slate-400 font-medium self-start sm:self-auto flex items-center gap-1.5">
+          <i class="fas fa-camera text-slate-400"></i> Click "View Screenshot" on any card
+        </span>
+      </div>
+
+      <!-- Reviews Grid (Services & Capabilities Style) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Review 1 (Spotlight POS Review: Rasangi Wimalarathna) -->
+        <div class="luxury-card p-7 reveal lg:col-span-2 border-emerald-200/80 bg-emerald-50/15 flex flex-col justify-between">
+          <div>
+            <!-- Header -->
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 font-extrabold flex items-center justify-center text-sm border border-emerald-200 shadow-sm">
+                  RW
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h3 class="font-display font-bold text-base text-slate-900 leading-tight">Rasangi Wimalarathna</h3>
+                    <i class="fab fa-facebook text-blue-600 text-xs" title="Verified Facebook Recommendation"></i>
+                  </div>
+                  <div class="text-[11px] text-slate-500 font-medium">15 August · Facebook Review</div>
+                </div>
+              </div>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-rose-50 text-rose-600 border border-rose-200 shadow-sm">
+                <i class="fas fa-heart text-[10px]"></i> Recommends Pixel By Maliya
+              </span>
+            </div>
+
+            <!-- Stars -->
+            <div class="flex items-center gap-1 text-amber-400 text-xs mb-4">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+
+            <!-- Text -->
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-6 font-medium">
+              "I’m very happy with the POS system developed for our business. It is user-friendly, well organized, and has all the features we need to manage our daily sales smoothly. The developer was very helpful, professional, and understood our requirements perfectly.<br><br>
+              Thank you for the great work and excellent support. I highly recommend your service to anyone looking for a reliable POS system. Wishing you and your business continued success and growth in the future! 😊"
+            </p>
+          </div>
+
+          <!-- Bottom Tags & Screenshot Link -->
+          <div class="pt-4 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-white text-emerald-700 border border-emerald-200">POS System Development</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-white text-slate-700 border border-slate-200">Daily Sales Management</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-white text-slate-700 border border-slate-200">Professional Support</span>
+            </div>
+            <button onclick="openDirectImage('assets/reviews/review_rasangi.png', 'Rasangi Wimalarathna · Verified Facebook Review')" class="text-emerald-700 hover:text-emerald-800 font-bold text-xs inline-flex items-center gap-1.5 transition-colors">
+              <i class="fas fa-camera text-[11px]"></i>
+              <span>View Screenshot</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Review 2 (Pasindu Kumarasinghe) -->
+        <div class="luxury-card p-7 reveal delay-100 flex flex-col justify-between">
+          <div>
+            <!-- Header -->
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-700 font-extrabold flex items-center justify-center text-sm border border-brand-200 shadow-sm">
+                  PK
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h3 class="font-display font-bold text-base text-slate-900 leading-tight">Pasindu Kumarasinghe</h3>
+                    <i class="fab fa-facebook text-blue-600 text-xs"></i>
+                  </div>
+                  <div class="text-[11px] text-slate-500 font-medium">23 August · Facebook Review</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Badge & Stars -->
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-1 text-amber-400 text-xs">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-rose-50 text-rose-600 border border-rose-200">
+                <i class="fas fa-heart text-[9px]"></i> Recommends
+              </span>
+            </div>
+
+            <!-- Text -->
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-6 font-medium">
+              "Friendly service, highly recommended! Very flexible throughout the process, and the final outcome was absolutely perfect. Highly satisfied with the service!"
+            </p>
+          </div>
+
+          <!-- Bottom Tags & Screenshot Link -->
+          <div class="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Friendly Service</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Flexible Process</span>
+            </div>
+            <button onclick="openDirectImage('assets/reviews/review_pasindu.png', 'Pasindu Kumarasinghe · Verified Facebook Review')" class="text-brand-600 hover:text-brand-700 font-bold text-xs inline-flex items-center gap-1.5 transition-colors">
+              <i class="fas fa-camera text-[11px]"></i>
+              <span>View Screenshot</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Review 3 (Thiwanka Wijesinghe) -->
+        <div class="luxury-card p-7 reveal delay-200 flex flex-col justify-between">
+          <div>
+            <!-- Header -->
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 font-extrabold flex items-center justify-center text-sm border border-amber-200 shadow-sm">
+                  TW
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h3 class="font-display font-bold text-base text-slate-900 leading-tight">Thiwanka Wijesinghe</h3>
+                    <i class="fab fa-facebook text-blue-600 text-xs"></i>
+                  </div>
+                  <div class="text-[11px] text-slate-500 font-medium">11 June · Facebook Review</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Badge & Stars -->
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-1 text-amber-400 text-xs">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-rose-50 text-rose-600 border border-rose-200">
+                <i class="fas fa-heart text-[9px]"></i> Recommends
+              </span>
+            </div>
+
+            <!-- Text -->
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-6 font-medium">
+              "Very good service, can get the job done quickly and reliably. 💪"
+            </p>
+          </div>
+
+          <!-- Bottom Tags & Screenshot Link -->
+          <div class="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Quick Delivery</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Reliable Quality</span>
+            </div>
+            <button onclick="openDirectImage('assets/reviews/review_thiwanka.png', 'Thiwanka Wijesinghe · Verified Facebook Review')" class="text-amber-600 hover:text-amber-700 font-bold text-xs inline-flex items-center gap-1.5 transition-colors">
+              <i class="fas fa-camera text-[11px]"></i>
+              <span>View Screenshot</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Review 4 (Nuwan Kumara) -->
+        <div class="luxury-card p-7 reveal delay-300 flex flex-col justify-between">
+          <div>
+            <!-- Header -->
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-700 font-extrabold flex items-center justify-center text-sm border border-purple-200 shadow-sm">
+                  NK
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h3 class="font-display font-bold text-base text-slate-900 leading-tight">Nuwan Kumara</h3>
+                    <i class="fab fa-facebook text-blue-600 text-xs"></i>
+                  </div>
+                  <div class="text-[11px] text-slate-500 font-medium">31 July · Facebook Review</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Badge & Stars -->
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-1 text-amber-400 text-xs">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-rose-50 text-rose-600 border border-rose-200">
+                <i class="fas fa-heart text-[9px]"></i> Recommends
+              </span>
+            </div>
+
+            <!-- Text -->
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-6 font-medium">
+              "super service highly recommend"
+            </p>
+          </div>
+
+          <!-- Bottom Tags & Screenshot Link -->
+          <div class="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Super Service</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Highly Recommended</span>
+            </div>
+            <button onclick="openDirectImage('assets/reviews/review_nuwan.png', 'Nuwan Kumara · Verified Facebook Review')" class="text-purple-600 hover:text-purple-700 font-bold text-xs inline-flex items-center gap-1.5 transition-colors">
+              <i class="fas fa-camera text-[11px]"></i>
+              <span>View Screenshot</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Review 5 (Lakshitha Mahesh) -->
+        <div class="luxury-card p-7 reveal delay-400 flex flex-col justify-between">
+          <div>
+            <!-- Header -->
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-700 font-extrabold flex items-center justify-center text-sm border border-blue-200 shadow-sm">
+                  LM
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h3 class="font-display font-bold text-base text-slate-900 leading-tight">Lakshitha Mahesh</h3>
+                    <i class="fab fa-facebook text-blue-600 text-xs"></i>
+                  </div>
+                  <div class="text-[11px] text-slate-500 font-medium">10 August · Facebook Review</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Badge & Stars -->
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-1 text-amber-400 text-xs">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-rose-50 text-rose-600 border border-rose-200">
+                <i class="fas fa-heart text-[9px]"></i> Recommends
+              </span>
+            </div>
+
+            <!-- Text -->
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-6 font-medium">
+              "Highly Recommend 👍"
+            </p>
+          </div>
+
+          <!-- Bottom Tags & Screenshot Link -->
+          <div class="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Verified Client</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Top Rated</span>
+            </div>
+            <button onclick="openDirectImage('assets/reviews/review_lakshitha.png', 'Lakshitha Mahesh · Verified Facebook Review')" class="text-blue-600 hover:text-blue-700 font-bold text-xs inline-flex items-center gap-1.5 transition-colors">
+              <i class="fas fa-camera text-[11px]"></i>
+              <span>View Screenshot</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= CONTACT & GET IN TOUCH ================= -->
+  <section id="contact" class="relative py-24 z-10 border-t border-slate-200/80 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-14 reveal">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-bold text-slate-700 mb-3 shadow-sm">
+          <i class="fas fa-paper-plane text-brand-600"></i>
+          <span>LET'S CONNECT</span>
+        </div>
+        <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+          Ready to Start Your Project?
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg max-w-xl mx-auto font-medium">
+          Whether you need a full brand package, an ultra-fast website, or a custom Cloud POS installation, let's make it happen.
+        </p>
+      </div>
+
+      <!-- Quick Contact Channels -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 reveal">
+        
+        <!-- WhatsApp -->
+        <a href="https://wa.me/94716125715" target="_blank" class="luxury-card p-5 flex items-center gap-4 hover:border-emerald-300 group">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center text-xl shadow-sm group-hover:scale-105 transition-transform">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <div>
+            <div class="font-display font-bold text-sm text-slate-900">WhatsApp</div>
+            <div class="text-xs text-slate-500 font-semibold">+94 71 612 5715</div>
+          </div>
+        </a>
+
+        <!-- Facebook -->
+        <a href="https://web.facebook.com/profile.php?id=61595431104691" target="_blank" class="luxury-card p-5 flex items-center gap-4 hover:border-blue-300 group">
+          <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center text-xl shadow-sm group-hover:scale-105 transition-transform">
+            <i class="fab fa-facebook-f"></i>
+          </div>
+          <div>
+            <div class="font-display font-bold text-sm text-slate-900">Facebook Page</div>
+            <div class="text-xs text-slate-500 font-semibold">PixelByMaliya</div>
+          </div>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:pixelbymaliya@gmail.com" class="luxury-card p-5 flex items-center gap-4 hover:border-rose-300 group">
+          <div class="w-12 h-12 rounded-2xl bg-rose-500 text-white flex items-center justify-center text-xl shadow-sm group-hover:scale-105 transition-transform">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div>
+            <div class="font-display font-bold text-sm text-slate-900">Email Directly</div>
+            <div class="text-xs text-slate-500 font-semibold">pixelbymaliya@gmail.com</div>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Quick Project Inquiry Card -->
+      <div class="luxury-card p-6 sm:p-8 reveal delay-100 bg-white">
+        <h3 class="font-display font-bold text-lg text-slate-900 mb-4 flex items-center gap-2">
+          <i class="fas fa-comments text-brand-600"></i>
+          <span>Send Quick WhatsApp Inquiry</span>
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Your Name</label>
+            <input type="text" id="contact-name" placeholder="Kamal Perera" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 text-xs focus:outline-none focus:border-brand-500 focus:bg-white transition-all"/>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Project Category</label>
+            <select id="contact-service" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 text-xs focus:outline-none focus:border-brand-500 focus:bg-white transition-all font-medium">
+              <option value="Retail POS System (Cloud, Offline or Hybrid)">Retail POS System (Cloud · Offline · Hybrid)</option>
+              <option value="Wholesale & FMCG Distribution (Van Sales ERP)">Wholesale &amp; FMCG Distribution (Van Sales SFA)</option>
+              <option value="Graphic Design / Logo">Graphic Design / Logo / Visiting Cards</option>
+              <option value="Website Development">Website Development</option>
+              <option value="Video Editing">Video Editing &amp; Reels</option>
+              <option value="Other Inquiries">Other Inquiries</option>
+            </select>
+          </div>
+        </div>
+        <div class="mb-5">
+          <label class="block text-xs font-bold text-slate-700 mb-1">Brief Project Details</label>
+          <textarea id="contact-msg" rows="3" placeholder="Tell me a bit about your business and requirements..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 text-xs focus:outline-none focus:border-brand-500 focus:bg-white transition-all"></textarea>
+        </div>
+        <button onclick="sendQuickWhatsApp()" class="btn-luxury-primary w-full py-3 rounded-xl text-xs font-bold shadow-md">
+          <i class="fab fa-whatsapp text-base"></i>
+          <span>Continue to WhatsApp with Prefilled Message</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="relative z-10 py-10 bg-white border-t border-slate-200 text-slate-500 text-xs font-medium">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="logo.png" alt="Logo" class="w-7 h-7 object-contain" />
+        <span class="font-display font-bold text-slate-900">&copy; 2026 Pixel by Maliya.</span>
+        <span>All rights reserved.</span>
+      </div>
+      <div class="flex items-center gap-6 font-semibold text-slate-600">
+        <a href="#hero" class="hover:text-slate-900">Home</a>
+        <a href="#portfolio" class="hover:text-slate-900">Portfolio</a>
+        <a href="pos/index.html" class="text-emerald-600 hover:text-emerald-700 font-bold">POS Demo</a>
+        <a href="admin.html" class="hover:text-brand-600 text-slate-400">Admin</a>
+      </div>
+    </div>
   </footer>
 
-  <!-- Lightbox -->
-  <div id="lightbox" class="fixed inset-0 z-[200] hidden items-center justify-center p-4 bg-dark-900/90 backdrop-blur-xl" onclick="closeLightbox(event)">
-    <button onclick="closeLightbox()" class="absolute top-6 right-6 w-12 h-12 rounded-xl flex items-center justify-center text-white bg-white/10 hover:bg-white/20 transition-all z-10 border border-white/10"><i class="fas fa-times text-xl"></i></button>
-    <button id="lightboxPrev" onclick="changeLightboxImage(-1); event.stopPropagation();" class="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-xl flex items-center justify-center text-white bg-white/10 hover:bg-white/20 transition-all z-10 border border-white/10"><i class="fas fa-chevron-left text-xl"></i></button>
-    <img id="lightboxImg" src="" alt="" class="max-w-full max-h-[85vh] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] object-contain relative z-0 transition-transform duration-300" onclick="event.stopPropagation();"/>
-    <button id="lightboxNext" onclick="changeLightboxImage(1); event.stopPropagation();" class="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-xl flex items-center justify-center text-white bg-white/10 hover:bg-white/20 transition-all z-10 border border-white/10"><i class="fas fa-chevron-right text-xl"></i></button>
-    <div id="lightboxCounter" class="absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-2 rounded-xl text-white font-bold text-sm z-10 bg-white/10 backdrop-blur border border-white/10"></div>
+
+  <!-- ================= LIGHTBOX IMAGE MODAL ================= -->
+  <div id="lightbox" class="fixed inset-0 z-[200] hidden items-center justify-center p-4" onclick="closeLightbox(event)">
+    <button onclick="closeLightbox()" class="absolute top-5 right-5 w-11 h-11 rounded-xl flex items-center justify-center text-slate-800 bg-white shadow-lg hover:scale-105 transition-all z-10 border border-slate-200">
+      <i class="fas fa-times text-lg"></i>
+    </button>
+    <button id="lightboxPrev" onclick="changeLightboxImage(-1); event.stopPropagation();" class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-11 h-11 rounded-xl flex items-center justify-center text-slate-800 bg-white shadow-lg hover:scale-105 transition-all z-10 border border-slate-200">
+      <i class="fas fa-chevron-left text-base"></i>
+    </button>
+    <div class="relative max-w-4xl max-h-[85vh] p-2 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col items-center" onclick="event.stopPropagation();">
+      <img id="lightboxImg" src="" alt="Project Image" class="max-w-full max-h-[75vh] rounded-xl object-contain"/>
+      <div id="lightboxCaption" class="mt-2 text-xs font-bold text-slate-800 text-center"></div>
+    </div>
+    <button id="lightboxNext" onclick="changeLightboxImage(1); event.stopPropagation();" class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-11 h-11 rounded-xl flex items-center justify-center text-slate-800 bg-white shadow-lg hover:scale-105 transition-all z-10 border border-slate-200">
+      <i class="fas fa-chevron-right text-base"></i>
+    </button>
+    <div id="lightboxCounter" class="absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full text-slate-700 font-bold text-xs bg-white shadow-md border border-slate-200"></div>
   </div>
+
 
   <!-- Firebase Scripts -->
   <script defer src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>

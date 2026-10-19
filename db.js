@@ -77,16 +77,17 @@ const DB = {
     async getProjectStats() {
         try {
             const projects = await this.getProjects();
-            const stats = { total: projects.length, graphic: 0, web: 0, video: 0 };
+            const stats = { total: projects.length, graphic: 0, web: 0, video: 0, pos: 0 };
             projects.forEach(p => {
                 if (p.type === 'graphic') stats.graphic++;
                 else if (p.type === 'web') stats.web++;
                 else if (p.type === 'video') stats.video++;
+                else if (p.type === 'pos') stats.pos++;
             });
             return stats;
         } catch (e) {
             console.error('DB.getProjectStats error:', e);
-            return { total: 0, graphic: 0, web: 0, video: 0 };
+            return { total: 0, graphic: 0, web: 0, video: 0, pos: 0 };
         }
     },
 

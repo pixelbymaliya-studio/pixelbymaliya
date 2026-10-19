@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Panel – Pixel by Maliya</title>
     <meta name="robots" content="noindex, nofollow" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="icon" type="image/png" href="favicon.png?v=3" />
+    <link rel="apple-touch-icon" href="favicon.png?v=3" />
     <meta name="theme-color" content="#1a3260" />
     <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -89,6 +90,9 @@
                     class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-brand-500/15 border border-brand-500/30 text-brand-300 text-xs font-semibold">
                     <i class="fas fa-fire text-violet-400"></i> Firebase Connected
                 </div>
+                <a href="pos/index.html" target="_blank"
+                    class="flex items-center gap-2 px-3 py-2 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/30 text-emerald-300 text-sm font-semibold transition-all"><i
+                        class="fas fa-cash-register text-xs"></i><span class="hidden sm:inline">POS Demo</span></a>
                 <a href="index.html"
                     class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-gray-400 hover:text-white text-sm transition-all"><i
                         class="fas fa-home text-xs"></i><span class="hidden sm:inline">Home</span></a>
@@ -159,7 +163,7 @@
             </div>
 
             <!-- Stats Row -->
-            <div id="statsRow" class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8"></div>
+            <div id="statsRow" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-8"></div>
 
             <!-- Layout -->
             <div class="grid grid-cols-1 xl:grid-cols-5 gap-6">
@@ -175,7 +179,7 @@
                             Add New Project
                         </h3>
 
-                        <div class="flex gap-2 mb-5">
+                        <div class="grid grid-cols-2 gap-2 mb-5">
                             <button onclick="adminTab('graphic')" id="adminTabGraphic"
                                 class="admin-tab-btn active-admin-tab flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center justify-center gap-2"><i
                                     class="fas fa-paint-brush"></i> Graphic</button>
@@ -185,6 +189,9 @@
                             <button onclick="adminTab('video')" id="adminTabVideo"
                                 class="admin-tab-btn inactive-admin-tab flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center justify-center gap-2"><i
                                     class="fas fa-video"></i> Video Projects</button>
+                            <button onclick="adminTab('pos')" id="adminTabPos"
+                                class="admin-tab-btn inactive-admin-tab flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center justify-center gap-2"><i
+                                    class="fas fa-cash-register"></i> POS System</button>
                         </div>
 
                         <div class="space-y-4">
@@ -287,15 +294,21 @@
                                 </div>
                             <!-- Web/Video Specific Fields -->
                             <div id="webSpecificFields" class="hidden space-y-4 border-t border-white/5 pt-4 mt-2">
-                                <div>
+                                <div id="liveUrlField">
                                     <label class="block text-xs font-medium text-gray-400 mb-1.5">Live URL / Video Link <span
                                             class="text-gray-600">(optional)</span></label>
                                     <input type="url" id="projUrl" placeholder="https://youtube.com/... or https://example.com"
                                         class="w-full px-4 py-2.5 rounded-xl bg-dark-900/70 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-brand-500 transition-all text-sm" />
                                 </div>
+                                <div id="posDemoField" class="hidden">
+                                    <label class="block text-xs font-medium text-gray-400 mb-1.5">Demo URL <span
+                                            class="text-gray-600">(optional · Live Demo button)</span></label>
+                                    <input type="url" id="projDemoUrl" placeholder="https://demo.yourshop.com/pos"
+                                        class="w-full px-4 py-2.5 rounded-xl bg-dark-900/70 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-emerald-500 transition-all text-sm" />
+                                </div>
                                 <div>
                                     <label class="block text-xs font-medium text-gray-400 mb-1.5">Software / Tech Stack</label>
-                                    <input type="text" id="projTech" placeholder="e.g. Premiere Pro, After Effects OR HTML, React"
+                                    <input type="text" id="projTech" placeholder="e.g. Premiere Pro, After Effects OR HTML, React OR PHP, MySQL (POS)"
                                         class="w-full px-4 py-2.5 rounded-xl bg-dark-900/70 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-brand-500 transition-all text-sm" />
                                 </div>
                             </div>
@@ -355,6 +368,8 @@
                                     class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/5 text-gray-400 border border-white/10 hover:text-white transition-all">Web</button>
                                 <button onclick="setListFilter('video')" id="listFilterVideo"
                                     class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/5 text-gray-400 border border-white/10 hover:text-white transition-all">Video</button>
+                                <button onclick="setListFilter('pos')" id="listFilterPos"
+                                    class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/5 text-gray-400 border border-white/10 hover:text-white transition-all">POS</button>
                             </div>
                         </div>
 
@@ -532,11 +547,13 @@
         function adminTab(tab) {
             currentAdminTab = tab;
             document.querySelectorAll('.admin-tab-btn').forEach(b => { b.classList.remove('active-admin-tab'); b.classList.add('inactive-admin-tab'); });
-            const el = tab === 'graphic' ? 'adminTabGraphic' : (tab === 'web' ? 'adminTabWeb' : 'adminTabVideo');
+            const el = tab === 'graphic' ? 'adminTabGraphic' : (tab === 'web' ? 'adminTabWeb' : (tab === 'pos' ? 'adminTabPos' : 'adminTabVideo'));
             document.getElementById(el).classList.add('active-admin-tab');
             document.getElementById(el).classList.remove('inactive-admin-tab');
             document.getElementById('adminCatField').classList.toggle('hidden', tab !== 'graphic');
-            document.getElementById('webSpecificFields').classList.toggle('hidden', tab !== 'web' && tab !== 'video');
+            document.getElementById('webSpecificFields').classList.toggle('hidden', tab !== 'web' && tab !== 'video' && tab !== 'pos');
+            document.getElementById('posDemoField').classList.toggle('hidden', tab !== 'pos');
+            document.getElementById('liveUrlField').classList.toggle('hidden', tab === 'pos');
         }
 
         /* ==================== MULTI-IMAGE SELECTION ==================== */
@@ -762,7 +779,7 @@
                 if (!validUrls.length && currentAdminTab !== 'video') { showToast('Please enter at least one image URL!', 'error'); return; }
                 const projectData = { type: currentAdminTab, title, description };
                 if (currentAdminTab === 'graphic') projectData.category = document.getElementById('projCategory').value;
-                else { projectData.url = document.getElementById('projUrl').value.trim(); projectData.tech = document.getElementById('projTech').value.trim(); }
+                else { projectData.url = document.getElementById('projUrl').value.trim(); projectData.tech = document.getElementById('projTech').value.trim(); if (currentAdminTab === 'pos') projectData.demoUrl = document.getElementById('projDemoUrl').value.trim(); }
 
                 // Build a project object directly (no Storage upload)
                 const project = {
@@ -806,6 +823,7 @@
             } else {
                 projectData.url = document.getElementById('projUrl').value.trim();
                 projectData.tech = document.getElementById('projTech').value.trim();
+                if (currentAdminTab === 'pos') projectData.demoUrl = document.getElementById('projDemoUrl').value.trim();
             }
 
             const btn = document.getElementById('saveBtn');
@@ -926,6 +944,8 @@
             } else {
                 document.getElementById('projUrl').value = p.url || '';
                 document.getElementById('projTech').value = p.tech || '';
+                const demoEl = document.getElementById('projDemoUrl');
+                if (demoEl) demoEl.value = p.demoUrl || '';
             }
 
             // Pre-fill images as URLs
@@ -946,8 +966,8 @@
             editingProjectId = null;
             document.getElementById('projTitle').value = '';
             document.getElementById('projDescription').value = '';
-            const urlEl = document.getElementById('projUrl'), techEl = document.getElementById('projTech');
-            if (urlEl) urlEl.value = ''; if (techEl) techEl.value = '';
+            const urlEl = document.getElementById('projUrl'), techEl = document.getElementById('projTech'), demoEl = document.getElementById('projDemoUrl');
+            if (urlEl) urlEl.value = ''; if (techEl) techEl.value = ''; if (demoEl) demoEl.value = '';
             clearAllImages();
             urlImageList = [];
             setImageMode('upload');
@@ -981,12 +1001,14 @@
             const graphic = cachedProjects.filter(p => p.type === 'graphic').length;
             const web = cachedProjects.filter(p => p.type === 'web').length;
             const video = cachedProjects.filter(p => p.type === 'video').length;
+            const pos = cachedProjects.filter(p => p.type === 'pos').length;
             const total = cachedProjects.length;
             const stats = [
                 { label: 'Total Projects', value: total, icon: 'fa-layer-group', color: 'brand' },
                 { label: 'Graphic Design', value: graphic, icon: 'fa-paint-brush', color: 'purple' },
                 { label: 'Web Design', value: web, icon: 'fa-code', color: 'cyan' },
                 { label: 'Video Projects', value: video, icon: 'fa-video', color: 'pink' },
+                { label: 'POS Systems', value: pos, icon: 'fa-cash-register', color: 'emerald' },
             ];
             document.getElementById('statsRow').innerHTML = stats.map(s => `
             <div class="bg-dark-800/70 backdrop-blur rounded-2xl border border-white/10 p-5 flex items-center gap-4">
@@ -998,7 +1020,7 @@
         /* ==================== PROJECTS LIST ==================== */
         function setListFilter(f) {
             listFilter = f;
-            ['all', 'graphic', 'web', 'video'].forEach(k => {
+            ['all', 'graphic', 'web', 'video', 'pos'].forEach(k => {
                 const btn = document.getElementById('listFilter' + k.charAt(0).toUpperCase() + k.slice(1));
                 if (k === f) btn.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-500/20 text-brand-300 border border-brand-500/30 transition-all';
                 else btn.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/5 text-gray-400 border border-white/10 hover:text-white transition-all';
@@ -1029,6 +1051,8 @@
                     badge = `<span class="px-2 py-0.5 rounded-md bg-brand-500/10 text-brand-300 text-xs border border-brand-500/20">${catLabels[p.category] || p.category}</span>`;
                 } else if (p.type === 'video') {
                     badge = `<span class="px-2 py-0.5 rounded-md bg-pink-500/10 text-pink-300 text-xs border border-pink-500/20">Video Project</span>`;
+                } else if (p.type === 'pos') {
+                    badge = `<span class="px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-300 text-xs border border-emerald-500/20">POS System</span>`;
                 } else {
                     badge = `<span class="px-2 py-0.5 rounded-md bg-purple-500/10 text-purple-300 text-xs border border-purple-500/20">Web Design</span>`;
                 }
