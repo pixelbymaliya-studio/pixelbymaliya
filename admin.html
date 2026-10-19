@@ -179,19 +179,25 @@
                             Add New Project
                         </h3>
 
-                        <div class="grid grid-cols-2 gap-2 mb-5">
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-5">
                             <button onclick="adminTab('graphic')" id="adminTabGraphic"
-                                class="admin-tab-btn active-admin-tab flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center justify-center gap-2"><i
+                                class="admin-tab-btn active-admin-tab py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-1.5"><i
                                     class="fas fa-paint-brush"></i> Graphic</button>
                             <button onclick="adminTab('web')" id="adminTabWeb"
-                                class="admin-tab-btn inactive-admin-tab flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center justify-center gap-2"><i
+                                class="admin-tab-btn inactive-admin-tab py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-1.5"><i
                                     class="fas fa-code"></i> Web Design</button>
-                            <button onclick="adminTab('video')" id="adminTabVideo"
-                                class="admin-tab-btn inactive-admin-tab flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center justify-center gap-2"><i
-                                    class="fas fa-video"></i> Video Projects</button>
+                            <button onclick="adminTab('app')" id="adminTabApp"
+                                class="admin-tab-btn inactive-admin-tab py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-1.5"><i
+                                    class="fas fa-mobile-screen-button"></i> Mobile Apps</button>
+                            <button onclick="adminTab('tshirt')" id="adminTabTshirt"
+                                class="admin-tab-btn inactive-admin-tab py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-1.5"><i
+                                    class="fas fa-shirt"></i> T-Shirt DTF</button>
                             <button onclick="adminTab('pos')" id="adminTabPos"
-                                class="admin-tab-btn inactive-admin-tab flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center justify-center gap-2"><i
+                                class="admin-tab-btn inactive-admin-tab py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-1.5"><i
                                     class="fas fa-cash-register"></i> POS System</button>
+                            <button onclick="adminTab('video')" id="adminTabVideo"
+                                class="admin-tab-btn inactive-admin-tab py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-1.5"><i
+                                    class="fas fa-video"></i> Video Projects</button>
                         </div>
 
                         <div class="space-y-4">
@@ -199,7 +205,7 @@
                             <div>
                                 <label class="block text-xs font-medium text-gray-400 mb-1.5">Project Title <span
                                         class="text-red-400">*</span></label>
-                                <input type="text" id="projTitle" placeholder="e.g. Modern Restaurant Logo"
+                                <input type="text" id="projTitle" placeholder="e.g. Modern Restaurant Logo / Mobile App / DTF Tee"
                                     class="w-full px-4 py-2.5 rounded-xl bg-dark-900/70 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-brand-500 transition-all text-sm" />
                             </div>
 
@@ -209,14 +215,22 @@
                                         class="text-red-400">*</span></label>
                                 <select id="projCategory"
                                     class="w-full px-4 py-2.5 rounded-xl bg-dark-900/70 border border-white/10 text-white focus:outline-none focus:border-brand-500 transition-all text-sm">
-                                    <option value="logo">Logo Design</option>
-                                    <option value="visiting-card">Visiting Cards</option>
-                                    <option value="thankyou-card">Thank You Cards</option>
-                                    <option value="printing">Printing Work</option>
-                                    <option value="social-media">Social Media Designs</option>
-                                    <option value="banner">Banners</option>
-                                    <option value="tshirt">T-Shirts</option>
-                                    <option value="key-tag">Key Tags</option>
+                                    <optgroup label="Graphic Design">
+                                        <option value="logo">Logo Design</option>
+                                        <option value="visiting-card">Visiting Cards</option>
+                                        <option value="thankyou-card">Thank You Cards</option>
+                                        <option value="printing">Printing Work</option>
+                                        <option value="social-media">Social Media Designs</option>
+                                        <option value="banner">Banners</option>
+                                        <option value="key-tag">Key Tags</option>
+                                    </optgroup>
+                                    <optgroup label="T-Shirts & DTF Merch">
+                                        <option value="streetwear">Streetwear &amp; Oversized</option>
+                                        <option value="typography">Minimal Typography</option>
+                                        <option value="anime">Anime &amp; Gaming</option>
+                                        <option value="corporate-merch">Corporate Merch &amp; Polo</option>
+                                        <option value="custom-print">Custom Own Artwork</option>
+                                    </optgroup>
                                 </select>
                             </div>
 
@@ -292,12 +306,12 @@
                                     </button>
                                     <div id="urlPreviewGrid" class="hidden mt-2 grid grid-cols-3 gap-2"></div>
                                 </div>
-                            <!-- Web/Video Specific Fields -->
-                            <div id="webSpecificFields" class="hidden space-y-4 border-t border-white/5 pt-4 mt-2">
-                                <div id="liveUrlField">
-                                    <label class="block text-xs font-medium text-gray-400 mb-1.5">Live URL / Video Link <span
-                                            class="text-gray-600">(optional)</span></label>
-                                    <input type="url" id="projUrl" placeholder="https://youtube.com/... or https://example.com"
+                            <!-- Web/App/Video/Tshirt Specific Fields -->
+                            <div class="space-y-4 border-t border-white/5 pt-4 mt-2">
+                                <div id="liveUrlField" class="hidden">
+                                    <label class="block text-xs font-medium text-gray-400 mb-1.5">Live Website URL / App Preview Link <span
+                                            class="text-emerald-400 font-semibold">(e.g. https://yourbusiness.lk)</span></label>
+                                    <input type="url" id="projUrl" placeholder="https://yourdomain.lk or https://play.google.com/..."
                                         class="w-full px-4 py-2.5 rounded-xl bg-dark-900/70 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-brand-500 transition-all text-sm" />
                                 </div>
                                 <div id="posDemoField" class="hidden">
@@ -307,9 +321,82 @@
                                         class="w-full px-4 py-2.5 rounded-xl bg-dark-900/70 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-emerald-500 transition-all text-sm" />
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-medium text-gray-400 mb-1.5">Software / Tech Stack</label>
-                                    <input type="text" id="projTech" placeholder="e.g. Premiere Pro, After Effects OR HTML, React OR PHP, MySQL (POS)"
+                                    <label class="block text-xs font-medium text-gray-400 mb-1.5">Software / Tech Stack / Apparel Fabric Specs</label>
+                                    <input type="text" id="projTech" placeholder="e.g. Next.js, Tailwind OR Flutter, Android OR 240 GSM Combed Cotton, DTF"
                                         class="w-full px-4 py-2.5 rounded-xl bg-dark-900/70 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-brand-500 transition-all text-sm" />
+                                </div>
+
+                                <!-- Universal Video Demo Links for ALL project types -->
+                                <div id="videoSpecificFields" class="p-4 rounded-2xl bg-dark-900/60 border border-white/10 space-y-3">
+                                    <div class="flex items-center gap-2 border-b border-white/5 pb-2.5">
+                                        <div class="w-6 h-6 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center text-xs">
+                                            <i class="fas fa-video"></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-xs font-bold text-white">Video Demo &amp; Walkthrough Links <span class="text-gray-500 font-normal">(Optional · YouTube &amp; Facebook)</span></div>
+                                            <p class="text-[11px] text-gray-400">Add video links for any POS, Web, Mobile App, T-Shirt, or Graphic design to show live walkthroughs!</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex items-center justify-between mb-1">
+                                            <label class="block text-xs font-medium text-red-400 flex items-center gap-1.5">
+                                                <i class="fab fa-youtube text-red-500 text-sm"></i> YouTube Video URL
+                                            </label>
+                                            <span id="ytAutoBadge" class="hidden text-[10px] text-emerald-400 font-bold flex items-center gap-1">
+                                                <i class="fas fa-magic"></i> Auto-Generated!
+                                            </span>
+                                        </div>
+                                        <div class="flex gap-2">
+                                            <input type="url" id="projYoutubeUrl" placeholder="https://www.youtube.com/watch?v=... or https://youtu.be/..."
+                                                oninput="onVideoUrlInput('youtube')"
+                                                class="flex-1 px-4 py-2.5 rounded-xl bg-dark-900/70 border border-red-500/30 text-white placeholder-gray-600 focus:outline-none focus:border-red-500 transition-all text-sm" />
+                                            <button type="button" onclick="autoGenerateThumbnail('youtube')"
+                                                class="px-3.5 py-2 rounded-xl bg-red-500/20 hover:bg-red-500/30 text-red-300 border border-red-500/30 text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5"
+                                                title="Fetch HD Thumbnail from YouTube">
+                                                <i class="fas fa-magic text-xs"></i>
+                                                <span class="hidden sm:inline">Fetch Thumbnail</span>
+                                            </button>
+                                        </div>
+                                        <p class="text-[11px] text-gray-500 mt-1">Paste link to auto-generate official HD YouTube thumbnail!</p>
+                                    </div>
+                                    <div>
+                                        <div class="flex items-center justify-between mb-1">
+                                            <label class="block text-xs font-medium text-blue-400 flex items-center gap-1.5">
+                                                <i class="fab fa-facebook text-blue-500 text-sm"></i> Facebook Video URL
+                                            </label>
+                                            <span id="fbAutoBadge" class="hidden text-[10px] text-emerald-400 font-bold flex items-center gap-1">
+                                                <i class="fas fa-magic"></i> Auto-Generated!
+                                            </span>
+                                        </div>
+                                        <div class="flex gap-2">
+                                            <input type="url" id="projFbUrl" placeholder="https://www.facebook.com/watch/?v=... or https://fb.watch/..."
+                                                oninput="onVideoUrlInput('facebook')"
+                                                class="flex-1 px-4 py-2.5 rounded-xl bg-dark-900/70 border border-blue-500/30 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-all text-sm" />
+                                            <button type="button" onclick="autoGenerateThumbnail('facebook')"
+                                                class="px-3.5 py-2 rounded-xl bg-blue-500/20 hover:bg-blue-500/30 text-blue-300 border border-blue-500/30 text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5"
+                                                title="Fetch Thumbnail from Facebook">
+                                                <i class="fas fa-magic text-xs"></i>
+                                                <span class="hidden sm:inline">Fetch Thumbnail</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- Auto-Generated Thumbnail Notice & Preview -->
+                                    <div id="videoAutoThumbPreviewBox" class="hidden p-3 rounded-2xl bg-dark-900/90 border border-brand-500/30 flex items-center gap-3">
+                                        <div class="relative w-20 h-14 rounded-xl overflow-hidden border border-white/10 bg-dark-800 flex-shrink-0">
+                                            <img id="videoAutoThumbImg" src="" alt="Thumbnail" class="w-full h-full object-cover" />
+                                            <span class="absolute bottom-0 inset-x-0 bg-black/70 text-[9px] text-white text-center font-bold">Auto</span>
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <div class="flex items-center gap-1.5 text-xs font-bold text-emerald-400 mb-0.5">
+                                                <i class="fas fa-check-circle"></i>
+                                                <span id="videoAutoThumbTitle">Video Thumbnail Detected</span>
+                                            </div>
+                                            <p class="text-[11px] text-gray-400 truncate" id="videoAutoThumbNotice">Set automatically as the project primary image.</p>
+                                        </div>
+                                        <button type="button" onclick="clearAutoThumbnail()" class="w-7 h-7 rounded-lg bg-white/5 hover:bg-red-500/20 text-gray-400 hover:text-red-400 flex items-center justify-center transition-all flex-shrink-0" title="Remove auto thumbnail">
+                                            <i class="fas fa-times text-xs"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
 
@@ -359,17 +446,21 @@
                                 </div>
                                 All Projects
                             </h3>
-                            <div class="flex gap-1.5">
+                            <div class="flex flex-wrap gap-1.5">
                                 <button onclick="setListFilter('all')" id="listFilterAll"
-                                    class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-500/20 text-brand-300 border border-brand-500/30 transition-all">All</button>
+                                    class="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-brand-500/20 text-brand-300 border border-brand-500/30 transition-all">All</button>
                                 <button onclick="setListFilter('graphic')" id="listFilterGraphic"
-                                    class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/5 text-gray-400 border border-white/10 hover:text-white transition-all">Graphic</button>
+                                    class="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-white/5 text-gray-400 border border-white/10 hover:text-white transition-all">Graphic</button>
                                 <button onclick="setListFilter('web')" id="listFilterWeb"
-                                    class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/5 text-gray-400 border border-white/10 hover:text-white transition-all">Web</button>
-                                <button onclick="setListFilter('video')" id="listFilterVideo"
-                                    class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/5 text-gray-400 border border-white/10 hover:text-white transition-all">Video</button>
+                                    class="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-white/5 text-gray-400 border border-white/10 hover:text-white transition-all">Web</button>
+                                <button onclick="setListFilter('app')" id="listFilterApp"
+                                    class="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-white/5 text-gray-400 border border-white/10 hover:text-white transition-all">Apps</button>
+                                <button onclick="setListFilter('tshirt')" id="listFilterTshirt"
+                                    class="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-white/5 text-gray-400 border border-white/10 hover:text-white transition-all">T-Shirts</button>
                                 <button onclick="setListFilter('pos')" id="listFilterPos"
-                                    class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/5 text-gray-400 border border-white/10 hover:text-white transition-all">POS</button>
+                                    class="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-white/5 text-gray-400 border border-white/10 hover:text-white transition-all">POS</button>
+                                <button onclick="setListFilter('video')" id="listFilterVideo"
+                                    class="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-white/5 text-gray-400 border border-white/10 hover:text-white transition-all">Video</button>
                             </div>
                         </div>
 
@@ -547,13 +638,23 @@
         function adminTab(tab) {
             currentAdminTab = tab;
             document.querySelectorAll('.admin-tab-btn').forEach(b => { b.classList.remove('active-admin-tab'); b.classList.add('inactive-admin-tab'); });
-            const el = tab === 'graphic' ? 'adminTabGraphic' : (tab === 'web' ? 'adminTabWeb' : (tab === 'pos' ? 'adminTabPos' : 'adminTabVideo'));
-            document.getElementById(el).classList.add('active-admin-tab');
-            document.getElementById(el).classList.remove('inactive-admin-tab');
-            document.getElementById('adminCatField').classList.toggle('hidden', tab !== 'graphic');
-            document.getElementById('webSpecificFields').classList.toggle('hidden', tab !== 'web' && tab !== 'video' && tab !== 'pos');
+            const tabMap = {
+                graphic: 'adminTabGraphic',
+                web: 'adminTabWeb',
+                app: 'adminTabApp',
+                tshirt: 'adminTabTshirt',
+                pos: 'adminTabPos',
+                video: 'adminTabVideo'
+            };
+            const el = tabMap[tab] || 'adminTabGraphic';
+            const btn = document.getElementById(el);
+            if (btn) {
+                btn.classList.add('active-admin-tab');
+                btn.classList.remove('inactive-admin-tab');
+            }
+            document.getElementById('adminCatField').classList.toggle('hidden', tab !== 'graphic' && tab !== 'tshirt');
             document.getElementById('posDemoField').classList.toggle('hidden', tab !== 'pos');
-            document.getElementById('liveUrlField').classList.toggle('hidden', tab === 'pos');
+            document.getElementById('liveUrlField').classList.toggle('hidden', tab !== 'web' && tab !== 'app');
         }
 
         /* ==================== MULTI-IMAGE SELECTION ==================== */
@@ -767,25 +868,176 @@
                 </div>`).join('');
         }
 
+        /* ==================== VIDEO AUTO-THUMBNAIL GENERATOR ==================== */
+        function getYouTubeId(url) {
+            if (!url) return null;
+            const regExp = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?|shorts)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i;
+            const match = url.match(regExp);
+            return (match && match[1]) ? match[1] : null;
+        }
+
+        let autoThumbDebounce = null;
+        function onVideoUrlInput(source) {
+            clearTimeout(autoThumbDebounce);
+            autoThumbDebounce = setTimeout(() => {
+                autoGenerateThumbnail(source);
+            }, 500);
+        }
+
+        async function autoGenerateThumbnail(source) {
+            if (source === 'youtube') {
+                const ytInput = document.getElementById('projYoutubeUrl');
+                const url = ytInput ? ytInput.value.trim() : '';
+                const ytId = getYouTubeId(url);
+                if (!ytId) {
+                    if (url) showToast('⚠️ Please enter a valid YouTube Video URL.', 'error');
+                    return;
+                }
+
+                const maxresUrl = `https://img.youtube.com/vi/${ytId}/maxresdefault.jpg`;
+                const hqUrl = `https://img.youtube.com/vi/${ytId}/hqdefault.jpg`;
+
+                // Test maxres vs hq
+                const testImg = new Image();
+                testImg.onload = () => {
+                    const chosen = (testImg.naturalWidth > 120) ? maxresUrl : hqUrl;
+                    applyAutoThumbnail(chosen, 'YouTube HD Thumbnail');
+                    showYtBadge();
+                    showToast('✅ YouTube HD Thumbnail Auto-Generated!', 'success');
+                };
+                testImg.onerror = () => {
+                    applyAutoThumbnail(hqUrl, 'YouTube Thumbnail');
+                    showYtBadge();
+                    showToast('✅ YouTube Thumbnail Auto-Generated!', 'success');
+                };
+                testImg.src = maxresUrl;
+
+                // Auto-fill video title if empty
+                if (!document.getElementById('projTitle').value.trim()) {
+                    try {
+                        const res = await fetch(`https://noembed.com/embed?url=${encodeURIComponent(url)}`);
+                        const data = await res.json();
+                        if (data.title && !document.getElementById('projTitle').value.trim()) {
+                            document.getElementById('projTitle').value = data.title;
+                            showToast('🎥 Video Title auto-filled from YouTube!', 'success');
+                        }
+                    } catch (e) { /* ignore title fetch error */ }
+                }
+            } else if (source === 'facebook') {
+                const fbInput = document.getElementById('projFbUrl');
+                const url = fbInput ? fbInput.value.trim() : '';
+                if (!url) return;
+
+                showToast('🔍 Fetching Facebook preview…', 'info');
+                try {
+                    const res = await fetch(`https://api.microlink.io/?url=${encodeURIComponent(url)}`);
+                    const data = await res.json();
+                    if (data.status === 'success' && data.data) {
+                        if (data.data.image && data.data.image.url) {
+                            applyAutoThumbnail(data.data.image.url, 'Facebook Video Preview');
+                            showFbBadge();
+                            showToast('✅ Facebook Thumbnail Auto-Generated!', 'success');
+                        }
+                        if (data.data.title && !document.getElementById('projTitle').value.trim()) {
+                            document.getElementById('projTitle').value = data.data.title;
+                        }
+                    } else {
+                        showToast('ℹ️ Facebook preview not found. You can set an image manually.', 'info');
+                    }
+                } catch (e) {
+                    console.warn('Facebook thumbnail fetch error:', e);
+                    showToast('⚠️ Could not auto-fetch Facebook thumbnail. You can upload an image manually.', 'error');
+                }
+            }
+        }
+
+        function applyAutoThumbnail(imgUrl, label) {
+            setImageMode('url');
+            urlImageList = [imgUrl];
+            renderUrlInputs();
+            renderUrlPreviews();
+
+            const box = document.getElementById('videoAutoThumbPreviewBox');
+            const imgEl = document.getElementById('videoAutoThumbImg');
+            const noticeEl = document.getElementById('videoAutoThumbNotice');
+            const titleEl = document.getElementById('videoAutoThumbTitle');
+            if (box && imgEl && noticeEl) {
+                imgEl.src = imgUrl;
+                if (titleEl) titleEl.textContent = label;
+                noticeEl.textContent = 'Auto-assigned as the project primary image.';
+                box.classList.remove('hidden');
+            }
+        }
+
+        function clearAutoThumbnail() {
+            const box = document.getElementById('videoAutoThumbPreviewBox');
+            if (box) box.classList.add('hidden');
+            urlImageList = [];
+            renderUrlInputs();
+            renderUrlPreviews();
+        }
+
+        function showYtBadge() {
+            const b = document.getElementById('ytAutoBadge');
+            if (!b) return;
+            b.classList.remove('hidden');
+            setTimeout(() => b.classList.add('hidden'), 5000);
+        }
+
+        function showFbBadge() {
+            const b = document.getElementById('fbAutoBadge');
+            if (!b) return;
+            b.classList.remove('hidden');
+            setTimeout(() => b.classList.add('hidden'), 5000);
+        }
+
         /* ==================== SAVE PROJECT (async, multi-image OR url) ==================== */
+        function extractFormData(title, description) {
+            const ytVal = (document.getElementById('projYoutubeUrl')?.value || '').trim();
+            const fbVal = (document.getElementById('projFbUrl')?.value || '').trim();
+            const techVal = (document.getElementById('projTech')?.value || '').trim();
+            const liveUrlVal = (document.getElementById('projUrl')?.value || '').trim();
+            const demoVal = (document.getElementById('projDemoUrl')?.value || '').trim();
+
+            const projectData = { type: currentAdminTab, title, description };
+            if (currentAdminTab === 'graphic' || currentAdminTab === 'tshirt') {
+                projectData.category = document.getElementById('projCategory')?.value || (currentAdminTab === 'tshirt' ? 'streetwear' : 'logo');
+            }
+            if (techVal) projectData.tech = techVal;
+            if (ytVal) projectData.youtubeUrl = ytVal;
+            if (fbVal) projectData.facebookUrl = fbVal;
+            if (liveUrlVal) projectData.url = liveUrlVal;
+            else if (ytVal || fbVal) projectData.url = ytVal || fbVal;
+            if (currentAdminTab === 'pos' && demoVal) projectData.demoUrl = demoVal;
+
+            return projectData;
+        }
+
         async function saveProject() {
             const title = document.getElementById('projTitle').value.trim();
             const description = document.getElementById('projDescription').value.trim();
             if (!title) { showToast('Please enter a project title!', 'error'); document.getElementById('projTitle').focus(); return; }
 
+            const projectData = extractFormData(title, description);
+
             // ── URL mode: save directly without Storage upload ──
             if (imageMode === 'url') {
-                const validUrls = urlImageList.filter(u => u);
-                if (!validUrls.length && currentAdminTab !== 'video') { showToast('Please enter at least one image URL!', 'error'); return; }
-                const projectData = { type: currentAdminTab, title, description };
-                if (currentAdminTab === 'graphic') projectData.category = document.getElementById('projCategory').value;
-                else { projectData.url = document.getElementById('projUrl').value.trim(); projectData.tech = document.getElementById('projTech').value.trim(); if (currentAdminTab === 'pos') projectData.demoUrl = document.getElementById('projDemoUrl').value.trim(); }
+                let validUrls = urlImageList.filter(u => u);
+
+                // If no explicit image URL entered, auto-derive from YouTube if available
+                if (!validUrls.length && projectData.youtubeUrl) {
+                    const autoYt = getYouTubeId(projectData.youtubeUrl);
+                    if (autoYt) validUrls = [`https://img.youtube.com/vi/${autoYt}/hqdefault.jpg`];
+                }
+
+                if (!validUrls.length && currentAdminTab !== 'video') { showToast('Please enter at least one image URL or upload an image!', 'error'); return; }
 
                 // Build a project object directly (no Storage upload)
+                const mainImg = validUrls[0] || (currentAdminTab === 'video' ? 'video_placeholder.png' : '');
                 const project = {
                     ...projectData,
-                    image: validUrls[0] || '',
-                    images: validUrls,
+                    image: mainImg,
+                    images: validUrls.length ? validUrls : (mainImg ? [mainImg] : []),
                     storagePath: '',
                 };
                 if (!editingProjectId) {
@@ -801,7 +1053,7 @@
                         showToast('✅ Project updated successfully!', 'success');
                     } else {
                         await DB.saveProject(project);
-                        showToast('✅ ' + validUrls.length + ' image URL(s) saved!', 'success');
+                        showToast('✅ Project saved successfully!', 'success');
                     }
                     cancelEdit(); // Resets form and mode
                     await refreshData();
@@ -815,15 +1067,49 @@
             }
 
             // ── Upload mode ──
-            if (!selectedImageFiles.length && currentAdminTab !== 'video') { showToast('Please upload at least one image!', 'error'); return; }
+            // If in upload mode but no manual files chosen, check auto thumbnail from YouTube or URL list
+            if (!selectedImageFiles.length) {
+                let mainImg = urlImageList.filter(Boolean)[0] || '';
+                const ytId = getYouTubeId(projectData.youtubeUrl);
+                if (!mainImg && ytId) mainImg = `https://img.youtube.com/vi/${ytId}/hqdefault.jpg`;
+                if (!mainImg && projectData.url) {
+                    const fallbackYt = getYouTubeId(projectData.url);
+                    if (fallbackYt) mainImg = `https://img.youtube.com/vi/${fallbackYt}/hqdefault.jpg`;
+                }
 
-            const projectData = { type: currentAdminTab, title, description };
-            if (currentAdminTab === 'graphic') {
-                projectData.category = document.getElementById('projCategory').value;
-            } else {
-                projectData.url = document.getElementById('projUrl').value.trim();
-                projectData.tech = document.getElementById('projTech').value.trim();
-                if (currentAdminTab === 'pos') projectData.demoUrl = document.getElementById('projDemoUrl').value.trim();
+                if (mainImg || currentAdminTab === 'video') {
+                    const project = {
+                        ...projectData,
+                        image: mainImg || 'video_placeholder.png',
+                        images: mainImg ? [mainImg] : [],
+                        storagePaths: [],
+                    };
+                    if (!editingProjectId) project.createdAt = Date.now();
+
+                    const btn = document.getElementById('saveBtn');
+                    btn.disabled = true;
+                    btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i> Saving…';
+                    try {
+                        if (editingProjectId) {
+                            await DB.updateProject(editingProjectId, project);
+                            showToast('✅ Project updated!', 'success');
+                        } else {
+                            await DB.saveProject(project);
+                            showToast('✅ Project saved with video thumbnail!', 'success');
+                        }
+                        cancelEdit();
+                        await refreshData();
+                    } catch (err) {
+                        showToast('❌ Save failed: ' + err.message, 'error');
+                    } finally {
+                        btn.disabled = false;
+                        btn.innerHTML = editingProjectId ? '<i class="fas fa-save"></i> Update Project' : '<i class="fas fa-save"></i> Save Project';
+                    }
+                    return;
+                }
+
+                showToast('Please upload at least one image (or paste a YouTube link)!', 'error');
+                return;
             }
 
             const btn = document.getElementById('saveBtn');
@@ -939,14 +1225,19 @@
             document.getElementById('projTitle').value = p.title || '';
             document.getElementById('projDescription').value = p.description || '';
 
-            if (p.type === 'graphic') {
-                document.getElementById('projCategory').value = p.category || 'logo';
-            } else {
-                document.getElementById('projUrl').value = p.url || '';
-                document.getElementById('projTech').value = p.tech || '';
-                const demoEl = document.getElementById('projDemoUrl');
-                if (demoEl) demoEl.value = p.demoUrl || '';
+            if (p.type === 'graphic' || p.type === 'tshirt') {
+                document.getElementById('projCategory').value = p.category || (p.type === 'tshirt' ? 'streetwear' : 'logo');
             }
+            document.getElementById('projUrl').value = p.url || '';
+            document.getElementById('projTech').value = p.tech || '';
+            const demoEl = document.getElementById('projDemoUrl');
+            if (demoEl) demoEl.value = p.demoUrl || '';
+
+            // Universal Video links loaded for all project types (POS, Web, App, T-Shirt, Graphic, Video)
+            const ytEl = document.getElementById('projYoutubeUrl');
+            const fbEl = document.getElementById('projFbUrl');
+            if (ytEl) ytEl.value = p.youtubeUrl || '';
+            if (fbEl) fbEl.value = p.facebookUrl || '';
 
             // Pre-fill images as URLs
             setImageMode('url');
@@ -968,6 +1259,9 @@
             document.getElementById('projDescription').value = '';
             const urlEl = document.getElementById('projUrl'), techEl = document.getElementById('projTech'), demoEl = document.getElementById('projDemoUrl');
             if (urlEl) urlEl.value = ''; if (techEl) techEl.value = ''; if (demoEl) demoEl.value = '';
+            const ytEl = document.getElementById('projYoutubeUrl'), fbEl = document.getElementById('projFbUrl');
+            if (ytEl) ytEl.value = ''; if (fbEl) fbEl.value = '';
+            clearAutoThumbnail();
             clearAllImages();
             urlImageList = [];
             setImageMode('upload');
@@ -1000,30 +1294,34 @@
         function renderStats() {
             const graphic = cachedProjects.filter(p => p.type === 'graphic').length;
             const web = cachedProjects.filter(p => p.type === 'web').length;
+            const app = cachedProjects.filter(p => p.type === 'app').length;
+            const tshirt = cachedProjects.filter(p => p.type === 'tshirt').length;
             const video = cachedProjects.filter(p => p.type === 'video').length;
             const pos = cachedProjects.filter(p => p.type === 'pos').length;
             const total = cachedProjects.length;
             const stats = [
-                { label: 'Total Projects', value: total, icon: 'fa-layer-group', color: 'brand' },
+                { label: 'Total Items', value: total, icon: 'fa-layer-group', color: 'brand' },
                 { label: 'Graphic Design', value: graphic, icon: 'fa-paint-brush', color: 'purple' },
-                { label: 'Web Design', value: web, icon: 'fa-code', color: 'cyan' },
-                { label: 'Video Projects', value: video, icon: 'fa-video', color: 'pink' },
+                { label: 'Websites', value: web, icon: 'fa-code', color: 'cyan' },
+                { label: 'Mobile Apps', value: app, icon: 'fa-mobile-screen-button', color: 'indigo' },
+                { label: 'DTF T-Shirts', value: tshirt, icon: 'fa-shirt', color: 'rose' },
                 { label: 'POS Systems', value: pos, icon: 'fa-cash-register', color: 'emerald' },
             ];
             document.getElementById('statsRow').innerHTML = stats.map(s => `
-            <div class="bg-dark-800/70 backdrop-blur rounded-2xl border border-white/10 p-5 flex items-center gap-4">
-                <div class="w-11 h-11 rounded-xl bg-${s.color}-500/15 flex items-center justify-center border border-${s.color}-500/20 flex-shrink-0"><i class="fas ${s.icon} text-${s.color}-400"></i></div>
-                <div><div class="font-display font-bold text-2xl text-white">${s.value}</div><div class="text-gray-500 text-xs">${s.label}</div></div>
+            <div class="bg-dark-800/70 backdrop-blur rounded-2xl border border-white/10 p-4 sm:p-5 flex items-center gap-3 sm:gap-4">
+                <div class="w-10 sm:w-11 h-10 sm:h-11 rounded-xl bg-${s.color}-500/15 flex items-center justify-center border border-${s.color}-500/20 flex-shrink-0"><i class="fas ${s.icon} text-${s.color}-400 text-sm sm:text-base"></i></div>
+                <div><div class="font-display font-bold text-xl sm:text-2xl text-white">${s.value}</div><div class="text-gray-500 text-[11px] sm:text-xs">${s.label}</div></div>
             </div>`).join('');
         }
 
         /* ==================== PROJECTS LIST ==================== */
         function setListFilter(f) {
             listFilter = f;
-            ['all', 'graphic', 'web', 'video', 'pos'].forEach(k => {
+            ['all', 'graphic', 'web', 'app', 'tshirt', 'pos', 'video'].forEach(k => {
                 const btn = document.getElementById('listFilter' + k.charAt(0).toUpperCase() + k.slice(1));
-                if (k === f) btn.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-500/20 text-brand-300 border border-brand-500/30 transition-all';
-                else btn.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/5 text-gray-400 border border-white/10 hover:text-white transition-all';
+                if (!btn) return;
+                if (k === f) btn.className = 'px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-brand-500/20 text-brand-300 border border-brand-500/30 transition-all';
+                else btn.className = 'px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-white/5 text-gray-400 border border-white/10 hover:text-white transition-all';
             });
             renderProjectsList();
         }
@@ -1044,21 +1342,46 @@
                 return;
             }
 
-            const catLabels = { 'logo': 'Logo Design', 'visiting-card': 'Visiting Card', 'thankyou-card': 'Thank You Card', 'printing': 'Printing', 'social-media': 'Social Media', 'banner': 'Banner', 'tshirt': 'T-Shirt' };
+            const catLabels = { 
+                'logo': 'Logo Design', 
+                'visiting-card': 'Visiting Card', 
+                'thankyou-card': 'Thank You Card', 
+                'printing': 'Printing', 
+                'social-media': 'Social Media', 
+                'banner': 'Banner', 
+                'streetwear': 'Streetwear Tee',
+                'typography': 'Typography Tee',
+                'anime': 'Anime Tee',
+                'corporate-merch': 'Corporate Merch',
+                'custom-print': 'Custom DTF Print'
+            };
+
             container.innerHTML = projects.map(p => {
                 let badge = '';
                 if (p.type === 'graphic') {
-                    badge = `<span class="px-2 py-0.5 rounded-md bg-brand-500/10 text-brand-300 text-xs border border-brand-500/20">${catLabels[p.category] || p.category}</span>`;
-                } else if (p.type === 'video') {
-                    badge = `<span class="px-2 py-0.5 rounded-md bg-pink-500/10 text-pink-300 text-xs border border-pink-500/20">Video Project</span>`;
+                    badge = `<span class="px-2 py-0.5 rounded-md bg-brand-500/10 text-brand-300 text-xs border border-brand-500/20">${catLabels[p.category] || p.category || 'Graphic'}</span>`;
+                } else if (p.type === 'web') {
+                    badge = `<span class="px-2 py-0.5 rounded-md bg-cyan-500/10 text-cyan-300 text-xs border border-cyan-500/20">Web Design</span>`;
+                } else if (p.type === 'app') {
+                    badge = `<span class="px-2 py-0.5 rounded-md bg-indigo-500/10 text-indigo-300 text-xs border border-indigo-500/20">Mobile App</span>`;
+                } else if (p.type === 'tshirt') {
+                    badge = `<span class="px-2 py-0.5 rounded-md bg-rose-500/10 text-rose-300 text-xs border border-rose-500/20">DTF T-Shirt</span>`;
                 } else if (p.type === 'pos') {
                     badge = `<span class="px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-300 text-xs border border-emerald-500/20">POS System</span>`;
+                } else if (p.type === 'video') {
+                    badge = `<span class="px-2 py-0.5 rounded-md bg-pink-500/10 text-pink-300 text-xs border border-pink-500/20">Video Project</span>`;
                 } else {
-                    badge = `<span class="px-2 py-0.5 rounded-md bg-purple-500/10 text-purple-300 text-xs border border-purple-500/20">Web Design</span>`;
+                    badge = `<span class="px-2 py-0.5 rounded-md bg-purple-500/10 text-purple-300 text-xs border border-purple-500/20">Project</span>`;
                 }
                 const date = p.createdAt ? new Date(p.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : '';
                 const imgCount = (p.images || [p.image]).filter(Boolean).length;
                 const pathsJson = escH(JSON.stringify(p.storagePaths || (p.storagePath ? [p.storagePath] : [])));
+                let linksHtml = '';
+                if (p.youtubeUrl) linksHtml += `<a href="${escH(p.youtubeUrl)}" target="_blank" class="px-2 py-0.5 rounded-md bg-red-500/10 text-red-400 border border-red-500/20 text-[11px] font-semibold hover:bg-red-500/20 transition-all inline-flex items-center gap-1"><i class="fab fa-youtube"></i> YouTube</a>`;
+                if (p.facebookUrl) linksHtml += `<a href="${escH(p.facebookUrl)}" target="_blank" class="px-2 py-0.5 rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20 text-[11px] font-semibold hover:bg-blue-500/20 transition-all inline-flex items-center gap-1"><i class="fab fa-facebook"></i> Facebook</a>`;
+                if (p.url && p.type !== 'video') {
+                    linksHtml += `<a href="${escH(p.url)}" target="_blank" class="text-xs text-brand-400 hover:underline inline-flex items-center gap-1"><i class="fas fa-link text-[10px]"></i> ${escH(p.url.replace(/^https?:\/\//,''))}</a>`;
+                }
                 return `<div class="flex items-center gap-3 p-3 rounded-xl bg-dark-900/50 border border-white/5 hover:border-white/15 transition-all group">
                     <div class="relative flex-shrink-0">
                         <img src="${p.image || (p.type === 'video' ? 'video_placeholder.png' : '')}" alt="${escH(p.title)}" class="w-14 h-14 object-cover rounded-lg border border-white/10"
@@ -1067,7 +1390,7 @@
                     </div>
                     <div class="flex-1 min-w-0">
                         <p class="text-white text-sm font-semibold truncate">${escH(p.title)}</p>
-                        <div class="flex items-center gap-2 mt-1">${badge}${date ? `<span class="text-gray-700 text-xs">${date}</span>` : ''}${imgCount > 1 ? `<span class="text-brand-400 text-xs"><i class="fas fa-images mr-0.5"></i>${imgCount} photos</span>` : ''}</div>
+                        <div class="flex flex-wrap items-center gap-2 mt-1">${badge}${date ? `<span class="text-gray-700 text-xs">${date}</span>` : ''}${imgCount > 1 ? `<span class="text-brand-400 text-xs"><i class="fas fa-images mr-0.5"></i>${imgCount} photos</span>` : ''}${linksHtml}</div>
                     </div>
                     <div class="flex gap-1.5 ml-auto pl-2 border-l border-white/5">
                         <button onclick="editProject('${p.id}')"
