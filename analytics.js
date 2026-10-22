@@ -187,6 +187,64 @@
   }
 
   // 6. Non-Intrusive Privacy & Analytics Banner
+  function injectConsentStyles() {
+    if (document.getElementById('pixel-cookie-consent-style')) return;
+    var style = document.createElement('style');
+    style.id = 'pixel-cookie-consent-style';
+    style.textContent =
+      '#pixel-cookie-consent{' +
+        'position:fixed!important;' +
+        'bottom:1rem!important;' +
+        'bottom:max(1rem,env(safe-area-inset-bottom,1rem))!important;' +
+        'left:1rem!important;' +
+        'right:1rem!important;' +
+        'max-width:calc(100vw - 2rem)!important;' +
+        'max-height:calc(100vh - 2rem)!important;' +
+        'overflow-y:auto!important;' +
+        'z-index:999!important;' +
+        'pointer-events:auto!important;' +
+        'background:rgba(255,255,255,0.98)!important;' +
+        'backdrop-filter:blur(16px)!important;' +
+        '-webkit-backdrop-filter:blur(16px)!important;' +
+        'border:1px solid rgba(203,213,225,0.9)!important;' +
+        'border-radius:1rem!important;' +
+        'box-shadow:0 20px 35px -5px rgba(15,23,42,0.2),0 8px 16px -6px rgba(15,23,42,0.12)!important;' +
+        'padding:1rem!important;' +
+        'font-family:"Plus Jakarta Sans",Inter,system-ui,-apple-system,sans-serif!important;' +
+        'color:#334155!important;' +
+        'font-size:0.75rem!important;' +
+        'line-height:1.4!important;' +
+        'box-sizing:border-box!important;' +
+        'transform:translateZ(0)!important;' +
+        'transition:opacity 0.25s ease,transform 0.25s ease!important;' +
+      '}' +
+      '@media(min-width:640px){' +
+        '#pixel-cookie-consent{' +
+          'left:auto!important;' +
+          'right:1.25rem!important;' +
+          'width:400px!important;' +
+          'max-width:calc(100vw - 2.5rem)!important;' +
+        '}' +
+      '}' +
+      '#pixel-cookie-consent *{box-sizing:border-box!important;}' +
+      '#pixel-cookie-consent .pixel-consent-card{display:flex!important;align-items:flex-start!important;gap:0.75rem!important;}' +
+      '#pixel-cookie-consent .pixel-consent-icon{width:2rem!important;height:2rem!important;min-width:2rem!important;border-radius:0.625rem!important;background:#EEF2FF!important;color:#4F46E5!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:0.875rem!important;}' +
+      '#pixel-cookie-consent .pixel-consent-body{flex:1 1 auto!important;min-width:0!important;}' +
+      '#pixel-cookie-consent .pixel-consent-title{margin:0 0 0.25rem 0!important;font-weight:700!important;color:#0F172A!important;font-size:0.8125rem!important;line-height:1.25!important;font-family:"Space Grotesk",system-ui,sans-serif!important;}' +
+      '#pixel-cookie-consent .pixel-consent-desc{margin:0 0 0.75rem 0!important;color:#475569!important;font-size:0.75rem!important;line-height:1.45!important;}' +
+      '#pixel-cookie-consent .pixel-consent-actions{display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:0.5rem!important;}' +
+      '#pixel-cookie-consent button{appearance:none!important;-webkit-appearance:none!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:38px!important;padding:0.45rem 0.95rem!important;font-size:0.75rem!important;font-weight:700!important;border-radius:0.5rem!important;cursor:pointer!important;pointer-events:auto!important;border:1px solid transparent!important;font-family:inherit!important;transition:all 0.2s ease!important;touch-action:manipulation!important;}' +
+      '#pixel-cookie-consent button:focus-visible{outline:2px solid #4F46E5!important;outline-offset:2px!important;}' +
+      '#pixel-accept-consent{background:#0F172A!important;color:#FFFFFF!important;border-color:#0F172A!important;}' +
+      '#pixel-accept-consent:hover{background:#1E293B!important;border-color:#1E293B!important;transform:translateY(-1px)!important;}' +
+      '#pixel-accept-consent:active{transform:translateY(0) scale(0.98)!important;}' +
+      '#pixel-decline-consent{background:#F1F5F9!important;color:#334155!important;border-color:#CBD5E1!important;}' +
+      '#pixel-decline-consent:hover{background:#E2E8F0!important;color:#0F172A!important;transform:translateY(-1px)!important;}' +
+      '#pixel-decline-consent:active{transform:translateY(0) scale(0.98)!important;}' +
+      'body:has(#lightbox:not(.hidden)) #pixel-cookie-consent,body:has(#mobileMenu:not(.hidden):not(.translate-x-full)) #pixel-cookie-consent,body:has(.fixed.inset-0[id$="-modal"]:not(.hidden)) #pixel-cookie-consent{z-index:40!important;opacity:0!important;pointer-events:none!important;visibility:hidden!important;}';
+    (document.head || document.documentElement).appendChild(style);
+  }
+
   function initConsentBanner() {
     try {
       if (localStorage.getItem('pixel_analytics_consent')) return;
@@ -194,26 +252,29 @@
       return;
     }
 
+    if (document.getElementById('pixel-cookie-consent')) return;
+
+    injectConsentStyles();
+
     var banner = document.createElement('aside');
     banner.id = 'pixel-cookie-consent';
     banner.setAttribute('role', 'region');
     banner.setAttribute('aria-label', 'Analytics & Privacy Preferences');
-    banner.className = 'fixed bottom-4 left-4 right-4 sm:left-auto sm:right-4 sm:max-w-md z-[999] p-4 bg-white/95 backdrop-blur-md rounded-2xl border border-slate-200/90 shadow-2xl transition-all duration-300 text-slate-700 text-xs';
     banner.innerHTML =
-      '<div class="flex items-start gap-3">' +
-        '<div class="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center flex-shrink-0 text-sm">' +
+      '<div class="pixel-consent-card">' +
+        '<div class="pixel-consent-icon" aria-hidden="true">' +
           '<i class="fas fa-shield-halved"></i>' +
         '</div>' +
-        '<div class="flex-1">' +
-          '<p class="font-bold text-slate-900 text-xs mb-1">Privacy &amp; Analytics Notice</p>' +
-          '<p class="text-slate-600 text-[11px] leading-relaxed mb-3">' +
+        '<div class="pixel-consent-body">' +
+          '<div class="pixel-consent-title">Privacy &amp; Analytics Notice</div>' +
+          '<p class="pixel-consent-desc">' +
             'We use privacy-friendly Google Analytics to monitor site performance and popular services. No advertising trackers or personal data are collected.' +
           '</p>' +
-          '<div class="flex items-center gap-2">' +
-            '<button id="pixel-accept-consent" class="px-3.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-[11px] transition-colors">' +
+          '<div class="pixel-consent-actions">' +
+            '<button type="button" id="pixel-accept-consent" aria-label="Accept Analytics Cookies">' +
               'Accept Analytics' +
             '</button>' +
-            '<button id="pixel-decline-consent" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-[11px] transition-colors">' +
+            '<button type="button" id="pixel-decline-consent" aria-label="Decline Analytics Cookies">' +
               'Decline' +
             '</button>' +
           '</div>' +
@@ -222,12 +283,24 @@
 
     document.body.appendChild(banner);
 
+    function dismissBanner() {
+      banner.style.opacity = '0';
+      banner.style.transform = 'translateY(8px)';
+      setTimeout(function () {
+        if (typeof banner.remove === 'function') {
+          banner.remove();
+        } else if (banner.parentNode && typeof banner.parentNode.removeChild === 'function') {
+          banner.parentNode.removeChild(banner);
+        }
+      }, 250);
+    }
+
     var acceptBtn = document.getElementById('pixel-accept-consent');
     if (acceptBtn) {
       acceptBtn.addEventListener('click', function () {
         try { localStorage.setItem('pixel_analytics_consent', 'granted'); } catch (_) {}
         gtag('consent', 'update', { 'analytics_storage': 'granted' });
-        banner.remove();
+        dismissBanner();
       });
     }
 
@@ -236,7 +309,7 @@
       declineBtn.addEventListener('click', function () {
         try { localStorage.setItem('pixel_analytics_consent', 'denied'); } catch (_) {}
         gtag('consent', 'update', { 'analytics_storage': 'denied' });
-        banner.remove();
+        dismissBanner();
       });
     }
   }

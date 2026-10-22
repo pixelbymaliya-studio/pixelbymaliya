@@ -4,7 +4,8 @@ module.exports = {
     "./index.html",
     "./project.html",
     "./app.js",
-    "./app.min.js"
+    "./app.min.js",
+    "./analytics.js"
   ],
   theme: {
     extend: {

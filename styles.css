@@ -538,3 +538,157 @@ body {
   color: #64748B;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
+
+/* ==================== PRIVACY & COOKIE CONSENT BANNER ==================== */
+#pixel-cookie-consent {
+  position: fixed !important;
+  bottom: 1rem !important;
+  bottom: max(1rem, env(safe-area-inset-bottom, 1rem)) !important;
+  left: 1rem !important;
+  right: 1rem !important;
+  max-width: calc(100vw - 2rem) !important;
+  max-height: calc(100vh - 2rem) !important;
+  overflow-y: auto !important;
+  z-index: 999 !important;
+  pointer-events: auto !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(203, 213, 225, 0.9) !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 20px 35px -5px rgba(15, 23, 42, 0.2), 0 8px 16px -6px rgba(15, 23, 42, 0.12) !important;
+  padding: 1rem !important;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', system-ui, sans-serif) !important;
+  color: #334155 !important;
+  font-size: 0.75rem !important;
+  line-height: 1.4 !important;
+  box-sizing: border-box !important;
+  transform: translateZ(0) !important;
+  transition: opacity 0.25s ease, transform 0.25s ease !important;
+}
+
+@media (min-width: 640px) {
+  #pixel-cookie-consent {
+    left: auto !important;
+    right: 1.25rem !important;
+    width: 400px !important;
+    max-width: calc(100vw - 2.5rem) !important;
+  }
+}
+
+#pixel-cookie-consent * {
+  box-sizing: border-box !important;
+}
+
+#pixel-cookie-consent .pixel-consent-card {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 0.75rem !important;
+}
+
+#pixel-cookie-consent .pixel-consent-icon {
+  width: 2rem !important;
+  height: 2rem !important;
+  min-width: 2rem !important;
+  border-radius: 0.625rem !important;
+  background: #EEF2FF !important;
+  color: #4F46E5 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0.875rem !important;
+}
+
+#pixel-cookie-consent .pixel-consent-body {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+}
+
+#pixel-cookie-consent .pixel-consent-title {
+  margin: 0 0 0.25rem 0 !important;
+  font-weight: 700 !important;
+  color: #0F172A !important;
+  font-size: 0.8125rem !important;
+  line-height: 1.25 !important;
+  font-family: var(--font-display, 'Space Grotesk', system-ui, sans-serif) !important;
+}
+
+#pixel-cookie-consent .pixel-consent-desc {
+  margin: 0 0 0.75rem 0 !important;
+  color: #475569 !important;
+  font-size: 0.75rem !important;
+  line-height: 1.45 !important;
+}
+
+#pixel-cookie-consent .pixel-consent-actions {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 0.5rem !important;
+}
+
+#pixel-cookie-consent button {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 38px !important;
+  padding: 0.45rem 0.95rem !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  border-radius: 0.5rem !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  border: 1px solid transparent !important;
+  font-family: inherit !important;
+  transition: all 0.2s ease !important;
+  touch-action: manipulation !important;
+}
+
+#pixel-cookie-consent button:focus-visible {
+  outline: 2px solid #4F46E5 !important;
+  outline-offset: 2px !important;
+}
+
+#pixel-accept-consent {
+  background: #0F172A !important;
+  color: #FFFFFF !important;
+  border-color: #0F172A !important;
+}
+
+#pixel-accept-consent:hover {
+  background: #1E293B !important;
+  border-color: #1E293B !important;
+  transform: translateY(-1px) !important;
+}
+
+#pixel-accept-consent:active {
+  transform: translateY(0) scale(0.98) !important;
+}
+
+#pixel-decline-consent {
+  background: #F1F5F9 !important;
+  color: #334155 !important;
+  border-color: #CBD5E1 !important;
+}
+
+#pixel-decline-consent:hover {
+  background: #E2E8F0 !important;
+  color: #0F172A !important;
+  transform: translateY(-1px) !important;
+}
+
+#pixel-decline-consent:active {
+  transform: translateY(0) scale(0.98) !important;
+}
+
+body:has(#lightbox:not(.hidden)) #pixel-cookie-consent,
+body:has(#mobileMenu:not(.hidden):not(.translate-x-full)) #pixel-cookie-consent,
+body:has(.fixed.inset-0[id$="-modal"]:not(.hidden)) #pixel-cookie-consent {
+  z-index: 40 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
