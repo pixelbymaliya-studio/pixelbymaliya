@@ -408,10 +408,42 @@ const POS_INDUSTRIES = {
 document.addEventListener('DOMContentLoaded', () => {
     initNavbarScroll();
     initRevealAnimations();
-    animateStats();
     initKeyboardShortcuts();
-    renderPortfolio();
+    initElfsightLazyLoad();
+    // Yield non-critical tasks to unblock first paint and main thread
+    setTimeout(() => {
+        animateStats();
+        renderPortfolio();
+    }, 50);
 });
+
+/* ==================== LAZY LOAD ELFSIGHT REVIEWS ==================== */
+function initElfsightLazyLoad() {
+    const reviews = document.getElementById('reviews');
+    if (!reviews) return;
+    if ('IntersectionObserver' in window) {
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    obs.disconnect();
+                    loadElfsightScript();
+                }
+            });
+        }, { rootMargin: '300px' });
+        obs.observe(reviews);
+    } else {
+        window.addEventListener('load', () => setTimeout(loadElfsightScript, 2000));
+    }
+}
+
+function loadElfsightScript() {
+    if (document.getElementById('elfsight-script')) return;
+    const s = document.createElement('script');
+    s.id = 'elfsight-script';
+    s.src = 'https://static.elfsight.com/platform/platform.js';
+    s.defer = true;
+    document.body.appendChild(s);
+}
 
 /* ==================== NAVBAR SCROLL ==================== */
 function initNavbarScroll() {
