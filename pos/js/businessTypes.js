@@ -470,6 +470,14 @@ const BUSINESS_ORDER = ['restaurant', 'grocery', 'phone', 'computer', 'bookshop'
 
 // ---------- Session helpers ----------
 function getBusinessId() {
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const qBiz = urlParams.get('biz');
+    if (qBiz && BUSINESS_PRESETS[qBiz]) {
+      localStorage.setItem('pixel_business', qBiz);
+      return qBiz;
+    }
+  } catch (e) {}
   return localStorage.getItem('pixel_business');
 }
 function setBusinessId(id) {
@@ -745,23 +753,29 @@ function renderLanding() {
   if (!grid) return;
   grid.innerHTML = BUSINESS_ORDER.map((id, i) => {
     const b = BUSINESS_PRESETS[id];
+    const isDist = id === 'distribution';
     return `
-      <button onclick="chooseBusiness('${id}')"
-        class="biz-card group relative overflow-hidden rounded-3xl p-6 text-left border border-white/10 bg-slate-900/70 backdrop-blur-xl transition-all duration-300 hover:-translate-y-2"
-        style="animation: fadeUp 0.6s ${i * 0.06}s both; --biz-glow: ${b.theme.primaryRgb}">
+      <button onclick="${isDist ? "window.location.href='../distribution/index.html'" : `chooseBusiness('${id}')`}"
+        class="biz-card group relative overflow-hidden rounded-3xl p-6 text-left border ${isDist ? 'border-emerald-500/50 bg-gradient-to-b from-slate-900 via-slate-900 to-emerald-950/40 ring-1 ring-emerald-500/30' : 'border-white/10 bg-slate-900/70'} backdrop-blur-xl transition-all duration-300 hover:-translate-y-2"
+        style="animation: fadeUp 0.6s ${i * 0.06}s both; --biz-glow: ${isDist ? '16 185 129' : b.theme.primaryRgb}">
         <div class="absolute -top-16 -right-16 w-40 h-40 rounded-full opacity-30 blur-2xl transition-opacity duration-300 group-hover:opacity-60"
-             style="background: radial-gradient(circle, ${b.theme.primary}, transparent 70%)"></div>
+             style="background: radial-gradient(circle, ${isDist ? '#10b981' : b.theme.primary}, transparent 70%)"></div>
         <div class="relative flex items-center justify-between">
           <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl shadow-lg"
-               style="background: linear-gradient(135deg, ${b.theme.gradFrom}, ${b.theme.gradTo})">
+               style="background: linear-gradient(135deg, ${isDist ? '#059669, #10b981' : `${b.theme.gradFrom}, ${b.theme.gradTo}`})">
             <i class="fa-solid ${b.icon} text-white"></i>
           </div>
-          <span class="text-3xl opacity-80 group-hover:scale-125 transition-transform duration-300">${b.emoji}</span>
+          <div class="flex flex-col items-end gap-1">
+            <span class="text-3xl opacity-80 group-hover:scale-125 transition-transform duration-300">${b.emoji}</span>
+            ${isDist ? '<span class="px-2 py-0.5 rounded-full text-[9px] font-black bg-emerald-500/25 text-emerald-300 border border-emerald-500/40 uppercase tracking-wider">Enterprise Suite</span>' : ''}
+          </div>
         </div>
-        <h3 class="relative mt-5 text-lg font-extrabold text-white">${b.name}</h3>
+        <h3 class="relative mt-5 text-lg font-extrabold text-white flex items-center gap-2">
+          <span>${b.name}</span>
+        </h3>
         <p class="relative mt-1 text-xs text-slate-400 leading-relaxed">${b.tagline}</p>
-        <div class="relative mt-4 flex items-center text-xs font-bold" style="color:${b.theme.primary}">
-          Launch demo <i class="fa-solid fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+        <div class="relative mt-4 flex items-center text-xs font-bold" style="color:${isDist ? '#34d399' : b.theme.primary}">
+          ${isDist ? 'Launch Enterprise DMS (14 Modules)' : 'Launch demo'} <i class="fa-solid ${isDist ? 'fa-arrow-up-right-from-square' : 'fa-arrow-right'} ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
         </div>
       </button>
     `;
@@ -769,6 +783,10 @@ function renderLanding() {
 }
 
 function chooseBusiness(id) {
+  if (id === 'distribution') {
+    window.location.href = '../distribution/index.html';
+    return;
+  }
   if (!BUSINESS_PRESETS[id]) return;
   setBusinessId(id);
 
@@ -807,7 +825,10 @@ function renderBusinessSwitcher() {
           <i class="fa-solid ${b.icon}"></i>
         </span>
         <span class="flex-1">
-          <span class="block text-xs font-bold text-slate-100">${b.name}</span>
+          <span class="block text-xs font-bold text-slate-100 flex items-center justify-between">
+            <span>${b.name}</span>
+            ${id === 'distribution' ? '<span class="px-1.5 py-0.5 rounded text-[9px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold">Enterprise Suite</span>' : ''}
+          </span>
         </span>
         ${active ? `<i class="fa-solid fa-check text-xs" style="color:${b.theme.primary}"></i>` : ''}
       </button>
@@ -822,6 +843,10 @@ function toggleBizSwitcher(e) {
 }
 
 function switchBusiness(id) {
+  if (id === 'distribution') {
+    window.location.href = '../distribution/index.html';
+    return;
+  }
   setBusinessId(id);
   const menu = document.getElementById('biz-switcher-menu');
   if (menu) menu.classList.add('hidden');

@@ -8,4 +8,5 @@ backup_*/
 Aniti/
 db_dump.json
 _private_backups_archive/
+scratch/
 

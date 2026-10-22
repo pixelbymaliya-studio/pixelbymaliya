@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pixel Distribution Suite — Enterprise Distribution Management System</title>
   <meta name="description" content="Smarter Distribution. Complete Business Control. Enterprise DMS for Sri Lankan distributors, wholesalers, FMCG brands, and delivery fleet operations by Pixel by Maliya.">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" href="favicon.png?v=4">
+  <link rel="icon" type="image/png" href="../favicon.png?v=4">
+  <link rel="apple-touch-icon" href="favicon.png?v=4">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -20,8 +22,10 @@
        ========================================================================= -->
   <aside class="dms-sidebar">
     <div class="dms-brand-header">
-      <a href="#dashboard" class="brand-badge">
-        <div class="brand-icon-box">P</div>
+      <a href="#dashboard" class="brand-badge" title="Pixel by Maliya — Distribution Suite">
+        <div class="brand-icon-box">
+          <img src="logo.png" onerror="this.src='../logo.png'" alt="Pixel by Maliya Logo" class="brand-logo-img">
+        </div>
         <div class="brand-title-wrap">
           <span class="brand-name">Distribution Suite</span>
           <span class="brand-by">Pixel by Maliya</span>
@@ -110,6 +114,19 @@
     </div>
 
     <div class="dms-sidebar-footer">
+      <div style="display:flex; flex-direction:column; gap:6px; margin-bottom:12px;">
+        <a href="../pos/index.html?biz=grocery" class="sidebar-switch-link" style="display:flex; align-items:center; justify-content:space-between; gap:8px; padding:8px 12px; border-radius:10px; background:#eff6ff; color:#1e40af; font-size:11px; font-weight:700; text-decoration:none; border:1px solid #bfdbfe; transition:all 0.15s ease;">
+          <span style="display:flex; align-items:center; gap:7px;">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+            <span>Retail POS Demo</span>
+          </span>
+          <span style="font-size:10px; background:#dbeafe; padding:1px 6px; border-radius:6px; color:#1e3a8a;">Switch ↗</span>
+        </a>
+        <a href="../index.html" class="sidebar-switch-link" style="display:flex; align-items:center; gap:8px; padding:7px 12px; border-radius:10px; background:#f8fafc; color:#475569; font-size:11px; font-weight:600; text-decoration:none; border:1px solid #e2e8f0; transition:all 0.15s ease;">
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          <span>Studio Portfolio</span>
+        </a>
+      </div>
       <div class="sidebar-user-block">
         <div class="user-avatar">PM</div>
         <div class="user-details">
@@ -139,9 +156,17 @@
         <div class="topbar-pill-info">
           <span>🇱🇰 Sri Lanka (LKR)</span>
         </div>
+        <a href="../pos/index.html?biz=grocery" class="btn btn-secondary btn-sm" title="Launch Universal Retail POS Demo">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+          <span>Retail POS</span>
+        </a>
+        <a href="../index.html" class="btn btn-secondary btn-sm" title="Back to Pixel by Maliya Studio Portfolio">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          <span>Studio</span>
+        </a>
         <button class="btn btn-secondary btn-sm" id="btn-reset-demo-data" title="Restore pristine original demonstration data">
           <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-          <span>Reset Demo Data</span>
+          <span>Reset Demo</span>
         </button>
         <button class="btn btn-primary" id="btn-open-new-invoice">
           <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>

@@ -58,6 +58,19 @@ const NAV_ICON_COLORS = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const qBiz = urlParams.get('biz');
+  if (qBiz === 'distribution') {
+    window.location.replace('../distribution/index.html');
+    return;
+  }
+
+  const currentBizId = getBusinessId();
+  if (currentBizId === 'distribution' && urlParams.get('legacy') !== '1') {
+    window.location.replace('../distribution/index.html');
+    return;
+  }
+
   renderLanding();
   renderBusinessSwitcher();
   const biz = getBusiness();
@@ -96,6 +109,40 @@ function onBusinessChanged(isFirstLoad) {
   if (heroEyebrow) heroEyebrow.innerText = dcfg.eyebrow || (biz.emoji + ' ' + biz.short.toUpperCase());
   const today = document.getElementById('dash-today-date');
   if (today) today.innerText = new Date().toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+
+  // Dedicated banner for Enterprise Distribution Suite
+  let distSuiteBanner = document.getElementById('dash-distribution-suite-banner');
+  if (biz.id === 'distribution') {
+    if (!distSuiteBanner) {
+      distSuiteBanner = document.createElement('div');
+      distSuiteBanner.id = 'dash-distribution-suite-banner';
+      distSuiteBanner.className = 'p-5 rounded-2xl bg-gradient-to-r from-blue-950 via-slate-900 to-emerald-950 border border-emerald-500/40 shadow-xl flex flex-col md:flex-row items-center justify-between gap-4';
+      distSuiteBanner.innerHTML = `
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center text-2xl flex-shrink-0">
+            <i class="fa-solid fa-truck-field"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-bold border border-emerald-500/30 uppercase tracking-wider">Enterprise Software Available</span>
+              <h3 class="text-base font-extrabold text-white">Pixel Distribution Suite — Full Enterprise DMS</h3>
+            </div>
+            <p class="text-xs text-slate-300 mt-1">Looking for our standalone Enterprise DMS? Open the full 14-module light-theme platform with Van Fleet SFA, Cheque Portfolio &amp; Route EOD Balancing.</p>
+          </div>
+        </div>
+        <a href="../distribution/index.html" class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs shadow-lg flex items-center gap-2 flex-shrink-0 transition-transform hover:scale-105 whitespace-nowrap">
+          <span>Launch Enterprise Suite</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      `;
+      const kpiGrid = document.getElementById('dash-kpi-grid');
+      if (kpiGrid && kpiGrid.parentNode) {
+        kpiGrid.parentNode.insertBefore(distSuiteBanner, kpiGrid);
+      }
+    }
+  } else if (distSuiteBanner) {
+    distSuiteBanner.remove();
+  }
 
   // Settings
   const setStore = document.getElementById('set-store-name');
@@ -163,6 +210,20 @@ function renderNav(biz) {
     if (!item) return '';
     let label = item.label;
     if (key === 'products') label = term.products || 'Products';
+
+    if (key === 'distribution') {
+      return `
+        <a href="../distribution/index.html" id="nav-distribution"
+           class="nav-item w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl transition-all text-emerald-300 bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 font-bold shadow-sm">
+          <span class="flex items-center space-x-3">
+            <i class="fa-solid fa-truck-field w-5 text-center text-emerald-400"></i>
+            <span>Distribution Suite</span>
+          </span>
+          <span class="text-[9px] px-1.5 py-0.5 rounded bg-emerald-500/30 text-emerald-200">14 MOD ↗</span>
+        </a>
+      `;
+    }
+
     return `
       <button onclick="switchTab('${item.tab || key}')" id="nav-${item.tab || key}" data-navkey="${key}"
         class="nav-item w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl transition-all text-slate-400 hover:bg-white/5 hover:text-slate-200">
@@ -186,6 +247,10 @@ const TAB_TITLES = {
 };
 
 async function switchTab(tabName) {
+  if (tabName === 'distribution') {
+    window.location.href = '../distribution/index.html';
+    return;
+  }
   activeTab = tabName;
 
   const pageTitleElem = document.getElementById('page-title');

@@ -691,6 +691,26 @@ function distRenderShell() {
   ];
   root.innerHTML = `
     <div class="flex flex-col gap-4">
+      <!-- Dedicated Standalone Enterprise DMS Banner -->
+      <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-950 via-slate-900 to-emerald-950 border border-emerald-500/40 shadow-xl flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center text-xl flex-shrink-0">
+            <i class="fa-solid fa-truck-field"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-bold border border-emerald-500/30 uppercase tracking-wider">New Enterprise Suite</span>
+              <h3 class="text-sm sm:text-base font-extrabold text-white">Pixel Distribution Suite — Full Enterprise DMS</h3>
+            </div>
+            <p class="text-[11px] text-slate-300 mt-0.5">Looking for our standalone 14-module Enterprise DMS? Includes Route SFA, Cheque Maturity Radar, Van Loading Sheets &amp; Credit Control.</p>
+          </div>
+        </div>
+        <a href="../distribution/index.html" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs shadow-lg flex items-center gap-2 flex-shrink-0 transition-transform hover:scale-105 whitespace-nowrap">
+          <span>Launch Enterprise Suite</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+        </a>
+      </div>
+
       <div class="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h2 class="text-xl font-black text-white flex items-center gap-2"><i class="fa-solid fa-truck-field text-indigo-400"></i> Distribution Management (DMS)</h2>

@@ -816,7 +816,7 @@
   <!-- ================= TOP NAVBAR ================= -->
   <!-- ================= TOP NAVBAR (LUXURY FROSTED LIGHT GLASS) ================= -->
   <nav id="navbar" class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl z-50 transition-all duration-300 hero-nav-light rounded-2xl px-4 sm:px-5 py-3 flex items-center justify-between shadow-sm">
-    <a href="#hero" class="flex items-center gap-2.5 sm:gap-3 group">
+    <a href="#hero" class="flex items-center gap-2.5 sm:gap-3 group flex-shrink-0">
       <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl overflow-hidden border border-slate-200/90 shadow-sm group-hover:scale-105 transition-transform bg-white flex items-center justify-center p-0.5">
         <picture>
           <source srcset="logo.webp" type="image/webp" />
@@ -832,7 +832,7 @@
     </a>
 
     <!-- Desktop Navigation Links -->
-    <div class="hidden md:flex items-center gap-5 lg:gap-6 font-semibold text-xs lg:text-sm text-slate-600">
+    <div class="hidden md:flex items-center gap-3 lg:gap-4 xl:gap-6 font-semibold text-xs lg:text-[13px] text-slate-600 whitespace-nowrap">
       <a href="#hero" class="hover:text-indigo-600 transition-colors">Home</a>
       <a href="#portfolio" class="hover:text-indigo-600 transition-colors">Work</a>
       <a href="#pos-showcase" class="flex items-center gap-1.5 hover:text-emerald-600 transition-colors font-bold text-emerald-600">
@@ -843,9 +843,9 @@
         <i class="fas fa-mobile-screen-button text-xs"></i>
         Apps
       </a>
-      <a href="#tshirt-showcase" class="flex items-center gap-1.5 hover:text-rose-600 transition-colors font-bold text-rose-600">
+      <a href="#tshirt-showcase" class="flex items-center gap-1.5 hover:text-rose-600 transition-colors font-bold text-rose-600 whitespace-nowrap">
         <i class="fas fa-shirt text-xs"></i>
-        T-Shirt Studio
+        <span>T-Shirt Studio</span>
       </a>
       <a href="#services" class="hover:text-indigo-600 transition-colors">Services</a>
       <a href="#reviews" class="hover:text-indigo-600 transition-colors">Reviews</a>
@@ -853,8 +853,8 @@
     </div>
 
     <!-- Quick Action CTAs -->
-    <div class="flex items-center gap-2">
-      <a href="pos/index.html" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition-all shadow-sm">
+    <div class="flex items-center gap-2.5 flex-shrink-0 ml-4 lg:ml-6">
+      <a href="pos/index.html" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition-all shadow-sm">
         <i class="fas fa-cash-register text-xs"></i>
         <span>POS Demo</span>
       </a>
@@ -906,6 +906,9 @@
         </div>
       </div>
       <div class="space-y-3 pt-6 border-t border-slate-100">
+        <a href="distribution/index.html" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-slate-900 text-white font-bold text-xs shadow-sm">
+          <i class="fas fa-truck-field text-emerald-400"></i> Distribution Suite (Enterprise DMS)
+        </a>
         <a href="pos/index.html" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs shadow-sm">
           <i class="fas fa-desktop"></i> Open POS App
         </a>
@@ -1487,7 +1490,7 @@
 
             <!-- CTA Buttons -->
             <div class="flex flex-wrap items-center gap-4 pt-1">
-              <a href="pos/index.html" class="btn-luxury-pos px-7 py-3.5 rounded-xl text-sm font-bold shadow-md">
+              <a href="pos/index.html" id="pos-live-cta-btn" class="btn-luxury-pos px-7 py-3.5 rounded-xl text-sm font-bold shadow-md">
                 <i class="fas fa-desktop"></i>
                 <span>Launch Full Interactive POS App</span>
               </a>
@@ -1597,7 +1600,7 @@
                 </div>
 
                 <!-- Launch Button Inside Mockup -->
-                <a href="pos/index.html" class="block w-full text-center py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-sm transition-colors">
+                <a href="pos/index.html" id="pos-mockup-cta-btn" class="block w-full text-center py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-sm transition-colors">
                   <i class="fas fa-external-link-alt mr-1"></i> Open Live Interactive POS in New Window
                 </a>
 
@@ -2791,6 +2794,7 @@
         <a href="#portfolio" class="hover:text-slate-900">Portfolio</a>
         <a href="project-preview-light.html" class="hover:text-slate-900">All Projects</a>
         <a href="pos/index.html" class="text-emerald-700 hover:text-emerald-800 font-bold">POS Demo</a>
+        <a href="distribution/index.html" class="text-emerald-700 hover:text-emerald-800 font-bold">Distribution Suite</a>
         <a href="#contact" class="hover:text-slate-900">Contact</a>
       </div>
     </div>

@@ -1243,6 +1243,32 @@ function switchPosPreview(indKey) {
             </div>
         `).join('');
     }
+
+    // Dynamic CTA button target: links to dedicated Distribution Suite for distribution
+    const ctaBtn = document.getElementById('pos-live-cta-btn');
+    const mockupCtaBtn = document.getElementById('pos-mockup-cta-btn');
+    if (indKey === 'distribution') {
+        if (ctaBtn) {
+            ctaBtn.href = 'distribution/index.html';
+            ctaBtn.innerHTML = '<i class="fas fa-truck-field mr-1.5"></i> <span>Launch Pixel Distribution Suite (Enterprise DMS)</span>';
+            ctaBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+        }
+        if (mockupCtaBtn) {
+            mockupCtaBtn.href = 'distribution/index.html';
+            mockupCtaBtn.innerHTML = '<i class="fas fa-external-link-alt mr-1"></i> Open Enterprise Distribution Suite (14 Modules)';
+        }
+    } else {
+        const targetBiz = (indKey === 'services' || indKey === 'fashion') ? 'grocery' : indKey;
+        if (ctaBtn) {
+            ctaBtn.href = 'pos/index.html?biz=' + encodeURIComponent(targetBiz);
+            ctaBtn.innerHTML = '<i class="fas fa-desktop mr-1.5"></i> <span>Launch Full Interactive POS App</span>';
+            ctaBtn.classList.remove('bg-emerald-600', 'hover:bg-emerald-700');
+        }
+        if (mockupCtaBtn) {
+            mockupCtaBtn.href = 'pos/index.html?biz=' + encodeURIComponent(targetBiz);
+            mockupCtaBtn.innerHTML = '<i class="fas fa-external-link-alt mr-1"></i> Open Live Interactive POS in New Window';
+        }
+    }
 }
 
 /* ==================== CUSTOM APP SHOWCASE SWITCHER ==================== */
