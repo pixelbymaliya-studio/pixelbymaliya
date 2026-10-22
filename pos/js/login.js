@@ -37,8 +37,7 @@ function handleLoginSubmit(event) {
 
   const errorMsg = document.getElementById('login-error-msg');
 
-  // Debug log to console
-  console.log('Login attempt:', { username: user, password: pass });
+
 
   if (user === AUTH_USER && pass === AUTH_PASS) {
     console.log('✅ Authentication successful!');

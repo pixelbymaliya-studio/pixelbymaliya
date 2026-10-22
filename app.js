@@ -795,7 +795,7 @@ function createWebCard(p) {
                         <span>Video</span>
                     </a>` : ''}
                 </div>
-                <a href="https://wa.me/94716125715?text=Hi%20Maliya,%20I%20am%20interested%20in%20a%20website%20like:%20${encodeURIComponent(p.title)}" target="_blank" class="text-slate-500 hover:text-emerald-600 text-xs font-bold flex items-center gap-1 transition-colors ml-auto">
+                <a href="https://wa.me/94716125715?text=Hi%20Maliya,%20I%20am%20interested%20in%20a%20website%20like:%20${encodeURIComponent(p.title)}" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-emerald-600 text-xs font-bold flex items-center gap-1 transition-colors ml-auto">
                     <i class="fab fa-whatsapp text-emerald-500 text-sm"></i>
                     <span>Inquire</span>
                 </a>
@@ -863,7 +863,7 @@ function createAppCard(p) {
 
             <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
                 <div class="flex flex-wrap items-center gap-2">
-                    <a href="${appQuoteLink}" target="_blank" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all">
+                    <a href="${appQuoteLink}" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all">
                         <i class="fab fa-whatsapp"></i>
                         <span>Get App Quote</span>
                     </a>
@@ -949,7 +949,7 @@ function createTshirtCard(p) {
 
             <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
                 <div class="flex flex-wrap items-center gap-2">
-                    <a href="${orderLink}" target="_blank" class="btn-luxury-primary px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-sm">
+                    <a href="${orderLink}" target="_blank" rel="noopener noreferrer" class="btn-luxury-primary px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-sm">
                         <i class="fab fa-whatsapp"></i>
                         <span>Inquire / Pre-Order</span>
                     </a>
@@ -1064,7 +1064,7 @@ function createVideoCard(p) {
                         <span>Watch Video</span>
                     </a>` : ''}
                 </div>
-                <a href="https://wa.me/94716125715?text=Hi%20Maliya,%20I%20watched%20your%20video%20demo:%20${encodeURIComponent(p.title)}" target="_blank" class="text-slate-500 hover:text-emerald-600 text-xs font-bold flex items-center gap-1 transition-colors ml-auto">
+                <a href="https://wa.me/94716125715?text=Hi%20Maliya,%20I%20watched%20your%20video%20demo:%20${encodeURIComponent(p.title)}" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-emerald-600 text-xs font-bold flex items-center gap-1 transition-colors ml-auto">
                     <i class="fab fa-whatsapp text-emerald-500 text-sm"></i>
                     <span>Inquire</span>
                 </a>
@@ -1146,18 +1146,18 @@ function createPosCard(p) {
                             <span>Watch on YouTube</span>
                         </a>` : ''}
                         ${p.demoUrl ? `
-                        <a href="${escapeHtml(p.demoUrl)}" target="_blank" class="px-3 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 text-xs font-bold flex items-center gap-1 transition-all" title="Try Interactive POS Terminal">
+                        <a href="${escapeHtml(p.demoUrl)}" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 text-xs font-bold flex items-center gap-1 transition-all" title="Try Interactive POS Terminal">
                             <i class="fas fa-desktop text-[11px]"></i>
                             <span>Live Terminal</span>
                         </a>` : ''}
                     ` : `
-                        <a href="${escapeHtml(primaryActionUrl)}" target="_blank" class="btn-luxury-pos px-3.5 py-2 rounded-lg text-xs font-bold">
+                        <a href="${escapeHtml(primaryActionUrl)}" target="_blank" rel="noopener noreferrer" class="btn-luxury-pos px-3.5 py-2 rounded-lg text-xs font-bold">
                             <i class="fas fa-cash-register text-[10px]"></i>
                             <span>Open Live Terminal</span>
                         </a>
                     `}
                 </div>
-                <a href="https://wa.me/94716125715?text=Hi%20Maliya,%20I%20am%20interested%20in%20your%20POS%20System:%20${encodeURIComponent(p.title)}" target="_blank" class="text-xs font-bold text-slate-700 hover:text-emerald-600 flex items-center gap-1 ml-auto">
+                <a href="https://wa.me/94716125715?text=Hi%20Maliya,%20I%20am%20interested%20in%20your%20POS%20System:%20${encodeURIComponent(p.title)}" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-slate-700 hover:text-emerald-600 flex items-center gap-1 ml-auto">
                     <i class="fab fa-whatsapp text-emerald-500"></i> Quote
                 </a>
             </div>
