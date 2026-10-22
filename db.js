@@ -4,12 +4,6 @@
  */
 
 const DB = {
-    KEYS: {
-        PASSWORD: 'pbm_admin_pass',
-    },
-
-    DEFAULT_PASSWORD: 'pixelmaliya2025',
-
     // Lazy initialization for Firestore
     get _db() {
         return firebase.firestore();
@@ -89,26 +83,5 @@ const DB = {
             console.error('DB.getProjectStats error:', e);
             return { total: 0, graphic: 0, web: 0, video: 0, pos: 0 };
         }
-    },
-
-    /**
-     * Get the admin password from LocalStorage
-     */
-    getPassword() {
-        return localStorage.getItem(this.KEYS.PASSWORD) || this.DEFAULT_PASSWORD;
-    },
-
-    /**
-     * Set a new admin password in LocalStorage
-     */
-    setPassword(newPass) {
-        localStorage.setItem(this.KEYS.PASSWORD, newPass);
-    },
-
-    /**
-     * Check if password matches
-     */
-    checkPassword(input) {
-        return input === this.getPassword();
     }
 };

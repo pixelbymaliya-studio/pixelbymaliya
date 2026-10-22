@@ -4,3 +4,8 @@ node_modules/
 *.log
 .DS_Store
 Thumbs.db
+backup_*/
+Aniti/
+db_dump.json
+_private_backups_archive/
+

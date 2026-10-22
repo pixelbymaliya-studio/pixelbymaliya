@@ -1,0 +1,15 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Portfolio projects: public read, write restricted strictly to authorized admin UID
+    match /projects/{projectId} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == 'raidq8QrhFc8bRwwV4Z6ddEkMe03';
+    }
+
+    // Default deny for all other collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
