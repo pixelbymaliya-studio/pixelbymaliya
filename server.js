@@ -17,6 +17,12 @@ app.use(express.static(path.join(__dirname)));
 // 2. Serve dedicated POS application at /pos
 app.use('/pos', express.static(path.join(__dirname, 'pos')));
 
+// 3. Serve dedicated Enterprise Distribution Suite at /distribution
+app.use('/distribution', express.static(path.join(__dirname, 'distribution')));
+app.get('/distribution', (req, res) => {
+  res.sendFile(path.join(__dirname, 'distribution', 'index.html'));
+});
+
 // Initialize Supabase Client
 let supabase = null;
 const supabaseUrl = process.env.SUPABASE_URL;
