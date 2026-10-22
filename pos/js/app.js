@@ -60,23 +60,31 @@ const NAV_ICON_COLORS = {
 document.addEventListener('DOMContentLoaded', () => {
   const urlParams = new URLSearchParams(window.location.search);
   const qBiz = urlParams.get('biz');
-  if (qBiz === 'distribution') {
-    window.location.replace('../distribution/index.html');
-    return;
-  }
 
-  const currentBizId = getBusinessId();
-  if (currentBizId === 'distribution' && urlParams.get('legacy') !== '1') {
+  // Clear any stale distribution selection from localStorage
+  try {
+    if (localStorage.getItem('pixel_business') === 'distribution') {
+      localStorage.removeItem('pixel_business');
+    }
+  } catch (e) {}
+
+  // Only redirect if explicitly requested via query parameter
+  if (qBiz === 'distribution') {
     window.location.replace('../distribution/index.html');
     return;
   }
 
   renderLanding();
   renderBusinessSwitcher();
-  const biz = getBusiness();
-  if (biz) {
+
+  // If a specific business was explicitly requested via URL (e.g. ?biz=grocery or ?biz=restaurant)
+  if (qBiz && BUSINESS_PRESETS[qBiz] && qBiz !== 'distribution') {
+    setBusinessId(qBiz);
     onBusinessChanged(true);
   } else {
+    // When arriving at the POS portal without a specific business param (e.g. "Explore Live POS Demo"),
+    // always show the Landing screen with all 10 business choices:
+    // Supermarket, Grocery, Restaurant, Computer, Phone, Pharmacy, Salon, Fashion, etc.!
     showLanding();
   }
 });

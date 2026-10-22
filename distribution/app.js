@@ -42,31 +42,78 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3800);
   }
 
+  function openMobileSidebar() {
+    const sidebar = document.querySelector('.dms-sidebar');
+    const backdrop = document.getElementById('dms-sidebar-backdrop');
+    if (sidebar) {
+      sidebar.style.removeProperty('transform');
+      sidebar.classList.add('open');
+    }
+    if (backdrop) backdrop.classList.add('active');
+    if (window.innerWidth <= 1024) document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileSidebar() {
+    const sidebar = document.querySelector('.dms-sidebar');
+    const backdrop = document.getElementById('dms-sidebar-backdrop');
+    if (sidebar) {
+      sidebar.style.removeProperty('transform');
+      sidebar.classList.remove('open');
+    }
+    if (backdrop) backdrop.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
   // Routing / Tab Switcher
   function setupNavigation() {
     const navItems = document.querySelectorAll('.nav-item');
     const sidebar = document.querySelector('.dms-sidebar');
     const mobileToggle = document.getElementById('mobile-menu-toggle');
+    const closeBtn = document.getElementById('mobile-sidebar-close');
+    const backdrop = document.getElementById('dms-sidebar-backdrop');
 
-    if (mobileToggle && sidebar) {
+    if (mobileToggle) {
       mobileToggle.addEventListener('click', (e) => {
         e.stopPropagation();
-        sidebar.classList.toggle('open');
-      });
-
-      document.addEventListener('click', (e) => {
-        if (sidebar.classList.contains('open') && !sidebar.contains(e.target) && e.target !== mobileToggle) {
-          sidebar.classList.remove('open');
+        if (sidebar && sidebar.classList.contains('open')) {
+          closeMobileSidebar();
+        } else {
+          openMobileSidebar();
         }
       });
     }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeMobileSidebar();
+      });
+    }
+
+    if (backdrop) {
+      backdrop.addEventListener('click', () => {
+        closeMobileSidebar();
+      });
+    }
+
+    document.addEventListener('click', (e) => {
+      if (sidebar && sidebar.classList.contains('open')) {
+        if (!sidebar.contains(e.target) && (!mobileToggle || !mobileToggle.contains(e.target))) {
+          closeMobileSidebar();
+        }
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMobileSidebar();
+    });
 
     navItems.forEach(item => {
       item.addEventListener('click', () => {
         const targetTab = item.getAttribute('data-tab');
         if (targetTab) {
           switchTab(targetTab);
-          if (sidebar) sidebar.classList.remove('open');
+          closeMobileSidebar();
         }
       });
     });
@@ -84,8 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     currentTab = tabId;
     window.location.hash = tabId;
 
-    const sidebar = document.querySelector('.dms-sidebar');
-    if (sidebar) sidebar.classList.remove('open');
+    closeMobileSidebar();
 
     // Update nav classes
     document.querySelectorAll('.nav-item').forEach(item => {
@@ -1143,18 +1189,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('inv-filter-cat')?.addEventListener('change', renderInventory);
 
     document.getElementById('report-type-select')?.addEventListener('change', renderReports);
-
-    // Mobile Hamburger Toggle
-    document.getElementById('mobile-menu-toggle')?.addEventListener('click', () => {
-      const sidebar = document.querySelector('.dms-sidebar');
-      if (sidebar) {
-        if (sidebar.style.transform === 'translateX(0px)') {
-          sidebar.style.transform = 'translateX(-100%)';
-        } else {
-          sidebar.style.transform = 'translateX(0px)';
-        }
-      }
-    });
   }
 
   // --- Dynamic Invoice Creation Modal ---

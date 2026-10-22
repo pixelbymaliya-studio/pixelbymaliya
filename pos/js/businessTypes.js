@@ -473,15 +473,30 @@ function getBusinessId() {
   try {
     const urlParams = new URLSearchParams(window.location.search);
     const qBiz = urlParams.get('biz');
-    if (qBiz && BUSINESS_PRESETS[qBiz]) {
+    if (qBiz && BUSINESS_PRESETS[qBiz] && qBiz !== 'distribution') {
       localStorage.setItem('pixel_business', qBiz);
       return qBiz;
     }
   } catch (e) {}
-  return localStorage.getItem('pixel_business');
+  try {
+    const saved = localStorage.getItem('pixel_business');
+    if (saved === 'distribution') {
+      localStorage.removeItem('pixel_business');
+      return null;
+    }
+    return saved;
+  } catch (e) {
+    return null;
+  }
 }
 function setBusinessId(id) {
-  localStorage.setItem('pixel_business', id);
+  try {
+    if (id === 'distribution') {
+      localStorage.removeItem('pixel_business');
+    } else {
+      localStorage.setItem('pixel_business', id);
+    }
+  } catch (e) {}
 }
 function getBusiness() {
   const id = getBusinessId();
