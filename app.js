@@ -693,7 +693,7 @@ function createGraphicCard(p) {
                 <h3 class="font-display font-bold text-slate-900 text-sm leading-snug">${escapeHtml(p.title)}</h3>
                 ${p.description ? `<p class="text-slate-500 text-xs mt-1.5 line-clamp-2 leading-relaxed">${escapeHtml(p.description)}</p>` : ''}
             </div>
-            <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-semibold">
+            <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-600 font-semibold">
                 <div class="flex items-center gap-1.5">
                     <span>Pixel by Maliya</span>
                     ${ytUrl ? `<a href="${escapeHtml(ytUrl)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="text-red-500 hover:text-red-600 transition-colors" title="YouTube Video"><i class="fab fa-youtube text-sm"></i></a>` : ''}
@@ -1034,7 +1034,7 @@ function createVideoCard(p) {
                 <div class="flex items-center justify-between mb-2">
                     <span class="inline-block px-2.5 py-0.5 rounded-md text-[10px] font-bold bg-rose-50 text-rose-700 border border-rose-200 uppercase tracking-wide">POS Demo &amp; Motion</span>
                     <span class="text-[10px] text-slate-500 font-semibold flex items-center gap-1">
-                        <i class="fas fa-eye text-slate-400"></i> Full HD Demo
+                        <i class="fas fa-eye text-slate-500"></i> Full HD Demo
                     </span>
                 </div>
                 <h3 class="font-display font-bold text-slate-900 text-base leading-snug mb-2">${escapeHtml(p.title)}</h3>
@@ -1353,7 +1353,7 @@ function switchAppPreview(indKey) {
                     </div>
                     <div>
                         <div class="font-bold text-slate-900 text-[11px]">${escapeHtml(item.name)}</div>
-                        <div class="text-[9px] text-slate-400">${escapeHtml(item.sub)}</div>
+                        <div class="text-[9px] text-slate-600">${escapeHtml(item.sub)}</div>
                     </div>
                 </div>
                 <span class="font-bold text-slate-900 text-xs">${escapeHtml(item.price)}</span>

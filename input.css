@@ -1,0 +1,544 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* ==========================================================================
+   PIXEL BY MALIYA — ULTRA-PREMIUM LUXURY WHITE THEME
+   Tailored for Studio Portfolio & Universal Cloud POS
+   ========================================================================== */
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Premium White Surface & Border Palette */
+  --bg-main: #F8FAFC;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #FFFFFF;
+  --border-subtle: #E2E8F0;
+  --border-focus: #CBD5E1;
+
+  /* Typography */
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --text-light: #94A3B8;
+
+  /* Brand Accents */
+  --brand-primary: #4F46E5;
+  --brand-secondary: #7C3AED;
+  --brand-emerald: #10B981;
+  --brand-amber: #F59E0B;
+  --brand-rose: #F43F5E;
+  --brand-cyan: #06B6D4;
+
+  /* Multi-layer Soft Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 12px 24px -4px rgba(15, 23, 42, 0.06), 0 4px 6px -2px rgba(15, 23, 42, 0.02);
+  --shadow-xl: 0 20px 35px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
+  --shadow-brand: 0 12px 28px -6px rgba(79, 70, 229, 0.28);
+  --shadow-emerald: 0 12px 28px -6px rgba(16, 185, 129, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+::selection {
+  background: rgba(79, 70, 229, 0.15);
+  color: #3730A3;
+}
+
+/* ==================== AMBIENT LIGHTING BACKGROUND ==================== */
+.ambient-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.65;
+  animation: floatOrb 22s ease-in-out infinite alternate;
+}
+
+.orb-indigo {
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.16) 0%, rgba(99, 102, 241, 0) 70%);
+  top: -15%;
+  left: -10%;
+}
+
+.orb-purple {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.12) 0%, rgba(168, 85, 247, 0) 70%);
+  bottom: -15%;
+  right: -10%;
+  animation-delay: -5s;
+}
+
+.orb-emerald {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.10) 0%, rgba(16, 185, 129, 0) 70%);
+  top: 40%;
+  right: 15%;
+  animation-delay: -10s;
+}
+
+.orb-cyan {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.10) 0%, rgba(6, 182, 212, 0) 70%);
+  top: 60%;
+  left: 10%;
+  animation-delay: -15s;
+}
+
+.subtle-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.7;
+}
+
+@keyframes floatOrb {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(50px, 80px) scale(1.1); }
+  100% { transform: translate(-40px, -60px) scale(0.95); }
+}
+
+/* ==================== GLASSMORPHIC PANELS ==================== */
+.luxury-glass {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  box-shadow: var(--shadow-md);
+}
+
+.luxury-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-md);
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.luxury-card:hover {
+  transform: translateY(-5px);
+  border-color: #CBD5E1;
+  box-shadow: var(--shadow-xl);
+}
+
+/* ==================== TYPOGRAPHY & GRADIENTS ==================== */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #3730A3 0%, #4F46E5 30%, #7C3AED 70%, #2563EB 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.text-gradient-emerald {
+  background: linear-gradient(135deg, #065F46 0%, #059669 40%, #10B981 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.text-gradient-amber {
+  background: linear-gradient(135deg, #92400E 0%, #D97706 50%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ==================== BUTTONS ==================== */
+.btn-luxury-primary {
+  background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-brand);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-luxury-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -6px rgba(79, 70, 229, 0.4);
+  filter: brightness(1.05);
+}
+
+.btn-luxury-primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-luxury-pos {
+  background: linear-gradient(135deg, #059669 0%, #10B981 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-emerald);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-luxury-pos:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -6px rgba(16, 185, 129, 0.42);
+  filter: brightness(1.06);
+}
+
+.btn-luxury-pos:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-luxury-secondary {
+  background: #FFFFFF;
+  color: var(--text-primary);
+  font-weight: 600;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-luxury-secondary:hover {
+  background: #F8FAFC;
+  border-color: #CBD5E1;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  color: var(--brand-primary);
+}
+
+/* ==================== MAIN TABS & CHIPS ==================== */
+.main-tab {
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border: 1px solid var(--border-subtle);
+  background: #FFFFFF;
+  color: var(--text-secondary);
+  font-weight: 700;
+}
+
+.main-tab:hover {
+  color: var(--text-primary);
+  border-color: #CBD5E1;
+  background: #F8FAFC;
+  transform: translateY(-1px);
+}
+
+.active-main-tab {
+  background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%) !important;
+  color: #FFFFFF !important;
+  border-color: transparent !important;
+  box-shadow: var(--shadow-brand) !important;
+}
+
+.cat-filter {
+  transition: all 0.2s ease;
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.cat-filter:hover {
+  color: var(--text-primary);
+  border-color: #CBD5E1;
+  background: #F1F5F9;
+}
+
+.active-cat-filter {
+  background: #0F172A !important;
+  color: #FFFFFF !important;
+  border-color: #0F172A !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2) !important;
+}
+
+/* ==================== BENTO & PORTFOLIO CARDS ==================== */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 1.5rem;
+}
+
+.portfolio-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-6px);
+  border-color: #CBD5E1;
+  box-shadow: var(--shadow-xl);
+}
+
+.portfolio-card img {
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.portfolio-card:hover img {
+  transform: scale(1.05);
+}
+
+/* ==================== POS SHOWCASE INTERACTIVE COMPONENT ==================== */
+.pos-live-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 1.75rem;
+  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(226, 232, 240, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.industry-chip {
+  transition: all 0.25s ease;
+  border: 1px solid var(--border-subtle);
+  background: #FFFFFF;
+  color: var(--text-secondary);
+}
+
+.industry-chip.active-chip {
+  background: #EEF2FF;
+  border-color: #C7D2FE;
+  color: #4338CA;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15);
+}
+
+/* ==================== REVEAL ON SCROLL ==================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+
+/* ==================== LIGHTBOX MODAL ==================== */
+#lightbox {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ==================== CUSTOM SCROLLBARS ==================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+  border: 2px solid #F1F5F9;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* ==================== PHONE & APP MOCKUPS (ANDROID FLAGSHIP) ==================== */
+.phone-mockup-frame {
+  position: relative;
+  width: 290px;
+  max-width: 100%;
+  border-radius: 36px;
+  background: linear-gradient(145deg, #1e293b, #090d16);
+  padding: 10px;
+  box-shadow: 
+    0 25px 50px -12px rgba(15, 23, 42, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.phone-mockup-frame:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 30px 60px -15px rgba(15, 23, 42, 0.45),
+    0 0 0 1px rgba(99, 102, 241, 0.3);
+}
+
+/* Earpiece speaker slit at top bezel */
+.phone-mockup-frame::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 2.5px;
+  background: #334155;
+  border-radius: 3px;
+  z-index: 20;
+}
+
+/* Side buttons (Power + Volume) */
+.phone-mockup-frame::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 90px;
+  width: 3px;
+  height: 38px;
+  background: #334155;
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 52px 0 0 #334155, 0 74px 0 0 #334155;
+}
+
+.phone-screen {
+  border-radius: 26px;
+  overflow: hidden;
+  background: #F8FAFC;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Android Punch Hole Camera */
+.phone-punch-hole {
+  width: 11px;
+  height: 11px;
+  background: #020617;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.25), 0 0 0 1px rgba(15, 23, 42, 0.4);
+}
+
+.punch-hole-lens {
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle at 35% 35%, #3b82f6, #020617);
+  border-radius: 50%;
+}
+
+.android-gesture-pill {
+  width: 78px;
+  height: 3.5px;
+  background: #CBD5E1;
+  border-radius: 9999px;
+  margin: 0 auto;
+}
+
+/* ==================== T-SHIRT STUDIO ==================== */
+.tshirt-preview-canvas {
+  position: relative;
+  border-radius: 24px;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.tshirt-color-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 0 0 1px #CBD5E1;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tshirt-color-btn:hover {
+  transform: scale(1.15);
+}
+
+.tshirt-color-btn.active-color {
+  box-shadow: 0 0 0 2.5px #4F46E5;
+  transform: scale(1.15);
+}
+
+/* ==================== WEB BROWSER MOCKUP HEADER ==================== */
+.browser-header-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: #F8FAFC;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.browser-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.browser-url-pill {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 11px;
+  color: #64748B;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+

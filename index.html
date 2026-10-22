@@ -37,20 +37,25 @@
   <meta name="twitter:image" content="https://pixelbymaliya.lk/logo.png" />
   <meta name="twitter:image:alt" content="Pixel by Maliya Logo" />
 
-  <link rel="icon" type="image/png" href="favicon.png?v=3" />
-  <link rel="apple-touch-icon" href="favicon.png?v=3" />
+  <link rel="icon" type="image/png" href="favicon.png?v=4" />
+  <link rel="apple-touch-icon" href="favicon.png?v=4" />
   <meta name="theme-color" content="#4F46E5" />
 
-  <!-- Preconnect and Resource Hints for Fast Asset Loading -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
-  <link rel="dns-prefetch" href="https://static.elfsight.com">
+  <!-- Preload Critical LCP Asset -->
+  <link rel="preload" as="image" href="logo.webp" type="image/webp" fetchpriority="high" />
 
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <!-- Resource Hints (Optimized & Minimal) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Web Fonts & Icons (Non-Render-Blocking) -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" /></noscript>
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
 
   <!-- Structured Data: Organization, LocalBusiness & WebSite Schema -->
   <script type="application/ld+json">
@@ -152,67 +157,15 @@
   }
   </script>
 
-  <!-- Elfsight Platform for Live Facebook Reviews Auto-Sync -->
-  <script src="https://static.elfsight.com/platform/platform.js" async></script>
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            display: ['"Space Grotesk"', 'sans-serif'],
-          },
-          colors: {
-            brand: {
-              50: '#EEF2FF',
-              100: '#E0E7FF',
-              200: '#C7D2FE',
-              300: '#A5B4FC',
-              400: '#818CF8',
-              500: '#6366F1',
-              600: '#4F46E5',
-              700: '#4338CA',
-              800: '#3730A3',
-              900: '#312E81'
-            },
-            accent: {
-              50: '#FAF5FF',
-              100: '#F3E8FF',
-              400: '#C084FC',
-              500: '#A855F7',
-              600: '#9333EA',
-              700: '#7E22CE'
-            },
-            emerald: {
-              50: '#ECFDF5',
-              400: '#34D399',
-              500: '#10B981',
-              600: '#059669',
-              700: '#047857'
-            },
-            slate: {
-              50: '#F8FAFC',
-              100: '#F1F5F9',
-              200: '#E2E8F0',
-              300: '#CBD5E1',
-              400: '#94A3B8',
-              500: '#64748B',
-              600: '#475569',
-              700: '#334155',
-              800: '#1E293B',
-              900: '#0F172A'
-            }
-          }
-        }
-      }
-    }
-  </script>
-  <link rel="stylesheet" href="styles.css"/>
+  <!-- Compiled Tailwind CSS & Custom Theme Bundle -->
+  <link rel="stylesheet" href="tailwind.min.css" />
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans antialiased overflow-x-hidden selection:bg-brand-500/15 selection:text-brand-700">
+
+  <!-- Accessible Skip to Content Landmark -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[999] focus:px-4 focus:py-2.5 focus:bg-white focus:text-indigo-700 focus:shadow-2xl focus:rounded-xl focus:font-bold focus:border focus:border-indigo-200 focus:outline-none">
+    Skip to main content
+  </a>
 
   <!-- Ambient Luxury Lighting Canvas -->
   <div class="ambient-canvas">
@@ -227,7 +180,10 @@
   <nav id="navbar" class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl z-50 transition-all duration-300 luxury-glass rounded-2xl px-5 py-3.5 flex items-center justify-between shadow-sm border border-slate-200/80">
     <a href="#hero" class="flex items-center gap-3 group">
       <div class="w-11 h-11 rounded-xl overflow-hidden border border-slate-200 shadow-sm group-hover:scale-105 transition-transform bg-white flex items-center justify-center p-0.5">
-        <img src="logo.png" alt="Pixel by Maliya Logo" width="44" height="44" class="w-full h-full object-contain" />
+        <picture>
+          <source srcset="logo.webp" type="image/webp" />
+          <img src="logo.png" alt="Pixel by Maliya Logo" width="44" height="44" fetchpriority="high" class="w-full h-full object-contain" />
+        </picture>
       </div>
       <div>
         <div class="font-display font-extrabold text-base leading-tight text-slate-900">
@@ -268,26 +224,29 @@
         <i class="fab fa-whatsapp text-green-400"></i>
         <span>Let's Talk</span>
       </a>
-      <button onclick="document.getElementById('mobileMenu').classList.remove('translate-x-full')" class="md:hidden w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:text-brand-600 transition-colors">
+      <button onclick="document.getElementById('mobileMenu').classList.remove('translate-x-full'); this.setAttribute('aria-expanded', 'true');" aria-label="Open mobile navigation menu" aria-expanded="false" aria-controls="mobileMenu" class="md:hidden w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:text-brand-600 transition-colors">
         <i class="fas fa-bars text-lg"></i>
       </button>
     </div>
   </nav>
 
   <!-- Mobile Offcanvas Drawer -->
-  <div id="mobileMenu" class="fixed inset-0 z-[100] translate-x-full transition-transform duration-300 flex justify-end">
+  <div id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile Navigation" class="fixed inset-0 z-[100] translate-x-full transition-transform duration-300 flex justify-end">
     <div class="absolute inset-0 bg-slate-900/30 backdrop-blur-sm" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')"></div>
     <div class="relative w-72 h-full bg-white border-l border-slate-200 p-6 flex flex-col justify-between shadow-2xl">
       <div>
         <div class="flex items-center justify-between pb-6 border-b border-slate-100 mb-6">
           <div class="flex items-center gap-2.5">
-            <img src="logo.png" alt="Pixel by Maliya Logo" width="32" height="32" class="w-8 h-8 object-contain" />
+            <picture>
+              <source srcset="logo.webp" type="image/webp" />
+              <img src="logo.png" alt="Pixel by Maliya Logo" width="32" height="32" loading="lazy" class="w-8 h-8 object-contain" />
+            </picture>
             <div>
               <span class="font-display font-extrabold text-base text-slate-900 block leading-tight">Pixel by Maliya</span>
-              <span class="text-[10px] font-semibold text-slate-400">Creative Studio &amp; Software</span>
+              <span class="text-[10px] font-semibold text-slate-500">Creative Studio &amp; Software</span>
             </div>
           </div>
-          <button onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')" class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600 hover:text-slate-900">
+          <button onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')" aria-label="Close mobile navigation menu" class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600 hover:text-slate-900">
             <i class="fas fa-times text-base"></i>
           </button>
         </div>
@@ -318,6 +277,9 @@
       </div>
     </div>
   </div>
+
+  <!-- Accessible Main Landmark -->
+  <main id="main-content">
 
   <!-- ================= HERO SECTION ================= -->
   <section id="hero" class="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 px-4 sm:px-6 z-10">
@@ -669,12 +631,12 @@
 
                 <!-- Cashier & Register Details Bar -->
                 <div class="flex items-center justify-between text-[11px] text-slate-500 font-semibold px-1">
-                  <span><i class="fas fa-cash-register mr-1 text-slate-400"></i> Register #01 (Main)</span>
+                  <span><i class="fas fa-cash-register mr-1 text-slate-500"></i> Register #01 (Main)</span>
                   <span><i class="fas fa-user-circle mr-1 text-emerald-600"></i> Cashier: Store Admin</span>
                 </div>
 
                 <!-- Fast Search Bar Mockup -->
-                <div class="px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs flex items-center justify-between text-slate-400 font-medium">
+                <div class="px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs flex items-center justify-between text-slate-600 font-medium">
                   <span class="flex items-center gap-2">
                     <i class="fas fa-barcode text-slate-500"></i>
                     <span>Scan barcode or search product...</span>
@@ -884,7 +846,7 @@
                 <div class="flex items-center justify-between px-3.5 pt-2 pb-1 select-none bg-slate-50/90 backdrop-blur-sm z-10">
                   <div class="flex items-center gap-1.5">
                     <span class="text-[10px] font-bold tracking-tight text-slate-800">10:24</span>
-                    <i class="fab fa-google-play text-[8px] text-slate-400"></i>
+                    <i class="fab fa-google-play text-[8px] text-slate-500"></i>
                   </div>
                   <!-- Android Center Punch-Hole Camera -->
                   <div class="phone-punch-hole" title="Punch Hole Camera">
@@ -925,7 +887,7 @@
                           </div>
                           <div>
                             <div class="font-bold text-slate-900 text-[11px]" id="phone-item-1">Nike Air Max Sneaker</div>
-                            <div class="text-[9px] text-slate-400">In Stock · Free Delivery</div>
+                            <div class="text-[9px] text-slate-600">In Stock · Free Delivery</div>
                           </div>
                         </div>
                         <span class="font-bold text-slate-900 text-xs">Rs. 18,500</span>
@@ -937,7 +899,7 @@
                           </div>
                           <div>
                             <div class="font-bold text-slate-900 text-[11px]" id="phone-item-2">Oversized DTF Hoodie</div>
-                            <div class="text-[9px] text-slate-400">240 GSM Cotton</div>
+                            <div class="text-[9px] text-slate-600">240 GSM Cotton</div>
                           </div>
                         </div>
                         <span class="font-bold text-slate-900 text-xs">Rs. 4,200</span>
@@ -1226,7 +1188,7 @@
         </div>
         <div id="graphicGrid" class="bento-grid"></div>
         <div id="graphicEmpty" class="hidden text-center py-20 bg-white rounded-3xl border border-slate-200">
-          <div class="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto mb-3 text-slate-400">
+          <div class="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto mb-3 text-slate-500">
             <i class="fas fa-image text-2xl"></i>
           </div>
           <p class="text-slate-800 font-bold">No graphic design items found</p>
@@ -1238,7 +1200,7 @@
       <div id="content-web" class="tab-content hidden w-full">
         <div id="webGrid" class="grid grid-cols-1 md:grid-cols-2 gap-7"></div>
         <div id="webEmpty" class="hidden text-center py-20 bg-white rounded-3xl border border-slate-200">
-          <div class="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto mb-3 text-slate-400">
+          <div class="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto mb-3 text-slate-500">
             <i class="fas fa-laptop-code text-2xl"></i>
           </div>
           <p class="text-slate-800 font-bold">Web projects coming soon!</p>
@@ -1250,7 +1212,7 @@
       <div id="content-app" class="tab-content hidden w-full">
         <div id="appGrid" class="grid grid-cols-1 md:grid-cols-2 gap-7"></div>
         <div id="appEmpty" class="hidden text-center py-20 bg-white rounded-3xl border border-slate-200">
-          <div class="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto mb-3 text-slate-400">
+          <div class="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto mb-3 text-slate-500">
             <i class="fas fa-mobile-screen-button text-2xl"></i>
           </div>
           <p class="text-slate-800 font-bold">Mobile App projects coming soon!</p>
@@ -1262,7 +1224,7 @@
       <div id="content-tshirt" class="tab-content hidden w-full">
         <div id="tshirtGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
         <div id="tshirtEmpty" class="hidden text-center py-20 bg-white rounded-3xl border border-slate-200">
-          <div class="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto mb-3 text-slate-400">
+          <div class="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto mb-3 text-slate-500">
             <i class="fas fa-shirt text-2xl"></i>
           </div>
           <p class="text-slate-800 font-bold">T-Shirt designs coming soon!</p>
@@ -1298,7 +1260,7 @@
 
         <div id="videoGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
         <div id="videoEmpty" class="hidden text-center py-20 bg-white rounded-3xl border border-slate-200">
-          <div class="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto mb-3 text-slate-400">
+          <div class="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto mb-3 text-slate-500">
             <i class="fas fa-film text-2xl"></i>
           </div>
           <p class="text-slate-800 font-bold">Video projects coming soon!</p>
@@ -1310,7 +1272,7 @@
       <div id="content-pos" class="tab-content hidden w-full">
         <div id="posGrid" class="grid grid-cols-1 md:grid-cols-2 gap-7"></div>
         <div id="posEmpty" class="hidden text-center py-20 bg-white rounded-3xl border border-slate-200">
-          <div class="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto mb-3 text-slate-400">
+          <div class="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto mb-3 text-slate-500">
             <i class="fas fa-cash-register text-2xl"></i>
           </div>
           <p class="text-slate-800 font-bold">POS projects coming soon!</p>
@@ -1563,8 +1525,8 @@
           </div>
           <p class="text-xs text-slate-500 font-medium mt-1">Direct feedback screenshots &amp; project delivery proofs from satisfied clients.</p>
         </div>
-        <span class="text-xs text-slate-400 font-medium self-start sm:self-auto flex items-center gap-1.5">
-          <i class="fas fa-camera text-slate-400"></i> Click "View Screenshot" on any card
+        <span class="text-xs text-slate-500 font-medium self-start sm:self-auto flex items-center gap-1.5">
+          <i class="fas fa-camera text-slate-500"></i> Click "View Screenshot" on any card
         </span>
       </div>
 
@@ -1612,7 +1574,7 @@
               <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-white text-slate-700 border border-slate-200">Daily Sales Management</span>
               <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-white text-slate-700 border border-slate-200">Professional Support</span>
             </div>
-            <button onclick="openDirectImage('assets/reviews/review_rasangi.png', 'Rasangi Wimalarathna · Verified Facebook Review')" class="text-emerald-700 hover:text-emerald-800 font-bold text-xs inline-flex items-center gap-1.5 transition-colors">
+            <button onclick="openDirectImage('assets/reviews/review_rasangi.webp', 'Rasangi Wimalarathna · Verified Facebook Review')" class="text-emerald-700 hover:text-emerald-800 font-bold text-xs inline-flex items-center gap-1.5 transition-colors">
               <i class="fas fa-camera text-[11px]"></i>
               <span>View Screenshot</span>
             </button>
@@ -1660,7 +1622,7 @@
               <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Friendly Service</span>
               <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Flexible Process</span>
             </div>
-            <button onclick="openDirectImage('assets/reviews/review_pasindu.png', 'Pasindu Kumarasinghe · Verified Facebook Review')" class="text-brand-600 hover:text-brand-700 font-bold text-xs inline-flex items-center gap-1.5 transition-colors">
+            <button onclick="openDirectImage('assets/reviews/review_pasindu.webp', 'Pasindu Kumarasinghe · Verified Facebook Review')" class="text-brand-600 hover:text-brand-700 font-bold text-xs inline-flex items-center gap-1.5 transition-colors">
               <i class="fas fa-camera text-[11px]"></i>
               <span>View Screenshot</span>
             </button>
@@ -1708,7 +1670,7 @@
               <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Quick Delivery</span>
               <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Reliable Quality</span>
             </div>
-            <button onclick="openDirectImage('assets/reviews/review_thiwanka.png', 'Thiwanka Wijesinghe · Verified Facebook Review')" class="text-amber-600 hover:text-amber-700 font-bold text-xs inline-flex items-center gap-1.5 transition-colors">
+            <button onclick="openDirectImage('assets/reviews/review_thiwanka.webp', 'Thiwanka Wijesinghe · Verified Facebook Review')" class="text-amber-600 hover:text-amber-700 font-bold text-xs inline-flex items-center gap-1.5 transition-colors">
               <i class="fas fa-camera text-[11px]"></i>
               <span>View Screenshot</span>
             </button>
@@ -1756,7 +1718,7 @@
               <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Super Service</span>
               <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Highly Recommended</span>
             </div>
-            <button onclick="openDirectImage('assets/reviews/review_nuwan.png', 'Nuwan Kumara · Verified Facebook Review')" class="text-purple-600 hover:text-purple-700 font-bold text-xs inline-flex items-center gap-1.5 transition-colors">
+            <button onclick="openDirectImage('assets/reviews/review_nuwan.webp', 'Nuwan Kumara · Verified Facebook Review')" class="text-purple-600 hover:text-purple-700 font-bold text-xs inline-flex items-center gap-1.5 transition-colors">
               <i class="fas fa-camera text-[11px]"></i>
               <span>View Screenshot</span>
             </button>
@@ -1804,7 +1766,7 @@
               <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Verified Client</span>
               <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Top Rated</span>
             </div>
-            <button onclick="openDirectImage('assets/reviews/review_lakshitha.png', 'Lakshitha Mahesh · Verified Facebook Review')" class="text-blue-600 hover:text-blue-700 font-bold text-xs inline-flex items-center gap-1.5 transition-colors">
+            <button onclick="openDirectImage('assets/reviews/review_lakshitha.webp', 'Lakshitha Mahesh · Verified Facebook Review')" class="text-blue-600 hover:text-blue-700 font-bold text-xs inline-flex items-center gap-1.5 transition-colors">
               <i class="fas fa-camera text-[11px]"></i>
               <span>View Screenshot</span>
             </button>
@@ -1880,12 +1842,12 @@
         </h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
           <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">Your Name</label>
-            <input type="text" id="contact-name" placeholder="Kamal Perera" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 text-xs focus:outline-none focus:border-brand-500 focus:bg-white transition-all"/>
+            <label for="contact-name" class="block text-xs font-bold text-slate-700 mb-1">Your Name</label>
+            <input type="text" id="contact-name" name="name" placeholder="Kamal Perera" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 text-xs focus:outline-none focus:border-brand-500 focus:bg-white transition-all"/>
           </div>
           <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">Project Category</label>
-            <select id="contact-service" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 text-xs focus:outline-none focus:border-brand-500 focus:bg-white transition-all font-medium">
+            <label for="contact-service" class="block text-xs font-bold text-slate-700 mb-1">Project Category</label>
+            <select id="contact-service" name="service" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 text-xs focus:outline-none focus:border-brand-500 focus:bg-white transition-all font-medium">
               <option value="Retail POS System (Cloud, Offline or Hybrid)">Retail POS System (Cloud · Offline · Hybrid)</option>
               <option value="Wholesale & FMCG Distribution (Van Sales ERP)">Wholesale &amp; FMCG Distribution (Van Sales SFA)</option>
               <option value="Custom Mobile / Business App (Android & iOS)">Custom Mobile / Business App (Android &amp; iOS)</option>
@@ -1898,8 +1860,8 @@
           </div>
         </div>
         <div class="mb-5">
-          <label class="block text-xs font-bold text-slate-700 mb-1">Brief Project Details</label>
-          <textarea id="contact-msg" rows="3" placeholder="Tell our team a bit about your business and requirements..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 text-xs focus:outline-none focus:border-brand-500 focus:bg-white transition-all"></textarea>
+          <label for="contact-msg" class="block text-xs font-bold text-slate-700 mb-1">Brief Project Details</label>
+          <textarea id="contact-msg" name="message" rows="3" placeholder="Tell our team a bit about your business and requirements..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 text-xs focus:outline-none focus:border-brand-500 focus:bg-white transition-all"></textarea>
         </div>
         <button onclick="sendQuickWhatsApp()" class="btn-luxury-primary w-full py-3 rounded-xl text-xs font-bold shadow-md">
           <i class="fab fa-whatsapp text-base"></i>
@@ -1909,6 +1871,7 @@
 
     </div>
   </section>
+  </main>
 
 
   <!-- ================= FOOTER ================= -->
@@ -1916,7 +1879,10 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-3">
         <a href="#hero" title="Pixel by Maliya" class="hover:opacity-80 transition-opacity">
-          <img src="logo.png" alt="Pixel by Maliya Logo" width="28" height="28" class="w-7 h-7 object-contain" />
+          <picture>
+            <source srcset="logo.webp" type="image/webp" />
+            <img src="logo.png" alt="Pixel by Maliya Logo" width="28" height="28" loading="lazy" class="w-7 h-7 object-contain" />
+          </picture>
         </a>
         <span class="font-display font-bold text-slate-900">&copy; 2026 Pixel by Maliya.</span>
         <span>All rights reserved.</span>
@@ -1925,7 +1891,7 @@
         <a href="#hero" class="hover:text-slate-900">Home</a>
         <a href="#portfolio" class="hover:text-slate-900">Portfolio</a>
         <a href="project.html" class="hover:text-slate-900">All Projects</a>
-        <a href="pos/index.html" class="text-emerald-600 hover:text-emerald-700 font-bold">POS Demo</a>
+        <a href="pos/index.html" class="text-emerald-700 hover:text-emerald-800 font-bold">POS Demo</a>
         <a href="#contact" class="hover:text-slate-900">Contact</a>
       </div>
     </div>
@@ -1933,11 +1899,11 @@
 
 
   <!-- ================= LIGHTBOX IMAGE MODAL ================= -->
-  <div id="lightbox" class="fixed inset-0 z-[200] hidden items-center justify-center p-4" onclick="closeLightbox(event)">
-    <button onclick="closeLightbox()" class="absolute top-5 right-5 w-11 h-11 rounded-xl flex items-center justify-center text-slate-800 bg-white shadow-lg hover:scale-105 transition-all z-10 border border-slate-200">
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image Preview" class="fixed inset-0 z-[200] hidden items-center justify-center p-4" onclick="closeLightbox(event)">
+    <button onclick="closeLightbox()" aria-label="Close image lightbox" class="absolute top-5 right-5 w-11 h-11 rounded-xl flex items-center justify-center text-slate-800 bg-white shadow-lg hover:scale-105 transition-all z-10 border border-slate-200">
       <i class="fas fa-times text-lg"></i>
     </button>
-    <button id="lightboxPrev" onclick="changeLightboxImage(-1); event.stopPropagation();" class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-11 h-11 rounded-xl flex items-center justify-center text-slate-800 bg-white shadow-lg hover:scale-105 transition-all z-10 border border-slate-200">
+    <button id="lightboxPrev" onclick="changeLightboxImage(-1); event.stopPropagation();" aria-label="Previous image" class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-11 h-11 rounded-xl flex items-center justify-center text-slate-800 bg-white shadow-lg hover:scale-105 transition-all z-10 border border-slate-200">
       <i class="fas fa-chevron-left text-base"></i>
     </button>
     <div class="relative max-w-4xl max-h-[85vh] p-2 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col items-center" onclick="event.stopPropagation();">
@@ -1945,18 +1911,16 @@
       <div id="lightboxCaption" class="mt-2 text-xs font-bold text-slate-800 text-center"></div>
       <div id="lightboxVideoLinks" class="mt-2.5 flex flex-wrap items-center justify-center gap-2"></div>
     </div>
-    <button id="lightboxNext" onclick="changeLightboxImage(1); event.stopPropagation();" class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-11 h-11 rounded-xl flex items-center justify-center text-slate-800 bg-white shadow-lg hover:scale-105 transition-all z-10 border border-slate-200">
+    <button id="lightboxNext" onclick="changeLightboxImage(1); event.stopPropagation();" aria-label="Next image" class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-11 h-11 rounded-xl flex items-center justify-center text-slate-800 bg-white shadow-lg hover:scale-105 transition-all z-10 border border-slate-200">
       <i class="fas fa-chevron-right text-base"></i>
     </button>
     <div id="lightboxCounter" class="absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full text-slate-700 font-bold text-xs bg-white shadow-md border border-slate-200"></div>
   </div>
 
 
-  <!-- Firebase Scripts -->
-  <script defer src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
-  <script defer src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
-  <script defer src="firebase-init.js"></script>
-  <script defer src="db.js"></script>
-  <script defer src="app.js"></script>
+  <!-- Third-Party & App Scripts (Deferred) -->
+  <script defer src="https://static.elfsight.com/platform/platform.js"></script>
+  <script defer src="db.min.js"></script>
+  <script defer src="app.min.js"></script>
 </body>
 </html>
