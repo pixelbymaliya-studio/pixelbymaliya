@@ -1471,6 +1471,14 @@ function updateTshirtOrderSummary() {
 }
 
 function orderCurrentTshirtWhatsApp() {
+    if (typeof window.pixelTrackEvent === 'function') {
+        window.pixelTrackEvent('whatsapp_click', {
+            button_location: 'tshirt_customizer',
+            service_category: 'DTF T-Shirts',
+            outbound_type: 'whatsapp'
+        });
+    }
+
     const msg = `Hi Pixel Team! I am interested in your DTF T-Shirt line:\n\n` +
         `👕 *Design Concept:* ${currentTshirtDesign.title} (${currentTshirtDesign.subtitle})\n` +
         `🎨 *Preview Color:* ${currentTshirtColor.name}\n` +
@@ -1482,10 +1490,19 @@ function orderCurrentTshirtWhatsApp() {
     const url = `https://wa.me/94716125715?text=${encodeURIComponent(msg)}`;
     window.open(url, '_blank');
 }
+
 function sendQuickWhatsApp() {
     const name = document.getElementById('contact-name')?.value.trim() || 'A Customer';
     const service = document.getElementById('contact-service')?.value || 'General Inquiry';
     const msg = document.getElementById('contact-msg')?.value.trim() || 'I am interested in your services!';
+
+    if (typeof window.pixelTrackEvent === 'function') {
+        window.pixelTrackEvent('whatsapp_click', {
+            button_location: 'contact_form_whatsapp',
+            service_category: service,
+            outbound_type: 'whatsapp'
+        });
+    }
 
     const text = `Hi Pixel Team, my name is ${name}.\nI am contacting you regarding: *${service}*.\n\nProject Details:\n${msg}`;
     const url = `https://wa.me/94716125715?text=${encodeURIComponent(text)}`;
@@ -1496,6 +1513,14 @@ function sendQuickWhatsApp() {
 function openDirectImage(imgSrc, title) {
     currentLightboxImages = [imgSrc];
     currentLightboxIndex = 0;
+
+    if (typeof window.pixelTrackEvent === 'function') {
+        window.pixelTrackEvent('portfolio_view', {
+            project_id: 'review_screenshot',
+            project_title: title || 'Client Review Screenshot',
+            project_category: 'Client Reviews'
+        });
+    }
 
     const modal = document.getElementById('lightbox');
     const img = document.getElementById('lightboxImg');
@@ -1518,6 +1543,14 @@ function openDirectImage(imgSrc, title) {
 function openLightbox(projectId) {
     const project = loadedProjects.find(p => p.id === projectId);
     if (!project) return;
+
+    if (typeof window.pixelTrackEvent === 'function') {
+        window.pixelTrackEvent('portfolio_view', {
+            project_id: project.id || projectId,
+            project_title: project.title || 'Portfolio Item',
+            project_category: project.category || project.type || 'Portfolio'
+        });
+    }
 
     currentLightboxImages = (project.images && project.images.length > 0) 
         ? project.images 
@@ -1588,3 +1621,10 @@ function escapeHtml(str) {
     const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
     return String(str).replace(/[&<>"']/g, m => map[m]);
 }
+
+window.openLightbox = openLightbox;
+window.openDirectImage = openDirectImage;
+window.closeLightbox = closeLightbox;
+window.sendQuickWhatsApp = sendQuickWhatsApp;
+window.orderCurrentTshirtWhatsApp = orderCurrentTshirtWhatsApp;
+

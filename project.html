@@ -42,6 +42,12 @@
     <link rel="apple-touch-icon" href="favicon.png?v=3" />
     <meta name="theme-color" content="#1a3260" />
 
+    <!-- Google tag (gtag.js) - Google Analytics 4 -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-12FK7KPLP2"></script>
+    <script defer src="analytics.min.js"></script>
+
     <!-- BreadcrumbList Schema -->
     <script type="application/ld+json">
     {
@@ -552,6 +558,13 @@
         function openGallery(images, title) {
             lbImages = (Array.isArray(images) ? images : [images]).filter(Boolean);
             lbIndex = 0;
+            if (typeof window.pixelTrackEvent === 'function') {
+                window.pixelTrackEvent('portfolio_view', {
+                    project_id: 'gallery_' + (title || '').replace(/[^a-zA-Z0-9]/g, '_').toLowerCase(),
+                    project_title: title || 'Portfolio Showcase Item',
+                    project_category: 'Portfolio Gallery'
+                });
+            }
             lbShow();
             document.getElementById('lightbox').classList.remove('hidden');
             document.getElementById('lightbox').classList.add('flex');
