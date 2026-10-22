@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selected Work &amp; Portfolio | Pixel by Maliya Sri Lanka</title>
+  <meta name="description" content="Explore the creative portfolio of Pixel by Maliya: corporate branding, vector logos, visiting cards, responsive web design, custom mobile apps, and POS systems in Sri Lanka." />
+  <meta name="keywords" content="portfolio Sri Lanka, web design portfolio Sri Lanka, graphic design Sri Lanka, logo design Sri Lanka, POS systems Sri Lanka, Pixel by Maliya" />
+  <meta name="author" content="Pixel by Maliya" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://pixelbymaliya.lk/project.html" />
+
+  <!-- Geotagging for Sri Lanka -->
+  <meta name="geo.region" content="LK" />
+  <meta name="geo.placename" content="Sri Lanka" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pixelbymaliya.lk/project.html" />
+  <meta property="og:site_name" content="Pixel by Maliya" />
+  <meta property="og:locale" content="en_LK" />
+  <meta property="og:title" content="Selected Work &amp; Portfolio | Pixel by Maliya Sri Lanka" />
+  <meta property="og:description" content="Explore the creative portfolio of Pixel by Maliya: corporate branding, vector logos, visiting cards, responsive web design, custom mobile apps, and POS systems in Sri Lanka." />
+  <meta property="og:image" content="https://pixelbymaliya.lk/logo.png" />
+  <meta property="og:image:secure_url" content="https://pixelbymaliya.lk/logo.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:image:alt" content="Pixel by Maliya Portfolio Showcase" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:url" content="https://pixelbymaliya.lk/project.html" />
+  <meta name="twitter:title" content="Selected Work &amp; Portfolio | Pixel by Maliya Sri Lanka" />
+  <meta name="twitter:description" content="Explore the creative portfolio of Pixel by Maliya: corporate branding, vector logos, visiting cards, responsive web design, custom mobile apps, and POS systems in Sri Lanka." />
+  <meta name="twitter:image" content="https://pixelbymaliya.lk/logo.png" />
+  <meta name="twitter:image:alt" content="Pixel by Maliya Logo" />
+
+  <link rel="icon" type="image/png" href="favicon.png?v=4" />
+  <link rel="apple-touch-icon" href="favicon.png?v=4" />
+  <meta name="theme-color" content="#4F46E5" />
+
+  <!-- Google tag (gtag.js) - Google Analytics 4 -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-12FK7KPLP2"></script>
+  <script defer src="analytics.min.js"></script>
+
+  <!-- Preload Critical Assets -->
+  <link rel="preload" as="image" href="logo.webp" type="image/webp" fetchpriority="high" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko20yygg_vb.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="https://fonts.gstatic.com/s/spacegrotesk/v22/V8mDoQDjQSkFtoMM3T6r8E7mPbF4C_k3HqU.woff2" as="font" type="font/woff2" crossorigin />
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="tailwind.min.css" />
+
+  <!-- Scoped Light Portfolio Styles (Inlined for 0ms network latency) -->
+  <style id="portfolio-light-styles">
+/**
+ * PIXEL BY MALIYA — LIGHT PORTFOLIO STYLING SUITE (V2)
+ * Pure CSS Design System matching index-preview-light.html
+ * 100% WCAG AAA Compliant · Responsive · Zero Layout Shift
+ */
+
+:root {
+  --port-bg-main: #FFFFFF;
+  --port-bg-soft: #F8FAFC;
+  --port-bg-card: #FFFFFF;
+  --port-surface-muted: #F1F5F9;
+  --port-text-primary: #0F172A;
+  --port-text-secondary: #475569;
+  --port-text-muted: #64748B;
+  --port-border-subtle: rgba(226, 232, 240, 0.85);
+  --port-border-card: #E2E8F0;
+  --port-accent-violet: #6366F1;
+  --port-accent-emerald: #059669;
+  --port-accent-cyan: #06B6D4;
+}
+
+/* Base Body Setup */
+body.portfolio-light-body {
+  background-color: var(--port-bg-soft);
+  color: var(--port-text-primary);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Frosted Luxury Light Navbar */
+.portfolio-nav-light {
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(226, 232, 240, 0.85) !important;
+  box-shadow: 
+    0 10px 30px -10px rgba(15, 23, 42, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* Portfolio Hero Section */
+.portfolio-hero-light {
+  position: relative;
+  background-color: var(--port-bg-main);
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(99, 102, 241, 0.07) 0%, transparent 45%),
+    radial-gradient(circle at 85% 25%, rgba(6, 182, 212, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 50% 90%, rgba(5, 150, 105, 0.05) 0%, transparent 55%),
+    linear-gradient(180deg, #FFFFFF 0%, #FAFCFF 70%, #F8FAFC 100%);
+  padding-top: 6.75rem;
+  padding-bottom: 2.75rem;
+  border-bottom: 1px solid var(--port-border-subtle);
+  overflow: hidden;
+}
+
+/* Soft Decorative Precision Grid */
+.portfolio-light-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse at 50% 40%, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 75%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 40%, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 75%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Studio Pill Badge */
+.studio-pill-portfolio {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  background: rgba(241, 245, 249, 0.95);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  color: #1E293B;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+/* Gradient Text */
+.portfolio-gradient-violet {
+  color: #4F46E5;
+  background: linear-gradient(135deg, #4F46E5 0%, #6366F1 50%, #818CF8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.portfolio-gradient-emerald {
+  color: #059669;
+  background: linear-gradient(135deg, #059669 0%, #10B981 50%, #34D399 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Portfolio Tabs Container */
+.portfolio-tab-bar {
+  display: flex;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 1rem;
+  padding: 0.375rem;
+  gap: 0.375rem;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04);
+}
+
+.portfolio-main-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #475569;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.portfolio-main-tab:hover {
+  color: #0F172A;
+  background: #F1F5F9;
+}
+
+.portfolio-main-tab.active {
+  color: #FFFFFF;
+  background: #0F172A;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}
+
+/* Category Filter Chips */
+.portfolio-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #475569;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.portfolio-filter-chip:hover {
+  border-color: #6366F1;
+  color: #4F46E5;
+  background: #F8FAFC;
+  transform: translateY(-1px);
+}
+
+.portfolio-filter-chip.active {
+  background: #4F46E5;
+  color: #FFFFFF;
+  border-color: #4F46E5;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+/* Portfolio Card (World-Class Light Theme) */
+.portfolio-card-light {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.04), 0 2px 4px -2px rgba(15, 23, 42, 0.03);
+  position: relative;
+}
+
+.portfolio-card-light:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  border-color: #CBD5E1;
+}
+
+/* Card Image Box */
+.card-media-box {
+  position: relative;
+  overflow: hidden;
+  background: #F8FAFC;
+  cursor: pointer;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+.card-media-box.aspect-video {
+  aspect-ratio: 16 / 9 !important;
+}
+
+.card-media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+.portfolio-card-light:hover .card-media-img {
+  transform: scale(1.05);
+}
+
+/* Card Badges */
+.card-tag-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+}
+
+.tag-brand { background: #EEF2FF; color: #3730A3; border: 1px solid #C7D2FE; }
+.tag-pos { background: #ECFDF5; color: #065F46; border: 1px solid #A7F3D0; }
+.tag-web { background: #F0FDF4; color: #166534; border: 1px solid #BBF7D0; }
+.tag-video { background: #FEF2F2; color: #991B1B; border: 1px solid #FECACA; }
+.tag-keychain { background: #FFFBEB; color: #92400E; border: 1px solid #FDE68A; }
+.tag-card { background: #F0FDFA; color: #115E59; border: 1px solid #99F6E4; }
+.tag-apparel { background: #FFF1F2; color: #9F1239; border: 1px solid #FECDD3; }
+
+/* Image Multi Count Badge */
+.card-multi-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 0.5rem;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  z-index: 5;
+}
+
+/* Card Body Content */
+.card-content-body {
+  padding: 1.15rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-title-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #0F172A;
+  margin: 0.45rem 0 0.35rem 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-desc-text {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: #64748B;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Card Action Bar */
+.card-action-bar {
+  margin-top: auto;
+  padding-top: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-top: 1px solid #F1F5F9;
+}
+
+.card-btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.card-btn-view {
+  background: #F8FAFC;
+  color: #334155;
+  border: 1px solid #E2E8F0;
+}
+.card-btn-view:hover {
+  background: #0F172A;
+  color: #FFFFFF;
+  border-color: #0F172A;
+}
+
+.card-btn-video {
+  background: #FEF2F2;
+  color: #B91C1C;
+  border: 1px solid #FCA5A5;
+}
+.card-btn-video:hover {
+  background: #B91C1C;
+  color: #FFFFFF;
+}
+
+.card-btn-live {
+  background: #EEF2FF;
+  color: #3730A3;
+  border: 1px solid #C7D2FE;
+}
+.card-btn-live:hover {
+  background: #3730A3;
+  color: #FFFFFF;
+}
+
+/* Lightbox Modal */
+.portfolio-lightbox-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.portfolio-lightbox-modal.active {
+  display: flex;
+}
+
+.lightbox-content-wrap {
+  position: relative;
+  max-width: 92vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox-img-element {
+  max-width: 90vw;
+  max-height: 78vh;
+  border-radius: 1rem;
+  object-fit: contain;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  transition: opacity 0.2s ease;
+  background: #0F172A;
+}
+
+/* Mobile & Performance Adaptations */
+@media (max-width: 767px) {
+  .portfolio-hero-light {
+    padding-top: 5.5rem;
+    padding-bottom: 2rem;
+  }
+  .portfolio-tab-bar {
+    overflow-x: auto;
+    max-width: 100%;
+    scrollbar-width: none;
+  }
+  .portfolio-tab-bar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-card-light,
+  .card-media-img,
+  .portfolio-main-tab,
+  .portfolio-filter-chip {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+  </style>
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://pixelbymaliya.lk/index-preview-light.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Portfolio",
+        "item": "https://pixelbymaliya.lk/project-preview-light.html"
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="portfolio-light-body">
+
+  <!-- ================= TOP NAVBAR (FROSTED LIGHT GLASS) ================= -->
+  <nav id="navbar" class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl z-50 transition-all duration-300 portfolio-nav-light rounded-2xl px-4 sm:px-5 py-3 flex items-center justify-between shadow-sm">
+    <a href="index-preview-light.html" class="flex items-center gap-2.5 sm:gap-3 group">
+      <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl overflow-hidden border border-slate-200/90 shadow-sm group-hover:scale-105 transition-transform bg-white flex items-center justify-center p-0.5">
+        <picture>
+          <source srcset="logo.webp" type="image/webp" />
+          <img src="logo.png" alt="Pixel by Maliya Logo" width="44" height="44" fetchpriority="high" class="w-full h-full object-contain" />
+        </picture>
+      </div>
+      <div>
+        <div class="font-display font-extrabold text-sm sm:text-base leading-tight text-slate-900">
+          Pixel by <span class="portfolio-gradient-violet">Maliya</span>
+        </div>
+        <p class="text-[10px] sm:text-[11px] font-semibold text-slate-500 tracking-wide">Creative Studio &amp; Custom Software</p>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <div class="hidden md:flex items-center gap-5 lg:gap-6 font-semibold text-xs lg:text-sm text-slate-600">
+      <a href="index-preview-light.html" class="hover:text-indigo-600 transition-colors">Home</a>
+      <a href="project-preview-light.html" class="text-indigo-600 font-bold transition-colors">Work</a>
+      <a href="index-preview-light.html#pos-showcase" class="flex items-center gap-1.5 hover:text-emerald-600 transition-colors font-bold text-emerald-600">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+        POS
+      </a>
+      <a href="index-preview-light.html#apps-showcase" class="flex items-center gap-1.5 hover:text-indigo-600 transition-colors font-bold text-indigo-600">
+        <i class="fas fa-mobile-screen-button text-xs"></i>
+        Apps
+      </a>
+      <a href="index-preview-light.html#tshirt-showcase" class="flex items-center gap-1.5 hover:text-rose-600 transition-colors font-bold text-rose-600">
+        <i class="fas fa-shirt text-xs"></i>
+        T-Shirt Studio
+      </a>
+      <a href="index-preview-light.html#services" class="hover:text-indigo-600 transition-colors">Services</a>
+      <a href="index-preview-light.html#reviews" class="hover:text-indigo-600 transition-colors">Reviews</a>
+      <a href="index-preview-light.html#contact" class="hover:text-indigo-600 transition-colors">Contact</a>
+    </div>
+
+    <!-- Quick Action CTAs -->
+    <div class="flex items-center gap-2">
+      <a href="pos/index.html" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition-all shadow-sm">
+        <i class="fas fa-cash-register text-xs"></i>
+        <span>POS Demo</span>
+      </a>
+      <a href="https://wa.me/94716125715" target="_blank" rel="noopener noreferrer" class="hidden lg:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-900 text-white font-bold text-xs hover:bg-slate-800 transition-all shadow-sm">
+        <i class="fab fa-whatsapp text-emerald-400"></i>
+        <span>Let's Talk</span>
+      </a>
+      <button onclick="document.getElementById('mobileMenu').classList.remove('translate-x-full'); this.setAttribute('aria-expanded', 'true');" aria-label="Open mobile navigation menu" aria-expanded="false" aria-controls="mobileMenu" class="md:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:text-indigo-600 transition-colors">
+        <i class="fas fa-bars text-base"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobileMenu" class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 md:hidden bg-slate-900/60 backdrop-blur-sm flex justify-end">
+    <div class="w-72 max-w-full bg-white h-full shadow-2xl p-6 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between pb-5 border-b border-slate-100 mb-6">
+          <div class="flex items-center gap-2">
+            <img src="logo.png" alt="Pixel by Maliya Logo" class="w-8 h-8 object-contain" />
+            <span class="font-display font-extrabold text-sm text-slate-900">Pixel by <span class="portfolio-gradient-violet">Maliya</span></span>
+          </div>
+          <button onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')" aria-label="Close mobile menu" class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 hover:text-slate-800">
+            <i class="fas fa-times text-sm"></i>
+          </button>
+        </div>
+
+        <nav class="space-y-3 font-semibold text-sm text-slate-700">
+          <a href="index-preview-light.html" class="block px-3 py-2 rounded-xl hover:bg-slate-100 transition-colors">Home</a>
+          <a href="project-preview-light.html" class="block px-3 py-2 rounded-xl bg-indigo-50 text-indigo-700 font-bold">Portfolio / Work</a>
+          <a href="index-preview-light.html#pos-showcase" class="block px-3 py-2 rounded-xl text-emerald-600 font-bold hover:bg-emerald-50">POS Showcase</a>
+          <a href="index-preview-light.html#apps-showcase" class="block px-3 py-2 rounded-xl text-indigo-600 font-bold hover:bg-indigo-50">Mobile &amp; Web Apps</a>
+          <a href="index-preview-light.html#tshirt-showcase" class="block px-3 py-2 rounded-xl text-rose-600 font-bold hover:bg-rose-50">T-Shirt Printing</a>
+          <a href="index-preview-light.html#services" class="block px-3 py-2 rounded-xl hover:bg-slate-100 transition-colors">Services</a>
+          <a href="index-preview-light.html#reviews" class="block px-3 py-2 rounded-xl hover:bg-slate-100 transition-colors">Reviews</a>
+          <a href="index-preview-light.html#contact" class="block px-3 py-2 rounded-xl hover:bg-slate-100 transition-colors">Contact</a>
+        </nav>
+      </div>
+
+      <div class="pt-6 border-t border-slate-100 space-y-2">
+        <a href="pos/index.html" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-600 text-white font-bold text-xs shadow-sm">
+          <i class="fas fa-cash-register"></i> Open POS Demo
+        </a>
+        <a href="https://wa.me/94716125715" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-900 text-white font-bold text-xs shadow-sm">
+          <i class="fab fa-whatsapp text-emerald-400"></i> WhatsApp Studio
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PORTFOLIO HERO SECTION ================= -->
+  <header class="portfolio-hero-light relative z-10" aria-label="Portfolio Introduction">
+    <div class="portfolio-light-grid"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 text-center">
+      <div class="inline-flex items-center mb-4">
+        <div class="studio-pill-portfolio">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>Selected Work &amp; Case Studies</span>
+        </div>
+      </div>
+
+      <h1 class="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl text-slate-900 leading-tight mb-3 tracking-tight">
+        Selected Work. <span class="portfolio-gradient-violet">Crafted to Impress.</span>
+      </h1>
+
+      <p class="text-slate-600 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed mb-5">
+        Explore our creative designs, digital experiences, and business technology solutions.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <span id="portfolio-hero-summary" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/90 text-indigo-700 font-bold text-xs shadow-xs">
+          <i class="fas fa-circle-check text-emerald-500 text-xs"></i>
+          Loading projects from database…
+        </span>
+        <a href="index-preview-light.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-indigo-600 transition-colors">
+          <i class="fas fa-arrow-left text-[10px]"></i> Back to Homepage
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MAIN PORTFOLIO SECTION ================= -->
+  <main class="relative py-8 sm:py-12 z-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="sr-only">Portfolio Projects &amp; Digital Case Studies</h2>
+
+      <!-- Controls Container: Tabs & Search -->
+      <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 mb-6">
+        
+        <!-- Main Discipline Tabs -->
+        <div class="portfolio-tab-bar">
+          <button class="portfolio-main-tab active" data-tab="all" aria-label="Show all work">
+            <i class="fas fa-shapes text-xs"></i>
+            <span>All Work</span>
+            <span id="count-all" class="px-1.5 py-0.5 rounded-md bg-slate-100 text-slate-900 border border-slate-300 text-[10px] font-extrabold">0</span>
+          </button>
+          <button class="portfolio-main-tab" data-tab="graphic" aria-label="Show graphic design work">
+            <i class="fas fa-palette text-xs text-indigo-500"></i>
+            <span>Graphic &amp; Brand</span>
+            <span id="count-graphic" class="px-1.5 py-0.5 rounded-md bg-slate-100 text-slate-900 border border-slate-300 text-[10px] font-extrabold">0</span>
+          </button>
+          <button class="portfolio-main-tab" data-tab="web" aria-label="Show web development work">
+            <i class="fas fa-laptop-code text-xs text-emerald-500"></i>
+            <span>Web Platforms</span>
+            <span id="count-web" class="px-1.5 py-0.5 rounded-md bg-slate-100 text-slate-900 border border-slate-300 text-[10px] font-extrabold">0</span>
+          </button>
+          <button class="portfolio-main-tab" data-tab="video" aria-label="Show motion & video edits">
+            <i class="fas fa-film text-xs text-rose-500"></i>
+            <span>Video &amp; Motion</span>
+            <span id="count-video" class="px-1.5 py-0.5 rounded-md bg-slate-100 text-slate-900 border border-slate-300 text-[10px] font-extrabold">0</span>
+          </button>
+          <button class="portfolio-main-tab" data-tab="pos" aria-label="Show POS systems">
+            <i class="fas fa-cash-register text-xs text-emerald-600"></i>
+            <span>POS Systems</span>
+            <span class="px-1.5 py-0.5 rounded-md bg-emerald-700 text-white text-[9px] font-extrabold uppercase">Live</span>
+          </button>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="relative w-full lg:w-72">
+          <i class="fas fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs pointer-events-none"></i>
+          <input 
+            type="search" 
+            id="portfolio-search-input" 
+            placeholder="Search projects by keyword…" 
+            aria-label="Search projects by keyword"
+            class="w-full pl-9 pr-4 py-2.5 rounded-xl bg-white border border-slate-200 text-xs font-medium text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500 transition-all shadow-xs"
+          />
+        </div>
+      </div>
+
+      <!-- Sub-Filter Bar (Category Chips for Graphic Design) -->
+      <div id="portfolio-subfilters" class="flex flex-wrap items-center gap-2 mb-8 pb-3 border-b border-slate-200/70">
+        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider mr-1">Filter:</span>
+        <button class="portfolio-filter-chip active" data-cat="all">
+          <i class="fas fa-th-large text-[11px]"></i> All Design
+        </button>
+        <button class="portfolio-filter-chip" data-cat="logo">
+          <i class="fas fa-star text-[11px] text-indigo-500"></i> Logo &amp; Identity
+        </button>
+        <button class="portfolio-filter-chip" data-cat="visiting-card">
+          <i class="fas fa-address-card text-[11px] text-cyan-600"></i> Visiting Cards
+        </button>
+        <button class="portfolio-filter-chip" data-cat="social-media">
+          <i class="fas fa-share-alt text-[11px] text-emerald-600"></i> Social Media
+        </button>
+        <button class="portfolio-filter-chip" data-cat="key-tag">
+          <i class="fas fa-key text-[11px] text-amber-500"></i> Keychains &amp; Souvenirs
+        </button>
+        <button class="portfolio-filter-chip" data-cat="banner">
+          <i class="fas fa-image text-[11px] text-orange-500"></i> Banners &amp; Signage
+        </button>
+        <button class="portfolio-filter-chip" data-cat="thankyou-card">
+          <i class="fas fa-heart text-[11px] text-rose-500"></i> Thank You Cards
+        </button>
+        <button class="portfolio-filter-chip" data-cat="printing">
+          <i class="fas fa-print text-[11px] text-indigo-600"></i> Print &amp; Apparel
+        </button>
+      </div>
+
+      <!-- Loading State -->
+      <div id="portfolio-loading" class="text-center py-20">
+        <div class="inline-flex flex-col items-center gap-3">
+          <div class="w-10 h-10 border-3 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
+          <p class="font-bold text-xs text-slate-600">Loading verified projects from database…</p>
+        </div>
+      </div>
+
+      <!-- Error State -->
+      <div id="portfolio-error" class="hidden text-center py-20 bg-white rounded-3xl border border-red-200 p-8 shadow-xs">
+        <div class="w-16 h-16 rounded-2xl bg-red-50 text-red-500 flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fas fa-triangle-exclamation"></i>
+        </div>
+        <h3 class="font-display font-bold text-lg text-slate-900 mb-2">Unable to Load Projects</h3>
+        <p class="text-slate-500 text-xs max-w-md mx-auto mb-5 leading-relaxed">
+          We encountered an issue retrieving project records. Please check your connection or reload the showcase.
+        </p>
+        <button onclick="window.location.reload()" class="px-5 py-2.5 rounded-xl bg-slate-900 text-white font-bold text-xs hover:bg-slate-800 transition-colors shadow-sm">
+          <i class="fas fa-rotate-right mr-1.5"></i> Reload Showcase
+        </button>
+      </div>
+
+      <!-- Empty State -->
+      <div id="portfolio-empty" class="hidden text-center py-20 bg-white rounded-3xl border border-slate-200 p-8 shadow-xs">
+        <div class="w-16 h-16 rounded-2xl bg-slate-50 text-slate-400 flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fas fa-folder-open"></i>
+        </div>
+        <h3 class="font-display font-bold text-lg text-slate-900 mb-2">No Projects Match Your Filter</h3>
+        <p class="text-slate-500 text-xs max-w-md mx-auto mb-5 leading-relaxed">
+          No projects were found matching the selected category or search terms. Try selecting "All Work" or clearing your search.
+        </p>
+        <button onclick="document.querySelector('[data-tab=\'all\']').click(); document.getElementById('portfolio-search-input').value='';" class="px-5 py-2.5 rounded-xl bg-indigo-600 text-white font-bold text-xs hover:bg-indigo-700 transition-colors shadow-sm">
+          Reset All Filters
+        </button>
+      </div>
+
+      <!-- Main Project Cards Grid -->
+      <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+
+    </div>
+  </main>
+
+  <!-- ================= GALLERY LIGHTBOX MODAL ================= -->
+  <div id="portfolio-lightbox" class="portfolio-lightbox-modal" onclick="window.pixelCloseGallery()" role="dialog" aria-modal="true" aria-label="Image preview lightbox">
+    <div class="lightbox-content-wrap" onclick="event.stopPropagation()">
+      
+      <!-- Top Bar: Counter & Close Button -->
+      <div class="w-full flex items-center justify-between gap-4 mb-3 px-2">
+        <div class="flex items-center gap-2">
+          <span id="lb-counter" class="px-3 py-1 rounded-full bg-white/20 backdrop-blur text-white text-xs font-bold tracking-wide"></span>
+          <span id="lb-title" class="text-white text-xs sm:text-sm font-semibold truncate max-w-[240px] sm:max-w-md"></span>
+        </div>
+        <button onclick="window.pixelCloseGallery()" class="w-9 h-9 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors" aria-label="Close lightbox">
+          <i class="fas fa-times text-base"></i>
+        </button>
+      </div>
+
+      <!-- Image Area with Previous / Next Buttons -->
+      <div class="relative flex items-center justify-center">
+        <button id="lb-prev" onclick="window.pixelNavGallery(-1)" class="absolute -left-4 sm:-left-14 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/20 hover:bg-white/35 backdrop-blur text-white flex items-center justify-center transition-all z-10 shadow-lg" aria-label="Previous photo">
+          <i class="fas fa-chevron-left text-sm sm:text-base"></i>
+        </button>
+
+        <img id="lb-image" src="" alt="Portfolio Showcase Preview" class="lightbox-img-element select-none" />
+
+        <button id="lb-next" onclick="window.pixelNavGallery(1)" class="absolute -right-4 sm:-right-14 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/20 hover:bg-white/35 backdrop-blur text-white flex items-center justify-center transition-all z-10 shadow-lg" aria-label="Next photo">
+          <i class="fas fa-chevron-right text-sm sm:text-base"></i>
+        </button>
+      </div>
+
+      <!-- Bottom Dots -->
+      <div id="lb-dots" class="flex gap-2 mt-4"></div>
+
+    </div>
+  </div>
+
+  <!-- ================= LUXURY LIGHT FOOTER ================= -->
+  <footer class="bg-white border-t border-slate-200/90 py-12 mt-12 relative z-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-100">
+        <div class="flex items-center gap-3">
+          <img src="logo.png" alt="Pixel by Maliya Logo" class="w-10 h-10 object-contain" />
+          <div>
+            <span class="font-display font-extrabold text-base text-slate-900">Pixel by <span class="portfolio-gradient-violet">Maliya</span></span>
+            <p class="text-xs text-slate-500 font-medium">Sri Lanka's Premier Digital &amp; Software Studio</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6 font-semibold text-xs text-slate-600">
+          <a href="index-preview-light.html" class="hover:text-indigo-600 transition-colors">Home</a>
+          <a href="project-preview-light.html" class="text-indigo-600 font-bold">Portfolio</a>
+          <a href="pos/index.html" class="hover:text-emerald-600 transition-colors">POS Demo</a>
+          <a href="index-preview-light.html#services" class="hover:text-indigo-600 transition-colors">Services</a>
+          <a href="index-preview-light.html#contact" class="hover:text-indigo-600 transition-colors">Contact</a>
+        </div>
+
+        <div class="flex items-center gap-2.5">
+          <a href="https://wa.me/94716125715" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-emerald-500 hover:text-white text-slate-600 flex items-center justify-center transition-all" aria-label="Chat on WhatsApp">
+            <i class="fab fa-whatsapp text-sm"></i>
+          </a>
+          <a href="https://web.facebook.com/profile.php?id=61595431104691" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-blue-600 hover:text-white text-slate-600 flex items-center justify-center transition-all" aria-label="Follow on Facebook">
+            <i class="fab fa-facebook-f text-sm"></i>
+          </a>
+          <a href="https://www.youtube.com/@pixelbymaliya" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-red-600 hover:text-white text-slate-600 flex items-center justify-center transition-all" aria-label="Subscribe on YouTube">
+            <i class="fab fa-youtube text-sm"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-3">
+        <p>© 2026 Pixel by Maliya. All rights reserved. Registered Creative &amp; Software Studio.</p>
+        <p class="font-medium text-slate-500">Fast, Accessible &amp; Verified Client Records</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Quick WhatsApp Button -->
+  <div class="fixed bottom-6 right-6 z-40">
+    <a href="https://wa.me/94716125715?text=Hello%20Pixel%20by%20Maliya,%20I%20am%20exploring%20your%20portfolio" target="_blank" rel="noopener noreferrer" class="w-13 h-13 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shadow-lg hover:bg-emerald-700 hover:scale-105 transition-all" aria-label="Direct WhatsApp Message">
+      <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+  </div>
+
+  <!-- ================= PRIVACY & ANALYTICS CONSENT BANNER ================= -->
+  <aside id="pixel-consent-banner" aria-label="Privacy &amp; Analytics Consent" class="fixed bottom-0 inset-x-0 z-[120] p-4 sm:p-6 transition-all duration-300 transform translate-y-full opacity-0 pointer-events-none">
+    <div class="max-w-4xl mx-auto rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-2xl p-4 sm:p-6 text-slate-800">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="flex items-start gap-3">
+          <div class="w-9 h-9 rounded-xl bg-indigo-50 border border-indigo-200 text-indigo-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <i class="fas fa-shield-halved text-sm"></i>
+          </div>
+          <div>
+            <h4 class="font-display font-bold text-sm text-slate-900 leading-tight">Privacy &amp; Analytics Consent</h4>
+            <p class="text-xs text-slate-500 leading-relaxed mt-1">
+              We use lightweight, privacy-friendly analytics (Google Analytics 4 with Google Consent Mode v2) to understand portfolio traffic without tracking personally identifiable credentials.
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 self-end sm:self-center flex-shrink-0">
+          <button id="pixel-decline-consent" class="px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors">
+            Decline
+          </button>
+          <button id="pixel-accept-consent" class="px-4 py-2 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white transition-all shadow-sm">
+            Accept Analytics
+          </button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Database & Portfolio Engine Scripts -->
+  <script defer src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+  <script defer src="firebase-init.js"></script>
+  <script defer src="db.js"></script>
+  <script defer src="js/portfolio-light.js"></script>
+</body>
+
+</html>
