@@ -169,6 +169,633 @@
 
   <!-- Compiled Tailwind CSS & Custom Theme Bundle -->
   <link rel="stylesheet" href="tailwind.min.css" />
+  <!-- Light Cinematic Hero Critical Styles (Inlined for 0ms network delay) -->
+  <style id="cinematic-hero-light-styles">
+/* ==========================================================================
+   PIXEL BY MALIYA — WORLD-CLASS LIGHT CINEMATIC HOMEPAGE V2
+   Ultra-Premium Digital Studio & Creative Engineering Experience
+   Bright, Minimal, Luxurious Design Language
+   ========================================================================== */
+
+:root {
+  --hero-light-bg: #FFFFFF;
+  --hero-light-surface: #F8FAFC;
+  --hero-light-surface-blue: #F1F5FF;
+  --hero-light-border: rgba(226, 232, 240, 0.85);
+  --hero-light-border-hover: rgba(99, 102, 241, 0.35);
+
+  --hero-text-primary: #0F172A;
+  --hero-text-secondary: #475569;
+  --hero-text-muted: #64748B;
+
+  --hero-accent-violet: #6366F1;
+  --hero-accent-indigo: #4F46E5;
+  --hero-accent-emerald: #059669;
+  --hero-accent-cyan: #06B6D4;
+}
+
+/* ==================== HERO SECTION CONTAINER ==================== */
+.cinematic-hero-light {
+  position: relative;
+  background-color: var(--hero-light-bg);
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(99, 102, 241, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 88% 22%, rgba(6, 182, 212, 0.07) 0%, transparent 45%),
+    radial-gradient(circle at 50% 85%, rgba(5, 150, 105, 0.06) 0%, transparent 55%),
+    linear-gradient(180deg, #FFFFFF 0%, #FAFCFF 60%, #F8FAFC 100%);
+  color: var(--hero-text-primary);
+  overflow: hidden;
+  padding-top: 6.75rem;
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid var(--hero-light-border);
+}
+
+/* Soft Decorative Precision Grid */
+.hero-light-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse at 50% 40%, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 75%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 40%, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 75%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Atmospheric Ambient Orbs (Soft, Pure CSS) */
+.hero-ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.orb-violet-light {
+  top: -10%;
+  left: 5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
+}
+
+.orb-cyan-light {
+  top: 15%;
+  right: -5%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.10) 0%, transparent 70%);
+}
+
+.orb-emerald-light {
+  bottom: -15%;
+  left: 30%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(5, 150, 105, 0.08) 0%, transparent 70%);
+}
+
+/* ==================== FROSTED LIGHT NAVIGATION ==================== */
+.hero-nav-light {
+  background: rgba(255, 255, 255, 0.90) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(226, 232, 240, 0.85) !important;
+  box-shadow: 
+    0 10px 30px -10px rgba(15, 23, 42, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* ==================== TYPOGRAPHY & GRADIENTS ==================== */
+.hero-title-dark {
+  color: #0F172A;
+  letter-spacing: -0.025em;
+}
+
+.hero-gradient-violet {
+  color: #4F46E5;
+  background: linear-gradient(135deg, #4F46E5 0%, #6366F1 50%, #818CF8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.hero-gradient-emerald {
+  color: #059669;
+  background: linear-gradient(135deg, #059669 0%, #10B981 50%, #34D399 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Studio Pill Badge (Light Luxury) */
+.studio-pill-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #1E293B;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+}
+
+.beacon-pulse-green {
+  position: relative;
+  display: flex;
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.beacon-pulse-ping {
+  position: absolute;
+  display: inline-flex;
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  background-color: #10B981;
+  opacity: 0.75;
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.beacon-pulse-dot {
+  position: relative;
+  display: inline-flex;
+  border-radius: 9999px;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #059669;
+}
+
+/* ==================== ACTION CTA BUTTONS ==================== */
+.btn-light-portfolio {
+  background: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
+  color: #FFFFFF !important;
+  font-weight: 700;
+  border: 1px solid rgba(79, 70, 229, 0.3);
+  box-shadow: 
+    0 10px 25px -5px rgba(79, 70, 229, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.btn-light-portfolio:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #4338CA 0%, #4F46E5 100%);
+  box-shadow: 
+    0 14px 30px -5px rgba(79, 70, 229, 0.45),
+    0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.btn-light-pos {
+  background: linear-gradient(135deg, #059669 0%, #10B981 100%);
+  color: #FFFFFF !important;
+  font-weight: 700;
+  border: 1px solid rgba(5, 150, 105, 0.3);
+  box-shadow: 
+    0 10px 25px -5px rgba(16, 185, 129, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.btn-light-pos:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #047857 0%, #059669 100%);
+  box-shadow: 
+    0 14px 30px -5px rgba(16, 185, 129, 0.45),
+    0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.btn-light-whatsapp {
+  background: #FFFFFF;
+  color: #0F172A !important;
+  font-weight: 600;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-light-whatsapp:hover {
+  transform: translateY(-2px);
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.12);
+  color: #059669 !important;
+}
+
+/* ==================== CINEMATIC SHOWCASE MONITOR / BROWSER ==================== */
+.showcase-monitor-frame {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 
+    0 25px 60px -15px rgba(15, 23, 42, 0.14),
+    0 10px 20px -5px rgba(15, 23, 42, 0.06),
+    0 0 0 1px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.showcase-monitor-frame:hover {
+  box-shadow: 
+    0 30px 70px -15px rgba(99, 102, 241, 0.18),
+    0 12px 25px -5px rgba(15, 23, 42, 0.08),
+    0 0 0 1px rgba(99, 102, 241, 0.15);
+}
+
+/* macOS Window Header */
+.monitor-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 1rem;
+  background: #F8FAFC;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+}
+
+.window-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.window-dot {
+  width: 0.68rem;
+  height: 0.68rem;
+  border-radius: 9999px;
+}
+
+.dot-red { background-color: #EF4444; }
+.dot-yellow { background-color: #F59E0B; }
+.dot-green { background-color: #10B981; }
+
+.monitor-address-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.75rem;
+  border-radius: 0.5rem;
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  font-family: 'Space Grotesk', monospace;
+  font-size: 0.68rem;
+  color: #475569;
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Interactive Scene Tabs & Progress Timelines */
+.showcase-tab-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: #F1F5F9;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+}
+
+.showcase-tab-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.65rem 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #1E293B;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline-offset: -2px;
+}
+
+.showcase-tab-item:hover {
+  color: #0F172A;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.showcase-tab-item.active {
+  color: #312E81;
+  background: #FFFFFF;
+}
+
+.tab-progress-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2.5px;
+  width: 0%;
+  background: transparent;
+}
+
+.showcase-tab-item.active .tab-progress-line {
+  background: linear-gradient(90deg, #4F46E5, #06B6D4);
+  width: 100%;
+  transition: width 3.6s linear;
+}
+
+/* ==================== SCENE PANELS ==================== */
+.showcase-viewport {
+  position: relative;
+  min-height: 380px;
+  background: #FFFFFF;
+  overflow: hidden;
+}
+
+.showcase-scene {
+  position: absolute;
+  inset: 0;
+  padding: 1.25rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.98) translateY(6px);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
+  overflow-y: auto;
+}
+
+.showcase-scene.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1) translateY(0);
+  z-index: 2;
+}
+
+/* SCENE A: Code Editor Workspace */
+.code-editor-body {
+  background: #090E1A;
+  border-radius: 0.85rem;
+  padding: 1.15rem;
+  font-family: 'Space Grotesk', 'Fira Code', monospace;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: #CBD5E1;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) inset;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.code-line {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.line-no {
+  color: #64748B;
+  user-select: none;
+  width: 1.25rem;
+  text-align: right;
+  font-size: 0.7rem;
+}
+
+.token-kw { color: #C084FC; font-weight: 600; }
+.token-fn { color: #38BDF8; font-weight: 600; }
+.token-str { color: #34D399; }
+.token-prop { color: #FBBF24; }
+.token-comment { color: #94A3B8; font-style: italic; }
+
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1rem;
+  background: #38BDF8;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* SCENE B: High-Converting Website Preview */
+.web-preview-body {
+  background: #FFFFFF;
+  border-radius: 0.85rem;
+  border: 1px solid #E2E8F0;
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.web-mock-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.web-mock-hero {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.web-mock-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+  padding-top: 0.5rem;
+}
+
+.metric-chip {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 0.65rem;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+/* SCENE C: Smart POS Dashboard */
+.pos-preview-body {
+  background: #F8FAFC;
+  border-radius: 0.85rem;
+  border: 1px solid #E2E8F0;
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.pos-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.pos-product-item {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 0.65rem;
+  padding: 0.55rem;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.pos-product-item:hover {
+  border-color: #10B981;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+}
+
+.pos-cart-panel {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 0.65rem;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* SCENE D: Creative Brand Studio */
+.brand-preview-body {
+  background: #FFFFFF;
+  border-radius: 0.85rem;
+  border: 1px solid #E2E8F0;
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.brand-swatch-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.swatch-item {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.brand-vector-canvas {
+  background: #FAFCFF;
+  border: 1px dashed #CBD5E1;
+  border-radius: 0.65rem;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* ==================== FOUR CORE FEATURE PILLARS (LIGHT THEME) ==================== */
+.pillar-card-light {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.pillar-card-light::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--pillar-light-accent, #4F46E5);
+  opacity: 0.85;
+}
+
+.pillar-card-light:hover {
+  transform: translateY(-4px);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 16px 35px -8px rgba(15, 23, 42, 0.10);
+}
+
+/* ==================== RESPONSIVE RULES & REDUCED MOTION ==================== */
+@media (prefers-reduced-motion: reduce) {
+  .showcase-scene,
+  .showcase-monitor-frame,
+  .pillar-card-light,
+  .btn-light-portfolio,
+  .btn-light-pos {
+    transition: none !important;
+  }
+  .beacon-pulse-ping,
+  .typing-cursor {
+    animation: none !important;
+  }
+}
+
+/* Mobile & Tablet Ultra-Performance Optimizations (< 1024px) */
+@media (max-width: 1023px) {
+  .hero-ambient-orb {
+    display: none !important;
+  }
+  .hero-light-grid {
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+    opacity: 0.35 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .cinematic-hero-light {
+    padding-top: 5.5rem;
+    padding-bottom: 2.25rem;
+  }
+
+  .showcase-viewport {
+    min-height: 340px;
+  }
+
+  .showcase-tab-item {
+    font-size: 0.65rem;
+    padding: 0.5rem 0.25rem;
+  }
+
+  .btn-light-portfolio,
+  .btn-light-pos {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.82rem;
+    min-height: 46px;
+  }
+
+  .btn-light-whatsapp {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.82rem;
+    min-height: 46px;
+  }
+}
+
+  </style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans antialiased overflow-x-hidden selection:bg-brand-500/15 selection:text-brand-700">
 
@@ -187,55 +814,56 @@
   </div>
 
   <!-- ================= TOP NAVBAR ================= -->
-  <nav id="navbar" class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl z-50 transition-all duration-300 luxury-glass rounded-2xl px-5 py-3.5 flex items-center justify-between shadow-sm border border-slate-200/80">
-    <a href="#hero" class="flex items-center gap-3 group flex-shrink-0">
-      <div class="w-11 h-11 rounded-xl overflow-hidden border border-slate-200 shadow-sm group-hover:scale-105 transition-transform bg-white flex items-center justify-center p-0.5">
+  <!-- ================= TOP NAVBAR (LUXURY FROSTED LIGHT GLASS) ================= -->
+  <nav id="navbar" class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl z-50 transition-all duration-300 hero-nav-light rounded-2xl px-4 sm:px-5 py-3 flex items-center justify-between shadow-sm">
+    <a href="#hero" class="flex items-center gap-2.5 sm:gap-3 group flex-shrink-0">
+      <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl overflow-hidden border border-slate-200/90 shadow-sm group-hover:scale-105 transition-transform bg-white flex items-center justify-center p-0.5">
         <picture>
           <source srcset="logo.webp" type="image/webp" />
           <img src="logo.png" alt="Pixel by Maliya Logo" width="44" height="44" fetchpriority="high" class="w-full h-full object-contain" />
         </picture>
       </div>
       <div>
-        <div class="font-display font-extrabold text-base leading-tight text-slate-900">
-          Pixel by <span class="text-gradient">Maliya</span>
+        <div class="font-display font-extrabold text-sm sm:text-base leading-tight text-slate-900">
+          Pixel by <span class="hero-gradient-violet">Maliya</span>
         </div>
-        <p class="text-[11px] font-semibold text-slate-500 tracking-wide">Creative Studio &amp; Custom Software</p>
+        <p class="text-[10px] sm:text-[11px] font-semibold text-slate-500 tracking-wide">Creative Studio &amp; Custom Software</p>
       </div>
     </a>
 
     <!-- Desktop Navigation Links -->
     <div class="hidden md:flex items-center gap-3 lg:gap-4 xl:gap-6 font-semibold text-xs lg:text-[13px] text-slate-600 whitespace-nowrap">
-      <a href="#hero" class="hover:text-brand-600 transition-colors">Home</a>
-      <a href="#portfolio" class="hover:text-brand-600 transition-colors">Work</a>
-      <a href="#pos-showcase" class="flex items-center gap-1 hover:text-emerald-600 transition-colors font-bold text-emerald-700">
+      <a href="#hero" class="hover:text-indigo-600 transition-colors">Home</a>
+      <a href="#portfolio" class="hover:text-indigo-600 transition-colors">Work</a>
+      <a href="#pos-showcase" class="flex items-center gap-1.5 hover:text-emerald-600 transition-colors font-bold text-emerald-600">
         <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
         POS
       </a>
-      <a href="#apps-showcase" class="flex items-center gap-1 hover:text-indigo-600 transition-colors font-bold text-indigo-700">
+      <a href="#apps-showcase" class="flex items-center gap-1.5 hover:text-indigo-600 transition-colors font-bold text-indigo-600">
         <i class="fas fa-mobile-screen-button text-xs"></i>
         Apps
       </a>
-      <a href="#tshirt-showcase" class="flex items-center gap-1 hover:text-rose-600 transition-colors font-bold text-rose-700 whitespace-nowrap">
+      <a href="#tshirt-showcase" class="flex items-center gap-1.5 hover:text-rose-600 transition-colors font-bold text-rose-600 whitespace-nowrap">
         <i class="fas fa-shirt text-xs"></i>
         <span>T-Shirt Studio</span>
       </a>
-      <a href="#services" class="hover:text-brand-600 transition-colors">Services</a>
-      <a href="#reviews" class="hover:text-brand-600 transition-colors">Reviews</a>
-      <a href="#contact" class="hover:text-brand-600 transition-colors">Contact</a>
+      <a href="#services" class="hover:text-indigo-600 transition-colors">Services</a>
+      <a href="#reviews" class="hover:text-indigo-600 transition-colors">Reviews</a>
+      <a href="#contact" class="hover:text-indigo-600 transition-colors">Contact</a>
     </div>
 
     <!-- Quick Action CTAs -->
     <div class="flex items-center gap-2.5 flex-shrink-0 ml-4 lg:ml-6">
-      <a href="pos/index.html" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition-all shadow-sm hover:shadow-emerald">
+      <a href="pos/index.html" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition-all shadow-sm">
         <i class="fas fa-cash-register text-xs"></i>
         <span>POS Demo</span>
       </a>
-      <a href="https://wa.me/94716125715" target="_blank" rel="noopener noreferrer" class="hidden lg:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900 text-white font-bold text-xs hover:bg-slate-800 transition-all shadow-sm">
-        <i class="fab fa-whatsapp text-green-400"></i>
+      <a href="https://wa.me/94716125715" target="_blank" rel="noopener noreferrer" class="hidden lg:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-900 text-white font-bold text-xs hover:bg-slate-800 transition-all shadow-sm">
+        <i class="fab fa-whatsapp text-emerald-400"></i>
         <span>Let's Talk</span>
       </a>
-      <button onclick="document.getElementById('mobileMenu').classList.remove('translate-x-full'); this.setAttribute('aria-expanded', 'true');" aria-label="Open mobile navigation menu" aria-expanded="false" aria-controls="mobileMenu" class="md:hidden w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:text-brand-600 transition-colors">
-        <i class="fas fa-bars text-lg"></i>
+      <button onclick="document.getElementById('mobileMenu').classList.remove('translate-x-full'); this.setAttribute('aria-expanded', 'true');" aria-label="Open mobile navigation menu" aria-expanded="false" aria-controls="mobileMenu" class="md:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:text-indigo-600 transition-colors">
+        <i class="fas fa-bars text-base"></i>
       </button>
     </div>
   </nav>
@@ -297,193 +925,398 @@
   <!-- Accessible Main Landmark -->
   <main id="main-content">
 
-  <!-- ================= HERO SECTION ================= -->
-  <section id="hero" class="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 px-4 sm:px-6 z-10">
-    <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+  <!-- ================= HERO SECTION (WORLD-CLASS LIGHT CINEMATIC V2) ================= -->
+  <section id="hero" class="cinematic-hero-light relative z-10" aria-label="Introduction & Studio Overview">
+    
+    <!-- Atmospheric Precision Grid & Ambient Orbs -->
+    <div class="hero-light-grid"></div>
+    <div class="hero-ambient-orb orb-violet-light"></div>
+    <div class="hero-ambient-orb orb-cyan-light"></div>
+    <div class="hero-ambient-orb orb-emerald-light"></div>
+
+    <div class="max-w-6xl mx-auto w-full px-4 sm:px-6 relative z-10">
       
-      <!-- Left Column: Hero Text & CTAs -->
-      <div class="lg:col-span-7 text-center lg:text-left reveal">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-xs font-semibold text-slate-700 shadow-sm mb-6">
-          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span>Digital Solutions &amp; Creative Engineering Agency</span>
-        </div>
-
-        <h1 class="font-display text-4xl sm:text-6xl lg:text-[4.2rem] leading-[1.08] font-extrabold text-slate-900 mb-6 tracking-tight">
-          Crafting High-End Brands, <br>
-          <span class="text-gradient">Web, Custom Apps &amp; DTF Print</span>.
-        </h1>
-
-        <p class="text-slate-600 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 mb-8 font-normal leading-relaxed">
-          We are <strong>Pixel by Maliya</strong>, a full-service creative design and software engineering agency. Our multidisciplinary team builds distinctive brand identities, high-converting websites, <strong>custom Android &amp; iOS business apps</strong>, <strong>Universal POS Systems (Cloud, Offline &amp; Hybrid)</strong>, and premium <strong>high-resolution DTF printed apparel &amp; custom merchandise</strong> for Sri Lankan and global businesses.
-        </p>
-
-        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-10">
-          <a href="pos/index.html" class="btn-luxury-pos px-6 py-3 rounded-xl text-xs sm:text-sm font-bold shadow-md">
-            <i class="fas fa-cash-register"></i>
-            <span>Launch POS Demo</span>
-          </a>
-          <a href="#apps-showcase" class="px-5 py-3 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 text-xs sm:text-sm font-bold transition-all shadow-sm">
-            <i class="fas fa-mobile-screen-button mr-1.5"></i>
-            <span>Mobile Apps</span>
-          </a>
-          <a href="#tshirt-showcase" class="px-5 py-3 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-xs sm:text-sm font-bold transition-all shadow-sm">
-            <i class="fas fa-shirt mr-1.5"></i>
-            <span>T-Shirt Studio</span>
-          </a>
-          <a href="https://wa.me/94716125715" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-emerald-600 hover:scale-105 transition-transform shadow-sm" title="Chat on WhatsApp">
-            <i class="fab fa-whatsapp text-2xl"></i>
-          </a>
-        </div>
-
-        <!-- Trust Metric Strip -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-slate-200/80">
-          <div>
-            <div id="stat-design-projects" class="font-display font-extrabold text-2xl text-slate-900">200+</div>
-            <div class="text-xs text-slate-500 font-medium">Design &amp; Brands</div>
-          </div>
-          <div>
-            <div id="stat-pos-projects" class="font-display font-extrabold text-2xl text-emerald-600">100+</div>
-            <div class="text-xs text-slate-500 font-medium">POS Deployments</div>
-          </div>
-          <div>
-            <div class="font-display font-extrabold text-2xl text-indigo-600">50+</div>
-            <div class="text-xs text-slate-500 font-medium">Web &amp; Custom Apps</div>
-          </div>
-          <div>
-            <div class="font-display font-extrabold text-2xl text-rose-500">100%</div>
-            <div class="text-xs text-slate-500 font-medium">HD DTF Print Quality</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Column: Interactive Luxury Floating 3D Showcase -->
-      <div class="lg:col-span-5 relative reveal delay-200">
-        <div class="relative w-full max-w-md mx-auto aspect-square flex items-center justify-center">
+      <!-- Top Grid: 12-Column Responsive Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-8 lg:mb-12">
+        
+        <!-- Left Column: Studio Headline, Narrative & Primary Actions -->
+        <div class="lg:col-span-6 text-center lg:text-left">
           
-          <!-- Atmospheric Ambient Glow -->
-          <div class="absolute -inset-6 bg-gradient-to-tr from-indigo-500/20 via-emerald-500/20 to-cyan-500/20 rounded-3xl blur-2xl pointer-events-none"></div>
-
-          <!-- =========================================================================
-               HERO CODING VIDEO MONITOR (Matches Cards & Eliminates White Space)
-               ========================================================================= -->
-          <div class="hero-code-video-window absolute inset-0 sm:-inset-3 rounded-3xl overflow-hidden border border-slate-700/80 shadow-[0_20px_50px_rgba(15,23,42,0.35)] bg-slate-950 flex flex-col z-0 transition-all duration-300">
-            
-            <!-- Window Title Bar -->
-            <div class="flex items-center justify-between px-3.5 sm:px-4 py-2 sm:py-2.5 bg-slate-900/95 border-b border-slate-800/90 backdrop-blur-md z-10 flex-shrink-0">
-              <div class="flex items-center gap-1.5 sm:gap-2">
-                <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-rose-500/90 shadow-sm inline-block"></span>
-                <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-amber-500/90 shadow-sm inline-block"></span>
-                <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500/90 shadow-sm inline-block"></span>
-              </div>
-              <div class="flex items-center gap-1.5 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-slate-800/90 border border-slate-700/70 text-[10px] sm:text-[11px] font-mono font-medium text-slate-300">
-                <i class="fas fa-terminal text-emerald-400 text-[9px] sm:text-[10px]"></i>
-                <span>pixel-studio.engine.ts</span>
-              </div>
-              <div class="flex items-center gap-1 text-[9px] sm:text-[10px] font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2 sm:px-2.5 py-0.5 rounded-full">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>Live Code</span>
-              </div>
-            </div>
-
-            <!-- Video Player Viewport -->
-            <div class="relative flex-1 w-full h-full overflow-hidden bg-[#070b14]">
-              <video 
-                class="w-full h-full object-cover opacity-90 transition-opacity duration-300"
-                autoplay 
-                muted 
-                loop 
-                playsinline 
-                preload="auto"
-                poster="videos/coding-poster.png"
-                aria-label="Pixel by Maliya Code & Engineering Video Showcase">
-                <source src="videos/coding-loop.webm" type="video/webm">
-              </video>
-              
-              <!-- Subtle vignette overlay for high contrast with floating cards -->
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/30 pointer-events-none"></div>
-              <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-slate-950/15 to-slate-950/50 pointer-events-none"></div>
+          <!-- Live Studio Status Beacon -->
+          <div class="inline-flex items-center gap-2 mb-4">
+            <div class="studio-pill-light">
+              <span class="beacon-pulse-green">
+                <span class="beacon-pulse-ping"></span>
+                <span class="beacon-pulse-dot"></span>
+              </span>
+              <span>SRI LANKA'S PREMIER DIGITAL &amp; SOFTWARE STUDIO</span>
             </div>
           </div>
 
-          <!-- Card 1: Cloud POS Terminal (Center Anchor) -->
-          <div class="luxury-card absolute p-4 sm:p-5 rounded-2xl z-20 w-60 sm:w-64 shadow-xl border-emerald-200/60 bg-white/95 hover:scale-105 transition-transform duration-300">
-            <div class="flex items-center justify-between mb-2 sm:mb-3">
-              <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm">
-                  <i class="fas fa-cash-register"></i>
-                </div>
-                <div>
-                  <div class="font-display font-bold text-xs text-slate-900">POS Terminal Live</div>
-                  <div class="text-[10px] text-emerald-600 font-semibold">Cloud · Offline · Hybrid</div>
-                </div>
-              </div>
-              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-            </div>
-            <div class="bg-slate-50 rounded-xl p-2.5 sm:p-3 border border-slate-100 text-xs space-y-1 font-medium">
-              <div class="flex justify-between text-slate-500 text-[11px]">
-                <span>Today's Sales</span>
-                <span class="text-slate-900 font-bold">LKR 148,500.00</span>
-              </div>
-              <div class="flex justify-between text-slate-500 text-[11px]">
-                <span>Orders Processed</span>
-                <span class="text-emerald-600 font-bold">64 Completed</span>
-              </div>
-            </div>
-            <a href="pos/index.html" class="mt-2.5 w-full py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] flex items-center justify-center gap-1.5 transition-colors">
-              <span>Test POS Live</span>
-              <i class="fas fa-arrow-right text-[9px]"></i>
+          <!-- Headline (Flawless Typography & Line Breaking) -->
+          <h1 class="font-display text-3xl sm:text-5xl lg:text-[3.5rem] leading-[1.14] font-extrabold text-slate-900 mb-4 tracking-tight">
+            We Build <span class="hero-gradient-violet">Beautiful Websites</span> &amp;<br class="hidden sm:inline" /> <span class="hero-gradient-emerald">Smarter Business Solutions.</span>
+          </h1>
+
+          <!-- Supporting Text -->
+          <p class="text-slate-600 text-sm sm:text-base lg:text-lg max-w-xl mx-auto lg:mx-0 mb-6 font-normal leading-relaxed">
+            Pixel by Maliya is a Sri Lankan creative and technology studio specializing in modern websites, POS systems, custom software, and premium brand design.
+          </p>
+
+          <!-- Primary CTAs (High Visibility Above the Fold) -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6">
+            <a href="project.html" class="btn-light-portfolio px-5 py-3 rounded-xl text-xs sm:text-sm font-bold shadow-md">
+              <i class="fas fa-layer-group text-xs"></i>
+              <span>VIEW PORTFOLIO</span>
+              <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-0.5"></i>
+            </a>
+
+            <a href="pos/index.html" class="btn-light-pos px-5 py-3 rounded-xl text-xs sm:text-sm font-bold shadow-md">
+              <i class="fas fa-cash-register text-xs"></i>
+              <span>EXPLORE LIVE POS DEMO</span>
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-200 animate-ping"></span>
+            </a>
+
+            <a href="https://wa.me/94716125715" target="_blank" rel="noopener noreferrer" class="btn-light-whatsapp px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold" title="Chat on WhatsApp">
+              <i class="fab fa-whatsapp text-emerald-600 text-lg"></i>
+              <span class="text-slate-700">Instant Chat</span>
             </a>
           </div>
 
-          <!-- Card 2: Custom Mobile App (Top-Right Floating) -->
-          <div class="luxury-card absolute p-3.5 rounded-2xl shadow-lg border-indigo-100 z-10 w-48 hover:-translate-y-2 transition-transform duration-300 bg-white" style="top: -16px; right: 4px;">
-            <div class="flex items-center gap-2.5 mb-1.5">
-              <div class="w-7 h-7 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center text-xs">
-                <i class="fas fa-mobile-screen-button"></i>
+          <!-- Accurate Service Statements (Replaces unverified statistics) -->
+          <div class="grid grid-cols-2 gap-3 pt-4 border-t border-slate-200/90 text-left">
+            <div class="flex items-start gap-2">
+              <div class="w-6 h-6 rounded-lg bg-indigo-50 border border-indigo-200/80 text-indigo-600 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">
+                <i class="fas fa-palette"></i>
               </div>
               <div>
-                <div class="font-display font-bold text-xs text-slate-900">Custom Business App</div>
-                <div class="text-[9px] text-indigo-600 font-semibold">Android &amp; iOS Native</div>
+                <div class="text-xs font-bold text-slate-900 leading-tight">Brand Identity</div>
+                <div class="text-[11px] text-slate-500 font-medium">Vector Logos &amp; Visual Design</div>
               </div>
             </div>
-            <div class="text-[10px] text-slate-500 leading-tight">E-Commerce, Delivery &amp; ERP systems for any business.</div>
-          </div>
 
-          <!-- Card 3: DTF T-Shirt Studio (Bottom-Left Floating) -->
-          <div class="luxury-card absolute p-3.5 rounded-2xl shadow-lg border-rose-100 z-10 w-48 hover:translate-y-2 transition-transform duration-300 bg-white" style="bottom: -16px; left: 0px;">
-            <div class="flex items-center gap-2.5 mb-1.5">
-              <div class="w-7 h-7 rounded-lg bg-rose-50 text-rose-500 flex items-center justify-center text-xs">
+            <div class="flex items-start gap-2">
+              <div class="w-6 h-6 rounded-lg bg-emerald-50 border border-emerald-200/80 text-emerald-600 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">
+                <i class="fas fa-cash-register"></i>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-slate-900 leading-tight">Universal POS</div>
+                <div class="text-[11px] text-slate-500 font-medium">Cloud, Offline &amp; Hybrid</div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-2">
+              <div class="w-6 h-6 rounded-lg bg-cyan-50 border border-cyan-200/80 text-cyan-600 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">
+                <i class="fas fa-code"></i>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-slate-900 leading-tight">Web Platforms</div>
+                <div class="text-[11px] text-slate-500 font-medium">Ultra-Fast Corporate Portals</div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-2">
+              <div class="w-6 h-6 rounded-lg bg-rose-50 border border-rose-200/80 text-rose-500 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">
                 <i class="fas fa-shirt"></i>
               </div>
               <div>
-                <div class="font-display font-bold text-xs text-slate-900">DTF T-Shirt Studio</div>
-                <div class="text-[9px] text-rose-600 font-semibold">Custom Apparel Merch</div>
-              </div>
-            </div>
-            <div class="text-[10px] text-slate-500 leading-tight">High-Res DTF print on 240 GSM combed cotton. Wash-tested.</div>
-          </div>
-
-          <!-- Card 4: Modern Web UI/UX (Top-Left Floating) -->
-          <div class="luxury-card absolute p-3 rounded-2xl shadow-md border-brand-100 z-10 w-40 hover:-translate-x-2 transition-transform duration-300 bg-white" style="top: 48px; left: -24px;">
-            <div class="flex items-center gap-2">
-              <div class="w-7 h-7 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center text-xs">
-                <i class="fas fa-laptop-code"></i>
-              </div>
-              <div>
-                <div class="font-display font-bold text-[11px] text-slate-900">Web Development</div>
-                <div class="text-[9px] text-slate-500">Live Client Sites</div>
+                <div class="text-xs font-bold text-slate-900 leading-tight">DTF Apparel</div>
+                <div class="text-[11px] text-slate-500 font-medium">1200 DPI High-Def Print</div>
               </div>
             </div>
           </div>
 
         </div>
+
+        <!-- Right Column: Cinematic Coding -> Website -> POS -> Brand Showcase Monitor -->
+        <div class="lg:col-span-6 relative">
+          
+          <div class="showcase-monitor-frame">
+            
+            <!-- Window Titlebar with macOS Dots & Address Bar -->
+            <div class="monitor-titlebar">
+              <div class="window-dots">
+                <span class="window-dot dot-red"></span>
+                <span class="window-dot dot-yellow"></span>
+                <span class="window-dot dot-green"></span>
+              </div>
+              <div class="monitor-address-bar">
+                <i class="fas fa-lock text-[10px] text-emerald-600"></i>
+                <span id="monitor-address-text">studio.config.ts — TypeScript Engine</span>
+              </div>
+              <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-500 bg-white px-2 py-0.5 rounded border border-slate-200">
+                <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
+                <span>Interactive Showcase</span>
+              </div>
+            </div>
+
+            <!-- Scene Selector Tabs with Progress Indicator -->
+            <div class="showcase-tab-bar" role="tablist" aria-label="Interactive Showcase Disciplines">
+              <button class="showcase-tab-item active" data-scene="code" role="tab" aria-selected="true" id="tab-code" aria-controls="scene-code">
+                <i class="fas fa-code text-xs"></i>
+                <span>1. Code</span>
+                <span class="tab-progress-line"></span>
+              </button>
+              <button class="showcase-tab-item" data-scene="web" role="tab" aria-selected="false" id="tab-web" aria-controls="scene-web">
+                <i class="fas fa-globe text-xs"></i>
+                <span>2. Website</span>
+                <span class="tab-progress-line"></span>
+              </button>
+              <button class="showcase-tab-item" data-scene="pos" role="tab" aria-selected="false" id="tab-pos" aria-controls="scene-pos">
+                <i class="fas fa-cash-register text-xs"></i>
+                <span>3. Smart POS</span>
+                <span class="tab-progress-line"></span>
+              </button>
+              <button class="showcase-tab-item" data-scene="brand" role="tab" aria-selected="false" id="tab-brand" aria-controls="scene-brand">
+                <i class="fas fa-wand-magic-sparkles text-xs"></i>
+                <span>4. Brand Studio</span>
+                <span class="tab-progress-line"></span>
+              </button>
+            </div>
+
+            <!-- Scene Viewport -->
+            <div class="showcase-viewport">
+              
+              <!-- SCENE A: Code Comes Alive (IDE Editor) -->
+              <div class="showcase-scene active" id="scene-code" role="tabpanel" aria-labelledby="tab-code">
+                <div class="code-editor-body">
+                  <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800 text-[11px] text-slate-200">
+                    <span class="flex items-center gap-1.5">
+                      <i class="fab fa-js text-amber-400"></i>
+                      <span>App.tsx — Pixel Engine v2.4</span>
+                    </span>
+                    <span class="text-[10px] text-emerald-400 font-mono">TypeScript 5.4 · Ready</span>
+                  </div>
+
+                  <div class="space-y-1 my-1">
+                    <div class="code-line">
+                      <span class="line-no">1</span>
+                      <span><span class="token-kw">import</span> { <span class="token-fn">WebStudio</span>, <span class="token-fn">UniversalPOS</span> } <span class="token-kw">from</span> <span class="token-str">'@pixel/core'</span>;</span>
+                    </div>
+                    <div class="code-line">
+                      <span class="line-no">2</span>
+                      <span><span class="token-comment">// Initialize Pixel by Maliya Creative Software Engine</span></span>
+                    </div>
+                    <div class="code-line">
+                      <span class="line-no">3</span>
+                      <span><span class="token-kw">export const</span> <span class="token-fn">pixelEngine</span> = <span class="token-fn">createStudio</span>({</span>
+                    </div>
+                    <div class="code-line">
+                      <span class="line-no">4</span>
+                      <span>&nbsp;&nbsp;<span class="token-prop">performance</span>: <span class="token-str">'0.8s LCP'</span>,</span>
+                    </div>
+                    <div class="code-line">
+                      <span class="line-no">5</span>
+                      <span>&nbsp;&nbsp;<span class="token-prop">seoOptimization</span>: <span class="token-kw">true</span>,</span>
+                    </div>
+                    <div class="code-line">
+                      <span class="line-no">6</span>
+                      <span>&nbsp;&nbsp;<span class="token-prop">posSync</span>: [<span class="token-str">'Cloud'</span>, <span class="token-str">'Offline'</span>, <span class="token-str">'Hybrid'</span>],</span>
+                    </div>
+                    <div class="code-line">
+                      <span class="line-no">7</span>
+                      <span>&nbsp;&nbsp;<span class="token-prop">status</span>: <span class="token-str">'production-ready'</span></span>
+                    </div>
+                    <div class="code-line">
+                      <span class="line-no">8</span>
+                      <span>});</span>
+                    </div>
+                    <div class="code-line">
+                      <span class="line-no">9</span>
+                      <span><span class="token-kw">await</span> <span class="token-fn">pixelEngine.compileAndDeploy</span>();<span class="typing-cursor"></span></span>
+                    </div>
+                  </div>
+
+                  <div class="pt-3 border-t border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center gap-2 text-[10px] text-white">
+                      <i class="fas fa-check-circle text-emerald-400"></i>
+                      <span class="text-white font-medium" style="color: #FFFFFF !important;">0 errors · 0 warnings</span>
+                    </div>
+                    <button id="code-run-build-btn" class="px-2.5 py-1 rounded bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-[10px] transition-colors flex items-center gap-1 shadow-sm">
+                      <i class="fas fa-play text-[9px]"></i>
+                      <span>Run Build &amp; Preview</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SCENE B: Website Transformation (Live Client Preview) -->
+              <div class="showcase-scene" id="scene-web" role="tabpanel" aria-labelledby="tab-web">
+                <div class="web-preview-body">
+                  <div class="web-mock-header">
+                    <div class="flex items-center gap-2">
+                      <div class="w-6 h-6 rounded-md bg-indigo-600 text-white flex items-center justify-center font-bold text-[10px]">P</div>
+                      <span class="font-display font-bold text-xs text-slate-900">Apex Retail &amp; Co.</span>
+                    </div>
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-200">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                      Live Client Preview
+                    </span>
+                  </div>
+
+                  <div class="web-mock-hero bg-slate-50 rounded-xl p-4 border border-slate-100">
+                    <span class="inline-block px-2.5 py-0.5 rounded-full bg-indigo-100 text-indigo-800 text-[10px] font-bold mb-2">E-Commerce Architecture</span>
+                    <p class="font-display font-extrabold text-sm sm:text-base text-slate-900 mb-1">Ultra-Fast Corporate Portals</p>
+                    <p class="text-xs text-slate-600 max-w-sm mx-auto">Engineered with modern frameworks, sub-second LCP, and top SEO ranking.</p>
+                  </div>
+
+                  <div class="web-mock-metrics">
+                    <div class="metric-chip">
+                      <div class="font-display font-bold text-xs text-indigo-700">0.8s</div>
+                      <div class="text-[10px] text-slate-600 font-medium">Fast LCP</div>
+                    </div>
+                    <div class="metric-chip">
+                      <div class="font-display font-bold text-xs text-emerald-700">100 / 100</div>
+                      <div class="text-[10px] text-slate-600 font-medium">SEO &amp; Best Practices</div>
+                    </div>
+                    <div class="metric-chip">
+                      <div class="font-display font-bold text-xs text-teal-700">100%</div>
+                      <div class="text-[10px] text-slate-600 font-medium">Responsive Ready</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SCENE C: Smart POS System Showcase -->
+              <div class="showcase-scene" id="scene-pos" role="tabpanel" aria-labelledby="tab-pos">
+                <div class="pos-preview-body">
+                  <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+                    <div class="flex items-center gap-1.5">
+                      <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                      <span class="font-display font-bold text-xs text-slate-900">Universal POS Terminal</span>
+                      <span class="text-[10px] text-slate-500 font-mono">(Cloud · Offline · Hybrid)</span>
+                    </div>
+                    <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-extrabold border border-emerald-300">DEMO SANDBOX</span>
+                  </div>
+
+                  <!-- Product Catalog Grid -->
+                  <div class="pos-catalog-grid">
+                    <button class="pos-product-item" data-price="240" title="Click to add to simulated ticket">
+                      <div class="text-[10px] font-bold text-slate-800">Samba Rice 1kg</div>
+                      <div class="text-[11px] font-extrabold text-emerald-700">LKR 240.00</div>
+                      <div class="text-[9px] text-slate-400 mt-0.5">+ Tap to Add</div>
+                    </button>
+                    <button class="pos-product-item" data-price="180" title="Click to add to simulated ticket">
+                      <div class="text-[10px] font-bold text-slate-800">Munchee Cracker</div>
+                      <div class="text-[11px] font-extrabold text-emerald-700">LKR 180.00</div>
+                      <div class="text-[9px] text-slate-400 mt-0.5">+ Tap to Add</div>
+                    </button>
+                    <button class="pos-product-item" data-price="950" title="Click to add to simulated ticket">
+                      <div class="text-[10px] font-bold text-slate-800">Anchor Milk 400g</div>
+                      <div class="text-[11px] font-extrabold text-emerald-700">LKR 950.00</div>
+                      <div class="text-[9px] text-slate-400 mt-0.5">+ Tap to Add</div>
+                    </button>
+                  </div>
+
+                  <!-- Live Ticket Summary -->
+                  <div class="pos-cart-panel">
+                    <div>
+                      <div class="text-[10px] text-slate-500 font-semibold" id="pos-mock-count">3 items in ticket</div>
+                      <div class="font-display font-extrabold text-base text-slate-900" id="pos-mock-total">LKR 1,370.00</div>
+                      <div class="text-[9px] text-emerald-600 font-medium">Thermal 80mm Receipt Ready</div>
+                    </div>
+                    <a href="pos/index.html" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-colors flex items-center gap-1.5 shadow-sm">
+                      <i class="fas fa-desktop text-xs"></i>
+                      <span>Launch Full POS Demo</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SCENE D: Creative Brand Studio -->
+              <div class="showcase-scene" id="scene-brand" role="tabpanel" aria-labelledby="tab-brand">
+                <div class="brand-preview-body">
+                  <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+                    <span class="font-display font-bold text-xs text-slate-900">Brand Identity &amp; DTF Print Workspace</span>
+                    <span class="text-[10px] text-indigo-600 font-bold bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200">Vector Artboard</span>
+                  </div>
+
+                  <div class="brand-vector-canvas">
+                    <div class="text-center">
+                      <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-indigo-600 to-cyan-500 text-white flex items-center justify-center font-display font-extrabold text-xl mx-auto mb-2 shadow-md">
+                        M
+                      </div>
+                      <div class="font-display font-bold text-xs text-slate-900">Pixel by Maliya Logo Spec</div>
+                      <div class="text-[10px] text-slate-500">Vector Precision Curves · 300 DPI CMYK Export</div>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center justify-between pt-1">
+                    <div class="brand-swatch-row">
+                      <div class="swatch-item bg-slate-900" title="#0F172A — Obsidian"></div>
+                      <div class="swatch-item bg-indigo-600" title="#4F46E5 — Electric Indigo"></div>
+                      <div class="swatch-item bg-emerald-500" title="#10B981 — Emerald Mint"></div>
+                      <div class="swatch-item bg-cyan-400" title="#22D3EE — Neon Cyan"></div>
+                    </div>
+                    <div class="text-right">
+                      <span class="text-[10px] font-bold text-slate-800 block">DTF Apparel Merch</span>
+                      <span class="text-[9px] text-slate-500">Wash-Proof · 240 GSM Cotton</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Bottom Feature Pillars: The 4 Core Disciplines in Light Luxury Styling -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
+        
+        <!-- Pillar 1: Web Engineering -->
+        <div class="pillar-card-light" style="--pillar-light-accent: #6366F1;">
+          <div class="w-9 h-9 rounded-xl bg-indigo-50 border border-indigo-200 text-indigo-600 flex items-center justify-center font-bold text-sm mb-3">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h2 class="font-display font-bold text-sm text-slate-900 mb-1.5">Web Engineering</h2>
+          <p class="text-slate-600 text-xs leading-relaxed">
+            Ultra-fast corporate portals, e-commerce stores &amp; custom web applications optimized for speed, SEO &amp; conversions.
+          </p>
+        </div>
+
+        <!-- Pillar 2: Smart POS Systems -->
+        <div class="pillar-card-light" style="--pillar-light-accent: #059669;">
+          <div class="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center font-bold text-sm mb-3">
+            <i class="fas fa-cash-register"></i>
+          </div>
+          <h2 class="font-display font-bold text-sm text-slate-900 mb-1.5">Smart POS Systems</h2>
+          <p class="text-slate-600 text-xs leading-relaxed">
+            Universal Cloud, 100% Offline &amp; Hybrid systems tailored for Sri Lankan retail, supermarkets &amp; restaurants with LKR billing.
+          </p>
+        </div>
+
+        <!-- Pillar 3: Custom Business Software -->
+        <div class="pillar-card-light" style="--pillar-light-accent: #06B6D4;">
+          <div class="w-9 h-9 rounded-xl bg-cyan-50 border border-cyan-200 text-cyan-600 flex items-center justify-center font-bold text-sm mb-3">
+            <i class="fas fa-mobile-screen-button"></i>
+          </div>
+          <h2 class="font-display font-bold text-sm text-slate-900 mb-1.5">Custom Software</h2>
+          <p class="text-slate-600 text-xs leading-relaxed">
+            Tailored Android &amp; iOS mobile apps, inventory control, and enterprise workflow solutions with offline database sync.
+          </p>
+        </div>
+
+        <!-- Pillar 4: Brand Identity & DTF Studio -->
+        <div class="pillar-card-light" style="--pillar-light-accent: #F43F5E;">
+          <div class="w-9 h-9 rounded-xl bg-rose-50 border border-rose-200 text-rose-500 flex items-center justify-center font-bold text-sm mb-3">
+            <i class="fas fa-shirt"></i>
+          </div>
+          <h2 class="font-display font-bold text-sm text-slate-900 mb-1.5">Brand &amp; DTF Print</h2>
+          <p class="text-slate-600 text-xs leading-relaxed">
+            Corporate brand identities, vector logos, and industrial-grade high-definition DTF printed apparel and merchandise.
+          </p>
+        </div>
+
       </div>
 
     </div>
   </section>
 
-
-  <!-- ================= FLAGSHIP SECTION: POS DEMO SPOTLIGHT ================= -->
+<!-- ================= FLAGSHIP SECTION: POS DEMO SPOTLIGHT ================= -->
   <section id="pos-showcase" class="relative py-20 z-10 border-y border-slate-200/80 bg-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       
@@ -1991,5 +2824,7 @@
   <!-- App Scripts (Deferred) -->
   <script defer src="db.min.js"></script>
   <script defer src="app.min.js"></script>
+  <!-- Light Cinematic Hero Animation & Interactive Engine -->
+  <script defer src="js/cinematic-hero-light.js"></script>
 </body>
 </html>
