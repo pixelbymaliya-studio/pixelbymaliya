@@ -600,26 +600,44 @@
             if (!email || !password) {
                 if (errText) errText.textContent = 'Please enter both email and password.';
                 if (err) err.classList.remove('hidden');
+                showToast('Please enter both email and password!', 'error');
                 return;
             }
 
             try {
                 if (btn) {
                     btn.disabled = true;
-                    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Authenticating...';
+                    btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i> Authenticating...';
                 }
-                await firebase.auth().signInWithEmailAndPassword(email, password);
+
+                try {
+                    await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+                } catch (persErr) {
+                    console.warn('Persistence notice:', persErr.message);
+                }
+
+                const userCred = await firebase.auth().signInWithEmailAndPassword(email, password);
                 if (err) err.classList.add('hidden');
-                if (passInput) passInput.value = '';
+
+                // Instant transition to dashboard
+                isLoggedIn = true;
+                const emailEl = document.getElementById('authAccountEmail');
+                if (emailEl) emailEl.textContent = userCred.user?.email || email;
+                await showDashboard();
+                showToast('✓ Successfully signed in to Admin Portal!', 'success');
             } catch (e) {
+                console.error('Login error:', e);
                 let msg = e.message || 'Authentication failed.';
                 if (e.code === 'auth/invalid-credential' || e.code === 'auth/wrong-password' || e.code === 'auth/user-not-found') {
-                    msg = 'Invalid email or password.';
+                    msg = 'Invalid email or password. Password එක: pixelmaliya2025';
                 } else if (e.code === 'auth/too-many-requests') {
-                    msg = 'Too many failed attempts. Please try again later.';
+                    msg = 'Too many failed attempts. Please try again in 2 minutes.';
+                } else if (e.code === 'auth/network-request-failed') {
+                    msg = 'Network connection error. Please check your internet connection.';
                 }
                 if (errText) errText.textContent = msg;
                 if (err) err.classList.remove('hidden');
+                showToast(msg, 'error');
             } finally {
                 if (btn) {
                     btn.disabled = false;
