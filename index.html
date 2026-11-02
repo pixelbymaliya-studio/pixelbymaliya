@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <script>
-  if (window.location.pathname.endsWith('/index.html')) {
+  if (window.location.protocol.startsWith('http') && window.location.pathname.endsWith('/index.html')) {
     var target = window.location.pathname.replace(/\/index\.html$/, '/') + window.location.search + window.location.hash;
     window.location.replace(target);
   }
@@ -123,6 +123,7 @@
               "itemOffered": {
                 "@type": "Service",
                 "name": "Web Design & Development",
+                "url": "https://pixelbymaliya.lk/web-design/",
                 "description": "Custom modern, responsive corporate websites and web apps optimized for performance, SEO, and conversions."
               }
             },
@@ -139,6 +140,7 @@
               "itemOffered": {
                 "@type": "Service",
                 "name": "Universal Cloud & Offline POS Systems",
+                "url": "https://pixelbymaliya.lk/pos-systems/",
                 "description": "Feature-rich Point-of-Sale systems tailored for Sri Lankan retail supermarkets, restaurants, and wholesale distribution with LKR receipt printing and offline reliability."
               }
             },
@@ -147,6 +149,7 @@
               "itemOffered": {
                 "@type": "Service",
                 "name": "Custom Mobile & Business Applications",
+                "url": "https://pixelbymaliya.lk/custom-software/",
                 "description": "Tailored Android and iOS business applications with offline database sync, barcode scanning, and operational dashboards."
               }
             },
@@ -838,20 +841,21 @@
     </a>
 
     <!-- Desktop Navigation Links -->
-    <div class="hidden md:flex items-center gap-3 lg:gap-4 xl:gap-6 font-semibold text-xs lg:text-[13px] text-slate-600 whitespace-nowrap">
+    <div class="hidden md:flex items-center gap-3 lg:gap-4 xl:gap-5 font-semibold text-xs lg:text-[13px] text-slate-600 whitespace-nowrap">
       <a href="#hero" class="hover:text-indigo-600 transition-colors">Home</a>
       <a href="#portfolio" class="hover:text-indigo-600 transition-colors">Work</a>
-      <a href="#pos-showcase" class="flex items-center gap-1.5 hover:text-emerald-600 transition-colors font-bold text-emerald-600">
+      <a href="web-design/" class="hover:text-indigo-600 transition-colors">Web Design</a>
+      <a href="pos-systems/" class="flex items-center gap-1.5 hover:text-emerald-600 transition-colors font-bold text-emerald-600">
         <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
         POS
       </a>
-      <a href="#apps-showcase" class="flex items-center gap-1.5 hover:text-indigo-600 transition-colors font-bold text-indigo-600">
-        <i class="fas fa-mobile-screen-button text-xs"></i>
-        Apps
+      <a href="custom-software/" class="flex items-center gap-1.5 hover:text-indigo-600 transition-colors font-bold text-indigo-600">
+        <i class="fas fa-laptop-code text-xs"></i>
+        Software
       </a>
       <a href="#tshirt-showcase" class="flex items-center gap-1.5 hover:text-rose-600 transition-colors font-bold text-rose-600 whitespace-nowrap">
         <i class="fas fa-shirt text-xs"></i>
-        <span>T-Shirt Studio</span>
+        <span>T-Shirts</span>
       </a>
       <a href="#services" class="hover:text-indigo-600 transition-colors">Services</a>
       <a href="#reviews" class="hover:text-indigo-600 transition-colors">Reviews</a>
@@ -860,11 +864,11 @@
 
     <!-- Quick Action CTAs -->
     <div class="flex items-center gap-2.5 flex-shrink-0 ml-4 lg:ml-6">
-      <a href="pos/" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition-all shadow-sm">
+      <a href="pos/" data-track="pos_demo_click" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition-all shadow-sm">
         <i class="fas fa-cash-register text-xs"></i>
         <span>POS Demo</span>
       </a>
-      <a href="https://wa.me/94716125715" target="_blank" rel="noopener noreferrer" class="hidden lg:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-900 text-white font-bold text-xs hover:bg-slate-800 transition-all shadow-sm">
+      <a href="https://wa.me/94716125715" target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" class="hidden lg:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-900 text-white font-bold text-xs hover:bg-slate-800 transition-all shadow-sm">
         <i class="fab fa-whatsapp text-emerald-400"></i>
         <span>Let's Talk</span>
       </a>
@@ -894,15 +898,18 @@
             <i class="fas fa-times text-base"></i>
           </button>
         </div>
-        <div class="flex flex-col gap-3.5 text-sm font-semibold text-slate-700">
+        <div class="flex flex-col gap-3 text-sm font-semibold text-slate-700">
           <a href="#hero" class="hover:text-brand-600 py-1" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')">Home</a>
-          <a href="#portfolio" class="hover:text-brand-600 py-1" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')">Portfolio</a>
-          <a href="#pos-showcase" class="text-emerald-600 font-bold flex items-center gap-2 py-1" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')">
-            <i class="fas fa-cash-register"></i> POS Systems
+          <a href="web-design/" class="text-indigo-600 font-bold py-1 flex items-center gap-2">
+            <i class="fas fa-globe"></i> Web Design Sri Lanka
           </a>
-          <a href="#apps-showcase" class="text-indigo-600 font-bold flex items-center gap-2 py-1" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')">
-            <i class="fas fa-mobile-screen-button"></i> Mobile &amp; Business Apps
+          <a href="pos-systems/" class="text-emerald-600 font-bold flex items-center gap-2 py-1">
+            <i class="fas fa-cash-register"></i> POS Systems Sri Lanka
           </a>
+          <a href="custom-software/" class="text-indigo-600 font-bold flex items-center gap-2 py-1">
+            <i class="fas fa-laptop-code"></i> Custom Software Sri Lanka
+          </a>
+          <a href="#portfolio" class="hover:text-brand-600 py-1" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')">Portfolio Projects</a>
           <a href="#tshirt-showcase" class="text-rose-600 font-bold flex items-center gap-2 py-1" onclick="document.getElementById('mobileMenu').classList.add('translate-x-full')">
             <i class="fas fa-shirt"></i> DTF T-Shirt Studio
           </a>
@@ -912,16 +919,16 @@
         </div>
       </div>
       <div class="space-y-3 pt-6 border-t border-slate-100">
-        <a href="distribution/" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-slate-900 text-white font-bold text-xs shadow-sm">
+        <a href="distribution/" data-track="service_cta_click" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-slate-900 text-white font-bold text-xs shadow-sm">
           <i class="fas fa-truck-field text-emerald-400"></i> Distribution Suite (Enterprise DMS)
         </a>
-        <a href="pos/" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs shadow-sm">
-          <i class="fas fa-desktop"></i> Open POS App
+        <a href="pos/" data-track="pos_demo_click" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs shadow-sm">
+          <i class="fas fa-desktop"></i> Open Live POS App
         </a>
-        <a href="https://wa.me/94716125715" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-slate-900 text-white font-bold text-xs">
+        <a href="https://wa.me/94716125715" target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-slate-900 text-white font-bold text-xs">
           <i class="fab fa-whatsapp text-green-400"></i> WhatsApp Chat
         </a>
-        <a href="tel:+94716125715" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition-colors">
+        <a href="tel:+94716125715" data-track="phone_click" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition-colors">
           <i class="fas fa-phone-alt text-brand-600"></i> Call +94 71 612 5715
         </a>
       </div>
@@ -971,18 +978,18 @@
 
           <!-- Primary CTAs (High Visibility Above the Fold) -->
           <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6">
-            <a href="#contact" class="btn-light-portfolio px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold shadow-md flex items-center gap-2 group">
+            <a href="#contact" data-track="quote_click" class="btn-light-portfolio px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold shadow-md flex items-center gap-2 group">
               <i class="fas fa-file-invoice-dollar text-xs"></i>
               <span>Get a Free Quote</span>
               <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-0.5"></i>
             </a>
 
-            <a href="#portfolio" class="btn-light-pos px-5 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold shadow-md flex items-center gap-2">
+            <a href="#portfolio" data-track="portfolio_click" class="btn-light-pos px-5 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold shadow-md flex items-center gap-2">
               <i class="fas fa-layer-group text-xs"></i>
               <span>View Our Work</span>
             </a>
 
-            <a href="pos/" class="px-3.5 py-2.5 rounded-xl text-xs font-semibold border border-emerald-300/80 bg-emerald-50/90 hover:bg-emerald-100 text-emerald-800 transition-all flex items-center gap-1.5 shadow-xs" title="Explore live point of sale system demo">
+            <a href="pos/" data-track="pos_demo_click" class="px-3.5 py-2.5 rounded-xl text-xs font-semibold border border-emerald-300/80 bg-emerald-50/90 hover:bg-emerald-100 text-emerald-800 transition-all flex items-center gap-1.5 shadow-xs" title="Explore live point of sale system demo">
               <i class="fas fa-desktop text-emerald-600 text-xs"></i>
               <span>Try POS Demo</span>
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
@@ -2364,7 +2371,7 @@
             <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Visiting Cards</span>
             <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Print Ready</span>
           </div>
-          <a href="https://wa.me/94716125715?text=Hi%20Pixel%20Team,%20I%20need%20Graphic%20Design%20services." target="_blank" rel="noopener noreferrer" class="text-brand-600 font-bold text-xs inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
+          <a href="https://wa.me/94716125715?text=Hi%20Pixel%20Team,%20I%20need%20Graphic%20Design%20services." target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" class="text-brand-600 font-bold text-xs inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
             <span>Inquire on WhatsApp</span>
             <i class="fas fa-arrow-right text-[10px]"></i>
           </a>
@@ -2384,10 +2391,15 @@
             <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Live Domains</span>
             <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">SEO Optimized</span>
           </div>
-          <a href="https://wa.me/94716125715?text=Hi%20Pixel%20Team,%20I%20need%20a%20Website%20developed." target="_blank" rel="noopener noreferrer" class="text-accent-600 font-bold text-xs inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
-            <span>Inquire on WhatsApp</span>
-            <i class="fas fa-arrow-right text-[10px]"></i>
-          </a>
+          <div class="flex items-center justify-between gap-2 pt-2 border-t border-slate-100">
+            <a href="web-design/" data-track="service_cta_click" class="text-indigo-600 font-bold text-xs inline-flex items-center gap-1 hover:gap-1.5 transition-all">
+              <span>Web Design Guide</span>
+              <i class="fas fa-arrow-right text-[10px]"></i>
+            </a>
+            <a href="https://wa.me/94716125715?text=Hi%20Pixel%20Team,%20I%20need%20a%20Website%20developed." target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" class="text-slate-500 hover:text-emerald-600 font-semibold text-[11px] inline-flex items-center gap-1">
+              <i class="fab fa-whatsapp text-emerald-500"></i> WhatsApp
+            </a>
+          </div>
         </div>
 
         <!-- Service 3: Custom Mobile & Business App Development -->
@@ -2395,19 +2407,24 @@
           <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-5 border border-indigo-200/60 shadow-sm">
             <i class="fas fa-mobile-screen-button"></i>
           </div>
-          <h3 class="font-display font-bold text-xl text-slate-900 mb-2">Custom Mobile Apps</h3>
+          <h3 class="font-display font-bold text-xl text-slate-900 mb-2">Custom Software &amp; Apps</h3>
           <p class="text-slate-600 text-xs leading-relaxed mb-5 font-medium">
-            Dedicated Android &amp; iOS business apps for e-commerce, food ordering, salon/clinic appointments, driver delivery tracking, and internal ERP systems.
+            Dedicated Android &amp; iOS business apps for e-commerce, food ordering, salon/clinic appointments, driver delivery tracking, and internal ERP/DMS systems.
           </p>
           <div class="flex flex-wrap gap-1.5 mb-5">
             <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-white text-indigo-700 border border-indigo-200">Android &amp; iOS</span>
-            <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-white text-indigo-700 border border-indigo-200">Push Alerts</span>
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-white text-indigo-700 border border-indigo-200">Enterprise DMS</span>
             <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-white text-indigo-700 border border-indigo-200">Realtime Sync</span>
           </div>
-          <a href="https://wa.me/94716125715?text=Hi%20Pixel%20Team,%20I%20want%20to%20develop%20a%20Custom%20App%20for%20my%20business!" target="_blank" rel="noopener noreferrer" class="text-indigo-700 font-bold text-xs inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
-            <span>Inquire App on WhatsApp</span>
-            <i class="fas fa-arrow-right text-[10px]"></i>
-          </a>
+          <div class="flex items-center justify-between gap-2 pt-2 border-t border-indigo-100/60">
+            <a href="custom-software/" data-track="service_cta_click" class="text-indigo-700 font-bold text-xs inline-flex items-center gap-1 hover:gap-1.5 transition-all">
+              <span>Custom Software Guide</span>
+              <i class="fas fa-arrow-right text-[10px]"></i>
+            </a>
+            <a href="distribution/" data-track="service_cta_click" class="text-slate-600 hover:text-indigo-700 font-semibold text-[11px] inline-flex items-center gap-1">
+              <i class="fas fa-truck-field text-emerald-600"></i> DMS Demo
+            </a>
+          </div>
         </div>
 
         <!-- Service 4: Universal POS Systems (Cloud · Offline · Hybrid) -->
@@ -2424,10 +2441,15 @@
             <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-white text-emerald-700 border border-emerald-200">LKR Receipts</span>
             <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-white text-emerald-700 border border-emerald-200">Inventory</span>
           </div>
-          <a href="pos/" class="text-emerald-700 font-bold text-xs inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
-            <span>Test Live POS Demo</span>
-            <i class="fas fa-arrow-right text-[10px]"></i>
-          </a>
+          <div class="flex items-center justify-between gap-2 pt-2 border-t border-emerald-100/60">
+            <a href="pos-systems/" data-track="service_cta_click" class="text-emerald-700 font-bold text-xs inline-flex items-center gap-1 hover:gap-1.5 transition-all">
+              <span>POS Systems Guide</span>
+              <i class="fas fa-arrow-right text-[10px]"></i>
+            </a>
+            <a href="pos/" data-track="pos_demo_click" class="text-emerald-800 font-extrabold text-[11px] inline-flex items-center gap-1 bg-white px-2 py-1 rounded-md border border-emerald-200 hover:bg-emerald-100 transition-colors">
+              <i class="fas fa-desktop text-[10px]"></i> Live POS Demo
+            </a>
+          </div>
         </div>
 
         <!-- Service 5: DTF T-Shirt & Custom Apparel Printing -->
@@ -2444,7 +2466,7 @@
             <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-white text-rose-700 border border-rose-200">240 GSM Cotton</span>
             <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-white text-rose-700 border border-rose-200">Zero Setup Fee</span>
           </div>
-          <a href="#tshirt-showcase" class="text-rose-600 font-bold text-xs inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
+          <a href="#tshirt-showcase" data-track="service_cta_click" class="text-rose-600 font-bold text-xs inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
             <span>Explore T-Shirt Studio</span>
             <i class="fas fa-arrow-right text-[10px]"></i>
           </a>
@@ -2464,8 +2486,11 @@
             <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Color Grading</span>
             <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-700">Audio Sync</span>
           </div>
-          <a href="https://wa.me/94716125715?text=Hi%20Pixel%20Team,%20I%20need%20Video%20Editing%20services." target="_blank" rel="noopener noreferrer" class="text-rose-600 font-bold text-xs inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
+          <a href="https://wa.me/94716125715?text=Hi%20Pixel%20Team,%20I%20need%20Video%20Editing%20services." target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" class="text-rose-600 font-bold text-xs inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
             <span>Inquire on WhatsApp</span>
+            <i class="fas fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
             <i class="fas fa-arrow-right text-[10px]"></i>
           </a>
         </div>
@@ -2526,6 +2551,44 @@
     </div>
   </section>
 
+  <!-- ================= ABOUT & TRUST SECTION (TASK 7) ================= -->
+  <section id="about" class="relative py-16 z-10 bg-slate-900 text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-8">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-emerald-400 text-xs font-bold mb-3 border border-white/10">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>SRI LANKAN DIGITAL &amp; SOFTWARE STUDIO</span>
+          </div>
+          <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-white mb-3 tracking-tight">
+            About Pixel by Maliya
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+            Pixel by Maliya is a Sri Lankan digital and software studio providing modern <a href="web-design/" class="text-white font-semibold underline decoration-indigo-400 hover:text-indigo-300 transition-colors">Web Development</a>, Universal <a href="pos-systems/" class="text-emerald-300 font-semibold underline decoration-emerald-400 hover:text-emerald-200 transition-colors">POS Systems</a>, <a href="custom-software/" class="text-cyan-300 font-semibold underline decoration-cyan-400 hover:text-cyan-200 transition-colors">Custom Business Software</a>, and Corporate Brand Identity.
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs font-semibold text-slate-300 mb-5">
+            <a href="web-design/" class="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 transition-colors text-white">Web Development</a>
+            <a href="pos-systems/" class="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 transition-colors text-white">Universal POS</a>
+            <a href="custom-software/" class="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 transition-colors text-white">Custom Software &amp; DMS</a>
+            <span class="px-2.5 py-1 rounded-lg bg-white/10 text-slate-300">Brand Identity &amp; Print</span>
+            <span class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Islandwide Availability &amp; Remote Onboarding</span>
+          </div>
+          <p class="text-xs text-slate-400">
+            Providing tailored software and creative solutions across Colombo, Gampaha, Kandy, Galle, Kurunegala, and all 25 districts of Sri Lanka.
+          </p>
+        </div>
+        <div class="lg:col-span-4 text-center lg:text-right">
+          <a href="https://wa.me/94716125715?text=Hi%20Pixel%20Team,%20I%20want%20to%20discuss%20a%20project%20for%20my%20business." target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-extrabold text-xs sm:text-sm shadow-lg transition-all transform hover:-translate-y-0.5">
+            <i class="fab fa-whatsapp text-base"></i>
+            <span>Chat on WhatsApp</span>
+          </a>
+          <div class="mt-3 text-xs text-slate-400">
+            Call directly: <a href="tel:+94716125715" data-track="phone_click" class="text-white font-bold hover:underline">+94 71 612 5715</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ================= CLIENT REVIEWS / TESTIMONIALS ================= -->
   <section id="reviews" class="relative py-24 z-10 bg-white border-t border-slate-200/80">
@@ -2847,7 +2910,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 reveal">
         
         <!-- WhatsApp -->
-        <a href="https://wa.me/94716125715" target="_blank" rel="noopener noreferrer" class="luxury-card p-5 flex items-center gap-4 hover:border-emerald-300 group">
+        <a href="https://wa.me/94716125715" target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" class="luxury-card p-5 flex items-center gap-4 hover:border-emerald-300 group">
           <div class="w-12 h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center text-xl shadow-sm group-hover:scale-105 transition-transform">
             <i class="fab fa-whatsapp"></i>
           </div>
@@ -2858,7 +2921,7 @@
         </a>
 
         <!-- Direct Phone -->
-        <a href="tel:+94716125715" class="luxury-card p-5 flex items-center gap-4 hover:border-indigo-300 group">
+        <a href="tel:+94716125715" data-track="phone_click" class="luxury-card p-5 flex items-center gap-4 hover:border-indigo-300 group">
           <div class="w-12 h-12 rounded-2xl bg-indigo-600 text-white flex items-center justify-center text-xl shadow-sm group-hover:scale-105 transition-transform">
             <i class="fas fa-phone-alt"></i>
           </div>
@@ -2880,7 +2943,7 @@
         </a>
 
         <!-- Email -->
-        <a href="mailto:pixelbymaliya@gmail.com" class="luxury-card p-5 flex items-center gap-4 hover:border-rose-300 group">
+        <a href="mailto:pixelbymaliya@gmail.com" data-track="email_click" class="luxury-card p-5 flex items-center gap-4 hover:border-rose-300 group">
           <div class="w-12 h-12 rounded-2xl bg-rose-500 text-white flex items-center justify-center text-xl shadow-sm group-hover:scale-105 transition-transform">
             <i class="fas fa-envelope"></i>
           </div>
@@ -2945,12 +3008,14 @@
         <span class="font-display font-bold text-slate-900">&copy; 2026 Pixel by Maliya.</span>
         <span>All rights reserved.</span>
       </div>
-      <div class="flex items-center gap-6 font-semibold text-slate-600">
+      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-5 font-semibold text-slate-600">
         <a href="#hero" class="hover:text-slate-900">Home</a>
-        <a href="#portfolio" class="hover:text-slate-900">Portfolio</a>
-        <a href="project.html" class="hover:text-slate-900">All Projects</a>
-        <a href="pos/" class="text-emerald-700 hover:text-emerald-800 font-bold">POS Demo</a>
-        <a href="distribution/" class="text-emerald-700 hover:text-emerald-800 font-bold">Distribution Suite</a>
+        <a href="web-design/" class="hover:text-indigo-600">Web Design</a>
+        <a href="pos-systems/" class="hover:text-emerald-600">POS Systems</a>
+        <a href="custom-software/" class="hover:text-indigo-600">Custom Software</a>
+        <a href="project.html" data-track="portfolio_click" class="hover:text-slate-900">All Projects</a>
+        <a href="pos/" data-track="pos_demo_click" class="text-emerald-700 hover:text-emerald-800 font-bold">POS Demo</a>
+        <a href="distribution/" data-track="service_cta_click" class="text-slate-900 hover:text-emerald-700 font-bold">Distribution Suite</a>
         <a href="#contact" class="hover:text-slate-900">Contact</a>
       </div>
     </div>

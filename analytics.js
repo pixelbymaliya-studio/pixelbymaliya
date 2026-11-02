@@ -97,6 +97,17 @@
 
       var href = target.getAttribute('href') || '';
 
+      // Direct data-track attribute delegation for GA4 / GTM
+      var trackEl = target.closest('[data-track]');
+      if (trackEl) {
+        var trackName = trackEl.getAttribute('data-track');
+        var trackLabel = (trackEl.innerText || trackEl.getAttribute('aria-label') || trackEl.getAttribute('title') || '').trim().substring(0, 50);
+        trackEvent(trackName, {
+          click_text: trackLabel,
+          page_path: window.location.pathname
+        });
+      }
+
       // A. Service Inquiry Clicks inside #services
       if (target.closest('#services')) {
         var serviceCard = target.closest('.luxury-card');
