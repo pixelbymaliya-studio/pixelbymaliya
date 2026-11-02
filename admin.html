@@ -1324,115 +1324,12 @@
                 cancelEdit();
                 await refreshData();
             } catch (err) {
-                        showToast('❌ Save failed: ' + err.message, 'error');
-                    } finally {
-                        btn.disabled = false;
-                        btn.innerHTML = editingProjectId ? '<i class="fas fa-save"></i> Update Project' : '<i class="fas fa-save"></i> Save Project';
-                    }
-                    return;
-                }
-
-                showToast('Please upload at least one image (or paste a YouTube link)!', 'error');
-                return;
-            }
-
-            const btn = document.getElementById('saveBtn');
-            btn.disabled = true;
-            const imgCount = selectedImageFiles.length;
-            btn.innerHTML = '<svg class="animate-spin w-4 h-4 mr-2 inline" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/></svg> Processing ' + imgCount + ' image(s)…';
-            document.getElementById('uploadProgressWrap').classList.remove('hidden');
-            document.getElementById('uploadPct').textContent = '0%';
-            document.getElementById('uploadProgressBar').style.width = '0%';
-
-            try {
-                // Upload files to Firebase Storage to dramatically improve load times
-                const images = [];
-                for (let i = 0; i < selectedImageFiles.length; i++) {
-                    const file = selectedImageFiles[i];
-                    
-                    // Compress image before upload using canvas
-                    const compressedBlob = await new Promise((resolve) => {
-                        const reader = new FileReader();
-                        reader.onload = e => {
-                            const img = new Image();
-                            img.onload = () => {
-                                const canvas = document.createElement('canvas');
-                                let width = img.width;
-                                let height = img.height;
-                                const MAX_SIZE = 1200; 
-                                if (width > height) {
-                                    if (width > MAX_SIZE) {
-                                        height *= MAX_SIZE / width;
-                                        width = MAX_SIZE;
-                                    }
-                                } else {
-                                    if (height > MAX_SIZE) {
-                                        width *= MAX_SIZE / height;
-                                        height = MAX_SIZE;
-                                    }
-                                }
-                                canvas.width = width;
-                                canvas.height = height;
-                                const ctx = canvas.getContext('2d');
-                                ctx.drawImage(img, 0, 0, width, height);
-                                canvas.toBlob((blob) => resolve(blob), 'image/jpeg', 0.8);
-                            };
-                            img.src = e.target.result;
-                        };
-                        reader.readAsDataURL(file);
-                    });
-
-                    // First, try Firebase Storage
-                    try {
-                        const fileName = `projects/${Date.now()}_${i}.jpg`;
-                        const storageRef = firebase.storage().ref().child(fileName);
-                        await storageRef.put(compressedBlob);
-                        const downloadURL = await storageRef.getDownloadURL();
-                        images.push(downloadURL);
-                    } catch (storageErr) {
-                        console.warn('Firebase Storage upload blocked or failed, falling back to Base64.', storageErr);
-                        // Fallback: Convert to base64 string
-                        const base64Fallback = await new Promise((resolve) => {
-                            const reader = new FileReader();
-                            reader.onload = () => resolve(reader.result);
-                            reader.readAsDataURL(compressedBlob);
-                        });
-                        images.push(base64Fallback);
-                    }
-
-                    const pct = Math.round(((i + 1) / selectedImageFiles.length) * 100);
-                    document.getElementById('uploadProgressBar').style.width = pct + '%';
-                    document.getElementById('uploadPct').textContent = pct + '%';
-                }
-
-                const project = {
-                    ...projectData,
-                    image: images[0],
-                    images: images,
-                    storagePaths: [],
-                };
-                if (!editingProjectId) {
-                    project.createdAt = Date.now();
-                }
-
-                if (editingProjectId) {
-                    await DB.updateProject(editingProjectId, project);
-                    showToast('✅ Project updated successfully!', 'success');
-                } else {
-                    await DB.saveProject(project);
-                    showToast('✅ ' + imgCount + ' image(s) saved!', 'success');
-                }
-
-                cancelEdit();
-                await refreshData();
-
-            } catch (err) {
                 console.error('saveProject error:', err);
                 showToast('❌ Save failed: ' + err.message, 'error');
-                document.getElementById('uploadProgressWrap').classList.add('hidden');
             } finally {
                 btn.disabled = false;
                 btn.innerHTML = editingProjectId ? '<i class="fas fa-save"></i> Update Project' : '<i class="fas fa-save"></i> Save Project';
+                document.getElementById('uploadProgressWrap').classList.add('hidden');
             }
         }
 
