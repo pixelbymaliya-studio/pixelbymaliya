@@ -11,15 +11,27 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+// Canonical 301 Redirect Middleware (Enforces preferred canonical URLs)
+app.use((req, res, next) => {
+  const urlPath = req.path;
+  const query = req.url.includes('?') ? req.url.slice(req.url.indexOf('?')) : '';
+  if (urlPath === '/index.html') return res.redirect(301, '/' + query);
+  if (urlPath === '/pos/index.html') return res.redirect(301, '/pos/' + query);
+  if (urlPath === '/pos') return res.redirect(301, '/pos/' + query);
+  if (urlPath === '/distribution/index.html') return res.redirect(301, '/distribution/' + query);
+  if (urlPath === '/distribution') return res.redirect(301, '/distribution/' + query);
+  next();
+});
+
 // 1. Serve root studio website & assets
 app.use(express.static(path.join(__dirname)));
 
-// 2. Serve dedicated POS application at /pos
+// 2. Serve dedicated POS application at /pos/
 app.use('/pos', express.static(path.join(__dirname, 'pos')));
 
-// 3. Serve dedicated Enterprise Distribution Suite at /distribution
+// 3. Serve dedicated Enterprise Distribution Suite at /distribution/
 app.use('/distribution', express.static(path.join(__dirname, 'distribution')));
-app.get('/distribution', (req, res) => {
+app.get('/distribution/', (req, res) => {
   res.sendFile(path.join(__dirname, 'distribution', 'index.html'));
 });
 
@@ -125,7 +137,7 @@ app.get('/', (req, res) => {
 });
 
 // POS route
-app.get('/pos', (req, res) => {
+app.get('/pos/', (req, res) => {
   res.sendFile(path.join(__dirname, 'pos', 'index.html'));
 });
 

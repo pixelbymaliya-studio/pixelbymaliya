@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+  if (window.location.pathname.endsWith('/index.html')) {
+    var target = window.location.pathname.replace(/\/index\.html$/, '/') + window.location.search + window.location.hash;
+    window.location.replace(target);
+  }
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pixel Distribution Suite — Enterprise Distribution Management System</title>
@@ -11,6 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://pixelbymaliya.lk/distribution/">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -118,14 +125,14 @@
 
     <div class="dms-sidebar-footer">
       <div style="display:flex; flex-direction:column; gap:6px; margin-bottom:12px;">
-        <a href="../pos/index.html?biz=grocery" class="sidebar-switch-link" style="display:flex; align-items:center; justify-content:space-between; gap:8px; padding:8px 12px; border-radius:10px; background:#eff6ff; color:#1e40af; font-size:11px; font-weight:700; text-decoration:none; border:1px solid #bfdbfe; transition:all 0.15s ease;">
+        <a href="../pos/?biz=grocery" class="sidebar-switch-link" style="display:flex; align-items:center; justify-content:space-between; gap:8px; padding:8px 12px; border-radius:10px; background:#eff6ff; color:#1e40af; font-size:11px; font-weight:700; text-decoration:none; border:1px solid #bfdbfe; transition:all 0.15s ease;">
           <span style="display:flex; align-items:center; gap:7px;">
             <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
             <span>Retail POS Demo</span>
           </span>
           <span style="font-size:10px; background:#dbeafe; padding:1px 6px; border-radius:6px; color:#1e3a8a;">Switch ↗</span>
         </a>
-        <a href="../index.html" class="sidebar-switch-link" style="display:flex; align-items:center; gap:8px; padding:7px 12px; border-radius:10px; background:#f8fafc; color:#475569; font-size:11px; font-weight:600; text-decoration:none; border:1px solid #e2e8f0; transition:all 0.15s ease;">
+        <a href="../" class="sidebar-switch-link" style="display:flex; align-items:center; gap:8px; padding:7px 12px; border-radius:10px; background:#f8fafc; color:#475569; font-size:11px; font-weight:600; text-decoration:none; border:1px solid #e2e8f0; transition:all 0.15s ease;">
           <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
           <span>Studio Portfolio</span>
         </a>
@@ -160,11 +167,11 @@
         <div class="topbar-pill-info">
           <span>🇱🇰 Sri Lanka (LKR)</span>
         </div>
-        <a href="../pos/index.html?biz=grocery" class="btn btn-secondary btn-sm" title="Launch Universal Retail POS Demo">
+        <a href="../pos/?biz=grocery" class="btn btn-secondary btn-sm" title="Launch Universal Retail POS Demo">
           <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
           <span>Retail POS</span>
         </a>
-        <a href="../index.html" class="btn btn-secondary btn-sm" title="Back to Pixel by Maliya Studio Portfolio">
+        <a href="../" class="btn btn-secondary btn-sm" title="Back to Pixel by Maliya Studio Portfolio">
           <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
           <span>Studio</span>
         </a>

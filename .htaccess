@@ -1,0 +1,33 @@
+# =========================================================================
+# Pixel by Maliya — Canonical 301 Redirects & Security Headers
+# =========================================================================
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 1. Canonical Redirect index.html -> /
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/ [NC]
+  RewriteRule ^index\.html$ https://pixelbymaliya.lk/ [R=301,L]
+
+  # 2. Canonical Redirect pos/index.html -> /pos/
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /pos/index\.html\ HTTP/ [NC]
+  RewriteRule ^pos/index\.html$ https://pixelbymaliya.lk/pos/ [R=301,L]
+
+  # 3. Canonical Redirect /pos (missing trailing slash) -> /pos/
+  RewriteRule ^pos$ https://pixelbymaliya.lk/pos/ [R=301,L]
+
+  # 4. Canonical Redirect distribution/index.html -> /distribution/
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /distribution/index\.html\ HTTP/ [NC]
+  RewriteRule ^distribution/index\.html$ https://pixelbymaliya.lk/distribution/ [R=301,L]
+
+  # 5. Canonical Redirect /distribution (missing trailing slash) -> /distribution/
+  RewriteRule ^distribution$ https://pixelbymaliya.lk/distribution/ [R=301,L]
+</IfModule>
+
+# Prevent direct access to sensitive/source files
+<FilesMatch "^(\.env|\.git|package\.json|package-lock\.json|firebase-init\.js|firestore\.rules|server\.js|db\.js)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+

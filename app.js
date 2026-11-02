@@ -23,6 +23,75 @@ let currentTshirtDesign = {
 /* Built-in Rich Fallback Showcase Data (Ensures the site always looks rich even before Firestore loads) */
 const DEFAULT_PROJECTS = [
     {
+        "id": "ORhCTAP4sKHGp5JJ2uaT",
+        "type": "web",
+        "title": "Incraft — Modern Furniture E-Commerce Platform",
+        "description": "High-performance digital luxury sofa storefront with interactive 3D product viewports, smooth micro-animations, and mobile responsive purchasing.",
+        "image": "https://image.thum.io/get/width/1200/crop/800/https://malindaniroshan.github.io/Inceaft-Sofa/",
+        "images": [
+            "https://image.thum.io/get/width/1200/crop/800/https://malindaniroshan.github.io/Inceaft-Sofa/"
+        ],
+        "tech": "HTML5, CSS3, JavaScript",
+        "url": "https://malindaniroshan.github.io/Inceaft-Sofa/"
+    },
+    {
+        "id": "s9wsV5CSJrj3oz9P30jI",
+        "type": "graphic",
+        "category": "logo",
+        "title": "Corporate Identity Design for Aththanayaka Auto Trading",
+        "description": "Sleek corporate brand system and executive stationery suite designed with a bold automotive aesthetic, reflecting strength and luxury reliability.",
+        "image": "https://i.ibb.co/mF60J8LY/Aththanayaka-Cards-Mockup-1x1.png",
+        "images": [
+            "https://i.ibb.co/mF60J8LY/Aththanayaka-Cards-Mockup-1x1.png",
+            "https://i.ibb.co/dwkP7Dyg/Aththanayaka-03.png",
+            "https://i.ibb.co/NdYnRvrb/Athtnayaka-01.png",
+            "https://i.ibb.co/svRGh6Xj/Athtnayaka-02.png"
+        ],
+        "tech": "Illustrator, Vector Branding, Luxury Stationery"
+    },
+    {
+        "id": "97VIYHbxnEbjDwlShRaR",
+        "type": "graphic",
+        "category": "social-media",
+        "title": "Healthy Bites Mawanella Social Media Campaign Set 🥗✨",
+        "description": "Fresh salad and dining promotional design series giving a clean, healthy, and premium brand aesthetic for social media engagement.",
+        "image": "https://i.ibb.co/13XCDy5/3.jpg",
+        "images": [
+            "https://i.ibb.co/13XCDy5/3.jpg",
+            "https://i.ibb.co/Mykxrysx/4.jpg",
+            "https://i.ibb.co/S4ddDvBZ/5.jpg",
+            "https://i.ibb.co/gLWk34dj/7.jpg"
+        ],
+        "tech": "Photoshop, Social Ad Graphics, Typography"
+    },
+    {
+        "id": "LoQdpAYxv9lUHopGyfLE",
+        "type": "graphic",
+        "category": "key-tag",
+        "title": "The \"Ceylon Essence\" Heritage Keychain Collection",
+        "description": "Exclusive souvenir line capturing iconic Sri Lankan destinations including Sigiriya Lion Rock, Kandy Temple, and Minneriya wildlife reserves.",
+        "image": "https://i.ibb.co/d4w7Tc4y/unwatermarked-Gemini-Generated-Image-3k2mfh3k2mfh3k2m-1.jpg",
+        "images": [
+            "https://i.ibb.co/d4w7Tc4y/unwatermarked-Gemini-Generated-Image-3k2mfh3k2mfh3k2m-1.jpg",
+            "https://i.ibb.co/bgm587Nm/unwatermarked-Gemini-Generated-Image-58cg3058cg3058cg-1.jpg",
+            "https://i.ibb.co/DPwFFnYP/unwatermarked-Gemini-Generated-Image-bb01lbbb01lbbb01-1.jpg",
+            "https://i.ibb.co/gbBNg8mR/unwatermarked-Gemini-Generated-Image-boo4qkboo4qkboo4.jpg"
+        ],
+        "tech": "Vector Illustration, Merchandise Design"
+    },
+    {
+        "id": "641ZtAt0isL169I3N2c6",
+        "type": "graphic",
+        "category": "visiting-card",
+        "title": "Downsouth Car Rental — Luxury Double-Sided Cards 🚗✨",
+        "description": "High-end matte finish double-sided visiting cards with luxury embossing and vector typography for premier vehicle hire in Sri Lanka.",
+        "image": "https://i.ibb.co/5WfkWY5P/PXL-20260209-185723338.jpg",
+        "images": [
+            "https://i.ibb.co/5WfkWY5P/PXL-20260209-185723338.jpg"
+        ],
+        "tech": "Double-Sided Matte, Spot UV"
+    },
+    {
         id: 'p-pos-1',
         type: 'pos',
         title: 'Pixel Universal POS — Supermarket & Retail Edition',
@@ -571,6 +640,7 @@ async function renderPortfolio() {
         }
 
         loadedProjects = projects;
+        window.loadedProjects = projects;
 
         if (currentMainTab === 'graphic') {
             renderGraphicGrid(projects.filter(p => p.type === 'graphic'));
@@ -1654,3 +1724,57 @@ window.closeLightbox = closeLightbox;
 window.sendQuickWhatsApp = sendQuickWhatsApp;
 window.orderCurrentTshirtWhatsApp = orderCurrentTshirtWhatsApp;
 
+
+
+/* ==================== HOMEPAGE PORTFOLIO FILTER ==================== */
+function filterHomepagePortfolio(filter) {
+    const grid = document.getElementById('featuredPortfolioGrid');
+    const fallback = document.getElementById('portfolio-graceful-fallback');
+    const filterBtns = document.querySelectorAll('#homepage-portfolio-filters .home-tab');
+    
+    filterBtns.forEach(btn => {
+        if (btn.getAttribute('data-filter') === filter) {
+            btn.classList.add('active-main-tab');
+        } else {
+            btn.classList.remove('active-main-tab');
+        }
+    });
+
+    if (!grid) return;
+    const cards = grid.querySelectorAll('.portfolio-card');
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+        const type = card.getAttribute('data-type');
+        const cat = card.getAttribute('data-category');
+        let match = false;
+
+        if (filter === 'all') {
+            match = true;
+        } else if (filter === 'web') {
+            match = (type === 'web' || type === 'app');
+        } else if (filter === 'pos') {
+            match = (type === 'pos');
+        } else if (filter === 'branding') {
+            match = (cat === 'logo' || cat === 'visiting-card' || (type === 'graphic' && (cat === 'logo' || cat === 'visiting-card')));
+        } else if (filter === 'creative') {
+            match = (cat === 'social-media' || cat === 'key-tag' || cat === 'banner' || type === 'video');
+        }
+
+        if (match) {
+            card.classList.remove('hidden');
+            visibleCount++;
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+
+    if (fallback) {
+        if (visibleCount === 0) {
+            fallback.classList.remove('hidden');
+        } else {
+            fallback.classList.add('hidden');
+        }
+    }
+}
+window.filterHomepagePortfolio = filterHomepagePortfolio;
