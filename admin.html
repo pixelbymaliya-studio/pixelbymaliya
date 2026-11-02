@@ -1031,8 +1031,10 @@
             const ytVal = (document.getElementById('projYoutubeUrl')?.value || '').trim();
             const fbVal = (document.getElementById('projFbUrl')?.value || '').trim();
             const techVal = (document.getElementById('projTech')?.value || '').trim();
-            const liveUrlVal = (document.getElementById('projUrl')?.value || '').trim();
-            const demoVal = (document.getElementById('projDemoUrl')?.value || '').trim();
+            let liveUrlVal = (document.getElementById('projUrl')?.value || '').trim();
+            if (liveUrlVal && !/^https?:\/\//i.test(liveUrlVal)) liveUrlVal = 'https://' + liveUrlVal;
+            let demoVal = (document.getElementById('projDemoUrl')?.value || '').trim();
+            if (demoVal && !/^https?:\/\//i.test(demoVal)) demoVal = 'https://' + demoVal;
 
             const projectData = { type: currentAdminTab, title, description };
             if (currentAdminTab === 'graphic' || currentAdminTab === 'tshirt') {

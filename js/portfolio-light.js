@@ -707,7 +707,7 @@
 
             ${p.url ? `
               <a 
-                href="${escH(p.url)}" 
+                href="${escH(/^https?:\/\//i.test(p.url || '') ? p.url : 'https://' + p.url)}" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 class="card-btn-action ${isVideo ? 'card-btn-video' : 'card-btn-live'}"
