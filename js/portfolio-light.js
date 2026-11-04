@@ -211,15 +211,15 @@
   {
     "id": "ORhCTAP4sKHGp5JJ2uaT",
     "tech": "HTML5, CSS3, JavaScript",
-    "image": "https://image.thum.io/get/width/1200/crop/800/https://malindaniroshan.github.io/Inceaft-Sofa/",
+    "image": "https://image.thum.io/get/width/1200/crop/800/https://pixelbymaliya-studio.github.io/Inceaft-Sofa/",
     "createdAt": 1772597919636,
     "title": "Incraft - Modern Furniture E-commerce Web Experience",
     "storagePaths": [],
     "images": [
-      "https://image.thum.io/get/width/1200/crop/800/https://malindaniroshan.github.io/Inceaft-Sofa/"
+      "https://image.thum.io/get/width/1200/crop/800/https://pixelbymaliya-studio.github.io/Inceaft-Sofa/"
     ],
     "storagePath": "",
-    "url": "https://malindaniroshan.github.io/Inceaft-Sofa/",
+    "url": "https://pixelbymaliya-studio.github.io/Inceaft-Sofa/",
     "type": "web",
     "description": "Incraft is a modern, high-performance e-commerce platform designed specifically for a premium sofa brand. The project focuses on bridging the gap between luxury furniture and a seamless digital shopping experience."
   },

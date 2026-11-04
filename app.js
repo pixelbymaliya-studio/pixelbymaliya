@@ -27,12 +27,12 @@ const DEFAULT_PROJECTS = [
         "type": "web",
         "title": "Incraft — Modern Furniture E-Commerce Platform",
         "description": "High-performance digital luxury sofa storefront with interactive 3D product viewports, smooth micro-animations, and mobile responsive purchasing.",
-        "image": "https://image.thum.io/get/width/1200/crop/800/https://malindaniroshan.github.io/Inceaft-Sofa/",
+        "image": "https://image.thum.io/get/width/1200/crop/800/https://pixelbymaliya-studio.github.io/Inceaft-Sofa/",
         "images": [
-            "https://image.thum.io/get/width/1200/crop/800/https://malindaniroshan.github.io/Inceaft-Sofa/"
+            "https://image.thum.io/get/width/1200/crop/800/https://pixelbymaliya-studio.github.io/Inceaft-Sofa/"
         ],
         "tech": "HTML5, CSS3, JavaScript",
-        "url": "https://malindaniroshan.github.io/Inceaft-Sofa/"
+        "url": "https://pixelbymaliya-studio.github.io/Inceaft-Sofa/"
     },
     {
         "id": "s9wsV5CSJrj3oz9P30jI",
@@ -1763,9 +1763,11 @@ function filterHomepagePortfolio(filter) {
 
         if (match) {
             card.classList.remove('hidden');
+            card.style.display = 'flex';
             visibleCount++;
         } else {
             card.classList.add('hidden');
+            card.style.display = 'none';
         }
     });
 
