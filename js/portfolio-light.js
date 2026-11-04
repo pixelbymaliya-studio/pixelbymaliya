@@ -211,15 +211,15 @@
   {
     "id": "ORhCTAP4sKHGp5JJ2uaT",
     "tech": "HTML5, CSS3, JavaScript",
-    "image": "https://image.thum.io/get/width/1200/crop/800/https://pixelbymaliya-studio.github.io/Inceaft-Sofa/",
+    "image": "incraft-preview.jpg",
     "createdAt": 1772597919636,
     "title": "Incraft - Modern Furniture E-commerce Web Experience",
     "storagePaths": [],
     "images": [
-      "https://image.thum.io/get/width/1200/crop/800/https://pixelbymaliya-studio.github.io/Inceaft-Sofa/"
+      "incraft-preview.jpg"
     ],
     "storagePath": "",
-    "url": "https://pixelbymaliya-studio.github.io/Inceaft-Sofa/",
+    "url": "https://incraftsofalk.vercel.app/",
     "type": "web",
     "description": "Incraft is a modern, high-performance e-commerce platform designed specifically for a premium sofa brand. The project focuses on bridging the gap between luxury furniture and a seamless digital shopping experience."
   },
@@ -630,7 +630,13 @@
     const isVideo = p.type === 'video';
     const isGraphic = p.type === 'graphic' || !p.type;
 
-    const imgs = (p.images && p.images.length) ? p.images : (p.image ? [p.image] : []);
+    let rawImgs = (p.images && p.images.length) ? p.images : (p.image ? [p.image] : []);
+    const imgs = rawImgs.map(src => {
+      if (typeof src === 'string' && (src.includes('malindaniroshan') || src.includes('Inceaft-Sofa') || (src.includes('thum.io') && src.includes('incraft')))) {
+        return 'incraft-preview.jpg';
+      }
+      return src;
+    });
     const hasImgs = imgs.length > 0 && imgs[0] && typeof imgs[0] === 'string' && imgs[0].trim() !== '';
     const multi = imgs.length > 1;
     const imgsJson = escH(JSON.stringify(imgs));
@@ -646,10 +652,14 @@
     const aspectInline = (isWeb || isVideo) ? 'aspect-ratio: 16/9;' : 'aspect-ratio: 4/3;';
     const isEager = (index || 0) < 8;
 
+    const liveUrl = p.url ? (/^https?:\/\//i.test(p.url || '') ? p.url : 'https://' + p.url) : '';
+    const mediaClickAction = (isWeb && liveUrl) ? `window.open('${escH(liveUrl)}', '_blank')` : `window.pixelOpenGallery(${imgsJson}, '${escH(p.title)}')`;
+    const cardClickAttr = (isWeb && liveUrl) ? `onclick="window.open('${escH(liveUrl)}', '_blank')" title="Click anywhere to visit ${escH(p.title)} live website"` : '';
+
     return `
-      <article class="portfolio-card-light" data-id="${escH(p.id)}">
+      <article class="portfolio-card-light ${isWeb && liveUrl ? 'cursor-pointer' : ''}" data-id="${escH(p.id)}" ${cardClickAttr}>
         <!-- Media Area -->
-        <div class="card-media-box ${mediaAspectClass}" style="${aspectInline}" onclick="window.pixelOpenGallery(${imgsJson}, '${escH(p.title)}')">
+        <div class="card-media-box ${mediaAspectClass}" style="${aspectInline}" onclick="${mediaClickAction}">
           <img 
             src="${escH(firstImg)}" 
             alt="${escH(p.title)}" 
@@ -661,6 +671,14 @@
             <div class="card-multi-badge">
               <i class="fas fa-images text-indigo-300"></i>
               <span>${imgs.length} photos</span>
+            </div>
+          ` : ''}
+          ${isWeb ? `
+            <div class="absolute inset-0 flex items-center justify-center bg-slate-900/0 hover:bg-slate-900/25 transition-all opacity-0 hover:opacity-100">
+              <div class="px-3.5 py-2 rounded-xl bg-indigo-600 text-white shadow-lg text-xs font-bold flex items-center gap-2">
+                <i class="fas fa-external-link-alt"></i>
+                <span>Visit Live Website</span>
+              </div>
             </div>
           ` : ''}
           ${isVideo ? `
@@ -693,10 +711,10 @@
           ` : ''}
 
           <!-- Actions -->
-          <div class="card-action-bar">
+          <div class="card-action-bar" onclick="event.stopPropagation()">
             ${hasImgs ? `
               <button 
-                onclick="window.pixelOpenGallery(${imgsJson}, '${escH(p.title)}')"
+                onclick="event.stopPropagation(); window.pixelOpenGallery(${imgsJson}, '${escH(p.title)}')"
                 class="card-btn-action card-btn-view"
                 aria-label="View photos for ${escH(p.title)}"
               >
@@ -743,13 +761,24 @@
                 <span>Social Post</span>
               </a>
             ` : ''}
+
+            <a 
+              href="https://wa.me/94716125715?text=Hello%20Pixel%20by%20Maliya%2C%20I%20am%20interested%20in%3A%20${encodeURIComponent(p.title)}" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="card-btn-action text-emerald-600 bg-emerald-50 border border-emerald-200 hover:bg-emerald-600 hover:text-white"
+              onclick="event.stopPropagation()"
+              aria-label="Inquire about ${escH(p.title)}"
+            >
+              <i class="fab fa-whatsapp text-[11px]"></i>
+              <span>Inquire</span>
+            </a>
           </div>
         </div>
       </article>
     `;
   }
 
-  // POS Spotlight HTML when POS tab is active
   function createPosSpotlightHtml() {
     return `
       <div class="col-span-full">

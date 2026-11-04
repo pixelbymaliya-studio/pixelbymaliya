@@ -809,7 +809,7 @@ function createGraphicCard(p) {
 
 function createWebCard(p) {
     const techList = p.tech ? p.tech.split(',').map(t => t.trim()).filter(Boolean) : [];
-    const liveUrl = p.url && p.url !== '#' ? p.url : 'https://pixelbymaliya.lk';
+    const liveUrl = p.url && p.url !== '#' ? (/^https?:\/\//i.test(p.url) ? p.url : 'https://' + p.url) : 'https://pixelbymaliya.lk';
     const ytUrl = p.youtubeUrl || '';
     const fbUrl = p.facebookUrl || '';
     
@@ -817,8 +817,13 @@ function createWebCard(p) {
     let displayDomain = liveUrl.replace(/^https?:\/\//i, '').replace(/\/$/, '');
     if (!displayDomain || displayDomain === '#') displayDomain = 'live-client-site.lk';
 
+    let cardImg = p.image || '';
+    if (!cardImg || cardImg.includes('malindaniroshan') || cardImg.includes('Inceaft-Sofa') || (cardImg.includes('thum.io') && cardImg.includes('incraft'))) {
+        cardImg = 'incraft-preview.jpg';
+    }
+
     return `
-    <div class="portfolio-card group border-slate-200/90 shadow-md hover:shadow-xl transition-all">
+    <div class="portfolio-card group border-slate-200/90 shadow-md hover:shadow-xl transition-all cursor-pointer" data-type="web" data-category="web" onclick="window.open('${escapeHtml(liveUrl)}', '_blank')" title="Click anywhere to visit live website">
         <!-- Interactive Browser Window Chrome Top Bar -->
         <div class="browser-header-bar flex items-center justify-between px-3.5 py-2.5 bg-slate-900 text-white rounded-t-2xl border-b border-slate-800">
             <div class="flex items-center gap-1.5">
@@ -827,30 +832,30 @@ function createWebCard(p) {
                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span>
             </div>
             <!-- Browser URL Pill -->
-            <a href="${escapeHtml(liveUrl)}" target="_blank" rel="noopener noreferrer" class="browser-url-pill px-3 py-1 rounded-full bg-slate-800 hover:bg-slate-700 text-[11px] text-slate-200 font-mono flex items-center gap-1.5 truncate max-w-[220px] transition-colors border border-slate-700/60" title="Visit live website in new tab">
+            <a href="${escapeHtml(liveUrl)}" target="_blank" rel="noopener noreferrer" class="browser-url-pill px-3 py-1 rounded-full bg-slate-800 hover:bg-slate-700 text-[11px] text-slate-200 font-mono flex items-center gap-1.5 truncate max-w-[220px] transition-colors border border-slate-700/60" title="Visit live website in new tab" onclick="event.stopPropagation()">
                 <i class="fas fa-lock text-[9px] text-emerald-400"></i>
                 <span class="truncate">${escapeHtml(displayDomain)}</span>
             </a>
             <div class="flex items-center gap-2">
-                ${ytUrl ? `<a href="${escapeHtml(ytUrl)}" target="_blank" rel="noopener noreferrer" class="text-red-400 hover:text-red-300 transition-colors" title="Watch Demo on YouTube"><i class="fab fa-youtube text-xs"></i></a>` : ''}
-                ${fbUrl ? `<a href="${escapeHtml(fbUrl)}" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors" title="Watch Demo on Facebook"><i class="fab fa-facebook text-xs"></i></a>` : ''}
-                <a href="${escapeHtml(liveUrl)}" target="_blank" rel="noopener noreferrer" class="text-xs text-brand-300 hover:text-white transition-colors flex items-center gap-1" title="Open live website in new window">
+                ${ytUrl ? `<a href="${escapeHtml(ytUrl)}" target="_blank" rel="noopener noreferrer" class="text-red-400 hover:text-red-300 transition-colors" title="Watch Demo on YouTube" onclick="event.stopPropagation()"><i class="fab fa-youtube text-xs"></i></a>` : ''}
+                ${fbUrl ? `<a href="${escapeHtml(fbUrl)}" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors" title="Watch Demo on Facebook" onclick="event.stopPropagation()"><i class="fab fa-facebook text-xs"></i></a>` : ''}
+                <a href="${escapeHtml(liveUrl)}" target="_blank" rel="noopener noreferrer" class="text-xs text-brand-300 hover:text-white transition-colors flex items-center gap-1" title="Open live website in new window" onclick="event.stopPropagation()">
                     <i class="fas fa-external-link-alt text-[11px]"></i>
                 </a>
             </div>
         </div>
 
-        <!-- Preview Image Container with Hover Expand -->
-        <div class="overflow-hidden aspect-video bg-slate-100 relative cursor-pointer" onclick="openLightbox('${p.id}')">
-            <img src="${escapeHtml(p.image || '')}" 
+        <!-- Preview Image Container with Hover Live Link (No Lightbox) -->
+        <div class="overflow-hidden aspect-video bg-slate-100 relative cursor-pointer" onclick="window.open('${escapeHtml(liveUrl)}', '_blank')">
+            <img src="${escapeHtml(cardImg)}" 
                  alt="${escapeHtml(p.title)}" 
                  loading="lazy" 
                  class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22340%22><rect fill=%22%23f1f5f9%22 width=%22600%22 height=%22340%22/><text x=%22300%22 y=%22170%22 fill=%22%2394a3b8%22 text-anchor=%22middle%22 font-size=%2214%22>Web Preview</text></svg>'" />
             <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/25 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
-                <div class="px-3 py-1.5 rounded-lg bg-white/90 text-slate-900 shadow-lg text-xs font-bold flex items-center gap-1.5">
-                    <i class="fas fa-expand"></i>
-                    <span>Expand Gallery</span>
+                <div class="px-3.5 py-2 rounded-xl bg-indigo-600 text-white shadow-lg text-xs font-bold flex items-center gap-2 group-hover:scale-105 transition-transform">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>Visit Live Website</span>
                 </div>
             </div>
             ${(ytUrl || fbUrl) ? `
@@ -870,7 +875,7 @@ function createWebCard(p) {
                         Live Online
                     </span>
                 </div>
-                <h3 class="font-display font-bold text-slate-900 text-lg leading-tight mb-2">${escapeHtml(p.title)}</h3>
+                <h3 class="font-display font-bold text-slate-900 text-lg leading-tight mb-2 group-hover:text-indigo-600 transition-colors">${escapeHtml(p.title)}</h3>
                 ${p.description ? `<p class="text-slate-600 text-xs sm:text-sm mb-4 leading-relaxed">${escapeHtml(p.description)}</p>` : ''}
                 ${techList.length > 0 ? `
                 <div class="flex flex-wrap gap-1.5 mb-4">
@@ -879,25 +884,25 @@ function createWebCard(p) {
             </div>
 
             <!-- Action Buttons: Live URL, Video & WhatsApp -->
-            <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
+            <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2" onclick="event.stopPropagation()">
                 <div class="flex flex-wrap items-center gap-2">
-                    <a href="${escapeHtml(liveUrl)}" target="_blank" rel="noopener noreferrer" class="btn-luxury px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-sm">
+                    <a href="${escapeHtml(liveUrl)}" target="_blank" rel="noopener noreferrer" class="btn-luxury px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-sm" onclick="event.stopPropagation()">
                         <i class="fas fa-globe text-[11px]"></i>
                         <span>Visit Live Website</span>
                         <i class="fas fa-arrow-up-right-from-square text-[9px] opacity-75"></i>
                     </a>
                     ${ytUrl ? `
-                    <a href="${escapeHtml(ytUrl)}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 text-xs font-bold flex items-center gap-1 transition-all" title="Watch Demo on YouTube">
+                    <a href="${escapeHtml(ytUrl)}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 text-xs font-bold flex items-center gap-1 transition-all" title="Watch Demo on YouTube" onclick="event.stopPropagation()">
                         <i class="fab fa-youtube text-red-600"></i>
                         <span>Video</span>
                     </a>` : ''}
                     ${fbUrl ? `
-                    <a href="${escapeHtml(fbUrl)}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-2 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-600 border border-blue-200 text-xs font-bold flex items-center gap-1 transition-all" title="Watch Demo on Facebook">
+                    <a href="${escapeHtml(fbUrl)}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-2 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-600 border border-blue-200 text-xs font-bold flex items-center gap-1 transition-all" title="Watch Demo on Facebook" onclick="event.stopPropagation()">
                         <i class="fab fa-facebook text-blue-600"></i>
                         <span>Video</span>
                     </a>` : ''}
                 </div>
-                <a href="https://wa.me/94716125715?text=Hi%20Maliya,%20I%20am%20interested%20in%20a%20website%20like:%20${encodeURIComponent(p.title)}" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-emerald-600 text-xs font-bold flex items-center gap-1 transition-colors ml-auto">
+                <a href="https://wa.me/94716125715?text=Hi%20Maliya,%20I%20am%20interested%20in%20a%20website%20like:%20${encodeURIComponent(p.title)}" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-emerald-600 text-xs font-bold flex items-center gap-1 transition-colors ml-auto" onclick="event.stopPropagation()">
                     <i class="fab fa-whatsapp text-emerald-500 text-sm"></i>
                     <span>Inquire</span>
                 </a>
@@ -1648,9 +1653,14 @@ function openLightbox(projectId) {
         });
     }
 
-    currentLightboxImages = (project.images && project.images.length > 0) 
+    currentLightboxImages = ((project.images && project.images.length > 0) 
         ? project.images 
-        : [project.image || 'video_placeholder.png'];
+        : [project.image || 'video_placeholder.png']).map(src => {
+            if (typeof src === 'string' && (src.includes('malindaniroshan') || src.includes('Inceaft-Sofa') || (src.includes('thum.io') && src.includes('incraft')))) {
+                return 'incraft-preview.jpg';
+            }
+            return src;
+        });
     currentLightboxIndex = 0;
 
     const modal = document.getElementById('lightbox');
