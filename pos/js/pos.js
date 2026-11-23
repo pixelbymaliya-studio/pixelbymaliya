@@ -174,10 +174,12 @@ function updateCartQty(index, delta) {
 
 function updateItemDiscount(index, value) {
   if (!cart[index]) return;
-  cart[index].discount = Math.min(100, Math.max(0, parseFloat(value) || 0));
+  const num = Math.min(100, Math.max(0, parseFloat(value) || 0));
+  cart[index].discount = num;
   const el = document.getElementById(`cart-item-disc-${index}`);
-  if (el) el.value = cart[index].discount || '';
+  if (el) el.value = num || '';
   updateCartTotals();
+  updateBulkDiscountStatus();
 }
 
 function updateItemNotes(index, notes) {
@@ -186,7 +188,88 @@ function updateItemNotes(index, notes) {
 
 function clearCart() {
   cart = [];
+  const discInput = document.getElementById('cart-discount');
+  if (discInput) discInput.value = '0.00';
+  const bulkInput = document.getElementById('bulk-discount-pct');
+  if (bulkInput) bulkInput.value = '';
   renderCart();
+}
+
+function clearAllDiscounts() {
+  if (!cart || cart.length === 0) return;
+  cart.forEach(item => { item.discount = 0; });
+  const discInput = document.getElementById('cart-discount');
+  if (discInput) discInput.value = '0.00';
+  const bulkInput = document.getElementById('bulk-discount-pct');
+  if (bulkInput) bulkInput.value = '';
+  renderCart();
+  if (typeof toast === 'function') toast('All discounts reset', 'info');
+}
+
+function applyBulkDiscountToRemaining() {
+  if (!cart || cart.length === 0) {
+    if (typeof toast === 'function') toast('Cart is empty. Add items first.', 'error');
+    return;
+  }
+  const input = document.getElementById('bulk-discount-pct');
+  const pct = Math.min(100, Math.max(0, parseFloat(input?.value) || 0));
+  if (pct <= 0) {
+    if (typeof toast === 'function') toast('Please enter a valid discount % greater than 0', 'error');
+    return;
+  }
+
+  let appliedCount = 0;
+  let skippedCount = 0;
+
+  cart.forEach(item => {
+    const existing = Number(item.discount || 0);
+    if (existing > 0) {
+      // PRESERVE EXISTING ITEM DISCOUNT — NEVER DOUBLE DISCOUNT!
+      skippedCount++;
+    } else {
+      item.discount = pct;
+      appliedCount++;
+    }
+  });
+
+  if (appliedCount === 0) {
+    if (typeof toast === 'function') {
+      toast(`All ${skippedCount} item(s) already have individual discounts. Double discount is not allowed!`, 'warning');
+    }
+    return;
+  }
+
+  // If a bill discount was typed, clear it because items now have their own discounts
+  const billDiscInput = document.getElementById('cart-discount');
+  if (billDiscInput && parseFloat(billDiscInput.value) > 0) {
+    billDiscInput.value = '0.00';
+  }
+
+  renderCart();
+  if (input) input.value = '';
+
+  if (typeof toast === 'function') {
+    const skipMsg = skippedCount > 0 ? ` (${skippedCount} item(s) with existing discounts kept unchanged — no double discount)` : '';
+    toast(`Applied ${pct}% discount to ${appliedCount} remaining item(s)${skipMsg}.`, 'success');
+  }
+}
+
+function updateBulkDiscountStatus() {
+  const statusEl = document.getElementById('bulk-status-text');
+  if (!statusEl) return;
+  if (!cart || cart.length === 0) {
+    statusEl.innerText = 'Items: 0 total';
+    return;
+  }
+  const discCount = cart.filter(i => Number(i.discount || 0) > 0).length;
+  const remCount = cart.length - discCount;
+  if (discCount > 0 && remCount > 0) {
+    statusEl.innerHTML = `<span class="text-amber-300 font-semibold">${discCount} discounted</span> • <span class="text-emerald-400 font-semibold">${remCount} without discount</span>`;
+  } else if (discCount === cart.length) {
+    statusEl.innerHTML = `<span class="text-amber-300 font-semibold">All ${cart.length} item(s) have discounts</span>`;
+  } else {
+    statusEl.innerHTML = `<span>${cart.length} item(s) • None discounted</span>`;
+  }
 }
 
 function renderCart() {
@@ -198,7 +281,12 @@ function renderCart() {
       const el = document.getElementById(id);
       if (el) el.innerText = 'Rs. 0.00';
     });
+    const hintEl = document.getElementById('cart-discount-hint');
+    if (hintEl) hintEl.innerText = '';
+    const totDiscWrap = document.getElementById('cart-discount-total-container');
+    if (totDiscWrap) totDiscWrap.classList.add('hidden');
     updateChangeDisplay(0);
+    updateBulkDiscountStatus();
     return;
   }
   container.innerHTML = cart.map((item, idx) => {
@@ -208,6 +296,7 @@ function renderCart() {
     const gross = uPrice * qty;
     const discAmt = gross * discPct / 100;
     const lineTotal = Math.max(0, gross - discAmt);
+    const hasItemDisc = discPct > 0;
     return `
       <div class="p-3 rounded-xl bg-white/5 border border-white/10 space-y-2 text-xs cart-item-enter">
         <div class="flex items-center justify-between">
@@ -222,11 +311,17 @@ function renderCart() {
             <span class="font-bold text-emerald-400 w-24 text-right">${discAmt > 0 ? `<span class="line-through text-slate-500 font-normal mr-1">${gross.toFixed(2)}</span>` : ''}Rs. ${lineTotal.toFixed(2)}</span>
           </div>
         </div>
-        <div class="flex items-center gap-2">
-          <div class="flex items-center gap-1">
+        <div class="flex items-center justify-between gap-2">
+          <div class="flex items-center gap-1.5">
             <span class="text-[10px] text-slate-400"><i class="fa-solid fa-tag mr-0.5"></i>Disc %</span>
             <input type="number" min="0" max="100" step="1" id="cart-item-disc-${idx}" value="${discPct || ''}" placeholder="0" oninput="updateItemDiscount(${idx}, this.value)" class="w-16 px-2 py-1 bg-black/20 border border-white/10 rounded text-[11px] text-amber-300 focus:outline-none focus:border-primary">
             ${discAmt > 0 ? `<span class="text-[10px] text-rose-400 font-bold">- Rs. ${discAmt.toFixed(2)}</span>` : ''}
+          </div>
+          <div>
+            ${hasItemDisc
+              ? `<span class="text-[9px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 font-semibold" title="Individual item discount applied"><i class="fa-solid fa-check mr-0.5"></i>Item Disc (${discPct}%)</span>`
+              : `<span class="text-[9px] px-1.5 py-0.5 rounded bg-slate-500/10 text-slate-400 border border-white/5" title="No item discount — eligible for bill discount">No Item Disc</span>`
+            }
           </div>
         </div>
         <input type="text" onchange="updateItemNotes(${idx}, this.value)" value="${item.notes || ''}" placeholder="Add note / customization..." class="w-full px-2 py-1 bg-black/20 border border-white/10 rounded text-[11px] text-slate-300 focus:outline-none focus:border-primary">
@@ -243,17 +338,87 @@ function cartLineNet(item) {
 }
 
 function updateCartTotals() {
-  const subtotal = cart.reduce((s, i) => s + cartLineNet(i), 0);
-  const tax = subtotal * 0.08;
-  const discountInput = parseFloat(document.getElementById('cart-discount')?.value || 0) || 0;
-  const total = Math.max(0, subtotal + tax - discountInput);
+  const discType = document.getElementById('cart-discount-type')?.value || 'rs';
+  const prefixEl = document.getElementById('cart-discount-prefix');
+  if (prefixEl) prefixEl.innerText = discType === 'pct' ? '-' : '- Rs.';
+
+  // Separate items with item-level discount vs items without item discount
+  const itemsWithItemDisc = cart.filter(i => Number(i.discount || 0) > 0);
+  const itemsWithoutItemDisc = cart.filter(i => Number(i.discount || 0) === 0);
+
+  // Gross total of all items in cart
+  const grossTotal = cart.reduce((s, i) => s + (Number(i.unit_price || 0) * Number(i.quantity || 1)), 0);
+
+  // Total amount saved via item-level discounts
+  const itemDiscountsTotal = itemsWithItemDisc.reduce((s, i) => {
+    const gross = Number(i.unit_price || 0) * Number(i.quantity || 1);
+    const pct = Math.min(100, Math.max(0, Number(i.discount || 0)));
+    return s + (gross * pct / 100);
+  }, 0);
+
+  // Gross value of only undiscounted items (the ONLY items eligible for bill discount!)
+  const undiscountedGross = itemsWithoutItemDisc.reduce((s, i) => {
+    return s + (Number(i.unit_price || 0) * Number(i.quantity || 1));
+  }, 0);
+
+  const rawDiscInput = parseFloat(document.getElementById('cart-discount')?.value || 0) || 0;
+  let billDiscountAmount = 0;
+
+  if (rawDiscInput > 0) {
+    if (itemsWithoutItemDisc.length === 0) {
+      // All items already have item discounts! Double discount strictly blocked!
+      billDiscountAmount = 0;
+    } else if (discType === 'pct') {
+      // Bill % discount applies STRICTLY to undiscounted items!
+      const pct = Math.min(100, Math.max(0, rawDiscInput));
+      billDiscountAmount = undiscountedGross * (pct / 100);
+    } else {
+      // Fixed Rs bill discount cannot exceed the undiscounted items gross
+      billDiscountAmount = Math.min(rawDiscInput, undiscountedGross);
+    }
+  }
+
+  // Update helper text explaining single discount policy
+  const hintEl = document.getElementById('cart-discount-hint');
+  if (hintEl) {
+    if (cart.length === 0) {
+      hintEl.innerText = '';
+    } else if (itemsWithItemDisc.length > 0 && itemsWithoutItemDisc.length === 0) {
+      hintEl.innerHTML = `<span class="text-rose-400 font-semibold"><i class="fa-solid fa-ban mr-1"></i>All items have item discounts. Bill discount cannot be applied (No double discount).</span>`;
+    } else if (itemsWithItemDisc.length > 0 && itemsWithoutItemDisc.length > 0) {
+      hintEl.innerHTML = `<span class="text-amber-300"><i class="fa-solid fa-shield-halved mr-1"></i>Applies only to ${itemsWithoutItemDisc.length} undiscounted item(s). ${itemsWithItemDisc.length} item(s) with discounts are excluded.</span>`;
+    } else if (rawDiscInput > 0) {
+      hintEl.innerHTML = `<span class="text-slate-400">Applies to all ${cart.length} item(s)</span>`;
+    } else {
+      hintEl.innerText = '';
+    }
+  }
+
+  const totalDiscount = itemDiscountsTotal + billDiscountAmount;
+  const netSubtotal = Math.max(0, grossTotal - totalDiscount);
+  const tax = netSubtotal * 0.08;
+  const total = Math.max(0, netSubtotal + tax);
+
   const subEl = document.getElementById('cart-subtotal');
-  if (subEl) subEl.innerText = `Rs. ${subtotal.toFixed(2)}`;
+  if (subEl) subEl.innerText = `Rs. ${grossTotal.toFixed(2)}`;
+
+  const totDiscWrap = document.getElementById('cart-discount-total-container');
+  const totDiscEl = document.getElementById('cart-discount-total-row');
+  if (totDiscWrap && totDiscEl) {
+    if (totalDiscount > 0 && (itemsWithItemDisc.length > 0 && billDiscountAmount > 0)) {
+      totDiscWrap.classList.remove('hidden');
+      totDiscEl.innerText = `- Rs. ${totalDiscount.toFixed(2)}`;
+    } else {
+      totDiscWrap.classList.add('hidden');
+    }
+  }
+
   const taxEl = document.getElementById('cart-tax');
   if (taxEl) taxEl.innerText = `Rs. ${tax.toFixed(2)}`;
   const totEl = document.getElementById('cart-total');
   if (totEl) totEl.innerText = `Rs. ${total.toFixed(2)}`;
   updateChangeDisplay(total);
+  updateBulkDiscountStatus();
 }
 
 function updateChangeDisplay(total) {
@@ -300,15 +465,91 @@ async function processCheckout() {
   if (cart.length === 0) { toast('Add items to cart first', 'error'); return; }
   const customerName = document.getElementById('cart-customer-name')?.value || 'Walk-in Customer';
   const customerPhone = document.getElementById('cart-customer-phone')?.value || '';
-  const discount = parseFloat(document.getElementById('cart-discount')?.value || 0);
+  const discType = document.getElementById('cart-discount-type')?.value || 'rs';
+  const rawDiscInput = parseFloat(document.getElementById('cart-discount')?.value || 0) || 0;
   const cashReceived = parseFloat(document.getElementById('cart-cash-received')?.value || 0) || 0;
 
+  // Separate items with item-level discount vs items without item discount
+  const itemsWithItemDisc = cart.filter(i => Number(i.discount || 0) > 0);
+  const itemsWithoutItemDisc = cart.filter(i => Number(i.discount || 0) === 0);
+
+  const grossTotal = cart.reduce((s, i) => s + (Number(i.unit_price || 0) * Number(i.quantity || 1)), 0);
+
+  const itemDiscountsTotal = itemsWithItemDisc.reduce((s, i) => {
+    return s + (Number(i.unit_price || 0) * Number(i.quantity || 1) * Number(i.discount || 0) / 100);
+  }, 0);
+
+  const undiscountedGross = itemsWithoutItemDisc.reduce((s, i) => {
+    return s + (Number(i.unit_price || 0) * Number(i.quantity || 1));
+  }, 0);
+
+  let billDiscountAmount = 0;
+  if (rawDiscInput > 0 && itemsWithoutItemDisc.length > 0) {
+    if (discType === 'pct') {
+      billDiscountAmount = undiscountedGross * (Math.min(100, rawDiscInput) / 100);
+    } else {
+      billDiscountAmount = Math.min(rawDiscInput, undiscountedGross);
+    }
+  }
+
+  const totalDiscount = itemDiscountsTotal + billDiscountAmount;
+  const netSubtotal = Math.max(0, grossTotal - totalDiscount);
+  const tax = Number((netSubtotal * 0.08).toFixed(2));
+  const finalTotal = Number((netSubtotal + tax).toFixed(2));
+
+  // Process items: assign single discount per item (ITEM, BILL or NONE)
+  const processedItems = cart.map(i => {
+    const qty = Number(i.quantity || 1);
+    const gross = Number(i.unit_price || 0) * qty;
+    const itemDiscPct = Number(i.discount || 0);
+
+    if (itemDiscPct > 0) {
+      // Individual item discount
+      const discAmt = gross * itemDiscPct / 100;
+      return Object.assign({}, i, {
+        quantity: qty,
+        discount: itemDiscPct,
+        discount_amount: Number(discAmt.toFixed(2)),
+        discount_type: 'ITEM',
+        total: Number((gross - discAmt).toFixed(2))
+      });
+    } else if (billDiscountAmount > 0 && undiscountedGross > 0) {
+      // Share of bill discount (only for items without item discount)
+      const shareOfBillDisc = (gross / undiscountedGross) * billDiscountAmount;
+      const effectivePct = gross > 0 ? (shareOfBillDisc / gross) * 100 : 0;
+      return Object.assign({}, i, {
+        quantity: qty,
+        discount: Number(effectivePct.toFixed(1)),
+        discount_amount: Number(shareOfBillDisc.toFixed(2)),
+        discount_type: 'BILL',
+        total: Number((gross - shareOfBillDisc).toFixed(2))
+      });
+    } else {
+      return Object.assign({}, i, {
+        quantity: qty,
+        discount: 0,
+        discount_amount: 0,
+        discount_type: 'NONE',
+        total: Number(gross.toFixed(2))
+      });
+    }
+  });
+
   const orderPayload = {
-    items: cart,
+    items: processedItems,
     payment_method: currentPaymentMethod,
     customer_name: customerName,
     customer_phone: customerPhone,
-    discount_amount: discount,
+    subtotal: Number(grossTotal.toFixed(2)),
+    net_subtotal: Number(netSubtotal.toFixed(2)),
+    item_discount_amount: Number(itemDiscountsTotal.toFixed(2)),
+    bill_discount_amount: Number(billDiscountAmount.toFixed(2)),
+    discount_amount: Number(totalDiscount.toFixed(2)),
+    discount: Number(totalDiscount.toFixed(2)),
+    tax_amount: tax,
+    tax: tax,
+    total_amount: finalTotal,
+    total: finalTotal,
     order_type: currentOrderType,
     table_number: currentTable,
     amount_tendered: currentPaymentMethod === 'CASH' ? cashReceived : 0
@@ -331,6 +572,8 @@ async function processCheckout() {
     if (phoneInput) phoneInput.value = '';
     const discInput = document.getElementById('cart-discount');
     if (discInput) discInput.value = '0.00';
+    const bulkInput = document.getElementById('bulk-discount-pct');
+    if (bulkInput) bulkInput.value = '';
     const cashInput = document.getElementById('cart-cash-received');
     if (cashInput) cashInput.value = '';
     currentTable = '';
@@ -367,7 +610,8 @@ function showReceiptModal(order) {
     const uPrice = Number(i.unit_price || i.price || 0);
     const itemTotal = Number(i.total || (uPrice * qty));
     const discPct = Number(i.discount || 0);
-    const discNote = discPct > 0 ? `<div class="text-[9px] text-slate-500">Disc ${discPct}%${i.discount_amount ? ' (- Rs. ' + Number(i.discount_amount).toFixed(2) + ')' : ''}</span></div>` : '';
+    const discLabel = i.discount_type === 'BILL' ? ' [Bill Disc]' : (discPct > 0 ? ' [Item Disc]' : '');
+    const discNote = discPct > 0 ? `<div class="text-[9px] text-slate-500">Disc ${discPct}%${discLabel}${i.discount_amount ? ' (- Rs. ' + Number(i.discount_amount).toFixed(2) + ')' : ''}</div>` : '';
     return `<tr><td class="py-1">${qty}x ${i.name || 'Item'}${discNote}</td><td class="text-right py-1 font-mono align-top">Rs. ${itemTotal.toFixed(2)}</td></tr>`;
   }).join('');
 

@@ -454,20 +454,59 @@
 
               <div id="customer-insights" class="hidden"></div>
 
+              <!-- Quick Bulk Discount Bar -->
+              <div id="bulk-discount-panel" class="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs space-y-1.5">
+                <div class="flex items-center justify-between gap-2">
+                  <div class="flex items-center gap-1.5 text-amber-300 font-semibold text-[11px]">
+                    <i class="fa-solid fa-bolt text-amber-400"></i>
+                    <span>Bulk Disc:</span>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <div class="relative flex items-center">
+                      <input type="number" id="bulk-discount-pct" min="0" max="100" step="1" placeholder="%" onkeydown="if(event.key==='Enter'){applyBulkDiscountToRemaining();event.preventDefault();}" class="w-14 px-2 py-1 bg-black/40 border border-amber-500/30 rounded text-right text-xs text-amber-300 focus:outline-none focus:border-amber-400">
+                      <span class="text-[10px] text-amber-400/70 ml-1 font-bold">%</span>
+                    </div>
+                    <button type="button" onclick="applyBulkDiscountToRemaining()" id="btn-apply-bulk-disc" class="px-2.5 py-1 rounded bg-amber-500 text-slate-950 font-bold text-[11px] hover:bg-amber-400 active:scale-95 transition shadow-sm flex items-center gap-1" title="Apply % discount to remaining items without discount">
+                      <i class="fa-solid fa-check"></i>
+                      <span>Apply to Remaining</span>
+                    </button>
+                    <button type="button" onclick="clearAllDiscounts()" class="px-1.5 py-1 text-slate-400 hover:text-rose-400 text-[10px] transition" title="Clear all item discounts">
+                      Reset
+                    </button>
+                  </div>
+                </div>
+                <div class="text-[10px] text-slate-400 flex items-center justify-between pt-1 border-t border-amber-500/10">
+                  <span id="bulk-status-text">Items: 0 total</span>
+                  <span class="text-amber-400/90 font-medium"><i class="fa-solid fa-shield-halved mr-1"></i>No double discount</span>
+                </div>
+              </div>
+
               <div id="cart-items-container" class="space-y-2.5 max-h-64 overflow-y-auto pr-1 min-h-[140px]">
                 <p class="text-center text-slate-500 text-sm py-8">Cart is empty. Click items to add.</p>
               </div>
 
               <div class="border-t border-white/10 pt-3 space-y-2 text-sm text-slate-300">
-                <div class="flex justify-between"><span>Subtotal</span><span id="cart-subtotal" class="font-medium">Rs. 0.00</span></div>
-                <div class="flex justify-between"><span>Tax (8%)</span><span id="cart-tax" class="font-medium">Rs. 0.00</span></div>
-                <div class="flex justify-between items-center text-xs text-amber-300">
-                  <span>Discount</span>
-                  <div class="flex items-center space-x-1">
-                    <span>- Rs.</span>
-                    <input type="number" id="cart-discount" oninput="updateCartTotals()" value="0.00" class="w-20 px-2 py-0.5 bg-white/5 border border-white/10 rounded text-right text-xs text-amber-300">
+                <div class="flex justify-between"><span>Subtotal (Gross)</span><span id="cart-subtotal" class="font-medium">Rs. 0.00</span></div>
+                <div class="space-y-1">
+                  <div class="flex justify-between items-center text-xs text-amber-300">
+                    <div class="flex items-center gap-1.5">
+                      <span>Bill Discount</span>
+                      <select id="cart-discount-type" onchange="updateCartTotals()" class="bg-black/30 border border-white/10 rounded px-1.5 py-0.5 text-[10px] text-amber-300 focus:outline-none cursor-pointer">
+                        <option value="rs">Rs.</option>
+                        <option value="pct">%</option>
+                      </select>
+                    </div>
+                    <div class="flex items-center space-x-1">
+                      <span id="cart-discount-prefix">- Rs.</span>
+                      <input type="number" id="cart-discount" oninput="updateCartTotals()" value="0.00" min="0" step="any" class="w-20 px-2 py-0.5 bg-white/5 border border-white/10 rounded text-right text-xs text-amber-300 focus:outline-none focus:border-primary">
+                    </div>
                   </div>
+                  <div id="cart-discount-hint" class="text-[10px] text-amber-400/80 italic text-right"></div>
                 </div>
+                <div id="cart-discount-total-container" class="flex justify-between text-xs text-amber-400 font-semibold hidden">
+                  <span>Total Discount</span><span id="cart-discount-total-row">- Rs. 0.00</span>
+                </div>
+                <div class="flex justify-between"><span>Tax (8%)</span><span id="cart-tax" class="font-medium">Rs. 0.00</span></div>
                 <div class="flex justify-between border-t border-white/10 pt-2 text-base font-extrabold text-white">
                   <span>Total Payable</span>
                   <span id="cart-total" class="text-emerald-400 text-xl">Rs. 0.00</span>

@@ -217,13 +217,17 @@ const api = {
         quantity: qty,
         discount: discPct,
         discount_amount: Number(discAmt.toFixed(2)),
+        discount_type: i.discount_type || (discPct > 0 ? 'ITEM' : 'NONE'),
         total: Number(net.toFixed(2))
       });
     });
-    const subtotal = items.reduce((s, i) => s + _num(i.total), 0);
-    const tax = subtotal * 0.08;
-    const discount = _num(orderData.discount_amount);
-    const total = subtotal + tax - discount;
+    const grossTotal = items.reduce((s, i) => s + (_num(i.unit_price) * _num(i.quantity)), 0);
+    const itemDiscountsTotal = items.reduce((s, i) => s + _num(i.discount_amount), 0);
+    const billDiscount = _num(orderData.bill_discount_amount || 0);
+    const totalDiscount = _num(orderData.discount_amount || (itemDiscountsTotal + billDiscount));
+    const netSubtotal = Math.max(0, grossTotal - totalDiscount);
+    const tax = _num(orderData.tax_amount || (netSubtotal * 0.08));
+    const total = _num(orderData.total_amount || orderData.total || (netSubtotal + tax));
     const tendered = _num(orderData.amount_tendered);
     const change = tendered > 0 ? Math.max(0, Number((tendered - total).toFixed(2))) : 0;
     const nextNum = 2000 + (store.orders ? store.orders.length : 0) + 1;
@@ -232,13 +236,17 @@ const api = {
       id: `INV-${nextNum}`,
       order_number: nextNum,
       customer_name: orderData.customer_name || 'Walk-in Customer',
+      customer_phone: orderData.customer_phone || '',
       table_number: orderData.table_number || '',
       order_type: orderData.order_type || '',
       notes: orderData.notes || '',
       items,
-      subtotal: Number(subtotal.toFixed(2)),
+      subtotal: Number(grossTotal.toFixed(2)),
+      net_subtotal: Number(netSubtotal.toFixed(2)),
+      item_discount_amount: Number(itemDiscountsTotal.toFixed(2)),
+      bill_discount_amount: Number(billDiscount.toFixed(2)),
+      discount_amount: Number(totalDiscount.toFixed(2)),
       tax_amount: Number(tax.toFixed(2)),
-      discount_amount: Number(discount.toFixed(2)),
       total_amount: Number(total.toFixed(2)),
       total: Number(total.toFixed(2)),
       amount_tendered: Number(tendered.toFixed(2)),
